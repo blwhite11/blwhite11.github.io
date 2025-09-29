@@ -1,1 +1,1 @@
-# blwhite11.github.io
+# R pogramming course - MSc in Omics Data Analysis
