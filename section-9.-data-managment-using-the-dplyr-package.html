@@ -29,7 +29,7 @@
   
   
 <link rel="prev" href="section-8.-dynamic-reports.html"/>
-<link rel="next" href="data-reshaping-and-cleaning-using-the-tidyr-package.html"/>
+<link rel="next" href="section-10.-advanced-data-visualization-ggplot2-package.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -349,73 +349,75 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.5" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#change-names-with-rename"><i class="fa fa-check"></i><b>10.5</b> Change names with <code>rename()</code></a></li>
 <li class="chapter" data-level="10.6" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#transforming-pre-existing-columns-or-creating-new-ones-with-mutate"><i class="fa fa-check"></i><b>10.6</b> Transforming pre-existing columns or creating new ones with <code>mutate()</code></a></li>
 <li class="chapter" data-level="10.7" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#to-sum-upgroup_by-summarise"><i class="fa fa-check"></i><b>10.7</b> To sum up…<code>group_by()</code> + <code>summarise()</code></a></li>
+<li class="chapter" data-level="10.8" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#data-reshaping-and-cleaning-using-the-tidyr-package"><i class="fa fa-check"></i><b>10.8</b> Data reshaping and cleaning using the tidyr package</a>
+<ul>
+<li class="chapter" data-level="10.8.1" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#transforming-wide-to-long-format-with-pivot_longer"><i class="fa fa-check"></i><b>10.8.1</b> Transforming wide to long format with <code>pivot_longer()</code>:</a></li>
+<li class="chapter" data-level="10.8.2" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#transforming-long-to-wide-format-with-pivot_wider"><i class="fa fa-check"></i><b>10.8.2</b> Transforming long to wide format with <code>pivot_wider()</code>:</a></li>
+<li class="chapter" data-level="10.8.3" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#handling-missing-values-with-replace_na"><i class="fa fa-check"></i><b>10.8.3</b> Handling missing values with <code>replace_na()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html"><i class="fa fa-check"></i><b>11</b> Data reshaping and cleaning using the tidyr package</a>
+<li class="chapter" data-level="10.9" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#gt-and-gtsummary-packages"><i class="fa fa-check"></i><b>10.9</b> Gt and gtsummary packages</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#transforming-wide-to-long-format-with-pivot_longer"><i class="fa fa-check"></i><b>11.1</b> Transforming wide to long format with <code>pivot_longer()</code>:</a></li>
-<li class="chapter" data-level="11.2" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#transforming-long-to-wide-format-with-pivot_wider"><i class="fa fa-check"></i><b>11.2</b> Transforming long to wide format with <code>pivot_wider()</code>:</a></li>
-<li class="chapter" data-level="11.3" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#handling-missing-values-with-replace_na"><i class="fa fa-check"></i><b>11.3</b> Handling missing values with <code>replace_na()</code></a></li>
-<li class="chapter" data-level="11.4" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#gt-and-gtsummary-packages"><i class="fa fa-check"></i><b>11.4</b> Gt and gtsummary packages</a>
-<ul>
-<li class="chapter" data-level="11.4.1" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#basic-summary-table-with-tbl_summary"><i class="fa fa-check"></i><b>11.4.1</b> Basic Summary Table with <code>tbl_summary()</code></a></li>
+<li class="chapter" data-level="10.9.1" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#basic-summary-table-with-tbl_summary"><i class="fa fa-check"></i><b>10.9.1</b> Basic Summary Table with <code>tbl_summary()</code></a></li>
+<li class="chapter" data-level="10.9.2" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#adding-statistical-tests-with-add_p"><i class="fa fa-check"></i><b>10.9.2</b> Adding statistical tests with <code>add_p()</code></a></li>
+<li class="chapter" data-level="10.9.3" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#stratified-tables-with-tbl_strata"><i class="fa fa-check"></i><b>10.9.3</b> Stratified Tables with <code>tbl_strata()</code></a></li>
+<li class="chapter" data-level="10.9.4" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#creating-cross-tables-with-tbl_cross"><i class="fa fa-check"></i><b>10.9.4</b> Creating Cross Tables with <code>tbl_cross()</code></a></li>
+<li class="chapter" data-level="10.9.5" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#regression-table-with-tbl_regression"><i class="fa fa-check"></i><b>10.9.5</b> Regression table with <code>tbl_regression()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="11.5" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#adding-statistical-tests-with-add_p"><i class="fa fa-check"></i><b>11.5</b> Adding statistical tests with <code>add_p()</code></a></li>
-<li class="chapter" data-level="11.6" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#stratified-tables-with-tbl_strata"><i class="fa fa-check"></i><b>11.6</b> Stratified Tables with <code>tbl_strata()</code></a></li>
-<li class="chapter" data-level="11.7" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#creating-cross-tables-with-tbl_cross"><i class="fa fa-check"></i><b>11.7</b> Creating Cross Tables with <code>tbl_cross()</code></a></li>
-<li class="chapter" data-level="11.8" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#regression-table-with-tbl_regression"><i class="fa fa-check"></i><b>11.8</b> Regression table with <code>tbl_regression()</code></a></li>
-<li class="chapter" data-level="11.9" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#exercises-1"><i class="fa fa-check"></i><b>11.9</b> Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="12" data-path="extra-exercises.html"><a href="extra-exercises.html"><i class="fa fa-check"></i><b>12</b> Extra exercises</a></li>
-<li class="chapter" data-level="13" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html"><i class="fa fa-check"></i><b>13</b> SECTION 10. Advanced Data Visualization: ggplot2 package</a>
+<li class="chapter" data-level="10.10" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#exercises-1"><i class="fa fa-check"></i><b>10.10</b> Exercises</a>
 <ul>
-<li class="chapter" data-level="13.1" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#why-ggplot2"><i class="fa fa-check"></i><b>13.1</b> Why ggplot2?</a></li>
-<li class="chapter" data-level="13.2" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#installation-1"><i class="fa fa-check"></i><b>13.2</b> Installation</a></li>
-<li class="chapter" data-level="13.3" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#usage"><i class="fa fa-check"></i><b>13.3</b> Usage</a></li>
-<li class="chapter" data-level="13.4" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#geometric-objects-and-aesthetics"><i class="fa fa-check"></i><b>13.4</b> Geometric Objects And Aesthetics</a>
-<ul>
-<li class="chapter" data-level="13.4.1" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#aesthetic-mapping"><i class="fa fa-check"></i><b>13.4.1</b> Aesthetic Mapping</a></li>
-<li class="chapter" data-level="13.4.2" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#geometic-objects-geom"><i class="fa fa-check"></i><b>13.4.2</b> Geometic Objects (geom)</a></li>
-</ul></li>
-<li class="chapter" data-level="13.5" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#examples"><i class="fa fa-check"></i><b>13.5</b> Examples</a>
-<ul>
-<li class="chapter" data-level="13.5.1" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#categorical-variables"><i class="fa fa-check"></i><b>13.5.1</b> Categorical Variables</a></li>
-<li class="chapter" data-level="13.5.2" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#quantitative-variables"><i class="fa fa-check"></i><b>13.5.2</b> Quantitative Variables</a></li>
-<li class="chapter" data-level="13.5.3" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#more-advanced-code-customizing-your-plots"><i class="fa fa-check"></i><b>13.5.3</b> More advanced code: customizing your plots</a></li>
-<li class="chapter" data-level="13.5.4" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#saving-plots"><i class="fa fa-check"></i><b>13.5.4</b> Saving plots</a></li>
-</ul></li>
-<li class="chapter" data-level="13.6" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#exercises-create-new-plots-for-genetic-data-visualization-using-the-snpdataset.txt-dataset.-create-a-report-in-.html-format-and-display-and-describe-each-one-of-the-plots."><i class="fa fa-check"></i><b>13.6</b> Exercises: Create new plots for genetic data visualization using the <code>SNPdataset.txt</code> dataset. Create a report in .html format and display and describe each one of the plots.</a></li>
-</ul></li>
-<li class="chapter" data-level="14" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html"><i class="fa fa-check"></i><b>14</b> SECTION 11. Advanced Data Visualization: Extra Part</a>
-<ul>
-<li class="chapter" data-level="14.1" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#useful-plots-for-omics-data-analysis"><i class="fa fa-check"></i><b>14.1</b> Useful plots for Omics Data Analysis</a>
-<ul>
-<li class="chapter" data-level="14.1.1" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#heatmap"><i class="fa fa-check"></i><b>14.1.1</b> Heatmap</a></li>
-<li class="chapter" data-level="14.1.2" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#venn-diagram"><i class="fa fa-check"></i><b>14.1.2</b> Venn Diagram</a></li>
-</ul></li>
-<li class="chapter" data-level="14.2" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#other-resources-in-r"><i class="fa fa-check"></i><b>14.2</b> Other resources in R</a>
-<ul>
-<li class="chapter" data-level="14.2.1" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#advanced-visualizations-with-ggpubr"><i class="fa fa-check"></i><b>14.2.1</b> Advanced visualizations with ggpubr</a></li>
-<li class="chapter" data-level="14.2.2" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#dynamic-plots-with-gganimate"><i class="fa fa-check"></i><b>14.2.2</b> Dynamic plots with gganimate</a></li>
-<li class="chapter" data-level="14.2.3" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#interactive-interfaces-for-creating-plots"><i class="fa fa-check"></i><b>14.2.3</b> Interactive interfaces for creating plots</a></li>
+<li class="chapter" data-level="10.10.1" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#extra-exercises"><i class="fa fa-check"></i><b>10.10.1</b> Extra exercises</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html"><i class="fa fa-check"></i><b>15</b> SECTION 12. Introduction to Shiny</a>
+<li class="chapter" data-level="11" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html"><i class="fa fa-check"></i><b>11</b> SECTION 10. Advanced Data Visualization: ggplot2 package</a>
 <ul>
-<li class="chapter" data-level="15.1" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#writing-a-shiny-application-in-r"><i class="fa fa-check"></i><b>15.1</b> Writing a Shiny Application in R</a>
+<li class="chapter" data-level="11.1" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#why-ggplot2"><i class="fa fa-check"></i><b>11.1</b> Why ggplot2?</a></li>
+<li class="chapter" data-level="11.2" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#installation-1"><i class="fa fa-check"></i><b>11.2</b> Installation</a></li>
+<li class="chapter" data-level="11.3" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#usage"><i class="fa fa-check"></i><b>11.3</b> Usage</a></li>
+<li class="chapter" data-level="11.4" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#geometric-objects-and-aesthetics"><i class="fa fa-check"></i><b>11.4</b> Geometric Objects And Aesthetics</a>
 <ul>
-<li class="chapter" data-level="15.1.1" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#ui-layout"><i class="fa fa-check"></i><b>15.1.1</b> UI Layout</a></li>
-<li class="chapter" data-level="15.1.2" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#server-logic"><i class="fa fa-check"></i><b>15.1.2</b> Server Logic</a></li>
-<li class="chapter" data-level="15.1.3" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#examples-1"><i class="fa fa-check"></i><b>15.1.3</b> Examples</a></li>
+<li class="chapter" data-level="11.4.1" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#aesthetic-mapping"><i class="fa fa-check"></i><b>11.4.1</b> Aesthetic Mapping</a></li>
+<li class="chapter" data-level="11.4.2" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#geometic-objects-geom"><i class="fa fa-check"></i><b>11.4.2</b> Geometic Objects (geom)</a></li>
 </ul></li>
-<li class="chapter" data-level="15.2" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#elements-for-a-shiny-app"><i class="fa fa-check"></i><b>15.2</b> Elements for a Shiny App</a>
+<li class="chapter" data-level="11.5" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#examples"><i class="fa fa-check"></i><b>11.5</b> Examples</a>
 <ul>
-<li class="chapter" data-level="15.2.1" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#ui-components"><i class="fa fa-check"></i><b>15.2.1</b> UI Components</a></li>
-<li class="chapter" data-level="15.2.2" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#server-function"><i class="fa fa-check"></i><b>15.2.2</b> Server function</a></li>
+<li class="chapter" data-level="11.5.1" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#categorical-variables"><i class="fa fa-check"></i><b>11.5.1</b> Categorical Variables</a></li>
+<li class="chapter" data-level="11.5.2" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#quantitative-variables"><i class="fa fa-check"></i><b>11.5.2</b> Quantitative Variables</a></li>
+<li class="chapter" data-level="11.5.3" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#more-advanced-code-customizing-your-plots"><i class="fa fa-check"></i><b>11.5.3</b> More advanced code: customizing your plots</a></li>
+<li class="chapter" data-level="11.5.4" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#saving-plots"><i class="fa fa-check"></i><b>11.5.4</b> Saving plots</a></li>
 </ul></li>
-<li class="chapter" data-level="15.3" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#working-with-shinydashboard"><i class="fa fa-check"></i><b>15.3</b> Working with ShinyDashboard</a></li>
-<li class="chapter" data-level="15.4" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#deploying-the-application-to-shinyapps.io"><i class="fa fa-check"></i><b>15.4</b> Deploying the Application to Shinyapps.io</a></li>
-<li class="chapter" data-level="15.5" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#take-home"><i class="fa fa-check"></i><b>15.5</b> Take home</a></li>
-<li class="chapter" data-level="15.6" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#final-task"><i class="fa fa-check"></i><b>15.6</b> Final Task</a></li>
+<li class="chapter" data-level="11.6" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#exercises-create-new-plots-for-genetic-data-visualization-using-the-snpdataset.txt-dataset.-create-a-report-in-.html-format-and-display-and-describe-each-one-of-the-plots."><i class="fa fa-check"></i><b>11.6</b> Exercises: Create new plots for genetic data visualization using the <code>SNPdataset.txt</code> dataset. Create a report in .html format and display and describe each one of the plots.</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html"><i class="fa fa-check"></i><b>12</b> SECTION 11. Advanced Data Visualization: Extra Part</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#useful-plots-for-omics-data-analysis"><i class="fa fa-check"></i><b>12.1</b> Useful plots for Omics Data Analysis</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#heatmap"><i class="fa fa-check"></i><b>12.1.1</b> Heatmap</a></li>
+<li class="chapter" data-level="12.1.2" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#venn-diagram"><i class="fa fa-check"></i><b>12.1.2</b> Venn Diagram</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#other-resources-in-r"><i class="fa fa-check"></i><b>12.2</b> Other resources in R</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#advanced-visualizations-with-ggpubr"><i class="fa fa-check"></i><b>12.2.1</b> Advanced visualizations with ggpubr</a></li>
+<li class="chapter" data-level="12.2.2" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#dynamic-plots-with-gganimate"><i class="fa fa-check"></i><b>12.2.2</b> Dynamic plots with gganimate</a></li>
+<li class="chapter" data-level="12.2.3" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#interactive-interfaces-for-creating-plots"><i class="fa fa-check"></i><b>12.2.3</b> Interactive interfaces for creating plots</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html"><i class="fa fa-check"></i><b>13</b> SECTION 12. Introduction to Shiny</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#writing-a-shiny-application-in-r"><i class="fa fa-check"></i><b>13.1</b> Writing a Shiny Application in R</a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#ui-layout"><i class="fa fa-check"></i><b>13.1.1</b> UI Layout</a></li>
+<li class="chapter" data-level="13.1.2" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#server-logic"><i class="fa fa-check"></i><b>13.1.2</b> Server Logic</a></li>
+<li class="chapter" data-level="13.1.3" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#examples-1"><i class="fa fa-check"></i><b>13.1.3</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#elements-for-a-shiny-app"><i class="fa fa-check"></i><b>13.2</b> Elements for a Shiny App</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#ui-components"><i class="fa fa-check"></i><b>13.2.1</b> UI Components</a></li>
+<li class="chapter" data-level="13.2.2" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#server-function"><i class="fa fa-check"></i><b>13.2.2</b> Server function</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#working-with-shinydashboard"><i class="fa fa-check"></i><b>13.3</b> Working with ShinyDashboard</a></li>
+<li class="chapter" data-level="13.4" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#deploying-the-application-to-shinyapps.io"><i class="fa fa-check"></i><b>13.4</b> Deploying the Application to Shinyapps.io</a></li>
+<li class="chapter" data-level="13.5" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#take-home"><i class="fa fa-check"></i><b>13.5</b> Take home</a></li>
+<li class="chapter" data-level="13.6" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#final-task"><i class="fa fa-check"></i><b>13.6</b> Final Task</a></li>
 </ul></li>
 </ul>
 
@@ -577,6 +579,2750 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 1 No                     48.6             201.             21
 ## 2 Yes                    48.7             198.              8</code></pre>
 </div>
+<div id="data-reshaping-and-cleaning-using-the-tidyr-package" class="section level2 hasAnchor" number="10.8">
+<h2><span class="header-section-number">10.8</span> Data reshaping and cleaning using the tidyr package<a href="section-9.-data-managment-using-the-dplyr-package.html#data-reshaping-and-cleaning-using-the-tidyr-package" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Similarly, with <code>tidyr</code> we can also work with functions that process data faster than Base R functions. These are some of the most important functions included in <code>tidyr</code> package:</p>
+<table>
+<colgroup>
+<col width="22%" />
+<col width="22%" />
+<col width="30%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>To work with…</th>
+<th>Functions in <code>tidyr</code> package</th>
+<th>To…</th>
+<th>Base R functions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Columns</td>
+<td><code>pivot_longer()</code></td>
+<td>convert wide data to long format</td>
+<td><code>reshape(); stack()</code></td>
+</tr>
+<tr class="even">
+<td>Columns</td>
+<td><code>pivot_wider()</code></td>
+<td>convert long data to wide format</td>
+<td><code>reshape(); unstack()</code></td>
+</tr>
+<tr class="odd">
+<td>Columns</td>
+<td><code>separate()</code></td>
+<td>split one column into multiple columns</td>
+<td><code>strsplit()</code></td>
+</tr>
+<tr class="even">
+<td>Columns</td>
+<td><code>unite()</code></td>
+<td>combine multiple columns into one</td>
+<td><code>paste(); paste0()</code></td>
+</tr>
+<tr class="odd">
+<td>Missing Values</td>
+<td><code>fill()</code></td>
+<td>fill missing values in a column</td>
+<td><code>na.locf()</code> from <code>zoo</code> package</td>
+</tr>
+<tr class="even">
+<td>Missing Values</td>
+<td><code>replace_na()</code></td>
+<td>replace missing values with specified values</td>
+<td><code>is.na(); ifelse()</code></td>
+</tr>
+<tr class="odd">
+<td>Columns</td>
+<td><code>drop_na()</code></td>
+<td>remove rows with missing values</td>
+<td><code>na.omit(); complete.cases()</code></td>
+</tr>
+<tr class="even">
+<td>Rows</td>
+<td><code>expand()</code></td>
+<td>create all combinations of values</td>
+<td><code>expand.grid()</code></td>
+</tr>
+<tr class="odd">
+<td>Rows</td>
+<td><code>complete()</code></td>
+<td>complete missing combinations of values</td>
+<td><code>expand.grid(); merge()</code></td>
+</tr>
+<tr class="even">
+<td>Rows/Columns</td>
+<td><code>nest()</code></td>
+<td>create nested data frames</td>
+<td><code>list()</code></td>
+</tr>
+<tr class="odd">
+<td>Rows/Columns</td>
+<td><code>unnest()</code></td>
+<td>expand a list-column into multiple rows</td>
+<td><code>do.call(rbind, ...)</code></td>
+</tr>
+</tbody>
+</table>
+<div id="transforming-wide-to-long-format-with-pivot_longer" class="section level3 hasAnchor" number="10.8.1">
+<h3><span class="header-section-number">10.8.1</span> Transforming wide to long format with <code>pivot_longer()</code>:<a href="section-9.-data-managment-using-the-dplyr-package.html#transforming-wide-to-long-format-with-pivot_longer" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We want to put the information for the variable BMI, Cholesterol and Glucose in a long format.</p>
+<div class="sourceCode" id="cb522"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb522-1"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb522-1" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb522-2"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb522-2" tabindex="-1"></a><span class="fu">head</span>(data)</span></code></pre></div>
+<pre><code>##     Sex Age  BMI SBP HADS_Anxiety Cholesterol Glucose Family_History_CVD
+## 1 Women  43 23.1 129            5       223.3    87.2                 No
+## 2 Women  59 28.4 154           12       183.4    83.1                 No
+## 3 Women  66 28.7 105           11       266.8    87.8                 No
+## 4   Men  75 23.7 122            2       221.4    64.2                 No
+## 5 Women  34 19.8 166            7       178.4    95.2                 No
+## 6   Men  46 34.8 120            0       187.7   129.7                 No</code></pre>
+<div class="sourceCode" id="cb524"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb524-1"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb524-1" tabindex="-1"></a>long_format <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb524-2"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb524-2" tabindex="-1"></a>    <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(BMI, Cholesterol, Glucose),</span>
+<span id="cb524-3"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb524-3" tabindex="-1"></a>                 <span class="at">names_to =</span> <span class="st">&quot;Measurement_Type&quot;</span>,</span>
+<span id="cb524-4"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb524-4" tabindex="-1"></a>                 <span class="at">values_to =</span> <span class="st">&quot;Value&quot;</span>)</span>
+<span id="cb524-5"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb524-5" tabindex="-1"></a><span class="fu">head</span>(long_format)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 7
+##   Sex     Age   SBP HADS_Anxiety Family_History_CVD Measurement_Type Value
+##   &lt;chr&gt; &lt;int&gt; &lt;int&gt;        &lt;int&gt; &lt;chr&gt;              &lt;chr&gt;            &lt;dbl&gt;
+## 1 Women    43   129            5 No                 BMI               23.1
+## 2 Women    43   129            5 No                 Cholesterol      223. 
+## 3 Women    43   129            5 No                 Glucose           87.2
+## 4 Women    59   154           12 No                 BMI               28.4
+## 5 Women    59   154           12 No                 Cholesterol      183. 
+## 6 Women    59   154           12 No                 Glucose           83.1</code></pre>
+</div>
+<div id="transforming-long-to-wide-format-with-pivot_wider" class="section level3 hasAnchor" number="10.8.2">
+<h3><span class="header-section-number">10.8.2</span> Transforming long to wide format with <code>pivot_wider()</code>:<a href="section-9.-data-managment-using-the-dplyr-package.html#transforming-long-to-wide-format-with-pivot_wider" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In this example, we use the long_format object generated in the previous example to re-convert it again to wide format.</p>
+<div class="sourceCode" id="cb526"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb526-1"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb526-1" tabindex="-1"></a><span class="co"># Suppose we have a column &quot;Measurement_Type&quot; with values for &quot;Cholesterol&quot; and &quot;Glucose&quot;</span></span>
+<span id="cb526-2"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb526-2" tabindex="-1"></a><span class="co"># Transform it back to wide format</span></span>
+<span id="cb526-3"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb526-3" tabindex="-1"></a></span>
+<span id="cb526-4"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb526-4" tabindex="-1"></a><span class="fu">head</span>(long_format)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 7
+##   Sex     Age   SBP HADS_Anxiety Family_History_CVD Measurement_Type Value
+##   &lt;chr&gt; &lt;int&gt; &lt;int&gt;        &lt;int&gt; &lt;chr&gt;              &lt;chr&gt;            &lt;dbl&gt;
+## 1 Women    43   129            5 No                 BMI               23.1
+## 2 Women    43   129            5 No                 Cholesterol      223. 
+## 3 Women    43   129            5 No                 Glucose           87.2
+## 4 Women    59   154           12 No                 BMI               28.4
+## 5 Women    59   154           12 No                 Cholesterol      183. 
+## 6 Women    59   154           12 No                 Glucose           83.1</code></pre>
+<div class="sourceCode" id="cb528"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb528-1"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb528-1" tabindex="-1"></a>wide_format <span class="ot">&lt;-</span> long_format <span class="sc">%&gt;%</span></span>
+<span id="cb528-2"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb528-2" tabindex="-1"></a>    <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> Measurement_Type, <span class="at">values_from =</span> Value)</span>
+<span id="cb528-3"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb528-3" tabindex="-1"></a><span class="fu">head</span>(wide_format)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 8
+##   Sex     Age   SBP HADS_Anxiety Family_History_CVD   BMI Cholesterol Glucose
+##   &lt;chr&gt; &lt;int&gt; &lt;int&gt;        &lt;int&gt; &lt;chr&gt;              &lt;dbl&gt;       &lt;dbl&gt;   &lt;dbl&gt;
+## 1 Women    43   129            5 No                  23.1        223.    87.2
+## 2 Women    59   154           12 No                  28.4        183.    83.1
+## 3 Women    66   105           11 No                  28.7        267.    87.8
+## 4 Men      75   122            2 No                  23.7        221.    64.2
+## 5 Women    34   166            7 No                  19.8        178.    95.2
+## 6 Men      46   120            0 No                  34.8        188.   130.</code></pre>
+</div>
+<div id="handling-missing-values-with-replace_na" class="section level3 hasAnchor" number="10.8.3">
+<h3><span class="header-section-number">10.8.3</span> Handling missing values with <code>replace_na()</code><a href="section-9.-data-managment-using-the-dplyr-package.html#handling-missing-values-with-replace_na" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We create a new random variable that will take NA values for those cases where cholesterol is above 230 and then we will replace it with the median value.</p>
+<div class="sourceCode" id="cb530"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb530-1"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb530-1" tabindex="-1"></a><span class="co"># Replace NA values in Cholesterol with the median Cholesterol</span></span>
+<span id="cb530-2"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb530-2" tabindex="-1"></a><span class="fu">table</span>(<span class="fu">is.na</span>(data<span class="sc">$</span>Cholesterol))</span></code></pre></div>
+<pre><code>## 
+## FALSE 
+##   300</code></pre>
+<div class="sourceCode" id="cb532"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb532-1"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb532-1" tabindex="-1"></a><span class="fu">summary</span>(data<span class="sc">$</span>Cholesterol)</span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   122.7   180.2   200.0   200.6   222.6   280.0</code></pre>
+<div class="sourceCode" id="cb534"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb534-1"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb534-1" tabindex="-1"></a>data<span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Variable_Nas=</span><span class="fu">ifelse</span>(Cholesterol <span class="sc">&gt;</span> <span class="dv">230</span>, <span class="cn">NA</span>, Cholesterol))</span>
+<span id="cb534-2"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb534-2" tabindex="-1"></a><span class="fu">summary</span>(data<span class="sc">$</span>Variable_Nas)</span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
+##   122.7   173.9   193.4   190.8   208.8   229.0      55</code></pre>
+<div class="sourceCode" id="cb536"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb536-1"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb536-1" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb536-2"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb536-2" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">Variable_Nas =</span> <span class="fu">replace_na</span>(Variable_Nas, <span class="fu">median</span>(Cholesterol, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)))</span>
+<span id="cb536-3"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb536-3" tabindex="-1"></a><span class="fu">summary</span>(data<span class="sc">$</span>Variable_Nas)</span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   122.7   180.2   200.0   192.5   204.9   229.0</code></pre>
+</div>
+</div>
+<div id="gt-and-gtsummary-packages" class="section level2 hasAnchor" number="10.9">
+<h2><span class="header-section-number">10.9</span> Gt and gtsummary packages<a href="section-9.-data-managment-using-the-dplyr-package.html#gt-and-gtsummary-packages" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="basic-summary-table-with-tbl_summary" class="section level3 hasAnchor" number="10.9.1">
+<h3><span class="header-section-number">10.9.1</span> Basic Summary Table with <code>tbl_summary()</code><a href="section-9.-data-managment-using-the-dplyr-package.html#basic-summary-table-with-tbl_summary" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <code>tbl_summary()</code> function calculates descriptive statistics for continuous, categorical, and dichotomous variables in R, and presents the results in a beautiful, customizable summary table ready for publication</p>
+<div class="sourceCode" id="cb538"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb538-1"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb538-1" tabindex="-1"></a><span class="fu">library</span>(gtsummary)</span>
+<span id="cb538-2"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb538-2" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
+<span id="cb538-3"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb538-3" tabindex="-1"></a>data <span class="sc">%&gt;%</span></span>
+<span id="cb538-4"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb538-4" tabindex="-1"></a>    <span class="fu">tbl_summary</span>(</span>
+<span id="cb538-5"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb538-5" tabindex="-1"></a>        <span class="at">by =</span> Sex, <span class="co"># Summarize separately for Men and Women</span></span>
+<span id="cb538-6"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb538-6" tabindex="-1"></a>        <span class="at">missing =</span> <span class="st">&quot;no&quot;</span> <span class="co"># Exclude missing values in summary</span></span>
+<span id="cb538-7"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb538-7" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span> <span class="fu">as_gt</span>() </span></code></pre></div>
+<div id="wrnppbnyke" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#wrnppbnyke table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#wrnppbnyke thead, #wrnppbnyke tbody, #wrnppbnyke tfoot, #wrnppbnyke tr, #wrnppbnyke td, #wrnppbnyke th {
+  border-style: none;
+}
+
+#wrnppbnyke p {
+  margin: 0;
+  padding: 0;
+}
+
+#wrnppbnyke .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#wrnppbnyke .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#wrnppbnyke .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#wrnppbnyke .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#wrnppbnyke .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#wrnppbnyke .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wrnppbnyke .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#wrnppbnyke .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#wrnppbnyke .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#wrnppbnyke .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#wrnppbnyke .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#wrnppbnyke .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#wrnppbnyke .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#wrnppbnyke .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#wrnppbnyke .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#wrnppbnyke .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#wrnppbnyke .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#wrnppbnyke .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#wrnppbnyke .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wrnppbnyke .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#wrnppbnyke .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#wrnppbnyke .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#wrnppbnyke .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wrnppbnyke .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#wrnppbnyke .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#wrnppbnyke .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wrnppbnyke .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wrnppbnyke .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#wrnppbnyke .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wrnppbnyke .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#wrnppbnyke .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wrnppbnyke .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#wrnppbnyke .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wrnppbnyke .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#wrnppbnyke .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wrnppbnyke .gt_left {
+  text-align: left;
+}
+
+#wrnppbnyke .gt_center {
+  text-align: center;
+}
+
+#wrnppbnyke .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#wrnppbnyke .gt_font_normal {
+  font-weight: normal;
+}
+
+#wrnppbnyke .gt_font_bold {
+  font-weight: bold;
+}
+
+#wrnppbnyke .gt_font_italic {
+  font-style: italic;
+}
+
+#wrnppbnyke .gt_super {
+  font-size: 65%;
+}
+
+#wrnppbnyke .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#wrnppbnyke .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#wrnppbnyke .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#wrnppbnyke .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#wrnppbnyke .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#wrnppbnyke .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#wrnppbnyke .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#wrnppbnyke .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#wrnppbnyke div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="label"><span class='gt_from_md'><strong>Characteristic</strong></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="stat_1"><span class='gt_from_md'><strong>Men</strong><br />
+N = 146</span><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="stat_2"><span class='gt_from_md'><strong>Women</strong><br />
+N = 154</span><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="label" class="gt_row gt_left">Age</td>
+<td headers="stat_1" class="gt_row gt_center">50 (35, 65)</td>
+<td headers="stat_2" class="gt_row gt_center">49 (34, 64)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">BMI</td>
+<td headers="stat_1" class="gt_row gt_center">25.4 (22.7, 27.4)</td>
+<td headers="stat_2" class="gt_row gt_center">24.1 (21.5, 27.3)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">SBP</td>
+<td headers="stat_1" class="gt_row gt_center">120 (109, 131)</td>
+<td headers="stat_2" class="gt_row gt_center">120 (112, 130)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">HADS_Anxiety</td>
+<td headers="stat_1" class="gt_row gt_center">10 (5, 16)</td>
+<td headers="stat_2" class="gt_row gt_center">11 (5, 16)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">Cholesterol</td>
+<td headers="stat_1" class="gt_row gt_center">199 (180, 225)</td>
+<td headers="stat_2" class="gt_row gt_center">200 (180, 221)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">Glucose</td>
+<td headers="stat_1" class="gt_row gt_center">100 (84, 112)</td>
+<td headers="stat_2" class="gt_row gt_center">97 (85, 109)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">Family_History_CVD</td>
+<td headers="stat_1" class="gt_row gt_center">34 (23%)</td>
+<td headers="stat_2" class="gt_row gt_center">53 (34%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">Variable_Nas</td>
+<td headers="stat_1" class="gt_row gt_center">199 (180, 203)</td>
+<td headers="stat_2" class="gt_row gt_center">200 (180, 207)</td></tr>
+  </tbody>
+  <tfoot>
+    <tr class="gt_footnotes">
+      <td class="gt_footnote" colspan="3"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span> <span class='gt_from_md'>Median (Q1, Q3); n (%)</span></td>
+    </tr>
+  </tfoot>
+</table>
+</div>
+</div>
+<div id="adding-statistical-tests-with-add_p" class="section level3 hasAnchor" number="10.9.2">
+<h3><span class="header-section-number">10.9.2</span> Adding statistical tests with <code>add_p()</code><a href="section-9.-data-managment-using-the-dplyr-package.html#adding-statistical-tests-with-add_p" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb539"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb539-1"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb539-1" tabindex="-1"></a>data <span class="sc">%&gt;%</span></span>
+<span id="cb539-2"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb539-2" tabindex="-1"></a>    <span class="fu">tbl_summary</span>(<span class="at">by =</span> Sex) <span class="sc">%&gt;%</span></span>
+<span id="cb539-3"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb539-3" tabindex="-1"></a>    <span class="fu">add_p</span>() <span class="co"># Adds p-values for group comparisons</span></span></code></pre></div>
+<div id="txtvnxwrfp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#txtvnxwrfp table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#txtvnxwrfp thead, #txtvnxwrfp tbody, #txtvnxwrfp tfoot, #txtvnxwrfp tr, #txtvnxwrfp td, #txtvnxwrfp th {
+  border-style: none;
+}
+
+#txtvnxwrfp p {
+  margin: 0;
+  padding: 0;
+}
+
+#txtvnxwrfp .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#txtvnxwrfp .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#txtvnxwrfp .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#txtvnxwrfp .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#txtvnxwrfp .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#txtvnxwrfp .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#txtvnxwrfp .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#txtvnxwrfp .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#txtvnxwrfp .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#txtvnxwrfp .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#txtvnxwrfp .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#txtvnxwrfp .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#txtvnxwrfp .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#txtvnxwrfp .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#txtvnxwrfp .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#txtvnxwrfp .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#txtvnxwrfp .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#txtvnxwrfp .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#txtvnxwrfp .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#txtvnxwrfp .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#txtvnxwrfp .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#txtvnxwrfp .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#txtvnxwrfp .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#txtvnxwrfp .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#txtvnxwrfp .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#txtvnxwrfp .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#txtvnxwrfp .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#txtvnxwrfp .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#txtvnxwrfp .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#txtvnxwrfp .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#txtvnxwrfp .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#txtvnxwrfp .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#txtvnxwrfp .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#txtvnxwrfp .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#txtvnxwrfp .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#txtvnxwrfp .gt_left {
+  text-align: left;
+}
+
+#txtvnxwrfp .gt_center {
+  text-align: center;
+}
+
+#txtvnxwrfp .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#txtvnxwrfp .gt_font_normal {
+  font-weight: normal;
+}
+
+#txtvnxwrfp .gt_font_bold {
+  font-weight: bold;
+}
+
+#txtvnxwrfp .gt_font_italic {
+  font-style: italic;
+}
+
+#txtvnxwrfp .gt_super {
+  font-size: 65%;
+}
+
+#txtvnxwrfp .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#txtvnxwrfp .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#txtvnxwrfp .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#txtvnxwrfp .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#txtvnxwrfp .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#txtvnxwrfp .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#txtvnxwrfp .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#txtvnxwrfp .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#txtvnxwrfp div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="label"><span class='gt_from_md'><strong>Characteristic</strong></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="stat_1"><span class='gt_from_md'><strong>Men</strong><br />
+N = 146</span><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="stat_2"><span class='gt_from_md'><strong>Women</strong><br />
+N = 154</span><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="p.value"><span class='gt_from_md'><strong>p-value</strong></span><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>2</sup></span></th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="label" class="gt_row gt_left">Age</td>
+<td headers="stat_1" class="gt_row gt_center">50 (35, 65)</td>
+<td headers="stat_2" class="gt_row gt_center">49 (34, 64)</td>
+<td headers="p.value" class="gt_row gt_center">0.5</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">BMI</td>
+<td headers="stat_1" class="gt_row gt_center">25.4 (22.7, 27.4)</td>
+<td headers="stat_2" class="gt_row gt_center">24.1 (21.5, 27.3)</td>
+<td headers="p.value" class="gt_row gt_center">0.088</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">SBP</td>
+<td headers="stat_1" class="gt_row gt_center">120 (109, 131)</td>
+<td headers="stat_2" class="gt_row gt_center">120 (112, 130)</td>
+<td headers="p.value" class="gt_row gt_center">0.8</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">HADS_Anxiety</td>
+<td headers="stat_1" class="gt_row gt_center">10 (5, 16)</td>
+<td headers="stat_2" class="gt_row gt_center">11 (5, 16)</td>
+<td headers="p.value" class="gt_row gt_center">0.9</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">Cholesterol</td>
+<td headers="stat_1" class="gt_row gt_center">199 (180, 225)</td>
+<td headers="stat_2" class="gt_row gt_center">200 (180, 221)</td>
+<td headers="p.value" class="gt_row gt_center">>0.9</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">Glucose</td>
+<td headers="stat_1" class="gt_row gt_center">100 (84, 112)</td>
+<td headers="stat_2" class="gt_row gt_center">97 (85, 109)</td>
+<td headers="p.value" class="gt_row gt_center">0.6</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">Family_History_CVD</td>
+<td headers="stat_1" class="gt_row gt_center">34 (23%)</td>
+<td headers="stat_2" class="gt_row gt_center">53 (34%)</td>
+<td headers="p.value" class="gt_row gt_center">0.034</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">Variable_Nas</td>
+<td headers="stat_1" class="gt_row gt_center">199 (180, 203)</td>
+<td headers="stat_2" class="gt_row gt_center">200 (180, 207)</td>
+<td headers="p.value" class="gt_row gt_center">0.6</td></tr>
+  </tbody>
+  <tfoot>
+    <tr class="gt_footnotes">
+      <td class="gt_footnote" colspan="4"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span> <span class='gt_from_md'>Median (Q1, Q3); n (%)</span></td>
+    </tr>
+    <tr class="gt_footnotes">
+      <td class="gt_footnote" colspan="4"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>2</sup></span> <span class='gt_from_md'>Wilcoxon rank sum test; Pearson’s Chi-squared test</span></td>
+    </tr>
+  </tfoot>
+</table>
+</div>
+</div>
+<div id="stratified-tables-with-tbl_strata" class="section level3 hasAnchor" number="10.9.3">
+<h3><span class="header-section-number">10.9.3</span> Stratified Tables with <code>tbl_strata()</code><a href="section-9.-data-managment-using-the-dplyr-package.html#stratified-tables-with-tbl_strata" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb540"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb540-1"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb540-1" tabindex="-1"></a>data <span class="sc">%&gt;%</span></span>
+<span id="cb540-2"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb540-2" tabindex="-1"></a>    <span class="fu">tbl_strata</span>(</span>
+<span id="cb540-3"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb540-3" tabindex="-1"></a>        <span class="at">strata =</span> Family_History_CVD, <span class="co"># Stratify by family history of CVD</span></span>
+<span id="cb540-4"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb540-4" tabindex="-1"></a>        <span class="at">.tbl_fun =</span> <span class="sc">~</span> .x <span class="sc">%&gt;%</span> <span class="fu">tbl_summary</span>(<span class="at">by =</span> Sex)</span>
+<span id="cb540-5"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb540-5" tabindex="-1"></a>    )</span></code></pre></div>
+<div id="rddazjpzce" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#rddazjpzce table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#rddazjpzce thead, #rddazjpzce tbody, #rddazjpzce tfoot, #rddazjpzce tr, #rddazjpzce td, #rddazjpzce th {
+  border-style: none;
+}
+
+#rddazjpzce p {
+  margin: 0;
+  padding: 0;
+}
+
+#rddazjpzce .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#rddazjpzce .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#rddazjpzce .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#rddazjpzce .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#rddazjpzce .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#rddazjpzce .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#rddazjpzce .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#rddazjpzce .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#rddazjpzce .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#rddazjpzce .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#rddazjpzce .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#rddazjpzce .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#rddazjpzce .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#rddazjpzce .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#rddazjpzce .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#rddazjpzce .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#rddazjpzce .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#rddazjpzce .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#rddazjpzce .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rddazjpzce .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#rddazjpzce .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#rddazjpzce .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#rddazjpzce .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rddazjpzce .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#rddazjpzce .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#rddazjpzce .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#rddazjpzce .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rddazjpzce .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#rddazjpzce .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#rddazjpzce .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#rddazjpzce .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#rddazjpzce .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#rddazjpzce .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rddazjpzce .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#rddazjpzce .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rddazjpzce .gt_left {
+  text-align: left;
+}
+
+#rddazjpzce .gt_center {
+  text-align: center;
+}
+
+#rddazjpzce .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#rddazjpzce .gt_font_normal {
+  font-weight: normal;
+}
+
+#rddazjpzce .gt_font_bold {
+  font-weight: bold;
+}
+
+#rddazjpzce .gt_font_italic {
+  font-style: italic;
+}
+
+#rddazjpzce .gt_super {
+  font-size: 65%;
+}
+
+#rddazjpzce .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#rddazjpzce .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#rddazjpzce .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#rddazjpzce .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#rddazjpzce .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#rddazjpzce .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#rddazjpzce .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#rddazjpzce .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#rddazjpzce div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    <tr class="gt_col_headings gt_spanner_row">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="2" colspan="1" scope="col" id="label"><span class='gt_from_md'><strong>Characteristic</strong></span></th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="2" scope="colgroup" id="level 1; stat_1_1">
+        <div class="gt_column_spanner"><span class='gt_from_md'><strong>No</strong></span></div>
+      </th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="2" scope="colgroup" id="level 1; stat_1_2">
+        <div class="gt_column_spanner"><span class='gt_from_md'><strong>Yes</strong></span></div>
+      </th>
+    </tr>
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="stat_1_1"><span class='gt_from_md'><strong>Men</strong><br />
+N = 112</span><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="stat_2_1"><span class='gt_from_md'><strong>Women</strong><br />
+N = 101</span><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="stat_1_2"><span class='gt_from_md'><strong>Men</strong><br />
+N = 34</span><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="stat_2_2"><span class='gt_from_md'><strong>Women</strong><br />
+N = 53</span><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="label" class="gt_row gt_left">Age</td>
+<td headers="stat_1_1" class="gt_row gt_center">50 (36, 66)</td>
+<td headers="stat_2_1" class="gt_row gt_center">48 (34, 65)</td>
+<td headers="stat_1_2" class="gt_row gt_center">46 (34, 62)</td>
+<td headers="stat_2_2" class="gt_row gt_center">50 (35, 58)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">BMI</td>
+<td headers="stat_1_1" class="gt_row gt_center">25.3 (22.5, 27.5)</td>
+<td headers="stat_2_1" class="gt_row gt_center">24.5 (21.7, 27.5)</td>
+<td headers="stat_1_2" class="gt_row gt_center">25.5 (22.8, 27.3)</td>
+<td headers="stat_2_2" class="gt_row gt_center">23.8 (21.0, 25.8)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">SBP</td>
+<td headers="stat_1_1" class="gt_row gt_center">120 (109, 130)</td>
+<td headers="stat_2_1" class="gt_row gt_center">120 (110, 130)</td>
+<td headers="stat_1_2" class="gt_row gt_center">120 (111, 133)</td>
+<td headers="stat_2_2" class="gt_row gt_center">120 (113, 130)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">HADS_Anxiety</td>
+<td headers="stat_1_1" class="gt_row gt_center">10 (5, 16)</td>
+<td headers="stat_2_1" class="gt_row gt_center">11 (5, 16)</td>
+<td headers="stat_1_2" class="gt_row gt_center">10 (6, 18)</td>
+<td headers="stat_2_2" class="gt_row gt_center">11 (5, 18)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">Cholesterol</td>
+<td headers="stat_1_1" class="gt_row gt_center">201 (181, 226)</td>
+<td headers="stat_2_1" class="gt_row gt_center">201 (185, 218)</td>
+<td headers="stat_1_2" class="gt_row gt_center">197 (179, 212)</td>
+<td headers="stat_2_2" class="gt_row gt_center">200 (171, 228)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">Glucose</td>
+<td headers="stat_1_1" class="gt_row gt_center">102 (85, 113)</td>
+<td headers="stat_2_1" class="gt_row gt_center">95 (84, 106)</td>
+<td headers="stat_1_2" class="gt_row gt_center">97 (82, 109)</td>
+<td headers="stat_2_2" class="gt_row gt_center">102 (87, 115)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">Variable_Nas</td>
+<td headers="stat_1_1" class="gt_row gt_center">200 (181, 203)</td>
+<td headers="stat_2_1" class="gt_row gt_center">200 (185, 207)</td>
+<td headers="stat_1_2" class="gt_row gt_center">197 (179, 204)</td>
+<td headers="stat_2_2" class="gt_row gt_center">200 (171, 206)</td></tr>
+  </tbody>
+  <tfoot>
+    <tr class="gt_footnotes">
+      <td class="gt_footnote" colspan="5"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span> <span class='gt_from_md'>Median (Q1, Q3)</span></td>
+    </tr>
+  </tfoot>
+</table>
+</div>
+<div class="sourceCode" id="cb541"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb541-1"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb541-1" tabindex="-1"></a><span class="co">#~ .x %&gt;% tbl_summary(by = Sex) is a shortcut syntax in R for defining an anonymous (or lambda) function. </span></span>
+<span id="cb541-2"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb541-2" tabindex="-1"></a></span>
+<span id="cb541-3"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb541-3" tabindex="-1"></a></span>
+<span id="cb541-4"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb541-4" tabindex="-1"></a><span class="co"># This is equivalent to writing function(.x) .x %&gt;% tbl_summary(by = Sex).</span></span>
+<span id="cb541-5"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb541-5" tabindex="-1"></a><span class="co">#In this context, .x represents each subset of the data created by the stratification.</span></span>
+<span id="cb541-6"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb541-6" tabindex="-1"></a><span class="co">#tbl_summary(by = Sex) is applied to each subset, creating a summary table for each stratified group.</span></span></code></pre></div>
+</div>
+<div id="creating-cross-tables-with-tbl_cross" class="section level3 hasAnchor" number="10.9.4">
+<h3><span class="header-section-number">10.9.4</span> Creating Cross Tables with <code>tbl_cross()</code><a href="section-9.-data-managment-using-the-dplyr-package.html#creating-cross-tables-with-tbl_cross" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>You can create cross-tabulations, similar to contingency tables.</p>
+<div class="sourceCode" id="cb542"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb542-1"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb542-1" tabindex="-1"></a><span class="fu">table</span>(data<span class="sc">$</span>Sex, data<span class="sc">$</span>Family_History_CVD)</span></code></pre></div>
+<pre><code>##        
+##          No Yes
+##   Men   112  34
+##   Women 101  53</code></pre>
+<div class="sourceCode" id="cb544"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb544-1"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb544-1" tabindex="-1"></a>data <span class="sc">%&gt;%</span></span>
+<span id="cb544-2"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb544-2" tabindex="-1"></a>    <span class="fu">tbl_cross</span>(</span>
+<span id="cb544-3"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb544-3" tabindex="-1"></a>        <span class="at">row =</span> Sex,</span>
+<span id="cb544-4"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb544-4" tabindex="-1"></a>        <span class="at">col =</span> Family_History_CVD</span>
+<span id="cb544-5"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb544-5" tabindex="-1"></a>    )</span></code></pre></div>
+<div id="zaaqqypshp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#zaaqqypshp table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#zaaqqypshp thead, #zaaqqypshp tbody, #zaaqqypshp tfoot, #zaaqqypshp tr, #zaaqqypshp td, #zaaqqypshp th {
+  border-style: none;
+}
+
+#zaaqqypshp p {
+  margin: 0;
+  padding: 0;
+}
+
+#zaaqqypshp .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#zaaqqypshp .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#zaaqqypshp .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#zaaqqypshp .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#zaaqqypshp .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#zaaqqypshp .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#zaaqqypshp .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#zaaqqypshp .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#zaaqqypshp .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#zaaqqypshp .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#zaaqqypshp .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#zaaqqypshp .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#zaaqqypshp .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#zaaqqypshp .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#zaaqqypshp .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#zaaqqypshp .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#zaaqqypshp .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#zaaqqypshp .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#zaaqqypshp .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#zaaqqypshp .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#zaaqqypshp .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#zaaqqypshp .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#zaaqqypshp .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#zaaqqypshp .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#zaaqqypshp .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#zaaqqypshp .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#zaaqqypshp .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#zaaqqypshp .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#zaaqqypshp .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#zaaqqypshp .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#zaaqqypshp .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#zaaqqypshp .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#zaaqqypshp .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#zaaqqypshp .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#zaaqqypshp .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#zaaqqypshp .gt_left {
+  text-align: left;
+}
+
+#zaaqqypshp .gt_center {
+  text-align: center;
+}
+
+#zaaqqypshp .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#zaaqqypshp .gt_font_normal {
+  font-weight: normal;
+}
+
+#zaaqqypshp .gt_font_bold {
+  font-weight: bold;
+}
+
+#zaaqqypshp .gt_font_italic {
+  font-style: italic;
+}
+
+#zaaqqypshp .gt_super {
+  font-size: 65%;
+}
+
+#zaaqqypshp .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#zaaqqypshp .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#zaaqqypshp .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#zaaqqypshp .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#zaaqqypshp .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#zaaqqypshp .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#zaaqqypshp .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#zaaqqypshp .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#zaaqqypshp div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    <tr class="gt_col_headings gt_spanner_row">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="2" colspan="1" scope="col" id="label"></th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="2" scope="colgroup" id="level 1; stat_1">
+        <div class="gt_column_spanner"><span class='gt_from_md'>Family_History_CVD</span></div>
+      </th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="2" colspan="1" scope="col" id="stat_0"><span class='gt_from_md'>Total</span></th>
+    </tr>
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="stat_1"><span class='gt_from_md'>No</span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="stat_2"><span class='gt_from_md'>Yes</span></th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="label" class="gt_row gt_left">Sex</td>
+<td headers="stat_1" class="gt_row gt_center"><br /></td>
+<td headers="stat_2" class="gt_row gt_center"><br /></td>
+<td headers="stat_0" class="gt_row gt_center"><br /></td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Men</td>
+<td headers="stat_1" class="gt_row gt_center">112</td>
+<td headers="stat_2" class="gt_row gt_center">34</td>
+<td headers="stat_0" class="gt_row gt_center">146</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Women</td>
+<td headers="stat_1" class="gt_row gt_center">101</td>
+<td headers="stat_2" class="gt_row gt_center">53</td>
+<td headers="stat_0" class="gt_row gt_center">154</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">Total</td>
+<td headers="stat_1" class="gt_row gt_center">213</td>
+<td headers="stat_2" class="gt_row gt_center">87</td>
+<td headers="stat_0" class="gt_row gt_center">300</td></tr>
+  </tbody>
+  
+</table>
+</div>
+</div>
+<div id="regression-table-with-tbl_regression" class="section level3 hasAnchor" number="10.9.5">
+<h3><span class="header-section-number">10.9.5</span> Regression table with <code>tbl_regression()</code><a href="section-9.-data-managment-using-the-dplyr-package.html#regression-table-with-tbl_regression" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If you want to create a regression table, you can fit a model and use <code>tbl_regression()</code> to summarize the results. Use <code>gtsave()</code> to save the results.</p>
+<div class="sourceCode" id="cb545"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb545-1"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb545-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Cholesterol <span class="sc">~</span> Age <span class="sc">+</span> Sex <span class="sc">+</span> BMI, <span class="at">data =</span> data)</span>
+<span id="cb545-2"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb545-2" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = Cholesterol ~ Age + Sex + BMI, data = data)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -77.394 -20.480  -0.201  22.180  79.460 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 202.86854   12.74511  15.917   &lt;2e-16 ***
+## Age           0.01257    0.10073   0.125    0.901    
+## SexWomen     -1.11486    3.52738  -0.316    0.752    
+## BMI          -0.09220    0.46110  -0.200    0.842    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 30.36 on 296 degrees of freedom
+## Multiple R-squared:  0.0004917,  Adjusted R-squared:  -0.009638 
+## F-statistic: 0.04854 on 3 and 296 DF,  p-value: 0.9858</code></pre>
+<div class="sourceCode" id="cb547"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb547-1"><a href="section-9.-data-managment-using-the-dplyr-package.html#cb547-1" tabindex="-1"></a><span class="fu">tbl_regression</span>(model) <span class="sc">%&gt;%</span> <span class="fu">as_gt</span>() </span></code></pre></div>
+<div id="idpbegfkql" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#idpbegfkql table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#idpbegfkql thead, #idpbegfkql tbody, #idpbegfkql tfoot, #idpbegfkql tr, #idpbegfkql td, #idpbegfkql th {
+  border-style: none;
+}
+
+#idpbegfkql p {
+  margin: 0;
+  padding: 0;
+}
+
+#idpbegfkql .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#idpbegfkql .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#idpbegfkql .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#idpbegfkql .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#idpbegfkql .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#idpbegfkql .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#idpbegfkql .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#idpbegfkql .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#idpbegfkql .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#idpbegfkql .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#idpbegfkql .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#idpbegfkql .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#idpbegfkql .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#idpbegfkql .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#idpbegfkql .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#idpbegfkql .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#idpbegfkql .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#idpbegfkql .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#idpbegfkql .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#idpbegfkql .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#idpbegfkql .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#idpbegfkql .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#idpbegfkql .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#idpbegfkql .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#idpbegfkql .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#idpbegfkql .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#idpbegfkql .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#idpbegfkql .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#idpbegfkql .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#idpbegfkql .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#idpbegfkql .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#idpbegfkql .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#idpbegfkql .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#idpbegfkql .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#idpbegfkql .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#idpbegfkql .gt_left {
+  text-align: left;
+}
+
+#idpbegfkql .gt_center {
+  text-align: center;
+}
+
+#idpbegfkql .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#idpbegfkql .gt_font_normal {
+  font-weight: normal;
+}
+
+#idpbegfkql .gt_font_bold {
+  font-weight: bold;
+}
+
+#idpbegfkql .gt_font_italic {
+  font-style: italic;
+}
+
+#idpbegfkql .gt_super {
+  font-size: 65%;
+}
+
+#idpbegfkql .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#idpbegfkql .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#idpbegfkql .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#idpbegfkql .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#idpbegfkql .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#idpbegfkql .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#idpbegfkql .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#idpbegfkql .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#idpbegfkql div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="label"><span class='gt_from_md'><strong>Characteristic</strong></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="estimate"><span class='gt_from_md'><strong>Beta</strong></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="conf.low"><span class='gt_from_md'><strong>95% CI</strong></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="p.value"><span class='gt_from_md'><strong>p-value</strong></span></th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="label" class="gt_row gt_left">Age</td>
+<td headers="estimate" class="gt_row gt_center">0.01</td>
+<td headers="conf.low" class="gt_row gt_center">-0.19, 0.21</td>
+<td headers="p.value" class="gt_row gt_center">>0.9</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">Sex</td>
+<td headers="estimate" class="gt_row gt_center"><br /></td>
+<td headers="conf.low" class="gt_row gt_center"><br /></td>
+<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Men</td>
+<td headers="estimate" class="gt_row gt_center">—</td>
+<td headers="conf.low" class="gt_row gt_center">—</td>
+<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Women</td>
+<td headers="estimate" class="gt_row gt_center">-1.1</td>
+<td headers="conf.low" class="gt_row gt_center">-8.1, 5.8</td>
+<td headers="p.value" class="gt_row gt_center">0.8</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">BMI</td>
+<td headers="estimate" class="gt_row gt_center">-0.09</td>
+<td headers="conf.low" class="gt_row gt_center">-1.0, 0.82</td>
+<td headers="p.value" class="gt_row gt_center">0.8</td></tr>
+  </tbody>
+  <tfoot>
+    <tr class="gt_sourcenotes">
+      <td class="gt_sourcenote" colspan="4"><span class='gt_from_md'>Abbreviation: CI = Confidence Interval</span></td>
+    </tr>
+  </tfoot>
+</table>
+</div>
+</div>
+</div>
+<div id="exercises-1" class="section level2 hasAnchor" number="10.10">
+<h2><span class="header-section-number">10.10</span> Exercises<a href="section-9.-data-managment-using-the-dplyr-package.html#exercises-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We will work with the <code>SNPSdataset.txt</code> (find it in the weekly assignments <a href="https://aules.uvic.cat/mod/assign/view.php?id=1086918">submission section</a>).</p>
+<p>Create a report using rmarkdown. Include in your report:</p>
+<ul>
+<li><p>the proportion of cases and controls.</p></li>
+<li><p>the proportion of women and men.</p></li>
+<li><p>the proportion of women and men within cases and controls, respectively.</p></li>
+<li><p>summary table with the information for cases and controls, age and gene_expression values stratifying by sex.</p></li>
+<li><p>summary table with the information for all SNPs genotypes when stratifying by sex</p></li>
+<li><p>summary table with the information for all SNPs genotypes when stratifying by sex and case/control</p></li>
+</ul>
+<p>Alternate the use of tables and plots (basic plots from session 2) to display the information. Work with the functions included in the <code>dplyr</code>and <code>tidyr</code> packages.</p>
+<p>The desired format to submit the report is an html. <strong>It is important to describe the results that you show to answer each question. Is not enough providing the code</strong> (<em>Example: The dataset is mainly defined by XX % of women and % men. When we stratify by clinical status, we observe a higher percentage of women in controls than in cases</em>).</p>
+<div id="extra-exercises" class="section level3 hasAnchor" number="10.10.1">
+<h3><span class="header-section-number">10.10.1</span> Extra exercises<a href="section-9.-data-managment-using-the-dplyr-package.html#extra-exercises" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>You can also try to report the same results with rmarkdown in other formats (word, pdf). If you want, you can try to work with other options that we have seen in class (Sweave, Shiny, Beamer). It is not mandatory and it does not have to be submitted. <em>Only the HTML file of the markdown</em>. If you want to work with shiny, you can continue the following R code: <code>ShinySNPSapp.R</code>. Some indications are explained in the script in order to display the main information.</p>
+<hr />
+<p><img src="logouvic.png" /></p>
+
+</div>
+</div>
 </div>
             </section>
 
@@ -584,7 +3330,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 <a href="section-8.-dynamic-reports.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="data-reshaping-and-cleaning-using-the-tidyr-package.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="section-10.-advanced-data-visualization-ggplot2-package.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

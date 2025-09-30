@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>13 SECTION 10. Advanced Data Visualization: ggplot2 package | curso-R</title>
+  <title>11 SECTION 10. Advanced Data Visualization: ggplot2 package | curso-R</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="13 SECTION 10. Advanced Data Visualization: ggplot2 package | curso-R" />
+  <meta property="og:title" content="11 SECTION 10. Advanced Data Visualization: ggplot2 package | curso-R" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="13 SECTION 10. Advanced Data Visualization: ggplot2 package | curso-R" />
+  <meta name="twitter:title" content="11 SECTION 10. Advanced Data Visualization: ggplot2 package | curso-R" />
   
   
   
@@ -28,7 +28,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="extra-exercises.html"/>
+<link rel="prev" href="section-9.-data-managment-using-the-dplyr-package.html"/>
 <link rel="next" href="section-11.-advanced-data-visualization-extra-part.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -349,73 +349,75 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.5" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#change-names-with-rename"><i class="fa fa-check"></i><b>10.5</b> Change names with <code>rename()</code></a></li>
 <li class="chapter" data-level="10.6" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#transforming-pre-existing-columns-or-creating-new-ones-with-mutate"><i class="fa fa-check"></i><b>10.6</b> Transforming pre-existing columns or creating new ones with <code>mutate()</code></a></li>
 <li class="chapter" data-level="10.7" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#to-sum-upgroup_by-summarise"><i class="fa fa-check"></i><b>10.7</b> To sum up…<code>group_by()</code> + <code>summarise()</code></a></li>
+<li class="chapter" data-level="10.8" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#data-reshaping-and-cleaning-using-the-tidyr-package"><i class="fa fa-check"></i><b>10.8</b> Data reshaping and cleaning using the tidyr package</a>
+<ul>
+<li class="chapter" data-level="10.8.1" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#transforming-wide-to-long-format-with-pivot_longer"><i class="fa fa-check"></i><b>10.8.1</b> Transforming wide to long format with <code>pivot_longer()</code>:</a></li>
+<li class="chapter" data-level="10.8.2" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#transforming-long-to-wide-format-with-pivot_wider"><i class="fa fa-check"></i><b>10.8.2</b> Transforming long to wide format with <code>pivot_wider()</code>:</a></li>
+<li class="chapter" data-level="10.8.3" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#handling-missing-values-with-replace_na"><i class="fa fa-check"></i><b>10.8.3</b> Handling missing values with <code>replace_na()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html"><i class="fa fa-check"></i><b>11</b> Data reshaping and cleaning using the tidyr package</a>
+<li class="chapter" data-level="10.9" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#gt-and-gtsummary-packages"><i class="fa fa-check"></i><b>10.9</b> Gt and gtsummary packages</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#transforming-wide-to-long-format-with-pivot_longer"><i class="fa fa-check"></i><b>11.1</b> Transforming wide to long format with <code>pivot_longer()</code>:</a></li>
-<li class="chapter" data-level="11.2" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#transforming-long-to-wide-format-with-pivot_wider"><i class="fa fa-check"></i><b>11.2</b> Transforming long to wide format with <code>pivot_wider()</code>:</a></li>
-<li class="chapter" data-level="11.3" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#handling-missing-values-with-replace_na"><i class="fa fa-check"></i><b>11.3</b> Handling missing values with <code>replace_na()</code></a></li>
-<li class="chapter" data-level="11.4" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#gt-and-gtsummary-packages"><i class="fa fa-check"></i><b>11.4</b> Gt and gtsummary packages</a>
-<ul>
-<li class="chapter" data-level="11.4.1" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#basic-summary-table-with-tbl_summary"><i class="fa fa-check"></i><b>11.4.1</b> Basic Summary Table with <code>tbl_summary()</code></a></li>
+<li class="chapter" data-level="10.9.1" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#basic-summary-table-with-tbl_summary"><i class="fa fa-check"></i><b>10.9.1</b> Basic Summary Table with <code>tbl_summary()</code></a></li>
+<li class="chapter" data-level="10.9.2" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#adding-statistical-tests-with-add_p"><i class="fa fa-check"></i><b>10.9.2</b> Adding statistical tests with <code>add_p()</code></a></li>
+<li class="chapter" data-level="10.9.3" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#stratified-tables-with-tbl_strata"><i class="fa fa-check"></i><b>10.9.3</b> Stratified Tables with <code>tbl_strata()</code></a></li>
+<li class="chapter" data-level="10.9.4" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#creating-cross-tables-with-tbl_cross"><i class="fa fa-check"></i><b>10.9.4</b> Creating Cross Tables with <code>tbl_cross()</code></a></li>
+<li class="chapter" data-level="10.9.5" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#regression-table-with-tbl_regression"><i class="fa fa-check"></i><b>10.9.5</b> Regression table with <code>tbl_regression()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="11.5" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#adding-statistical-tests-with-add_p"><i class="fa fa-check"></i><b>11.5</b> Adding statistical tests with <code>add_p()</code></a></li>
-<li class="chapter" data-level="11.6" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#stratified-tables-with-tbl_strata"><i class="fa fa-check"></i><b>11.6</b> Stratified Tables with <code>tbl_strata()</code></a></li>
-<li class="chapter" data-level="11.7" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#creating-cross-tables-with-tbl_cross"><i class="fa fa-check"></i><b>11.7</b> Creating Cross Tables with <code>tbl_cross()</code></a></li>
-<li class="chapter" data-level="11.8" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#regression-table-with-tbl_regression"><i class="fa fa-check"></i><b>11.8</b> Regression table with <code>tbl_regression()</code></a></li>
-<li class="chapter" data-level="11.9" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#exercises-1"><i class="fa fa-check"></i><b>11.9</b> Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="12" data-path="extra-exercises.html"><a href="extra-exercises.html"><i class="fa fa-check"></i><b>12</b> Extra exercises</a></li>
-<li class="chapter" data-level="13" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html"><i class="fa fa-check"></i><b>13</b> SECTION 10. Advanced Data Visualization: ggplot2 package</a>
+<li class="chapter" data-level="10.10" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#exercises-1"><i class="fa fa-check"></i><b>10.10</b> Exercises</a>
 <ul>
-<li class="chapter" data-level="13.1" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#why-ggplot2"><i class="fa fa-check"></i><b>13.1</b> Why ggplot2?</a></li>
-<li class="chapter" data-level="13.2" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#installation-1"><i class="fa fa-check"></i><b>13.2</b> Installation</a></li>
-<li class="chapter" data-level="13.3" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#usage"><i class="fa fa-check"></i><b>13.3</b> Usage</a></li>
-<li class="chapter" data-level="13.4" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#geometric-objects-and-aesthetics"><i class="fa fa-check"></i><b>13.4</b> Geometric Objects And Aesthetics</a>
-<ul>
-<li class="chapter" data-level="13.4.1" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#aesthetic-mapping"><i class="fa fa-check"></i><b>13.4.1</b> Aesthetic Mapping</a></li>
-<li class="chapter" data-level="13.4.2" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#geometic-objects-geom"><i class="fa fa-check"></i><b>13.4.2</b> Geometic Objects (geom)</a></li>
-</ul></li>
-<li class="chapter" data-level="13.5" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#examples"><i class="fa fa-check"></i><b>13.5</b> Examples</a>
-<ul>
-<li class="chapter" data-level="13.5.1" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#categorical-variables"><i class="fa fa-check"></i><b>13.5.1</b> Categorical Variables</a></li>
-<li class="chapter" data-level="13.5.2" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#quantitative-variables"><i class="fa fa-check"></i><b>13.5.2</b> Quantitative Variables</a></li>
-<li class="chapter" data-level="13.5.3" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#more-advanced-code-customizing-your-plots"><i class="fa fa-check"></i><b>13.5.3</b> More advanced code: customizing your plots</a></li>
-<li class="chapter" data-level="13.5.4" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#saving-plots"><i class="fa fa-check"></i><b>13.5.4</b> Saving plots</a></li>
-</ul></li>
-<li class="chapter" data-level="13.6" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#exercises-create-new-plots-for-genetic-data-visualization-using-the-snpdataset.txt-dataset.-create-a-report-in-.html-format-and-display-and-describe-each-one-of-the-plots."><i class="fa fa-check"></i><b>13.6</b> Exercises: Create new plots for genetic data visualization using the <code>SNPdataset.txt</code> dataset. Create a report in .html format and display and describe each one of the plots.</a></li>
-</ul></li>
-<li class="chapter" data-level="14" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html"><i class="fa fa-check"></i><b>14</b> SECTION 11. Advanced Data Visualization: Extra Part</a>
-<ul>
-<li class="chapter" data-level="14.1" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#useful-plots-for-omics-data-analysis"><i class="fa fa-check"></i><b>14.1</b> Useful plots for Omics Data Analysis</a>
-<ul>
-<li class="chapter" data-level="14.1.1" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#heatmap"><i class="fa fa-check"></i><b>14.1.1</b> Heatmap</a></li>
-<li class="chapter" data-level="14.1.2" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#venn-diagram"><i class="fa fa-check"></i><b>14.1.2</b> Venn Diagram</a></li>
-</ul></li>
-<li class="chapter" data-level="14.2" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#other-resources-in-r"><i class="fa fa-check"></i><b>14.2</b> Other resources in R</a>
-<ul>
-<li class="chapter" data-level="14.2.1" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#advanced-visualizations-with-ggpubr"><i class="fa fa-check"></i><b>14.2.1</b> Advanced visualizations with ggpubr</a></li>
-<li class="chapter" data-level="14.2.2" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#dynamic-plots-with-gganimate"><i class="fa fa-check"></i><b>14.2.2</b> Dynamic plots with gganimate</a></li>
-<li class="chapter" data-level="14.2.3" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#interactive-interfaces-for-creating-plots"><i class="fa fa-check"></i><b>14.2.3</b> Interactive interfaces for creating plots</a></li>
+<li class="chapter" data-level="10.10.1" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#extra-exercises"><i class="fa fa-check"></i><b>10.10.1</b> Extra exercises</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html"><i class="fa fa-check"></i><b>15</b> SECTION 12. Introduction to Shiny</a>
+<li class="chapter" data-level="11" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html"><i class="fa fa-check"></i><b>11</b> SECTION 10. Advanced Data Visualization: ggplot2 package</a>
 <ul>
-<li class="chapter" data-level="15.1" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#writing-a-shiny-application-in-r"><i class="fa fa-check"></i><b>15.1</b> Writing a Shiny Application in R</a>
+<li class="chapter" data-level="11.1" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#why-ggplot2"><i class="fa fa-check"></i><b>11.1</b> Why ggplot2?</a></li>
+<li class="chapter" data-level="11.2" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#installation-1"><i class="fa fa-check"></i><b>11.2</b> Installation</a></li>
+<li class="chapter" data-level="11.3" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#usage"><i class="fa fa-check"></i><b>11.3</b> Usage</a></li>
+<li class="chapter" data-level="11.4" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#geometric-objects-and-aesthetics"><i class="fa fa-check"></i><b>11.4</b> Geometric Objects And Aesthetics</a>
 <ul>
-<li class="chapter" data-level="15.1.1" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#ui-layout"><i class="fa fa-check"></i><b>15.1.1</b> UI Layout</a></li>
-<li class="chapter" data-level="15.1.2" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#server-logic"><i class="fa fa-check"></i><b>15.1.2</b> Server Logic</a></li>
-<li class="chapter" data-level="15.1.3" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#examples-1"><i class="fa fa-check"></i><b>15.1.3</b> Examples</a></li>
+<li class="chapter" data-level="11.4.1" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#aesthetic-mapping"><i class="fa fa-check"></i><b>11.4.1</b> Aesthetic Mapping</a></li>
+<li class="chapter" data-level="11.4.2" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#geometic-objects-geom"><i class="fa fa-check"></i><b>11.4.2</b> Geometic Objects (geom)</a></li>
 </ul></li>
-<li class="chapter" data-level="15.2" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#elements-for-a-shiny-app"><i class="fa fa-check"></i><b>15.2</b> Elements for a Shiny App</a>
+<li class="chapter" data-level="11.5" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#examples"><i class="fa fa-check"></i><b>11.5</b> Examples</a>
 <ul>
-<li class="chapter" data-level="15.2.1" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#ui-components"><i class="fa fa-check"></i><b>15.2.1</b> UI Components</a></li>
-<li class="chapter" data-level="15.2.2" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#server-function"><i class="fa fa-check"></i><b>15.2.2</b> Server function</a></li>
+<li class="chapter" data-level="11.5.1" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#categorical-variables"><i class="fa fa-check"></i><b>11.5.1</b> Categorical Variables</a></li>
+<li class="chapter" data-level="11.5.2" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#quantitative-variables"><i class="fa fa-check"></i><b>11.5.2</b> Quantitative Variables</a></li>
+<li class="chapter" data-level="11.5.3" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#more-advanced-code-customizing-your-plots"><i class="fa fa-check"></i><b>11.5.3</b> More advanced code: customizing your plots</a></li>
+<li class="chapter" data-level="11.5.4" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#saving-plots"><i class="fa fa-check"></i><b>11.5.4</b> Saving plots</a></li>
 </ul></li>
-<li class="chapter" data-level="15.3" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#working-with-shinydashboard"><i class="fa fa-check"></i><b>15.3</b> Working with ShinyDashboard</a></li>
-<li class="chapter" data-level="15.4" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#deploying-the-application-to-shinyapps.io"><i class="fa fa-check"></i><b>15.4</b> Deploying the Application to Shinyapps.io</a></li>
-<li class="chapter" data-level="15.5" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#take-home"><i class="fa fa-check"></i><b>15.5</b> Take home</a></li>
-<li class="chapter" data-level="15.6" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#final-task"><i class="fa fa-check"></i><b>15.6</b> Final Task</a></li>
+<li class="chapter" data-level="11.6" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#exercises-create-new-plots-for-genetic-data-visualization-using-the-snpdataset.txt-dataset.-create-a-report-in-.html-format-and-display-and-describe-each-one-of-the-plots."><i class="fa fa-check"></i><b>11.6</b> Exercises: Create new plots for genetic data visualization using the <code>SNPdataset.txt</code> dataset. Create a report in .html format and display and describe each one of the plots.</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html"><i class="fa fa-check"></i><b>12</b> SECTION 11. Advanced Data Visualization: Extra Part</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#useful-plots-for-omics-data-analysis"><i class="fa fa-check"></i><b>12.1</b> Useful plots for Omics Data Analysis</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#heatmap"><i class="fa fa-check"></i><b>12.1.1</b> Heatmap</a></li>
+<li class="chapter" data-level="12.1.2" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#venn-diagram"><i class="fa fa-check"></i><b>12.1.2</b> Venn Diagram</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#other-resources-in-r"><i class="fa fa-check"></i><b>12.2</b> Other resources in R</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#advanced-visualizations-with-ggpubr"><i class="fa fa-check"></i><b>12.2.1</b> Advanced visualizations with ggpubr</a></li>
+<li class="chapter" data-level="12.2.2" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#dynamic-plots-with-gganimate"><i class="fa fa-check"></i><b>12.2.2</b> Dynamic plots with gganimate</a></li>
+<li class="chapter" data-level="12.2.3" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#interactive-interfaces-for-creating-plots"><i class="fa fa-check"></i><b>12.2.3</b> Interactive interfaces for creating plots</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html"><i class="fa fa-check"></i><b>13</b> SECTION 12. Introduction to Shiny</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#writing-a-shiny-application-in-r"><i class="fa fa-check"></i><b>13.1</b> Writing a Shiny Application in R</a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#ui-layout"><i class="fa fa-check"></i><b>13.1.1</b> UI Layout</a></li>
+<li class="chapter" data-level="13.1.2" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#server-logic"><i class="fa fa-check"></i><b>13.1.2</b> Server Logic</a></li>
+<li class="chapter" data-level="13.1.3" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#examples-1"><i class="fa fa-check"></i><b>13.1.3</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#elements-for-a-shiny-app"><i class="fa fa-check"></i><b>13.2</b> Elements for a Shiny App</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#ui-components"><i class="fa fa-check"></i><b>13.2.1</b> UI Components</a></li>
+<li class="chapter" data-level="13.2.2" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#server-function"><i class="fa fa-check"></i><b>13.2.2</b> Server function</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#working-with-shinydashboard"><i class="fa fa-check"></i><b>13.3</b> Working with ShinyDashboard</a></li>
+<li class="chapter" data-level="13.4" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#deploying-the-application-to-shinyapps.io"><i class="fa fa-check"></i><b>13.4</b> Deploying the Application to Shinyapps.io</a></li>
+<li class="chapter" data-level="13.5" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#take-home"><i class="fa fa-check"></i><b>13.5</b> Take home</a></li>
+<li class="chapter" data-level="13.6" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#final-task"><i class="fa fa-check"></i><b>13.6</b> Final Task</a></li>
 </ul></li>
 </ul>
 
@@ -434,11 +436,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="section-10.-advanced-data-visualization-ggplot2-package" class="section level1 hasAnchor" number="13">
-<h1><span class="header-section-number">13</span> SECTION 10. Advanced Data Visualization: ggplot2 package<a href="section-10.-advanced-data-visualization-ggplot2-package.html#section-10.-advanced-data-visualization-ggplot2-package" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="section-10.-advanced-data-visualization-ggplot2-package" class="section level1 hasAnchor" number="11">
+<h1><span class="header-section-number">11</span> SECTION 10. Advanced Data Visualization: ggplot2 package<a href="section-10.-advanced-data-visualization-ggplot2-package.html#section-10.-advanced-data-visualization-ggplot2-package" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><code>ggplot2</code> is an R package for producing statistical, or data, graphics, but it is unlike most other graphics packages because it has a deep underlying code. This code is composed of a set of independent components that can be composed in many different ways. <code>ggplot2</code> is designed to work in a layered fashion, starting with a layer showing the raw data then adding layers of annotation and statistical summaries.</p>
-<div id="why-ggplot2" class="section level2 hasAnchor" number="13.1">
-<h2><span class="header-section-number">13.1</span> Why ggplot2?<a href="section-10.-advanced-data-visualization-ggplot2-package.html#why-ggplot2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="why-ggplot2" class="section level2 hasAnchor" number="11.1">
+<h2><span class="header-section-number">11.1</span> Why ggplot2?<a href="section-10.-advanced-data-visualization-ggplot2-package.html#why-ggplot2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Advantages of ggplot2</p>
 <ul>
 <li><p>consistent underlying grammar of graphics</p></li>
@@ -447,20 +449,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>There are a lot of cheatsheets and sources that allow us to find examples and code to plot more advanced graphics with ggplot. We will start step by step.</p>
 </div>
-<div id="installation-1" class="section level2 hasAnchor" number="13.2">
-<h2><span class="header-section-number">13.2</span> Installation<a href="section-10.-advanced-data-visualization-ggplot2-package.html#installation-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="installation-1" class="section level2 hasAnchor" number="11.2">
+<h2><span class="header-section-number">11.2</span> Installation<a href="section-10.-advanced-data-visualization-ggplot2-package.html#installation-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="sourceCode" id="cb548"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb548-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb548-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</span>
 <span id="cb548-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb548-2" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
 <p>(You’ll need to make sure you have the most recent version of R to get the most recent version of ggplot)</p>
 </div>
-<div id="usage" class="section level2 hasAnchor" number="13.3">
-<h2><span class="header-section-number">13.3</span> Usage<a href="section-10.-advanced-data-visualization-ggplot2-package.html#usage" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="usage" class="section level2 hasAnchor" number="11.3">
+<h2><span class="header-section-number">11.3</span> Usage<a href="section-10.-advanced-data-visualization-ggplot2-package.html#usage" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>It’s hard to describe how ggplot2 works because it embodies a deep philosophy of visualization. However, in most cases you start with <code>ggplot()</code>, supply a dataset and aesthetic mapping (with <code>aes()</code>).</p>
 </div>
-<div id="geometric-objects-and-aesthetics" class="section level2 hasAnchor" number="13.4">
-<h2><span class="header-section-number">13.4</span> Geometric Objects And Aesthetics<a href="section-10.-advanced-data-visualization-ggplot2-package.html#geometric-objects-and-aesthetics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="aesthetic-mapping" class="section level3 hasAnchor" number="13.4.1">
-<h3><span class="header-section-number">13.4.1</span> Aesthetic Mapping<a href="section-10.-advanced-data-visualization-ggplot2-package.html#aesthetic-mapping" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="geometric-objects-and-aesthetics" class="section level2 hasAnchor" number="11.4">
+<h2><span class="header-section-number">11.4</span> Geometric Objects And Aesthetics<a href="section-10.-advanced-data-visualization-ggplot2-package.html#geometric-objects-and-aesthetics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="aesthetic-mapping" class="section level3 hasAnchor" number="11.4.1">
+<h3><span class="header-section-number">11.4.1</span> Aesthetic Mapping<a href="section-10.-advanced-data-visualization-ggplot2-package.html#aesthetic-mapping" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In ggplot land aesthetic means “something you can see”. Examples include:</p>
 <ul>
 <li><p>position (i.e., on the x and y axes)</p></li>
@@ -472,8 +474,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>Each type of geom accepts only a subset of all aesthetics-refer to the geom help pages to see what mappings each geom accepts. Aesthetic mappings are set with the <code>aes()</code> function.</p>
 </div>
-<div id="geometic-objects-geom" class="section level3 hasAnchor" number="13.4.2">
-<h3><span class="header-section-number">13.4.2</span> Geometic Objects (geom)<a href="section-10.-advanced-data-visualization-ggplot2-package.html#geometic-objects-geom" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="geometic-objects-geom" class="section level3 hasAnchor" number="11.4.2">
+<h3><span class="header-section-number">11.4.2</span> Geometic Objects (geom)<a href="section-10.-advanced-data-visualization-ggplot2-package.html#geometic-objects-geom" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Geometric objects are the actual marks (different visual object to represent the data) we put on a plot. Examples include:</p>
 <ul>
 <li><p>points (<code>geom_point</code>, for scatter plots, dot plots, etc)</p></li>
@@ -488,8 +490,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Let’s start:</p>
 </div>
 </div>
-<div id="examples" class="section level2 hasAnchor" number="13.5">
-<h2><span class="header-section-number">13.5</span> Examples<a href="section-10.-advanced-data-visualization-ggplot2-package.html#examples" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="examples" class="section level2 hasAnchor" number="11.5">
+<h2><span class="header-section-number">11.5</span> Examples<a href="section-10.-advanced-data-visualization-ggplot2-package.html#examples" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Install and Load the ggplot2 package. Explore the <code>diamonds</code> dataset. The diamonds data frame contains information on the prices and various metrics of <span class="math inline">\(~54,000\)</span> diamonds.</p>
 <div class="sourceCode" id="cb550"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb550-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb550-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb550-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb550-2" tabindex="-1"></a><span class="fu">names</span>(diamonds)</span></code></pre></div>
@@ -530,10 +532,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>There are more options that we would like to analyze/explore.</p>
 <p>In case you want to learn about other graphics/options, visit the following link: <a href="https://r-graph-gallery.com/" class="uri">https://r-graph-gallery.com/</a> . You will find a wide range of options to graphically describe your data.</p>
-<div id="categorical-variables" class="section level3 hasAnchor" number="13.5.1">
-<h3><span class="header-section-number">13.5.1</span> Categorical Variables<a href="section-10.-advanced-data-visualization-ggplot2-package.html#categorical-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="barplot" class="section level4 hasAnchor" number="13.5.1.1">
-<h4><span class="header-section-number">13.5.1.1</span> Barplot<a href="section-10.-advanced-data-visualization-ggplot2-package.html#barplot" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="categorical-variables" class="section level3 hasAnchor" number="11.5.1">
+<h3><span class="header-section-number">11.5.1</span> Categorical Variables<a href="section-10.-advanced-data-visualization-ggplot2-package.html#categorical-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="barplot" class="section level4 hasAnchor" number="11.5.1.1">
+<h4><span class="header-section-number">11.5.1.1</span> Barplot<a href="section-10.-advanced-data-visualization-ggplot2-package.html#barplot" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>We have a categorical variable and we want to find the frequency of appearance for each level of the factor. The main idea is to plot the frequency that we observe for each category of the categorical variable (<strong>check class(Variable)</strong>: it must be a factor).</p>
 <div class="sourceCode" id="cb558"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb558-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb558-1" tabindex="-1"></a><span class="fu">table</span>(diamonds<span class="sc">$</span>cut)</span></code></pre></div>
 <pre><code>## 
@@ -583,12 +585,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="11-AdvVisualization_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 </div>
 </div>
-<div id="quantitative-variables" class="section level3 hasAnchor" number="13.5.2">
-<h3><span class="header-section-number">13.5.2</span> Quantitative Variables<a href="section-10.-advanced-data-visualization-ggplot2-package.html#quantitative-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="distribution" class="section level4 hasAnchor" number="13.5.2.1">
-<h4><span class="header-section-number">13.5.2.1</span> Distribution<a href="section-10.-advanced-data-visualization-ggplot2-package.html#distribution" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div id="histograms-1" class="section level5 hasAnchor" number="13.5.2.1.1">
-<h5><span class="header-section-number">13.5.2.1.1</span> Histograms<a href="section-10.-advanced-data-visualization-ggplot2-package.html#histograms-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div id="quantitative-variables" class="section level3 hasAnchor" number="11.5.2">
+<h3><span class="header-section-number">11.5.2</span> Quantitative Variables<a href="section-10.-advanced-data-visualization-ggplot2-package.html#quantitative-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="distribution" class="section level4 hasAnchor" number="11.5.2.1">
+<h4><span class="header-section-number">11.5.2.1</span> Distribution<a href="section-10.-advanced-data-visualization-ggplot2-package.html#distribution" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="histograms-1" class="section level5 hasAnchor" number="11.5.2.1.1">
+<h5><span class="header-section-number">11.5.2.1.1</span> Histograms<a href="section-10.-advanced-data-visualization-ggplot2-package.html#histograms-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>Let’s plot the distribution of the variable <em>price</em>.</p>
 <div class="sourceCode" id="cb571"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb571-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb571-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>diamonds) <span class="sc">+</span></span>
 <span id="cb571-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb571-2" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth=</span><span class="dv">500</span>, <span class="fu">aes</span>(<span class="at">x=</span>price)) <span class="sc">+</span>     <span class="do">##### binwidth=change width histogram</span></span>
@@ -676,8 +678,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb581-6"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb581-6" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="dv">0</span>,<span class="dv">2500</span>) </span></code></pre></div>
 <p><img src="11-AdvVisualization_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 </div>
-<div id="density-plots" class="section level5 hasAnchor" number="13.5.2.1.2">
-<h5><span class="header-section-number">13.5.2.1.2</span> Density plots<a href="section-10.-advanced-data-visualization-ggplot2-package.html#density-plots" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div id="density-plots" class="section level5 hasAnchor" number="11.5.2.1.2">
+<h5><span class="header-section-number">11.5.2.1.2</span> Density plots<a href="section-10.-advanced-data-visualization-ggplot2-package.html#density-plots" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>We display the density plot only for the cases where price is below 1000.</p>
 <div class="sourceCode" id="cb582"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb582-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb582-1" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span></span>
 <span id="cb582-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb582-2" tabindex="-1"></a>  <span class="fu">filter</span>( price<span class="sc">&lt;</span><span class="dv">1000</span> ) <span class="sc">%&gt;%</span></span>
@@ -696,8 +698,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="11-AdvVisualization_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 <hr />
 </div>
-<div id="boxplots" class="section level5 hasAnchor" number="13.5.2.1.3">
-<h5><span class="header-section-number">13.5.2.1.3</span> Boxplots<a href="section-10.-advanced-data-visualization-ggplot2-package.html#boxplots" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div id="boxplots" class="section level5 hasAnchor" number="11.5.2.1.3">
+<h5><span class="header-section-number">11.5.2.1.3</span> Boxplots<a href="section-10.-advanced-data-visualization-ggplot2-package.html#boxplots" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>When we want to observe the distribution of a continuous variable, we can use box plots in order to visualize the median of the distribution, the first and third quantile, the variability across all the observations and outliers.</p>
 <p>We can plot these distributions stratifying by categorical variables, to compare between different categories of the same factor.</p>
 <p>In the previous section, we have seen the distribution of the variable <em>price</em> in a histogram that shows the range of prices that are more frequent in our sample. We have also plotted the observations according to specific levels of the factor <em>cut</em>.</p>
@@ -740,8 +742,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb589-7"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb589-7" tabindex="-1"></a> <span class="fu">coord_cartesian</span>(<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">7500</span>)) </span></code></pre></div>
 <p><img src="11-AdvVisualization_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
 </div>
-<div id="violin-plot" class="section level5 hasAnchor" number="13.5.2.1.4">
-<h5><span class="header-section-number">13.5.2.1.4</span> Violin plot<a href="section-10.-advanced-data-visualization-ggplot2-package.html#violin-plot" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div id="violin-plot" class="section level5 hasAnchor" number="11.5.2.1.4">
+<h5><span class="header-section-number">11.5.2.1.4</span> Violin plot<a href="section-10.-advanced-data-visualization-ggplot2-package.html#violin-plot" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <div class="sourceCode" id="cb590"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb590-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb590-1" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span></span>
 <span id="cb590-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb590-2" tabindex="-1"></a>  <span class="fu">ggplot</span>( <span class="fu">aes</span>(<span class="at">x=</span>cut,<span class="at">y=</span>price, <span class="at">fill=</span>cut)) <span class="sc">+</span></span>
 <span id="cb590-3"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb590-3" tabindex="-1"></a>    <span class="fu">geom_violin</span>(<span class="at">width=</span><span class="fl">1.4</span>) <span class="sc">+</span></span>
@@ -755,10 +757,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="11-AdvVisualization_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
 </div>
 </div>
-<div id="correlation-between-2-variables" class="section level4 hasAnchor" number="13.5.2.2">
-<h4><span class="header-section-number">13.5.2.2</span> Correlation between 2 variables<a href="section-10.-advanced-data-visualization-ggplot2-package.html#correlation-between-2-variables" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div id="scatterplot" class="section level5 hasAnchor" number="13.5.2.2.1">
-<h5><span class="header-section-number">13.5.2.2.1</span> Scatterplot<a href="section-10.-advanced-data-visualization-ggplot2-package.html#scatterplot" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div id="correlation-between-2-variables" class="section level4 hasAnchor" number="11.5.2.2">
+<h4><span class="header-section-number">11.5.2.2</span> Correlation between 2 variables<a href="section-10.-advanced-data-visualization-ggplot2-package.html#correlation-between-2-variables" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="scatterplot" class="section level5 hasAnchor" number="11.5.2.2.1">
+<h5><span class="header-section-number">11.5.2.2.1</span> Scatterplot<a href="section-10.-advanced-data-visualization-ggplot2-package.html#scatterplot" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>Now, we are interested in plotting together the observations of two continuous variables. For example, we want to assess the relationship between the variable depth and price:</p>
 <div class="sourceCode" id="cb591"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb591-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb591-1" tabindex="-1"></a>p<span class="ot">&lt;-</span><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> depth, <span class="at">y =</span> price)) <span class="sc">+</span> <span class="fu">geom_point</span>() </span>
 <span id="cb591-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb591-2" tabindex="-1"></a>p</span></code></pre></div>
@@ -787,8 +789,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="11-AdvVisualization_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
 <hr />
 </div>
-<div id="smoothers" class="section level5 hasAnchor" number="13.5.2.2.2">
-<h5><span class="header-section-number">13.5.2.2.2</span> Smoothers<a href="section-10.-advanced-data-visualization-ggplot2-package.html#smoothers" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div id="smoothers" class="section level5 hasAnchor" number="11.5.2.2.2">
+<h5><span class="header-section-number">11.5.2.2.2</span> Smoothers<a href="section-10.-advanced-data-visualization-ggplot2-package.html#smoothers" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>Not all geometric objects are simple shapes-the smooth geom includes a line and a ribbon.</p>
 <p>We can define different methods, but by default it applies generalized additive models, for non-linear associations. It assumes that the outcome can be modelled by a sum of arbitrary functions of each feature.</p>
 <p>We can also assume linear association and define it in the argument metod.</p>
@@ -837,10 +839,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<div id="more-advanced-code-customizing-your-plots" class="section level3 hasAnchor" number="13.5.3">
-<h3><span class="header-section-number">13.5.3</span> More advanced code: customizing your plots<a href="section-10.-advanced-data-visualization-ggplot2-package.html#more-advanced-code-customizing-your-plots" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="adding-text" class="section level4 hasAnchor" number="13.5.3.1">
-<h4><span class="header-section-number">13.5.3.1</span> Adding text<a href="section-10.-advanced-data-visualization-ggplot2-package.html#adding-text" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="more-advanced-code-customizing-your-plots" class="section level3 hasAnchor" number="11.5.3">
+<h3><span class="header-section-number">11.5.3</span> More advanced code: customizing your plots<a href="section-10.-advanced-data-visualization-ggplot2-package.html#more-advanced-code-customizing-your-plots" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="adding-text" class="section level4 hasAnchor" number="11.5.3.1">
+<h4><span class="header-section-number">11.5.3.1</span> Adding text<a href="section-10.-advanced-data-visualization-ggplot2-package.html#adding-text" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Let’s remember that we can summarize the counts of a categorical variable by using <code>geom_bar()</code>.</p>
 <div class="sourceCode" id="cb600"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb600-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb600-1" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x=</span>cut, <span class="at">fill=</span>cut)) <span class="sc">+</span></span>
 <span id="cb600-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb600-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
@@ -924,8 +926,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb612"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb612-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb612-1" tabindex="-1"></a><span class="do">##if we want the format XX%</span></span></code></pre></div>
 <hr />
 </div>
-<div id="changing-style" class="section level4 hasAnchor" number="13.5.3.2">
-<h4><span class="header-section-number">13.5.3.2</span> Changing style<a href="section-10.-advanced-data-visualization-ggplot2-package.html#changing-style" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="changing-style" class="section level4 hasAnchor" number="11.5.3.2">
+<h4><span class="header-section-number">11.5.3.2</span> Changing style<a href="section-10.-advanced-data-visualization-ggplot2-package.html#changing-style" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ul>
 <li><p>theme_minimal</p></li>
 <li><p>theme_light</p></li>
@@ -949,8 +951,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb613-15"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb613-15" tabindex="-1"></a><span class="fu">ggarrange</span>(<span class="at">ncol=</span><span class="dv">2</span>,<span class="at">nrow=</span><span class="dv">2</span>, p1,p2,p3,plot_example)</span></code></pre></div>
 <p><img src="11-AdvVisualization_files/figure-html/unnamed-chunk-40-1.png" width="672" /></p>
 </div>
-<div id="facet_grid-and-facet_wrap-stratifying-by-categories" class="section level4 hasAnchor" number="13.5.3.3">
-<h4><span class="header-section-number">13.5.3.3</span> Facet_grid and facet_wrap: stratifying by categories<a href="section-10.-advanced-data-visualization-ggplot2-package.html#facet_grid-and-facet_wrap-stratifying-by-categories" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="facet_grid-and-facet_wrap-stratifying-by-categories" class="section level4 hasAnchor" number="11.5.3.3">
+<h4><span class="header-section-number">11.5.3.3</span> Facet_grid and facet_wrap: stratifying by categories<a href="section-10.-advanced-data-visualization-ggplot2-package.html#facet_grid-and-facet_wrap-stratifying-by-categories" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><strong>1) Facet_wrap</strong></p>
 <p>We will follow the previous example. Remember that we want to plot the distribution of the variable <em>price</em> (y-axis) for each category of the variable <em>cut</em>.</p>
 <p>Imagine that for a specific category of the variable <em>cut</em>, the distribution of the variable <em>price</em> does not show a high variability. The graphic will display all the categories together and for a concrete one, the box won’t almost appear.</p>
@@ -1010,8 +1012,8 @@ It means that we are interested in the distribution of <em>price</em> per each n
 <hr />
 </div>
 </div>
-<div id="saving-plots" class="section level3 hasAnchor" number="13.5.4">
-<h3><span class="header-section-number">13.5.4</span> Saving plots<a href="section-10.-advanced-data-visualization-ggplot2-package.html#saving-plots" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="saving-plots" class="section level3 hasAnchor" number="11.5.4">
+<h3><span class="header-section-number">11.5.4</span> Saving plots<a href="section-10.-advanced-data-visualization-ggplot2-package.html#saving-plots" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>There are two ways in which figures and plots can be output to a file (rather than simply displaying on screen). The first (and easiest) is to export directly from the RStudio ‘Plots’ panel, by clicking on <code>Export</code> when the image is plotted. This will give you the option of <code>png</code> or <code>pdf</code> and selecting the directory to which you wish to save it to. It will also give you options to modify the size and resolution of the output image.</p>
 <p>The second option is to use R functions. This would allow you to run an R script from start to finish and automate the process (not requiring human point-and-click actions to save). In R’s terminology, <strong>output is directed to a particular output device and that dictates the output format that will be produced</strong>. A device must be created or “opened” in order to receive graphical output and, for devices that create a file
 on disk, the device must also be closed in order to complete the output.</p>
@@ -1045,8 +1047,8 @@ on disk, the device must also be closed in order to complete the output.</p>
 </ol>
 </div>
 </div>
-<div id="exercises-create-new-plots-for-genetic-data-visualization-using-the-snpdataset.txt-dataset.-create-a-report-in-.html-format-and-display-and-describe-each-one-of-the-plots." class="section level2 hasAnchor" number="13.6">
-<h2><span class="header-section-number">13.6</span> Exercises: Create new plots for genetic data visualization using the <code>SNPdataset.txt</code> dataset. Create a report in .html format and display and describe each one of the plots.<a href="section-10.-advanced-data-visualization-ggplot2-package.html#exercises-create-new-plots-for-genetic-data-visualization-using-the-snpdataset.txt-dataset.-create-a-report-in-.html-format-and-display-and-describe-each-one-of-the-plots." class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="exercises-create-new-plots-for-genetic-data-visualization-using-the-snpdataset.txt-dataset.-create-a-report-in-.html-format-and-display-and-describe-each-one-of-the-plots." class="section level2 hasAnchor" number="11.6">
+<h2><span class="header-section-number">11.6</span> Exercises: Create new plots for genetic data visualization using the <code>SNPdataset.txt</code> dataset. Create a report in .html format and display and describe each one of the plots.<a href="section-10.-advanced-data-visualization-ggplot2-package.html#exercises-create-new-plots-for-genetic-data-visualization-using-the-snpdataset.txt-dataset.-create-a-report-in-.html-format-and-display-and-describe-each-one-of-the-plots." class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>1. Analyze the distribution of the variable <em>GENE_EXPRESSION</em>.</strong></p>
 <ol style="list-style-type: lower-alpha">
 <li><p>Create both a histogram and a boxplot to analyze the distribution of the variable GENE_EXPRESSION. Display them together (<code>hint</code>: use <code>ggarrange</code>).</p></li>
@@ -1075,7 +1077,7 @@ on disk, the device must also be closed in order to complete the output.</p>
           </div>
         </div>
       </div>
-<a href="extra-exercises.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="section-9.-data-managment-using-the-dplyr-package.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="section-11.-advanced-data-visualization-extra-part.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

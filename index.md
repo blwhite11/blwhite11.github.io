@@ -17,7 +17,7 @@ In this block of the Bioinformatic's subject, the student will learn how to beco
 * **Advanced Functions and Efficient Programming** - (22/10/25) - Blanca Rodríguez Fernández
 * **Dynamic Report Generation** - (29/10/25) - Patricia Genius Serra
 * **Ggplot2 R package: data visualization** - (05/11/25) - Patricia Genius Serra
-* **Final activity** - (12/11/24) - Patricia Genius Serra
+* **Final activity** - (12/11/25) - Patricia Genius Serra
 
 
 ## Evaluation
