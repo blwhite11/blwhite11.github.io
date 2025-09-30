@@ -1,0 +1,3250 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>11 Data reshaping and cleaning using the tidyr package | curso-R</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="11 Data reshaping and cleaning using the tidyr package | curso-R" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="11 Data reshaping and cleaning using the tidyr package | curso-R" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="section-9.-data-managment-using-the-dplyr-package.html"/>
+<link rel="next" href="extra-exercises.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#description-of-the-r-programming-block"><i class="fa fa-check"></i><b>1.1</b> Description of the R programming block</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#contents-of-the-r-programming-block"><i class="fa fa-check"></i><b>1.2</b> Contents of the R programming block</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#evaluation"><i class="fa fa-check"></i><b>1.3</b> Evaluation</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="section-1.-errors-you-may-find-in-r.html"><a href="section-1.-errors-you-may-find-in-r.html"><i class="fa fa-check"></i><b>2</b> SECTION 1. Errors you may find in R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="section-1.-errors-you-may-find-in-r.html"><a href="section-1.-errors-you-may-find-in-r.html#installing-r"><i class="fa fa-check"></i><b>2.1</b> Installing R</a></li>
+<li class="chapter" data-level="2.2" data-path="section-1.-errors-you-may-find-in-r.html"><a href="section-1.-errors-you-may-find-in-r.html#loading-packages"><i class="fa fa-check"></i><b>2.2</b> Loading packages</a></li>
+<li class="chapter" data-level="2.3" data-path="section-1.-errors-you-may-find-in-r.html"><a href="section-1.-errors-you-may-find-in-r.html#defining-directories"><i class="fa fa-check"></i><b>2.3</b> Defining directories</a></li>
+<li class="chapter" data-level="2.4" data-path="section-1.-errors-you-may-find-in-r.html"><a href="section-1.-errors-you-may-find-in-r.html#resources-you-have"><i class="fa fa-check"></i><b>2.4</b> Resources you have</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html"><i class="fa fa-check"></i><b>3</b> SECTION 2. Introduction to R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#why-r"><i class="fa fa-check"></i><b>3.1</b> Why R?</a></li>
+<li class="chapter" data-level="3.2" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#creating-a-new-project-directory-in-rstudio"><i class="fa fa-check"></i><b>3.2</b> Creating a new project directory in RStudio</a></li>
+<li class="chapter" data-level="3.3" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#rstudio-interface"><i class="fa fa-check"></i><b>3.3</b> RStudio Interface</a></li>
+<li class="chapter" data-level="3.4" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#organizing-your-working-directory-setting-up"><i class="fa fa-check"></i><b>3.4</b> Organizing your working directory &amp; setting up</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#viewing-your-working-directory"><i class="fa fa-check"></i><b>3.4.1</b> Viewing your working directory</a></li>
+<li class="chapter" data-level="3.4.2" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#console-command-prompt"><i class="fa fa-check"></i><b>3.4.2</b> Console command prompt</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#simple-computations-with-r"><i class="fa fa-check"></i><b>3.5</b> Simple computations with R</a></li>
+<li class="chapter" data-level="3.6" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#math-functions"><i class="fa fa-check"></i><b>3.6</b> Math functions</a></li>
+<li class="chapter" data-level="3.7" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#variable-assignment"><i class="fa fa-check"></i><b>3.7</b> Variable Assignment</a></li>
+<li class="chapter" data-level="3.8" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#data-types"><i class="fa fa-check"></i><b>3.8</b> Data types</a></li>
+<li class="chapter" data-level="3.9" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#create-new-data"><i class="fa fa-check"></i><b>3.9</b> Create new data</a></li>
+<li class="chapter" data-level="3.10" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#structures"><i class="fa fa-check"></i><b>3.10</b> Structures</a></li>
+<li class="chapter" data-level="3.11" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#the-environment"><i class="fa fa-check"></i><b>3.11</b> The environment</a></li>
+<li class="chapter" data-level="3.12" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#using-scripts"><i class="fa fa-check"></i><b>3.12</b> Using scripts</a></li>
+<li class="chapter" data-level="3.13" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#r-basic-base-functions"><i class="fa fa-check"></i><b>3.13</b> R basic base functions</a></li>
+<li class="chapter" data-level="3.14" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#reading-and-writing-data-files"><i class="fa fa-check"></i><b>3.14</b> Reading and writing data files</a></li>
+<li class="chapter" data-level="3.15" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#librariespackages"><i class="fa fa-check"></i><b>3.15</b> Libraries/Packages</a>
+<ul>
+<li class="chapter" data-level="3.15.1" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#install-packages-from-cran"><i class="fa fa-check"></i><b>3.15.1</b> Install packages from CRAN</a></li>
+<li class="chapter" data-level="3.15.2" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#install-packages-from-github"><i class="fa fa-check"></i><b>3.15.2</b> Install packages from GitHub</a></li>
+</ul></li>
+<li class="chapter" data-level="3.16" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#help-and-documentation"><i class="fa fa-check"></i><b>3.16</b> Help and documentation</a></li>
+<li class="chapter" data-level="3.17" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#interesting-references"><i class="fa fa-check"></i><b>3.17</b> Interesting references:</a></li>
+<li class="chapter" data-level="3.18" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#exercises"><i class="fa fa-check"></i><b>3.18</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="3.18.1" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#part-i"><i class="fa fa-check"></i><b>3.18.1</b> Part I</a></li>
+<li class="chapter" data-level="3.18.2" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#part-ii"><i class="fa fa-check"></i><b>3.18.2</b> Part II</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html"><i class="fa fa-check"></i><b>4</b> SECTION 3. Basic data management</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#accessing-information-and-creating-new-variables"><i class="fa fa-check"></i><b>4.1</b> Accessing information and creating new variables</a></li>
+<li class="chapter" data-level="4.2" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#data-types-and-data-conversions"><i class="fa fa-check"></i><b>4.2</b> Data types and data conversions</a></li>
+<li class="chapter" data-level="4.3" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#subsetting-datasets"><i class="fa fa-check"></i><b>4.3</b> Subsetting datasets</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#selecting-keeping-variables"><i class="fa fa-check"></i><b>4.3.1</b> Selecting (keeping) variables</a></li>
+<li class="chapter" data-level="4.3.2" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#excluding-dropping-variables"><i class="fa fa-check"></i><b>4.3.2</b> Excluding (dropping) variables</a></li>
+<li class="chapter" data-level="4.3.3" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#selecting-or-excluding-observations"><i class="fa fa-check"></i><b>4.3.3</b> Selecting or excluding observations</a></li>
+<li class="chapter" data-level="4.3.4" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#conditional-selection-of-data"><i class="fa fa-check"></i><b>4.3.4</b> Conditional selection of data</a></li>
+<li class="chapter" data-level="4.3.5" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#managing-missing-values"><i class="fa fa-check"></i><b>4.3.5</b> Managing missing values</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#recoding-variables"><i class="fa fa-check"></i><b>4.4</b> Recoding variables</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#subsetting-and-assigning"><i class="fa fa-check"></i><b>4.4.1</b> Subsetting and assigning</a></li>
+<li class="chapter" data-level="4.4.2" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#using-the-within-function"><i class="fa fa-check"></i><b>4.4.2</b> Using the <code>within()</code> function</a></li>
+<li class="chapter" data-level="4.4.3" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#using-the-ifelse-function."><i class="fa fa-check"></i><b>4.4.3</b> Using the <code>ifelse()</code> function.</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#merging-datasets"><i class="fa fa-check"></i><b>4.5</b> Merging datasets</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#adding-columns-horizontal-merge"><i class="fa fa-check"></i><b>4.5.1</b> Adding columns (Horizontal merge)</a></li>
+<li class="chapter" data-level="4.5.2" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#adding-rows-vertical-merge"><i class="fa fa-check"></i><b>4.5.2</b> Adding rows (Vertical merge)</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#sorting-data"><i class="fa fa-check"></i><b>4.6</b> Sorting data</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#sorting-by-a-single-variable"><i class="fa fa-check"></i><b>4.6.1</b> Sorting by a single variable</a></li>
+<li class="chapter" data-level="4.6.2" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#sorting-alphabetically"><i class="fa fa-check"></i><b>4.6.2</b> Sorting alphabetically</a></li>
+<li class="chapter" data-level="4.6.3" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#sorting-by-multiple-variables"><i class="fa fa-check"></i><b>4.6.3</b> Sorting by multiple variables</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#regular-expressions-and-pattern-matching-and-replacement"><i class="fa fa-check"></i><b>4.7</b> Regular expressions and pattern matching and replacement</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#basic-functions-to-detect-patterns-in-r"><i class="fa fa-check"></i><b>4.7.1</b> Basic functions to detect patterns in R</a></li>
+<li class="chapter" data-level="4.7.2" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#special-symbols"><i class="fa fa-check"></i><b>4.7.2</b> Special symbols</a></li>
+<li class="chapter" data-level="4.7.3" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#basic-functions-to-locate-patterns-in-r"><i class="fa fa-check"></i><b>4.7.3</b> Basic functions to locate patterns in R</a></li>
+<li class="chapter" data-level="4.7.4" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#split-a-string-using-a-pattern"><i class="fa fa-check"></i><b>4.7.4</b> Split a string using a pattern</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#exercises-data-management-optional"><i class="fa fa-check"></i><b>4.8</b> Exercises Data Management (Optional)</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="section-4.-introduction-to-functions.html"><a href="section-4.-introduction-to-functions.html"><i class="fa fa-check"></i><b>5</b> SECTION 4. Introduction to Functions</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="section-4.-introduction-to-functions.html"><a href="section-4.-introduction-to-functions.html#what-is-a-function"><i class="fa fa-check"></i><b>5.1</b> What is a function?</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="section-4.-introduction-to-functions.html"><a href="section-4.-introduction-to-functions.html#built-in-r-functions"><i class="fa fa-check"></i><b>5.1.1</b> Built-in R functions</a></li>
+<li class="chapter" data-level="5.1.2" data-path="section-4.-introduction-to-functions.html"><a href="section-4.-introduction-to-functions.html#functions-defined-in-r-packages"><i class="fa fa-check"></i><b>5.1.2</b> Functions defined in R packages</a></li>
+<li class="chapter" data-level="5.1.3" data-path="section-4.-introduction-to-functions.html"><a href="section-4.-introduction-to-functions.html#user-defined-functions"><i class="fa fa-check"></i><b>5.1.3</b> User-defined functions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="section-4.-introduction-to-functions.html"><a href="section-4.-introduction-to-functions.html#writing-your-own-functions"><i class="fa fa-check"></i><b>5.2</b> Writing your own functions</a></li>
+<li class="chapter" data-level="5.3" data-path="section-4.-introduction-to-functions.html"><a href="section-4.-introduction-to-functions.html#arguments-of-a-function"><i class="fa fa-check"></i><b>5.3</b> Arguments of a function</a></li>
+<li class="chapter" data-level="5.4" data-path="section-4.-introduction-to-functions.html"><a href="section-4.-introduction-to-functions.html#matching-arguments"><i class="fa fa-check"></i><b>5.4</b> Matching Arguments</a></li>
+<li class="chapter" data-level="5.5" data-path="section-4.-introduction-to-functions.html"><a href="section-4.-introduction-to-functions.html#output-of-a-function"><i class="fa fa-check"></i><b>5.5</b> Output of a Function</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="section-4.-introduction-to-functions.html"><a href="section-4.-introduction-to-functions.html#examples-of-functions"><i class="fa fa-check"></i><b>5.5.1</b> Examples of functions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="section-4.-introduction-to-functions.html"><a href="section-4.-introduction-to-functions.html#basic-r-programming"><i class="fa fa-check"></i><b>5.6</b> Basic R Programming</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="section-4.-introduction-to-functions.html"><a href="section-4.-introduction-to-functions.html#conditionals"><i class="fa fa-check"></i><b>5.6.1</b> Conditionals</a></li>
+<li class="chapter" data-level="5.6.2" data-path="section-4.-introduction-to-functions.html"><a href="section-4.-introduction-to-functions.html#loops"><i class="fa fa-check"></i><b>5.6.2</b> Loops</a></li>
+<li class="chapter" data-level="5.6.3" data-path="section-4.-introduction-to-functions.html"><a href="section-4.-introduction-to-functions.html#useful-functions-to-avoid-loops"><i class="fa fa-check"></i><b>5.6.3</b> Useful functions to avoid loops</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="section-4.-introduction-to-functions.html"><a href="section-4.-introduction-to-functions.html#references"><i class="fa fa-check"></i><b>5.7</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html"><i class="fa fa-check"></i><b>6</b> SECTION 5. Basic Plots</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#line-charts"><i class="fa fa-check"></i><b>6.1</b> Line charts</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#key-characteristics"><i class="fa fa-check"></i><b>6.1.1</b> Key Characteristics:</a></li>
+<li class="chapter" data-level="6.1.2" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#use-cases"><i class="fa fa-check"></i><b>6.1.2</b> Use Cases:</a></li>
+<li class="chapter" data-level="6.1.3" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#customization-options"><i class="fa fa-check"></i><b>6.1.3</b> Customization Options:</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#dot-plot"><i class="fa fa-check"></i><b>6.2</b> Dot plot</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#key-characteristics-1"><i class="fa fa-check"></i><b>6.2.1</b> Key characteristics</a></li>
+<li class="chapter" data-level="6.2.2" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#use-cases-1"><i class="fa fa-check"></i><b>6.2.2</b> Use cases</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#bar-charts"><i class="fa fa-check"></i><b>6.3</b> Bar charts</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#key-characteristics-2"><i class="fa fa-check"></i><b>6.3.1</b> Key characteristics</a></li>
+<li class="chapter" data-level="6.3.2" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#customization"><i class="fa fa-check"></i><b>6.3.2</b> Customization</a></li>
+<li class="chapter" data-level="6.3.3" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#multiple-bar-plots"><i class="fa fa-check"></i><b>6.3.3</b> Multiple bar plots</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#histograms"><i class="fa fa-check"></i><b>6.4</b> Histograms</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#key-characteristics-3"><i class="fa fa-check"></i><b>6.4.1</b> Key characteristics</a></li>
+<li class="chapter" data-level="6.4.2" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#customization-1"><i class="fa fa-check"></i><b>6.4.2</b> Customization</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#boxplot"><i class="fa fa-check"></i><b>6.5</b> Boxplot</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#key-characteristics-4"><i class="fa fa-check"></i><b>6.5.1</b> Key characteristics</a></li>
+<li class="chapter" data-level="6.5.2" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#use-cases-2"><i class="fa fa-check"></i><b>6.5.2</b> Use cases</a></li>
+<li class="chapter" data-level="6.5.3" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#customization-options-1"><i class="fa fa-check"></i><b>6.5.3</b> Customization options</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#commbining-different-plots"><i class="fa fa-check"></i><b>6.6</b> Commbining different plots</a></li>
+<li class="chapter" data-level="6.7" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#scatter-plots"><i class="fa fa-check"></i><b>6.7</b> Scatter Plots</a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#creating-a-simple-scatter-plot"><i class="fa fa-check"></i><b>6.7.1</b> Creating a Simple Scatter Plot</a></li>
+<li class="chapter" data-level="6.7.2" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#add-new-data-to-an-existint-plot"><i class="fa fa-check"></i><b>6.7.2</b> Add new data to an existint plot</a></li>
+<li class="chapter" data-level="6.7.3" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#adding-labels-to-data-points"><i class="fa fa-check"></i><b>6.7.3</b> Adding labels to data points</a></li>
+<li class="chapter" data-level="6.7.4" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#using-legends"><i class="fa fa-check"></i><b>6.7.4</b> Using legends</a></li>
+<li class="chapter" data-level="6.7.5" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#customizing-scatter-plots"><i class="fa fa-check"></i><b>6.7.5</b> Customizing Scatter plots</a></li>
+<li class="chapter" data-level="6.7.6" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#multiple-scatter-plots"><i class="fa fa-check"></i><b>6.7.6</b> Multiple scatter plots</a></li>
+</ul></li>
+<li class="chapter" data-level="6.8" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#important-graphical-functions-and-parameters"><i class="fa fa-check"></i><b>6.8</b> Important graphical functions and parameters</a></li>
+<li class="chapter" data-level="6.9" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#saving-graphics-to-files"><i class="fa fa-check"></i><b>6.9</b> Saving Graphics to Files</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="section-6.-tips-for-efficient-programming.html"><a href="section-6.-tips-for-efficient-programming.html"><i class="fa fa-check"></i><b>7</b> SECTION 6. Tips for efficient programming</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="section-6.-tips-for-efficient-programming.html"><a href="section-6.-tips-for-efficient-programming.html#top-tips-for-efficient-programming"><i class="fa fa-check"></i><b>7.1</b> Top tips for efficient programming</a></li>
+<li class="chapter" data-level="7.2" data-path="section-6.-tips-for-efficient-programming.html"><a href="section-6.-tips-for-efficient-programming.html#optimizing-functions-calls"><i class="fa fa-check"></i><b>7.2</b> Optimizing functions calls</a></li>
+<li class="chapter" data-level="7.3" data-path="section-6.-tips-for-efficient-programming.html"><a href="section-6.-tips-for-efficient-programming.html#memory-allocation"><i class="fa fa-check"></i><b>7.3</b> Memory allocation</a></li>
+<li class="chapter" data-level="7.4" data-path="section-6.-tips-for-efficient-programming.html"><a href="section-6.-tips-for-efficient-programming.html#embrace-rs-vectorized-paradigm"><i class="fa fa-check"></i><b>7.4</b> Embrace R’s vectorized paradigm</a></li>
+<li class="chapter" data-level="7.5" data-path="section-6.-tips-for-efficient-programming.html"><a href="section-6.-tips-for-efficient-programming.html#efficient-functions-do-as-little-as-possible"><i class="fa fa-check"></i><b>7.5</b> Efficient functions: Do as little as possible</a></li>
+<li class="chapter" data-level="7.6" data-path="section-6.-tips-for-efficient-programming.html"><a href="section-6.-tips-for-efficient-programming.html#references-1"><i class="fa fa-check"></i><b>7.6</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="section-7.-introduction-to-object-oriented-programming-oop.html"><a href="section-7.-introduction-to-object-oriented-programming-oop.html"><i class="fa fa-check"></i><b>8</b> SECTION 7. Introduction to Object-oriented Programming (OOP)</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="section-7.-introduction-to-object-oriented-programming-oop.html"><a href="section-7.-introduction-to-object-oriented-programming-oop.html#object-and-class-in-r"><i class="fa fa-check"></i><b>8.1</b> Object and Class in R</a></li>
+<li class="chapter" data-level="8.2" data-path="section-7.-introduction-to-object-oriented-programming-oop.html"><a href="section-7.-introduction-to-object-oriented-programming-oop.html#s3-classes"><i class="fa fa-check"></i><b>8.2</b> S3 Classes</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="section-7.-introduction-to-object-oriented-programming-oop.html"><a href="section-7.-introduction-to-object-oriented-programming-oop.html#methods-and-generic-functions-in-s3-classes"><i class="fa fa-check"></i><b>8.2.1</b> Methods and Generic Functions in S3 classes:</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="section-7.-introduction-to-object-oriented-programming-oop.html"><a href="section-7.-introduction-to-object-oriented-programming-oop.html#s4-classes"><i class="fa fa-check"></i><b>8.3</b> S4 classes</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="section-7.-introduction-to-object-oriented-programming-oop.html"><a href="section-7.-introduction-to-object-oriented-programming-oop.html#methods-and-generic-functions-in-s4-classes"><i class="fa fa-check"></i><b>8.3.1</b> Methods and Generic Functions in S4 classes:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html"><i class="fa fa-check"></i><b>9</b> SECTION 8. Dynamic Reports</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#what-is-latex"><i class="fa fa-check"></i><b>9.1</b> What is LATEX?</a></li>
+<li class="chapter" data-level="9.2" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#what-is-sweave"><i class="fa fa-check"></i><b>9.2</b> What is Sweave?</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#how-to-install-sweave"><i class="fa fa-check"></i><b>9.2.1</b> How to install Sweave</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#basic-options-for-code-chunks"><i class="fa fa-check"></i><b>9.3</b> Basic options for code chunks</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#for-costly-computations-cachesweave-package"><i class="fa fa-check"></i><b>9.3.1</b> For costly computations: <code>cacheSweave</code> package</a></li>
+<li class="chapter" data-level="9.3.2" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#example"><i class="fa fa-check"></i><b>9.3.2</b> Example</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#the-beamer-class-latex-presentations"><i class="fa fa-check"></i><b>9.4</b> The Beamer class: LATEX presentations</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#table-of-contents"><i class="fa fa-check"></i><b>9.4.1</b> Table of Contents</a></li>
+<li class="chapter" data-level="9.4.2" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#sections-and-subsections"><i class="fa fa-check"></i><b>9.4.2</b> Sections and Subsections</a></li>
+<li class="chapter" data-level="9.4.3" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#frames-and-structures"><i class="fa fa-check"></i><b>9.4.3</b> Frames and structures:</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#knitr-package"><i class="fa fa-check"></i><b>9.5</b> <code>Knitr</code> package</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#knitr-main-outputs"><i class="fa fa-check"></i><b>9.5.1</b> <code>Knitr</code> main outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#r-markdown"><i class="fa fa-check"></i><b>9.6</b> R Markdown</a>
+<ul>
+<li class="chapter" data-level="9.6.1" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#installation"><i class="fa fa-check"></i><b>9.6.1</b> Installation</a></li>
+<li class="chapter" data-level="9.6.2" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#output-formats"><i class="fa fa-check"></i><b>9.6.2</b> Output Formats</a></li>
+<li class="chapter" data-level="9.6.3" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#output-format-functions"><i class="fa fa-check"></i><b>9.6.3</b> Output Format Functions</a></li>
+<li class="chapter" data-level="9.6.4" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#chunk-options"><i class="fa fa-check"></i><b>9.6.4</b> Chunk Options</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#shiny"><i class="fa fa-check"></i><b>9.7</b> Shiny</a></li>
+<li class="chapter" data-level="9.8" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#quarto"><i class="fa fa-check"></i><b>9.8</b> Quarto</a></li>
+<li class="chapter" data-level="9.9" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#available-templates-for-each-block"><i class="fa fa-check"></i><b>9.9</b> Available templates for each block</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html"><i class="fa fa-check"></i><b>10</b> SECTION 9. Data managment using the dplyr package</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#the-filter-function-and-the-use-of-comparison-operators"><i class="fa fa-check"></i><b>10.1</b> The <code>filter()</code> function and the use of comparison operators</a></li>
+<li class="chapter" data-level="10.2" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#sorting-with-arrange"><i class="fa fa-check"></i><b>10.2</b> Sorting with <code>arrange()</code></a></li>
+<li class="chapter" data-level="10.3" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#accessing-rows-with-slice"><i class="fa fa-check"></i><b>10.3</b> Accessing rows with <code>slice()</code></a></li>
+<li class="chapter" data-level="10.4" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#picking-columns-out-with-select"><i class="fa fa-check"></i><b>10.4</b> Picking columns out with <code>select()</code></a></li>
+<li class="chapter" data-level="10.5" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#change-names-with-rename"><i class="fa fa-check"></i><b>10.5</b> Change names with <code>rename()</code></a></li>
+<li class="chapter" data-level="10.6" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#transforming-pre-existing-columns-or-creating-new-ones-with-mutate"><i class="fa fa-check"></i><b>10.6</b> Transforming pre-existing columns or creating new ones with <code>mutate()</code></a></li>
+<li class="chapter" data-level="10.7" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#to-sum-upgroup_by-summarise"><i class="fa fa-check"></i><b>10.7</b> To sum up…<code>group_by()</code> + <code>summarise()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html"><i class="fa fa-check"></i><b>11</b> Data reshaping and cleaning using the tidyr package</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#transforming-wide-to-long-format-with-pivot_longer"><i class="fa fa-check"></i><b>11.1</b> Transforming wide to long format with <code>pivot_longer()</code>:</a></li>
+<li class="chapter" data-level="11.2" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#transforming-long-to-wide-format-with-pivot_wider"><i class="fa fa-check"></i><b>11.2</b> Transforming long to wide format with <code>pivot_wider()</code>:</a></li>
+<li class="chapter" data-level="11.3" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#handling-missing-values-with-replace_na"><i class="fa fa-check"></i><b>11.3</b> Handling missing values with <code>replace_na()</code></a></li>
+<li class="chapter" data-level="11.4" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#gt-and-gtsummary-packages"><i class="fa fa-check"></i><b>11.4</b> Gt and gtsummary packages</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#basic-summary-table-with-tbl_summary"><i class="fa fa-check"></i><b>11.4.1</b> Basic Summary Table with <code>tbl_summary()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#adding-statistical-tests-with-add_p"><i class="fa fa-check"></i><b>11.5</b> Adding statistical tests with <code>add_p()</code></a></li>
+<li class="chapter" data-level="11.6" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#stratified-tables-with-tbl_strata"><i class="fa fa-check"></i><b>11.6</b> Stratified Tables with <code>tbl_strata()</code></a></li>
+<li class="chapter" data-level="11.7" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#creating-cross-tables-with-tbl_cross"><i class="fa fa-check"></i><b>11.7</b> Creating Cross Tables with <code>tbl_cross()</code></a></li>
+<li class="chapter" data-level="11.8" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#regression-table-with-tbl_regression"><i class="fa fa-check"></i><b>11.8</b> Regression table with <code>tbl_regression()</code></a></li>
+<li class="chapter" data-level="11.9" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#exercises-1"><i class="fa fa-check"></i><b>11.9</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="extra-exercises.html"><a href="extra-exercises.html"><i class="fa fa-check"></i><b>12</b> Extra exercises</a></li>
+<li class="chapter" data-level="13" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html"><i class="fa fa-check"></i><b>13</b> SECTION 10. Advanced Data Visualization: ggplot2 package</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#why-ggplot2"><i class="fa fa-check"></i><b>13.1</b> Why ggplot2?</a></li>
+<li class="chapter" data-level="13.2" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#installation-1"><i class="fa fa-check"></i><b>13.2</b> Installation</a></li>
+<li class="chapter" data-level="13.3" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#usage"><i class="fa fa-check"></i><b>13.3</b> Usage</a></li>
+<li class="chapter" data-level="13.4" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#geometric-objects-and-aesthetics"><i class="fa fa-check"></i><b>13.4</b> Geometric Objects And Aesthetics</a>
+<ul>
+<li class="chapter" data-level="13.4.1" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#aesthetic-mapping"><i class="fa fa-check"></i><b>13.4.1</b> Aesthetic Mapping</a></li>
+<li class="chapter" data-level="13.4.2" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#geometic-objects-geom"><i class="fa fa-check"></i><b>13.4.2</b> Geometic Objects (geom)</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#examples"><i class="fa fa-check"></i><b>13.5</b> Examples</a>
+<ul>
+<li class="chapter" data-level="13.5.1" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#categorical-variables"><i class="fa fa-check"></i><b>13.5.1</b> Categorical Variables</a></li>
+<li class="chapter" data-level="13.5.2" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#quantitative-variables"><i class="fa fa-check"></i><b>13.5.2</b> Quantitative Variables</a></li>
+<li class="chapter" data-level="13.5.3" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#more-advanced-code-customizing-your-plots"><i class="fa fa-check"></i><b>13.5.3</b> More advanced code: customizing your plots</a></li>
+<li class="chapter" data-level="13.5.4" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#saving-plots"><i class="fa fa-check"></i><b>13.5.4</b> Saving plots</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#exercises-create-new-plots-for-genetic-data-visualization-using-the-snpdataset.txt-dataset.-create-a-report-in-.html-format-and-display-and-describe-each-one-of-the-plots."><i class="fa fa-check"></i><b>13.6</b> Exercises: Create new plots for genetic data visualization using the <code>SNPdataset.txt</code> dataset. Create a report in .html format and display and describe each one of the plots.</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html"><i class="fa fa-check"></i><b>14</b> SECTION 11. Advanced Data Visualization: Extra Part</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#useful-plots-for-omics-data-analysis"><i class="fa fa-check"></i><b>14.1</b> Useful plots for Omics Data Analysis</a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#heatmap"><i class="fa fa-check"></i><b>14.1.1</b> Heatmap</a></li>
+<li class="chapter" data-level="14.1.2" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#venn-diagram"><i class="fa fa-check"></i><b>14.1.2</b> Venn Diagram</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#other-resources-in-r"><i class="fa fa-check"></i><b>14.2</b> Other resources in R</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#advanced-visualizations-with-ggpubr"><i class="fa fa-check"></i><b>14.2.1</b> Advanced visualizations with ggpubr</a></li>
+<li class="chapter" data-level="14.2.2" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#dynamic-plots-with-gganimate"><i class="fa fa-check"></i><b>14.2.2</b> Dynamic plots with gganimate</a></li>
+<li class="chapter" data-level="14.2.3" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#interactive-interfaces-for-creating-plots"><i class="fa fa-check"></i><b>14.2.3</b> Interactive interfaces for creating plots</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html"><i class="fa fa-check"></i><b>15</b> SECTION 12. Introduction to Shiny</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#writing-a-shiny-application-in-r"><i class="fa fa-check"></i><b>15.1</b> Writing a Shiny Application in R</a>
+<ul>
+<li class="chapter" data-level="15.1.1" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#ui-layout"><i class="fa fa-check"></i><b>15.1.1</b> UI Layout</a></li>
+<li class="chapter" data-level="15.1.2" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#server-logic"><i class="fa fa-check"></i><b>15.1.2</b> Server Logic</a></li>
+<li class="chapter" data-level="15.1.3" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#examples-1"><i class="fa fa-check"></i><b>15.1.3</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#elements-for-a-shiny-app"><i class="fa fa-check"></i><b>15.2</b> Elements for a Shiny App</a>
+<ul>
+<li class="chapter" data-level="15.2.1" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#ui-components"><i class="fa fa-check"></i><b>15.2.1</b> UI Components</a></li>
+<li class="chapter" data-level="15.2.2" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#server-function"><i class="fa fa-check"></i><b>15.2.2</b> Server function</a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#working-with-shinydashboard"><i class="fa fa-check"></i><b>15.3</b> Working with ShinyDashboard</a></li>
+<li class="chapter" data-level="15.4" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#deploying-the-application-to-shinyapps.io"><i class="fa fa-check"></i><b>15.4</b> Deploying the Application to Shinyapps.io</a></li>
+<li class="chapter" data-level="15.5" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#take-home"><i class="fa fa-check"></i><b>15.5</b> Take home</a></li>
+<li class="chapter" data-level="15.6" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#final-task"><i class="fa fa-check"></i><b>15.6</b> Final Task</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-reshaping-and-cleaning-using-the-tidyr-package" class="section level1 hasAnchor" number="11">
+<h1><span class="header-section-number">11</span> Data reshaping and cleaning using the tidyr package<a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#data-reshaping-and-cleaning-using-the-tidyr-package" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Similarly, with <code>tidyr</code> we can also work with functions that process data faster than Base R functions. These are some of the most important functions included in <code>tidyr</code> package:</p>
+<table>
+<colgroup>
+<col width="22%" />
+<col width="22%" />
+<col width="30%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>To work with…</th>
+<th>Functions in <code>tidyr</code> package</th>
+<th>To…</th>
+<th>Base R functions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Columns</td>
+<td><code>pivot_longer()</code></td>
+<td>convert wide data to long format</td>
+<td><code>reshape(); stack()</code></td>
+</tr>
+<tr class="even">
+<td>Columns</td>
+<td><code>pivot_wider()</code></td>
+<td>convert long data to wide format</td>
+<td><code>reshape(); unstack()</code></td>
+</tr>
+<tr class="odd">
+<td>Columns</td>
+<td><code>separate()</code></td>
+<td>split one column into multiple columns</td>
+<td><code>strsplit()</code></td>
+</tr>
+<tr class="even">
+<td>Columns</td>
+<td><code>unite()</code></td>
+<td>combine multiple columns into one</td>
+<td><code>paste(); paste0()</code></td>
+</tr>
+<tr class="odd">
+<td>Missing Values</td>
+<td><code>fill()</code></td>
+<td>fill missing values in a column</td>
+<td><code>na.locf()</code> from <code>zoo</code> package</td>
+</tr>
+<tr class="even">
+<td>Missing Values</td>
+<td><code>replace_na()</code></td>
+<td>replace missing values with specified values</td>
+<td><code>is.na(); ifelse()</code></td>
+</tr>
+<tr class="odd">
+<td>Columns</td>
+<td><code>drop_na()</code></td>
+<td>remove rows with missing values</td>
+<td><code>na.omit(); complete.cases()</code></td>
+</tr>
+<tr class="even">
+<td>Rows</td>
+<td><code>expand()</code></td>
+<td>create all combinations of values</td>
+<td><code>expand.grid()</code></td>
+</tr>
+<tr class="odd">
+<td>Rows</td>
+<td><code>complete()</code></td>
+<td>complete missing combinations of values</td>
+<td><code>expand.grid(); merge()</code></td>
+</tr>
+<tr class="even">
+<td>Rows/Columns</td>
+<td><code>nest()</code></td>
+<td>create nested data frames</td>
+<td><code>list()</code></td>
+</tr>
+<tr class="odd">
+<td>Rows/Columns</td>
+<td><code>unnest()</code></td>
+<td>expand a list-column into multiple rows</td>
+<td><code>do.call(rbind, ...)</code></td>
+</tr>
+</tbody>
+</table>
+<div id="transforming-wide-to-long-format-with-pivot_longer" class="section level2 hasAnchor" number="11.1">
+<h2><span class="header-section-number">11.1</span> Transforming wide to long format with <code>pivot_longer()</code>:<a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#transforming-wide-to-long-format-with-pivot_longer" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We want to put the information for the variable BMI, Cholesterol and Glucose in a long format.</p>
+<div class="sourceCode" id="cb522"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb522-1"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb522-1" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb522-2"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb522-2" tabindex="-1"></a><span class="fu">head</span>(data)</span></code></pre></div>
+<pre><code>##     Sex Age  BMI SBP HADS_Anxiety Cholesterol Glucose Family_History_CVD
+## 1 Women  43 23.1 129            5       223.3    87.2                 No
+## 2 Women  59 28.4 154           12       183.4    83.1                 No
+## 3 Women  66 28.7 105           11       266.8    87.8                 No
+## 4   Men  75 23.7 122            2       221.4    64.2                 No
+## 5 Women  34 19.8 166            7       178.4    95.2                 No
+## 6   Men  46 34.8 120            0       187.7   129.7                 No</code></pre>
+<div class="sourceCode" id="cb524"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb524-1"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb524-1" tabindex="-1"></a>long_format <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb524-2"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb524-2" tabindex="-1"></a>    <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(BMI, Cholesterol, Glucose),</span>
+<span id="cb524-3"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb524-3" tabindex="-1"></a>                 <span class="at">names_to =</span> <span class="st">&quot;Measurement_Type&quot;</span>,</span>
+<span id="cb524-4"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb524-4" tabindex="-1"></a>                 <span class="at">values_to =</span> <span class="st">&quot;Value&quot;</span>)</span>
+<span id="cb524-5"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb524-5" tabindex="-1"></a><span class="fu">head</span>(long_format)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 7
+##   Sex     Age   SBP HADS_Anxiety Family_History_CVD Measurement_Type Value
+##   &lt;chr&gt; &lt;int&gt; &lt;int&gt;        &lt;int&gt; &lt;chr&gt;              &lt;chr&gt;            &lt;dbl&gt;
+## 1 Women    43   129            5 No                 BMI               23.1
+## 2 Women    43   129            5 No                 Cholesterol      223. 
+## 3 Women    43   129            5 No                 Glucose           87.2
+## 4 Women    59   154           12 No                 BMI               28.4
+## 5 Women    59   154           12 No                 Cholesterol      183. 
+## 6 Women    59   154           12 No                 Glucose           83.1</code></pre>
+</div>
+<div id="transforming-long-to-wide-format-with-pivot_wider" class="section level2 hasAnchor" number="11.2">
+<h2><span class="header-section-number">11.2</span> Transforming long to wide format with <code>pivot_wider()</code>:<a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#transforming-long-to-wide-format-with-pivot_wider" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In this example, we use the long_format object generated in the previous example to re-convert it again to wide format.</p>
+<div class="sourceCode" id="cb526"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb526-1"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb526-1" tabindex="-1"></a><span class="co"># Suppose we have a column &quot;Measurement_Type&quot; with values for &quot;Cholesterol&quot; and &quot;Glucose&quot;</span></span>
+<span id="cb526-2"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb526-2" tabindex="-1"></a><span class="co"># Transform it back to wide format</span></span>
+<span id="cb526-3"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb526-3" tabindex="-1"></a></span>
+<span id="cb526-4"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb526-4" tabindex="-1"></a><span class="fu">head</span>(long_format)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 7
+##   Sex     Age   SBP HADS_Anxiety Family_History_CVD Measurement_Type Value
+##   &lt;chr&gt; &lt;int&gt; &lt;int&gt;        &lt;int&gt; &lt;chr&gt;              &lt;chr&gt;            &lt;dbl&gt;
+## 1 Women    43   129            5 No                 BMI               23.1
+## 2 Women    43   129            5 No                 Cholesterol      223. 
+## 3 Women    43   129            5 No                 Glucose           87.2
+## 4 Women    59   154           12 No                 BMI               28.4
+## 5 Women    59   154           12 No                 Cholesterol      183. 
+## 6 Women    59   154           12 No                 Glucose           83.1</code></pre>
+<div class="sourceCode" id="cb528"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb528-1"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb528-1" tabindex="-1"></a>wide_format <span class="ot">&lt;-</span> long_format <span class="sc">%&gt;%</span></span>
+<span id="cb528-2"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb528-2" tabindex="-1"></a>    <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> Measurement_Type, <span class="at">values_from =</span> Value)</span>
+<span id="cb528-3"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb528-3" tabindex="-1"></a><span class="fu">head</span>(wide_format)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 8
+##   Sex     Age   SBP HADS_Anxiety Family_History_CVD   BMI Cholesterol Glucose
+##   &lt;chr&gt; &lt;int&gt; &lt;int&gt;        &lt;int&gt; &lt;chr&gt;              &lt;dbl&gt;       &lt;dbl&gt;   &lt;dbl&gt;
+## 1 Women    43   129            5 No                  23.1        223.    87.2
+## 2 Women    59   154           12 No                  28.4        183.    83.1
+## 3 Women    66   105           11 No                  28.7        267.    87.8
+## 4 Men      75   122            2 No                  23.7        221.    64.2
+## 5 Women    34   166            7 No                  19.8        178.    95.2
+## 6 Men      46   120            0 No                  34.8        188.   130.</code></pre>
+</div>
+<div id="handling-missing-values-with-replace_na" class="section level2 hasAnchor" number="11.3">
+<h2><span class="header-section-number">11.3</span> Handling missing values with <code>replace_na()</code><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#handling-missing-values-with-replace_na" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We create a new random variable that will take NA values for those cases where cholesterol is above 230 and then we will replace it with the median value.</p>
+<div class="sourceCode" id="cb530"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb530-1"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb530-1" tabindex="-1"></a><span class="co"># Replace NA values in Cholesterol with the median Cholesterol</span></span>
+<span id="cb530-2"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb530-2" tabindex="-1"></a><span class="fu">table</span>(<span class="fu">is.na</span>(data<span class="sc">$</span>Cholesterol))</span></code></pre></div>
+<pre><code>## 
+## FALSE 
+##   300</code></pre>
+<div class="sourceCode" id="cb532"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb532-1"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb532-1" tabindex="-1"></a><span class="fu">summary</span>(data<span class="sc">$</span>Cholesterol)</span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   122.7   180.2   200.0   200.6   222.6   280.0</code></pre>
+<div class="sourceCode" id="cb534"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb534-1"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb534-1" tabindex="-1"></a>data<span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Variable_Nas=</span><span class="fu">ifelse</span>(Cholesterol <span class="sc">&gt;</span> <span class="dv">230</span>, <span class="cn">NA</span>, Cholesterol))</span>
+<span id="cb534-2"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb534-2" tabindex="-1"></a><span class="fu">summary</span>(data<span class="sc">$</span>Variable_Nas)</span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
+##   122.7   173.9   193.4   190.8   208.8   229.0      55</code></pre>
+<div class="sourceCode" id="cb536"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb536-1"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb536-1" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb536-2"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb536-2" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">Variable_Nas =</span> <span class="fu">replace_na</span>(Variable_Nas, <span class="fu">median</span>(Cholesterol, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)))</span>
+<span id="cb536-3"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb536-3" tabindex="-1"></a><span class="fu">summary</span>(data<span class="sc">$</span>Variable_Nas)</span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   122.7   180.2   200.0   192.5   204.9   229.0</code></pre>
+</div>
+<div id="gt-and-gtsummary-packages" class="section level2 hasAnchor" number="11.4">
+<h2><span class="header-section-number">11.4</span> Gt and gtsummary packages<a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#gt-and-gtsummary-packages" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="basic-summary-table-with-tbl_summary" class="section level3 hasAnchor" number="11.4.1">
+<h3><span class="header-section-number">11.4.1</span> Basic Summary Table with <code>tbl_summary()</code><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#basic-summary-table-with-tbl_summary" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <code>tbl_summary()</code> function calculates descriptive statistics for continuous, categorical, and dichotomous variables in R, and presents the results in a beautiful, customizable summary table ready for publication</p>
+<div class="sourceCode" id="cb538"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb538-1"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb538-1" tabindex="-1"></a><span class="fu">library</span>(gtsummary)</span>
+<span id="cb538-2"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb538-2" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
+<span id="cb538-3"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb538-3" tabindex="-1"></a>data <span class="sc">%&gt;%</span></span>
+<span id="cb538-4"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb538-4" tabindex="-1"></a>    <span class="fu">tbl_summary</span>(</span>
+<span id="cb538-5"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb538-5" tabindex="-1"></a>        <span class="at">by =</span> Sex, <span class="co"># Summarize separately for Men and Women</span></span>
+<span id="cb538-6"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb538-6" tabindex="-1"></a>        <span class="at">missing =</span> <span class="st">&quot;no&quot;</span> <span class="co"># Exclude missing values in summary</span></span>
+<span id="cb538-7"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb538-7" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span> <span class="fu">as_gt</span>() </span></code></pre></div>
+<div id="cusztnavwf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#cusztnavwf table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#cusztnavwf thead, #cusztnavwf tbody, #cusztnavwf tfoot, #cusztnavwf tr, #cusztnavwf td, #cusztnavwf th {
+  border-style: none;
+}
+
+#cusztnavwf p {
+  margin: 0;
+  padding: 0;
+}
+
+#cusztnavwf .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#cusztnavwf .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#cusztnavwf .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#cusztnavwf .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#cusztnavwf .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#cusztnavwf .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#cusztnavwf .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#cusztnavwf .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#cusztnavwf .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#cusztnavwf .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#cusztnavwf .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#cusztnavwf .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#cusztnavwf .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#cusztnavwf .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#cusztnavwf .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#cusztnavwf .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#cusztnavwf .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#cusztnavwf .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#cusztnavwf .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#cusztnavwf .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#cusztnavwf .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#cusztnavwf .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#cusztnavwf .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#cusztnavwf .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#cusztnavwf .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#cusztnavwf .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#cusztnavwf .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#cusztnavwf .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#cusztnavwf .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#cusztnavwf .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#cusztnavwf .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#cusztnavwf .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#cusztnavwf .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#cusztnavwf .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#cusztnavwf .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#cusztnavwf .gt_left {
+  text-align: left;
+}
+
+#cusztnavwf .gt_center {
+  text-align: center;
+}
+
+#cusztnavwf .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#cusztnavwf .gt_font_normal {
+  font-weight: normal;
+}
+
+#cusztnavwf .gt_font_bold {
+  font-weight: bold;
+}
+
+#cusztnavwf .gt_font_italic {
+  font-style: italic;
+}
+
+#cusztnavwf .gt_super {
+  font-size: 65%;
+}
+
+#cusztnavwf .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#cusztnavwf .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#cusztnavwf .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#cusztnavwf .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#cusztnavwf .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#cusztnavwf .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#cusztnavwf .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#cusztnavwf .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#cusztnavwf div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="label"><span class='gt_from_md'><strong>Characteristic</strong></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="stat_1"><span class='gt_from_md'><strong>Men</strong><br />
+N = 146</span><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="stat_2"><span class='gt_from_md'><strong>Women</strong><br />
+N = 154</span><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="label" class="gt_row gt_left">Age</td>
+<td headers="stat_1" class="gt_row gt_center">50 (35, 65)</td>
+<td headers="stat_2" class="gt_row gt_center">49 (34, 64)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">BMI</td>
+<td headers="stat_1" class="gt_row gt_center">25.4 (22.7, 27.4)</td>
+<td headers="stat_2" class="gt_row gt_center">24.1 (21.5, 27.3)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">SBP</td>
+<td headers="stat_1" class="gt_row gt_center">120 (109, 131)</td>
+<td headers="stat_2" class="gt_row gt_center">120 (112, 130)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">HADS_Anxiety</td>
+<td headers="stat_1" class="gt_row gt_center">10 (5, 16)</td>
+<td headers="stat_2" class="gt_row gt_center">11 (5, 16)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">Cholesterol</td>
+<td headers="stat_1" class="gt_row gt_center">199 (180, 225)</td>
+<td headers="stat_2" class="gt_row gt_center">200 (180, 221)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">Glucose</td>
+<td headers="stat_1" class="gt_row gt_center">100 (84, 112)</td>
+<td headers="stat_2" class="gt_row gt_center">97 (85, 109)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">Family_History_CVD</td>
+<td headers="stat_1" class="gt_row gt_center">34 (23%)</td>
+<td headers="stat_2" class="gt_row gt_center">53 (34%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">Variable_Nas</td>
+<td headers="stat_1" class="gt_row gt_center">199 (180, 203)</td>
+<td headers="stat_2" class="gt_row gt_center">200 (180, 207)</td></tr>
+  </tbody>
+  <tfoot>
+    <tr class="gt_footnotes">
+      <td class="gt_footnote" colspan="3"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span> <span class='gt_from_md'>Median (Q1, Q3); n (%)</span></td>
+    </tr>
+  </tfoot>
+</table>
+</div>
+</div>
+</div>
+<div id="adding-statistical-tests-with-add_p" class="section level2 hasAnchor" number="11.5">
+<h2><span class="header-section-number">11.5</span> Adding statistical tests with <code>add_p()</code><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#adding-statistical-tests-with-add_p" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb539"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb539-1"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb539-1" tabindex="-1"></a>data <span class="sc">%&gt;%</span></span>
+<span id="cb539-2"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb539-2" tabindex="-1"></a>    <span class="fu">tbl_summary</span>(<span class="at">by =</span> Sex) <span class="sc">%&gt;%</span></span>
+<span id="cb539-3"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb539-3" tabindex="-1"></a>    <span class="fu">add_p</span>() <span class="co"># Adds p-values for group comparisons</span></span></code></pre></div>
+<div id="lutxaintct" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#lutxaintct table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#lutxaintct thead, #lutxaintct tbody, #lutxaintct tfoot, #lutxaintct tr, #lutxaintct td, #lutxaintct th {
+  border-style: none;
+}
+
+#lutxaintct p {
+  margin: 0;
+  padding: 0;
+}
+
+#lutxaintct .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#lutxaintct .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#lutxaintct .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#lutxaintct .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#lutxaintct .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#lutxaintct .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#lutxaintct .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#lutxaintct .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#lutxaintct .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#lutxaintct .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#lutxaintct .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#lutxaintct .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#lutxaintct .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#lutxaintct .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#lutxaintct .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#lutxaintct .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#lutxaintct .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#lutxaintct .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#lutxaintct .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#lutxaintct .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#lutxaintct .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#lutxaintct .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#lutxaintct .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#lutxaintct .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#lutxaintct .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#lutxaintct .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#lutxaintct .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#lutxaintct .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#lutxaintct .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#lutxaintct .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#lutxaintct .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#lutxaintct .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#lutxaintct .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#lutxaintct .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#lutxaintct .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#lutxaintct .gt_left {
+  text-align: left;
+}
+
+#lutxaintct .gt_center {
+  text-align: center;
+}
+
+#lutxaintct .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#lutxaintct .gt_font_normal {
+  font-weight: normal;
+}
+
+#lutxaintct .gt_font_bold {
+  font-weight: bold;
+}
+
+#lutxaintct .gt_font_italic {
+  font-style: italic;
+}
+
+#lutxaintct .gt_super {
+  font-size: 65%;
+}
+
+#lutxaintct .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#lutxaintct .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#lutxaintct .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#lutxaintct .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#lutxaintct .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#lutxaintct .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#lutxaintct .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#lutxaintct .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#lutxaintct div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="label"><span class='gt_from_md'><strong>Characteristic</strong></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="stat_1"><span class='gt_from_md'><strong>Men</strong><br />
+N = 146</span><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="stat_2"><span class='gt_from_md'><strong>Women</strong><br />
+N = 154</span><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="p.value"><span class='gt_from_md'><strong>p-value</strong></span><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>2</sup></span></th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="label" class="gt_row gt_left">Age</td>
+<td headers="stat_1" class="gt_row gt_center">50 (35, 65)</td>
+<td headers="stat_2" class="gt_row gt_center">49 (34, 64)</td>
+<td headers="p.value" class="gt_row gt_center">0.5</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">BMI</td>
+<td headers="stat_1" class="gt_row gt_center">25.4 (22.7, 27.4)</td>
+<td headers="stat_2" class="gt_row gt_center">24.1 (21.5, 27.3)</td>
+<td headers="p.value" class="gt_row gt_center">0.088</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">SBP</td>
+<td headers="stat_1" class="gt_row gt_center">120 (109, 131)</td>
+<td headers="stat_2" class="gt_row gt_center">120 (112, 130)</td>
+<td headers="p.value" class="gt_row gt_center">0.8</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">HADS_Anxiety</td>
+<td headers="stat_1" class="gt_row gt_center">10 (5, 16)</td>
+<td headers="stat_2" class="gt_row gt_center">11 (5, 16)</td>
+<td headers="p.value" class="gt_row gt_center">0.9</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">Cholesterol</td>
+<td headers="stat_1" class="gt_row gt_center">199 (180, 225)</td>
+<td headers="stat_2" class="gt_row gt_center">200 (180, 221)</td>
+<td headers="p.value" class="gt_row gt_center">>0.9</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">Glucose</td>
+<td headers="stat_1" class="gt_row gt_center">100 (84, 112)</td>
+<td headers="stat_2" class="gt_row gt_center">97 (85, 109)</td>
+<td headers="p.value" class="gt_row gt_center">0.6</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">Family_History_CVD</td>
+<td headers="stat_1" class="gt_row gt_center">34 (23%)</td>
+<td headers="stat_2" class="gt_row gt_center">53 (34%)</td>
+<td headers="p.value" class="gt_row gt_center">0.034</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">Variable_Nas</td>
+<td headers="stat_1" class="gt_row gt_center">199 (180, 203)</td>
+<td headers="stat_2" class="gt_row gt_center">200 (180, 207)</td>
+<td headers="p.value" class="gt_row gt_center">0.6</td></tr>
+  </tbody>
+  <tfoot>
+    <tr class="gt_footnotes">
+      <td class="gt_footnote" colspan="4"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span> <span class='gt_from_md'>Median (Q1, Q3); n (%)</span></td>
+    </tr>
+    <tr class="gt_footnotes">
+      <td class="gt_footnote" colspan="4"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>2</sup></span> <span class='gt_from_md'>Wilcoxon rank sum test; Pearson’s Chi-squared test</span></td>
+    </tr>
+  </tfoot>
+</table>
+</div>
+</div>
+<div id="stratified-tables-with-tbl_strata" class="section level2 hasAnchor" number="11.6">
+<h2><span class="header-section-number">11.6</span> Stratified Tables with <code>tbl_strata()</code><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#stratified-tables-with-tbl_strata" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb540"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb540-1"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb540-1" tabindex="-1"></a>data <span class="sc">%&gt;%</span></span>
+<span id="cb540-2"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb540-2" tabindex="-1"></a>    <span class="fu">tbl_strata</span>(</span>
+<span id="cb540-3"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb540-3" tabindex="-1"></a>        <span class="at">strata =</span> Family_History_CVD, <span class="co"># Stratify by family history of CVD</span></span>
+<span id="cb540-4"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb540-4" tabindex="-1"></a>        <span class="at">.tbl_fun =</span> <span class="sc">~</span> .x <span class="sc">%&gt;%</span> <span class="fu">tbl_summary</span>(<span class="at">by =</span> Sex)</span>
+<span id="cb540-5"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb540-5" tabindex="-1"></a>    )</span></code></pre></div>
+<div id="gwwidlhbpe" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#gwwidlhbpe table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#gwwidlhbpe thead, #gwwidlhbpe tbody, #gwwidlhbpe tfoot, #gwwidlhbpe tr, #gwwidlhbpe td, #gwwidlhbpe th {
+  border-style: none;
+}
+
+#gwwidlhbpe p {
+  margin: 0;
+  padding: 0;
+}
+
+#gwwidlhbpe .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#gwwidlhbpe .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#gwwidlhbpe .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#gwwidlhbpe .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#gwwidlhbpe .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#gwwidlhbpe .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#gwwidlhbpe .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#gwwidlhbpe .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#gwwidlhbpe .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#gwwidlhbpe .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#gwwidlhbpe .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#gwwidlhbpe .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#gwwidlhbpe .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#gwwidlhbpe .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#gwwidlhbpe .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#gwwidlhbpe .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#gwwidlhbpe .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#gwwidlhbpe .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#gwwidlhbpe .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#gwwidlhbpe .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#gwwidlhbpe .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#gwwidlhbpe .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#gwwidlhbpe .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#gwwidlhbpe .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#gwwidlhbpe .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#gwwidlhbpe .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#gwwidlhbpe .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#gwwidlhbpe .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#gwwidlhbpe .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#gwwidlhbpe .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#gwwidlhbpe .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#gwwidlhbpe .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#gwwidlhbpe .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#gwwidlhbpe .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#gwwidlhbpe .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#gwwidlhbpe .gt_left {
+  text-align: left;
+}
+
+#gwwidlhbpe .gt_center {
+  text-align: center;
+}
+
+#gwwidlhbpe .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#gwwidlhbpe .gt_font_normal {
+  font-weight: normal;
+}
+
+#gwwidlhbpe .gt_font_bold {
+  font-weight: bold;
+}
+
+#gwwidlhbpe .gt_font_italic {
+  font-style: italic;
+}
+
+#gwwidlhbpe .gt_super {
+  font-size: 65%;
+}
+
+#gwwidlhbpe .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#gwwidlhbpe .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#gwwidlhbpe .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#gwwidlhbpe .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#gwwidlhbpe .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#gwwidlhbpe .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#gwwidlhbpe .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#gwwidlhbpe .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#gwwidlhbpe div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    <tr class="gt_col_headings gt_spanner_row">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="2" colspan="1" scope="col" id="label"><span class='gt_from_md'><strong>Characteristic</strong></span></th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="2" scope="colgroup" id="level 1; stat_1_1">
+        <div class="gt_column_spanner"><span class='gt_from_md'><strong>No</strong></span></div>
+      </th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="2" scope="colgroup" id="level 1; stat_1_2">
+        <div class="gt_column_spanner"><span class='gt_from_md'><strong>Yes</strong></span></div>
+      </th>
+    </tr>
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="stat_1_1"><span class='gt_from_md'><strong>Men</strong><br />
+N = 112</span><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="stat_2_1"><span class='gt_from_md'><strong>Women</strong><br />
+N = 101</span><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="stat_1_2"><span class='gt_from_md'><strong>Men</strong><br />
+N = 34</span><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="stat_2_2"><span class='gt_from_md'><strong>Women</strong><br />
+N = 53</span><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="label" class="gt_row gt_left">Age</td>
+<td headers="stat_1_1" class="gt_row gt_center">50 (36, 66)</td>
+<td headers="stat_2_1" class="gt_row gt_center">48 (34, 65)</td>
+<td headers="stat_1_2" class="gt_row gt_center">46 (34, 62)</td>
+<td headers="stat_2_2" class="gt_row gt_center">50 (35, 58)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">BMI</td>
+<td headers="stat_1_1" class="gt_row gt_center">25.3 (22.5, 27.5)</td>
+<td headers="stat_2_1" class="gt_row gt_center">24.5 (21.7, 27.5)</td>
+<td headers="stat_1_2" class="gt_row gt_center">25.5 (22.8, 27.3)</td>
+<td headers="stat_2_2" class="gt_row gt_center">23.8 (21.0, 25.8)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">SBP</td>
+<td headers="stat_1_1" class="gt_row gt_center">120 (109, 130)</td>
+<td headers="stat_2_1" class="gt_row gt_center">120 (110, 130)</td>
+<td headers="stat_1_2" class="gt_row gt_center">120 (111, 133)</td>
+<td headers="stat_2_2" class="gt_row gt_center">120 (113, 130)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">HADS_Anxiety</td>
+<td headers="stat_1_1" class="gt_row gt_center">10 (5, 16)</td>
+<td headers="stat_2_1" class="gt_row gt_center">11 (5, 16)</td>
+<td headers="stat_1_2" class="gt_row gt_center">10 (6, 18)</td>
+<td headers="stat_2_2" class="gt_row gt_center">11 (5, 18)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">Cholesterol</td>
+<td headers="stat_1_1" class="gt_row gt_center">201 (181, 226)</td>
+<td headers="stat_2_1" class="gt_row gt_center">201 (185, 218)</td>
+<td headers="stat_1_2" class="gt_row gt_center">197 (179, 212)</td>
+<td headers="stat_2_2" class="gt_row gt_center">200 (171, 228)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">Glucose</td>
+<td headers="stat_1_1" class="gt_row gt_center">102 (85, 113)</td>
+<td headers="stat_2_1" class="gt_row gt_center">95 (84, 106)</td>
+<td headers="stat_1_2" class="gt_row gt_center">97 (82, 109)</td>
+<td headers="stat_2_2" class="gt_row gt_center">102 (87, 115)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">Variable_Nas</td>
+<td headers="stat_1_1" class="gt_row gt_center">200 (181, 203)</td>
+<td headers="stat_2_1" class="gt_row gt_center">200 (185, 207)</td>
+<td headers="stat_1_2" class="gt_row gt_center">197 (179, 204)</td>
+<td headers="stat_2_2" class="gt_row gt_center">200 (171, 206)</td></tr>
+  </tbody>
+  <tfoot>
+    <tr class="gt_footnotes">
+      <td class="gt_footnote" colspan="5"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span> <span class='gt_from_md'>Median (Q1, Q3)</span></td>
+    </tr>
+  </tfoot>
+</table>
+</div>
+<div class="sourceCode" id="cb541"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb541-1"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb541-1" tabindex="-1"></a><span class="co">#~ .x %&gt;% tbl_summary(by = Sex) is a shortcut syntax in R for defining an anonymous (or lambda) function. </span></span>
+<span id="cb541-2"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb541-2" tabindex="-1"></a></span>
+<span id="cb541-3"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb541-3" tabindex="-1"></a></span>
+<span id="cb541-4"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb541-4" tabindex="-1"></a><span class="co"># This is equivalent to writing function(.x) .x %&gt;% tbl_summary(by = Sex).</span></span>
+<span id="cb541-5"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb541-5" tabindex="-1"></a><span class="co">#In this context, .x represents each subset of the data created by the stratification.</span></span>
+<span id="cb541-6"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb541-6" tabindex="-1"></a><span class="co">#tbl_summary(by = Sex) is applied to each subset, creating a summary table for each stratified group.</span></span></code></pre></div>
+</div>
+<div id="creating-cross-tables-with-tbl_cross" class="section level2 hasAnchor" number="11.7">
+<h2><span class="header-section-number">11.7</span> Creating Cross Tables with <code>tbl_cross()</code><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#creating-cross-tables-with-tbl_cross" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>You can create cross-tabulations, similar to contingency tables.</p>
+<div class="sourceCode" id="cb542"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb542-1"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb542-1" tabindex="-1"></a><span class="fu">table</span>(data<span class="sc">$</span>Sex, data<span class="sc">$</span>Family_History_CVD)</span></code></pre></div>
+<pre><code>##        
+##          No Yes
+##   Men   112  34
+##   Women 101  53</code></pre>
+<div class="sourceCode" id="cb544"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb544-1"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb544-1" tabindex="-1"></a>data <span class="sc">%&gt;%</span></span>
+<span id="cb544-2"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb544-2" tabindex="-1"></a>    <span class="fu">tbl_cross</span>(</span>
+<span id="cb544-3"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb544-3" tabindex="-1"></a>        <span class="at">row =</span> Sex,</span>
+<span id="cb544-4"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb544-4" tabindex="-1"></a>        <span class="at">col =</span> Family_History_CVD</span>
+<span id="cb544-5"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb544-5" tabindex="-1"></a>    )</span></code></pre></div>
+<div id="clzrctefsr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#clzrctefsr table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#clzrctefsr thead, #clzrctefsr tbody, #clzrctefsr tfoot, #clzrctefsr tr, #clzrctefsr td, #clzrctefsr th {
+  border-style: none;
+}
+
+#clzrctefsr p {
+  margin: 0;
+  padding: 0;
+}
+
+#clzrctefsr .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#clzrctefsr .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#clzrctefsr .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#clzrctefsr .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#clzrctefsr .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#clzrctefsr .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#clzrctefsr .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#clzrctefsr .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#clzrctefsr .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#clzrctefsr .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#clzrctefsr .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#clzrctefsr .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#clzrctefsr .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#clzrctefsr .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#clzrctefsr .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#clzrctefsr .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#clzrctefsr .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#clzrctefsr .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#clzrctefsr .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#clzrctefsr .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#clzrctefsr .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#clzrctefsr .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#clzrctefsr .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#clzrctefsr .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#clzrctefsr .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#clzrctefsr .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#clzrctefsr .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#clzrctefsr .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#clzrctefsr .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#clzrctefsr .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#clzrctefsr .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#clzrctefsr .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#clzrctefsr .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#clzrctefsr .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#clzrctefsr .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#clzrctefsr .gt_left {
+  text-align: left;
+}
+
+#clzrctefsr .gt_center {
+  text-align: center;
+}
+
+#clzrctefsr .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#clzrctefsr .gt_font_normal {
+  font-weight: normal;
+}
+
+#clzrctefsr .gt_font_bold {
+  font-weight: bold;
+}
+
+#clzrctefsr .gt_font_italic {
+  font-style: italic;
+}
+
+#clzrctefsr .gt_super {
+  font-size: 65%;
+}
+
+#clzrctefsr .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#clzrctefsr .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#clzrctefsr .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#clzrctefsr .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#clzrctefsr .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#clzrctefsr .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#clzrctefsr .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#clzrctefsr .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#clzrctefsr div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    <tr class="gt_col_headings gt_spanner_row">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="2" colspan="1" scope="col" id="label"></th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="2" scope="colgroup" id="level 1; stat_1">
+        <div class="gt_column_spanner"><span class='gt_from_md'>Family_History_CVD</span></div>
+      </th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="2" colspan="1" scope="col" id="stat_0"><span class='gt_from_md'>Total</span></th>
+    </tr>
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="stat_1"><span class='gt_from_md'>No</span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="stat_2"><span class='gt_from_md'>Yes</span></th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="label" class="gt_row gt_left">Sex</td>
+<td headers="stat_1" class="gt_row gt_center"><br /></td>
+<td headers="stat_2" class="gt_row gt_center"><br /></td>
+<td headers="stat_0" class="gt_row gt_center"><br /></td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Men</td>
+<td headers="stat_1" class="gt_row gt_center">112</td>
+<td headers="stat_2" class="gt_row gt_center">34</td>
+<td headers="stat_0" class="gt_row gt_center">146</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Women</td>
+<td headers="stat_1" class="gt_row gt_center">101</td>
+<td headers="stat_2" class="gt_row gt_center">53</td>
+<td headers="stat_0" class="gt_row gt_center">154</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">Total</td>
+<td headers="stat_1" class="gt_row gt_center">213</td>
+<td headers="stat_2" class="gt_row gt_center">87</td>
+<td headers="stat_0" class="gt_row gt_center">300</td></tr>
+  </tbody>
+  
+</table>
+</div>
+</div>
+<div id="regression-table-with-tbl_regression" class="section level2 hasAnchor" number="11.8">
+<h2><span class="header-section-number">11.8</span> Regression table with <code>tbl_regression()</code><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#regression-table-with-tbl_regression" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>If you want to create a regression table, you can fit a model and use <code>tbl_regression()</code> to summarize the results. Use <code>gtsave()</code> to save the results.</p>
+<div class="sourceCode" id="cb545"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb545-1"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb545-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Cholesterol <span class="sc">~</span> Age <span class="sc">+</span> Sex <span class="sc">+</span> BMI, <span class="at">data =</span> data)</span>
+<span id="cb545-2"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb545-2" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = Cholesterol ~ Age + Sex + BMI, data = data)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -77.394 -20.480  -0.201  22.180  79.460 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 202.86854   12.74511  15.917   &lt;2e-16 ***
+## Age           0.01257    0.10073   0.125    0.901    
+## SexWomen     -1.11486    3.52738  -0.316    0.752    
+## BMI          -0.09220    0.46110  -0.200    0.842    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 30.36 on 296 degrees of freedom
+## Multiple R-squared:  0.0004917,  Adjusted R-squared:  -0.009638 
+## F-statistic: 0.04854 on 3 and 296 DF,  p-value: 0.9858</code></pre>
+<div class="sourceCode" id="cb547"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb547-1"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#cb547-1" tabindex="-1"></a><span class="fu">tbl_regression</span>(model) <span class="sc">%&gt;%</span> <span class="fu">as_gt</span>() </span></code></pre></div>
+<div id="tmuoejwgei" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#tmuoejwgei table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#tmuoejwgei thead, #tmuoejwgei tbody, #tmuoejwgei tfoot, #tmuoejwgei tr, #tmuoejwgei td, #tmuoejwgei th {
+  border-style: none;
+}
+
+#tmuoejwgei p {
+  margin: 0;
+  padding: 0;
+}
+
+#tmuoejwgei .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#tmuoejwgei .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#tmuoejwgei .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#tmuoejwgei .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#tmuoejwgei .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#tmuoejwgei .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#tmuoejwgei .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#tmuoejwgei .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#tmuoejwgei .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#tmuoejwgei .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#tmuoejwgei .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#tmuoejwgei .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#tmuoejwgei .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#tmuoejwgei .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#tmuoejwgei .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#tmuoejwgei .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#tmuoejwgei .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#tmuoejwgei .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#tmuoejwgei .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#tmuoejwgei .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#tmuoejwgei .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#tmuoejwgei .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#tmuoejwgei .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#tmuoejwgei .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#tmuoejwgei .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#tmuoejwgei .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#tmuoejwgei .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#tmuoejwgei .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#tmuoejwgei .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#tmuoejwgei .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#tmuoejwgei .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#tmuoejwgei .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#tmuoejwgei .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#tmuoejwgei .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#tmuoejwgei .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#tmuoejwgei .gt_left {
+  text-align: left;
+}
+
+#tmuoejwgei .gt_center {
+  text-align: center;
+}
+
+#tmuoejwgei .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#tmuoejwgei .gt_font_normal {
+  font-weight: normal;
+}
+
+#tmuoejwgei .gt_font_bold {
+  font-weight: bold;
+}
+
+#tmuoejwgei .gt_font_italic {
+  font-style: italic;
+}
+
+#tmuoejwgei .gt_super {
+  font-size: 65%;
+}
+
+#tmuoejwgei .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#tmuoejwgei .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#tmuoejwgei .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#tmuoejwgei .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#tmuoejwgei .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#tmuoejwgei .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#tmuoejwgei .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#tmuoejwgei .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#tmuoejwgei div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="label"><span class='gt_from_md'><strong>Characteristic</strong></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="estimate"><span class='gt_from_md'><strong>Beta</strong></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="conf.low"><span class='gt_from_md'><strong>95% CI</strong></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="p.value"><span class='gt_from_md'><strong>p-value</strong></span></th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="label" class="gt_row gt_left">Age</td>
+<td headers="estimate" class="gt_row gt_center">0.01</td>
+<td headers="conf.low" class="gt_row gt_center">-0.19, 0.21</td>
+<td headers="p.value" class="gt_row gt_center">>0.9</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">Sex</td>
+<td headers="estimate" class="gt_row gt_center"><br /></td>
+<td headers="conf.low" class="gt_row gt_center"><br /></td>
+<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Men</td>
+<td headers="estimate" class="gt_row gt_center">—</td>
+<td headers="conf.low" class="gt_row gt_center">—</td>
+<td headers="p.value" class="gt_row gt_center"><br /></td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Women</td>
+<td headers="estimate" class="gt_row gt_center">-1.1</td>
+<td headers="conf.low" class="gt_row gt_center">-8.1, 5.8</td>
+<td headers="p.value" class="gt_row gt_center">0.8</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">BMI</td>
+<td headers="estimate" class="gt_row gt_center">-0.09</td>
+<td headers="conf.low" class="gt_row gt_center">-1.0, 0.82</td>
+<td headers="p.value" class="gt_row gt_center">0.8</td></tr>
+  </tbody>
+  <tfoot>
+    <tr class="gt_sourcenotes">
+      <td class="gt_sourcenote" colspan="4"><span class='gt_from_md'>Abbreviation: CI = Confidence Interval</span></td>
+    </tr>
+  </tfoot>
+</table>
+</div>
+</div>
+<div id="exercises-1" class="section level2 hasAnchor" number="11.9">
+<h2><span class="header-section-number">11.9</span> Exercises<a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#exercises-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We will work with the <code>SNPSdataset.txt</code> (find it in the weekly assignments <a href="https://aules.uvic.cat/mod/assign/view.php?id=1086918">submission section</a>).</p>
+<p>Create a report using rmarkdown. Include in your report:</p>
+<ul>
+<li><p>the proportion of cases and controls.</p></li>
+<li><p>the proportion of women and men.</p></li>
+<li><p>the proportion of women and men within cases and controls, respectively.</p></li>
+<li><p>summary table with the information for cases and controls, age and gene_expression values stratifying by sex.</p></li>
+<li><p>summary table with the information for all SNPs genotypes when stratifying by sex</p></li>
+<li><p>summary table with the information for all SNPs genotypes when stratifying by sex and case/control</p></li>
+</ul>
+<p>Alternate the use of tables and plots (basic plots from session 2) to display the information. Work with the functions included in the <code>dplyr</code>and <code>tidyr</code> packages.</p>
+<p>The desired format to submit the report is an html. <strong>It is important to describe the results that you show to answer each question. Is not enough providing the code</strong> (<em>Example: The dataset is mainly defined by XX % of women and % men. When we stratify by clinical status, we observe a higher percentage of women in controls than in cases</em>).</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="section-9.-data-managment-using-the-dplyr-package.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="extra-exercises.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

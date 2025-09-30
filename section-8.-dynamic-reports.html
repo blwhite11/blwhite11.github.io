@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>9 SECTION 8. Dynamic Reports | curso-R</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="9 SECTION 8. Dynamic Reports | curso-R" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="9 SECTION 8. Dynamic Reports | curso-R" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="section-7.-introduction-to-object-oriented-programming-oop.html"/>
+<link rel="next" href="section-9.-data-managment-using-the-dplyr-package.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#description-of-the-r-programming-block"><i class="fa fa-check"></i><b>1.1</b> Description of the R programming block</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#contents-of-the-r-programming-block"><i class="fa fa-check"></i><b>1.2</b> Contents of the R programming block</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#evaluation"><i class="fa fa-check"></i><b>1.3</b> Evaluation</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="section-1.-errors-you-may-find-in-r.html"><a href="section-1.-errors-you-may-find-in-r.html"><i class="fa fa-check"></i><b>2</b> SECTION 1. Errors you may find in R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="section-1.-errors-you-may-find-in-r.html"><a href="section-1.-errors-you-may-find-in-r.html#installing-r"><i class="fa fa-check"></i><b>2.1</b> Installing R</a></li>
+<li class="chapter" data-level="2.2" data-path="section-1.-errors-you-may-find-in-r.html"><a href="section-1.-errors-you-may-find-in-r.html#loading-packages"><i class="fa fa-check"></i><b>2.2</b> Loading packages</a></li>
+<li class="chapter" data-level="2.3" data-path="section-1.-errors-you-may-find-in-r.html"><a href="section-1.-errors-you-may-find-in-r.html#defining-directories"><i class="fa fa-check"></i><b>2.3</b> Defining directories</a></li>
+<li class="chapter" data-level="2.4" data-path="section-1.-errors-you-may-find-in-r.html"><a href="section-1.-errors-you-may-find-in-r.html#resources-you-have"><i class="fa fa-check"></i><b>2.4</b> Resources you have</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html"><i class="fa fa-check"></i><b>3</b> SECTION 2. Introduction to R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#why-r"><i class="fa fa-check"></i><b>3.1</b> Why R?</a></li>
+<li class="chapter" data-level="3.2" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#creating-a-new-project-directory-in-rstudio"><i class="fa fa-check"></i><b>3.2</b> Creating a new project directory in RStudio</a></li>
+<li class="chapter" data-level="3.3" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#rstudio-interface"><i class="fa fa-check"></i><b>3.3</b> RStudio Interface</a></li>
+<li class="chapter" data-level="3.4" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#organizing-your-working-directory-setting-up"><i class="fa fa-check"></i><b>3.4</b> Organizing your working directory &amp; setting up</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#viewing-your-working-directory"><i class="fa fa-check"></i><b>3.4.1</b> Viewing your working directory</a></li>
+<li class="chapter" data-level="3.4.2" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#console-command-prompt"><i class="fa fa-check"></i><b>3.4.2</b> Console command prompt</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#simple-computations-with-r"><i class="fa fa-check"></i><b>3.5</b> Simple computations with R</a></li>
+<li class="chapter" data-level="3.6" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#math-functions"><i class="fa fa-check"></i><b>3.6</b> Math functions</a></li>
+<li class="chapter" data-level="3.7" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#variable-assignment"><i class="fa fa-check"></i><b>3.7</b> Variable Assignment</a></li>
+<li class="chapter" data-level="3.8" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#data-types"><i class="fa fa-check"></i><b>3.8</b> Data types</a></li>
+<li class="chapter" data-level="3.9" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#create-new-data"><i class="fa fa-check"></i><b>3.9</b> Create new data</a></li>
+<li class="chapter" data-level="3.10" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#structures"><i class="fa fa-check"></i><b>3.10</b> Structures</a></li>
+<li class="chapter" data-level="3.11" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#the-environment"><i class="fa fa-check"></i><b>3.11</b> The environment</a></li>
+<li class="chapter" data-level="3.12" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#using-scripts"><i class="fa fa-check"></i><b>3.12</b> Using scripts</a></li>
+<li class="chapter" data-level="3.13" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#r-basic-base-functions"><i class="fa fa-check"></i><b>3.13</b> R basic base functions</a></li>
+<li class="chapter" data-level="3.14" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#reading-and-writing-data-files"><i class="fa fa-check"></i><b>3.14</b> Reading and writing data files</a></li>
+<li class="chapter" data-level="3.15" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#librariespackages"><i class="fa fa-check"></i><b>3.15</b> Libraries/Packages</a>
+<ul>
+<li class="chapter" data-level="3.15.1" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#install-packages-from-cran"><i class="fa fa-check"></i><b>3.15.1</b> Install packages from CRAN</a></li>
+<li class="chapter" data-level="3.15.2" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#install-packages-from-github"><i class="fa fa-check"></i><b>3.15.2</b> Install packages from GitHub</a></li>
+</ul></li>
+<li class="chapter" data-level="3.16" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#help-and-documentation"><i class="fa fa-check"></i><b>3.16</b> Help and documentation</a></li>
+<li class="chapter" data-level="3.17" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#interesting-references"><i class="fa fa-check"></i><b>3.17</b> Interesting references:</a></li>
+<li class="chapter" data-level="3.18" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#exercises"><i class="fa fa-check"></i><b>3.18</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="3.18.1" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#part-i"><i class="fa fa-check"></i><b>3.18.1</b> Part I</a></li>
+<li class="chapter" data-level="3.18.2" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#part-ii"><i class="fa fa-check"></i><b>3.18.2</b> Part II</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html"><i class="fa fa-check"></i><b>4</b> SECTION 3. Basic data management</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#accessing-information-and-creating-new-variables"><i class="fa fa-check"></i><b>4.1</b> Accessing information and creating new variables</a></li>
+<li class="chapter" data-level="4.2" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#data-types-and-data-conversions"><i class="fa fa-check"></i><b>4.2</b> Data types and data conversions</a></li>
+<li class="chapter" data-level="4.3" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#subsetting-datasets"><i class="fa fa-check"></i><b>4.3</b> Subsetting datasets</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#selecting-keeping-variables"><i class="fa fa-check"></i><b>4.3.1</b> Selecting (keeping) variables</a></li>
+<li class="chapter" data-level="4.3.2" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#excluding-dropping-variables"><i class="fa fa-check"></i><b>4.3.2</b> Excluding (dropping) variables</a></li>
+<li class="chapter" data-level="4.3.3" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#selecting-or-excluding-observations"><i class="fa fa-check"></i><b>4.3.3</b> Selecting or excluding observations</a></li>
+<li class="chapter" data-level="4.3.4" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#conditional-selection-of-data"><i class="fa fa-check"></i><b>4.3.4</b> Conditional selection of data</a></li>
+<li class="chapter" data-level="4.3.5" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#managing-missing-values"><i class="fa fa-check"></i><b>4.3.5</b> Managing missing values</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#recoding-variables"><i class="fa fa-check"></i><b>4.4</b> Recoding variables</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#subsetting-and-assigning"><i class="fa fa-check"></i><b>4.4.1</b> Subsetting and assigning</a></li>
+<li class="chapter" data-level="4.4.2" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#using-the-within-function"><i class="fa fa-check"></i><b>4.4.2</b> Using the <code>within()</code> function</a></li>
+<li class="chapter" data-level="4.4.3" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#using-the-ifelse-function."><i class="fa fa-check"></i><b>4.4.3</b> Using the <code>ifelse()</code> function.</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#merging-datasets"><i class="fa fa-check"></i><b>4.5</b> Merging datasets</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#adding-columns-horizontal-merge"><i class="fa fa-check"></i><b>4.5.1</b> Adding columns (Horizontal merge)</a></li>
+<li class="chapter" data-level="4.5.2" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#adding-rows-vertical-merge"><i class="fa fa-check"></i><b>4.5.2</b> Adding rows (Vertical merge)</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#sorting-data"><i class="fa fa-check"></i><b>4.6</b> Sorting data</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#sorting-by-a-single-variable"><i class="fa fa-check"></i><b>4.6.1</b> Sorting by a single variable</a></li>
+<li class="chapter" data-level="4.6.2" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#sorting-alphabetically"><i class="fa fa-check"></i><b>4.6.2</b> Sorting alphabetically</a></li>
+<li class="chapter" data-level="4.6.3" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#sorting-by-multiple-variables"><i class="fa fa-check"></i><b>4.6.3</b> Sorting by multiple variables</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#regular-expressions-and-pattern-matching-and-replacement"><i class="fa fa-check"></i><b>4.7</b> Regular expressions and pattern matching and replacement</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#basic-functions-to-detect-patterns-in-r"><i class="fa fa-check"></i><b>4.7.1</b> Basic functions to detect patterns in R</a></li>
+<li class="chapter" data-level="4.7.2" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#special-symbols"><i class="fa fa-check"></i><b>4.7.2</b> Special symbols</a></li>
+<li class="chapter" data-level="4.7.3" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#basic-functions-to-locate-patterns-in-r"><i class="fa fa-check"></i><b>4.7.3</b> Basic functions to locate patterns in R</a></li>
+<li class="chapter" data-level="4.7.4" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#split-a-string-using-a-pattern"><i class="fa fa-check"></i><b>4.7.4</b> Split a string using a pattern</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#exercises-data-management-optional"><i class="fa fa-check"></i><b>4.8</b> Exercises Data Management (Optional)</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="section-4.-introduction-to-functions.html"><a href="section-4.-introduction-to-functions.html"><i class="fa fa-check"></i><b>5</b> SECTION 4. Introduction to Functions</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="section-4.-introduction-to-functions.html"><a href="section-4.-introduction-to-functions.html#what-is-a-function"><i class="fa fa-check"></i><b>5.1</b> What is a function?</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="section-4.-introduction-to-functions.html"><a href="section-4.-introduction-to-functions.html#built-in-r-functions"><i class="fa fa-check"></i><b>5.1.1</b> Built-in R functions</a></li>
+<li class="chapter" data-level="5.1.2" data-path="section-4.-introduction-to-functions.html"><a href="section-4.-introduction-to-functions.html#functions-defined-in-r-packages"><i class="fa fa-check"></i><b>5.1.2</b> Functions defined in R packages</a></li>
+<li class="chapter" data-level="5.1.3" data-path="section-4.-introduction-to-functions.html"><a href="section-4.-introduction-to-functions.html#user-defined-functions"><i class="fa fa-check"></i><b>5.1.3</b> User-defined functions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="section-4.-introduction-to-functions.html"><a href="section-4.-introduction-to-functions.html#writing-your-own-functions"><i class="fa fa-check"></i><b>5.2</b> Writing your own functions</a></li>
+<li class="chapter" data-level="5.3" data-path="section-4.-introduction-to-functions.html"><a href="section-4.-introduction-to-functions.html#arguments-of-a-function"><i class="fa fa-check"></i><b>5.3</b> Arguments of a function</a></li>
+<li class="chapter" data-level="5.4" data-path="section-4.-introduction-to-functions.html"><a href="section-4.-introduction-to-functions.html#matching-arguments"><i class="fa fa-check"></i><b>5.4</b> Matching Arguments</a></li>
+<li class="chapter" data-level="5.5" data-path="section-4.-introduction-to-functions.html"><a href="section-4.-introduction-to-functions.html#output-of-a-function"><i class="fa fa-check"></i><b>5.5</b> Output of a Function</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="section-4.-introduction-to-functions.html"><a href="section-4.-introduction-to-functions.html#examples-of-functions"><i class="fa fa-check"></i><b>5.5.1</b> Examples of functions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="section-4.-introduction-to-functions.html"><a href="section-4.-introduction-to-functions.html#basic-r-programming"><i class="fa fa-check"></i><b>5.6</b> Basic R Programming</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="section-4.-introduction-to-functions.html"><a href="section-4.-introduction-to-functions.html#conditionals"><i class="fa fa-check"></i><b>5.6.1</b> Conditionals</a></li>
+<li class="chapter" data-level="5.6.2" data-path="section-4.-introduction-to-functions.html"><a href="section-4.-introduction-to-functions.html#loops"><i class="fa fa-check"></i><b>5.6.2</b> Loops</a></li>
+<li class="chapter" data-level="5.6.3" data-path="section-4.-introduction-to-functions.html"><a href="section-4.-introduction-to-functions.html#useful-functions-to-avoid-loops"><i class="fa fa-check"></i><b>5.6.3</b> Useful functions to avoid loops</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="section-4.-introduction-to-functions.html"><a href="section-4.-introduction-to-functions.html#references"><i class="fa fa-check"></i><b>5.7</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html"><i class="fa fa-check"></i><b>6</b> SECTION 5. Basic Plots</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#line-charts"><i class="fa fa-check"></i><b>6.1</b> Line charts</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#key-characteristics"><i class="fa fa-check"></i><b>6.1.1</b> Key Characteristics:</a></li>
+<li class="chapter" data-level="6.1.2" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#use-cases"><i class="fa fa-check"></i><b>6.1.2</b> Use Cases:</a></li>
+<li class="chapter" data-level="6.1.3" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#customization-options"><i class="fa fa-check"></i><b>6.1.3</b> Customization Options:</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#dot-plot"><i class="fa fa-check"></i><b>6.2</b> Dot plot</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#key-characteristics-1"><i class="fa fa-check"></i><b>6.2.1</b> Key characteristics</a></li>
+<li class="chapter" data-level="6.2.2" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#use-cases-1"><i class="fa fa-check"></i><b>6.2.2</b> Use cases</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#bar-charts"><i class="fa fa-check"></i><b>6.3</b> Bar charts</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#key-characteristics-2"><i class="fa fa-check"></i><b>6.3.1</b> Key characteristics</a></li>
+<li class="chapter" data-level="6.3.2" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#customization"><i class="fa fa-check"></i><b>6.3.2</b> Customization</a></li>
+<li class="chapter" data-level="6.3.3" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#multiple-bar-plots"><i class="fa fa-check"></i><b>6.3.3</b> Multiple bar plots</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#histograms"><i class="fa fa-check"></i><b>6.4</b> Histograms</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#key-characteristics-3"><i class="fa fa-check"></i><b>6.4.1</b> Key characteristics</a></li>
+<li class="chapter" data-level="6.4.2" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#customization-1"><i class="fa fa-check"></i><b>6.4.2</b> Customization</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#boxplot"><i class="fa fa-check"></i><b>6.5</b> Boxplot</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#key-characteristics-4"><i class="fa fa-check"></i><b>6.5.1</b> Key characteristics</a></li>
+<li class="chapter" data-level="6.5.2" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#use-cases-2"><i class="fa fa-check"></i><b>6.5.2</b> Use cases</a></li>
+<li class="chapter" data-level="6.5.3" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#customization-options-1"><i class="fa fa-check"></i><b>6.5.3</b> Customization options</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#commbining-different-plots"><i class="fa fa-check"></i><b>6.6</b> Commbining different plots</a></li>
+<li class="chapter" data-level="6.7" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#scatter-plots"><i class="fa fa-check"></i><b>6.7</b> Scatter Plots</a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#creating-a-simple-scatter-plot"><i class="fa fa-check"></i><b>6.7.1</b> Creating a Simple Scatter Plot</a></li>
+<li class="chapter" data-level="6.7.2" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#add-new-data-to-an-existint-plot"><i class="fa fa-check"></i><b>6.7.2</b> Add new data to an existint plot</a></li>
+<li class="chapter" data-level="6.7.3" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#adding-labels-to-data-points"><i class="fa fa-check"></i><b>6.7.3</b> Adding labels to data points</a></li>
+<li class="chapter" data-level="6.7.4" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#using-legends"><i class="fa fa-check"></i><b>6.7.4</b> Using legends</a></li>
+<li class="chapter" data-level="6.7.5" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#customizing-scatter-plots"><i class="fa fa-check"></i><b>6.7.5</b> Customizing Scatter plots</a></li>
+<li class="chapter" data-level="6.7.6" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#multiple-scatter-plots"><i class="fa fa-check"></i><b>6.7.6</b> Multiple scatter plots</a></li>
+</ul></li>
+<li class="chapter" data-level="6.8" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#important-graphical-functions-and-parameters"><i class="fa fa-check"></i><b>6.8</b> Important graphical functions and parameters</a></li>
+<li class="chapter" data-level="6.9" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#saving-graphics-to-files"><i class="fa fa-check"></i><b>6.9</b> Saving Graphics to Files</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="section-6.-tips-for-efficient-programming.html"><a href="section-6.-tips-for-efficient-programming.html"><i class="fa fa-check"></i><b>7</b> SECTION 6. Tips for efficient programming</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="section-6.-tips-for-efficient-programming.html"><a href="section-6.-tips-for-efficient-programming.html#top-tips-for-efficient-programming"><i class="fa fa-check"></i><b>7.1</b> Top tips for efficient programming</a></li>
+<li class="chapter" data-level="7.2" data-path="section-6.-tips-for-efficient-programming.html"><a href="section-6.-tips-for-efficient-programming.html#optimizing-functions-calls"><i class="fa fa-check"></i><b>7.2</b> Optimizing functions calls</a></li>
+<li class="chapter" data-level="7.3" data-path="section-6.-tips-for-efficient-programming.html"><a href="section-6.-tips-for-efficient-programming.html#memory-allocation"><i class="fa fa-check"></i><b>7.3</b> Memory allocation</a></li>
+<li class="chapter" data-level="7.4" data-path="section-6.-tips-for-efficient-programming.html"><a href="section-6.-tips-for-efficient-programming.html#embrace-rs-vectorized-paradigm"><i class="fa fa-check"></i><b>7.4</b> Embrace R’s vectorized paradigm</a></li>
+<li class="chapter" data-level="7.5" data-path="section-6.-tips-for-efficient-programming.html"><a href="section-6.-tips-for-efficient-programming.html#efficient-functions-do-as-little-as-possible"><i class="fa fa-check"></i><b>7.5</b> Efficient functions: Do as little as possible</a></li>
+<li class="chapter" data-level="7.6" data-path="section-6.-tips-for-efficient-programming.html"><a href="section-6.-tips-for-efficient-programming.html#references-1"><i class="fa fa-check"></i><b>7.6</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="section-7.-introduction-to-object-oriented-programming-oop.html"><a href="section-7.-introduction-to-object-oriented-programming-oop.html"><i class="fa fa-check"></i><b>8</b> SECTION 7. Introduction to Object-oriented Programming (OOP)</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="section-7.-introduction-to-object-oriented-programming-oop.html"><a href="section-7.-introduction-to-object-oriented-programming-oop.html#object-and-class-in-r"><i class="fa fa-check"></i><b>8.1</b> Object and Class in R</a></li>
+<li class="chapter" data-level="8.2" data-path="section-7.-introduction-to-object-oriented-programming-oop.html"><a href="section-7.-introduction-to-object-oriented-programming-oop.html#s3-classes"><i class="fa fa-check"></i><b>8.2</b> S3 Classes</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="section-7.-introduction-to-object-oriented-programming-oop.html"><a href="section-7.-introduction-to-object-oriented-programming-oop.html#methods-and-generic-functions-in-s3-classes"><i class="fa fa-check"></i><b>8.2.1</b> Methods and Generic Functions in S3 classes:</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="section-7.-introduction-to-object-oriented-programming-oop.html"><a href="section-7.-introduction-to-object-oriented-programming-oop.html#s4-classes"><i class="fa fa-check"></i><b>8.3</b> S4 classes</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="section-7.-introduction-to-object-oriented-programming-oop.html"><a href="section-7.-introduction-to-object-oriented-programming-oop.html#methods-and-generic-functions-in-s4-classes"><i class="fa fa-check"></i><b>8.3.1</b> Methods and Generic Functions in S4 classes:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html"><i class="fa fa-check"></i><b>9</b> SECTION 8. Dynamic Reports</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#what-is-latex"><i class="fa fa-check"></i><b>9.1</b> What is LATEX?</a></li>
+<li class="chapter" data-level="9.2" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#what-is-sweave"><i class="fa fa-check"></i><b>9.2</b> What is Sweave?</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#how-to-install-sweave"><i class="fa fa-check"></i><b>9.2.1</b> How to install Sweave</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#basic-options-for-code-chunks"><i class="fa fa-check"></i><b>9.3</b> Basic options for code chunks</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#for-costly-computations-cachesweave-package"><i class="fa fa-check"></i><b>9.3.1</b> For costly computations: <code>cacheSweave</code> package</a></li>
+<li class="chapter" data-level="9.3.2" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#example"><i class="fa fa-check"></i><b>9.3.2</b> Example</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#the-beamer-class-latex-presentations"><i class="fa fa-check"></i><b>9.4</b> The Beamer class: LATEX presentations</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#table-of-contents"><i class="fa fa-check"></i><b>9.4.1</b> Table of Contents</a></li>
+<li class="chapter" data-level="9.4.2" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#sections-and-subsections"><i class="fa fa-check"></i><b>9.4.2</b> Sections and Subsections</a></li>
+<li class="chapter" data-level="9.4.3" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#frames-and-structures"><i class="fa fa-check"></i><b>9.4.3</b> Frames and structures:</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#knitr-package"><i class="fa fa-check"></i><b>9.5</b> <code>Knitr</code> package</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#knitr-main-outputs"><i class="fa fa-check"></i><b>9.5.1</b> <code>Knitr</code> main outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#r-markdown"><i class="fa fa-check"></i><b>9.6</b> R Markdown</a>
+<ul>
+<li class="chapter" data-level="9.6.1" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#installation"><i class="fa fa-check"></i><b>9.6.1</b> Installation</a></li>
+<li class="chapter" data-level="9.6.2" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#output-formats"><i class="fa fa-check"></i><b>9.6.2</b> Output Formats</a></li>
+<li class="chapter" data-level="9.6.3" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#output-format-functions"><i class="fa fa-check"></i><b>9.6.3</b> Output Format Functions</a></li>
+<li class="chapter" data-level="9.6.4" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#chunk-options"><i class="fa fa-check"></i><b>9.6.4</b> Chunk Options</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#shiny"><i class="fa fa-check"></i><b>9.7</b> Shiny</a></li>
+<li class="chapter" data-level="9.8" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#quarto"><i class="fa fa-check"></i><b>9.8</b> Quarto</a></li>
+<li class="chapter" data-level="9.9" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#available-templates-for-each-block"><i class="fa fa-check"></i><b>9.9</b> Available templates for each block</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html"><i class="fa fa-check"></i><b>10</b> SECTION 9. Data managment using the dplyr package</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#the-filter-function-and-the-use-of-comparison-operators"><i class="fa fa-check"></i><b>10.1</b> The <code>filter()</code> function and the use of comparison operators</a></li>
+<li class="chapter" data-level="10.2" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#sorting-with-arrange"><i class="fa fa-check"></i><b>10.2</b> Sorting with <code>arrange()</code></a></li>
+<li class="chapter" data-level="10.3" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#accessing-rows-with-slice"><i class="fa fa-check"></i><b>10.3</b> Accessing rows with <code>slice()</code></a></li>
+<li class="chapter" data-level="10.4" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#picking-columns-out-with-select"><i class="fa fa-check"></i><b>10.4</b> Picking columns out with <code>select()</code></a></li>
+<li class="chapter" data-level="10.5" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#change-names-with-rename"><i class="fa fa-check"></i><b>10.5</b> Change names with <code>rename()</code></a></li>
+<li class="chapter" data-level="10.6" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#transforming-pre-existing-columns-or-creating-new-ones-with-mutate"><i class="fa fa-check"></i><b>10.6</b> Transforming pre-existing columns or creating new ones with <code>mutate()</code></a></li>
+<li class="chapter" data-level="10.7" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#to-sum-upgroup_by-summarise"><i class="fa fa-check"></i><b>10.7</b> To sum up…<code>group_by()</code> + <code>summarise()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html"><i class="fa fa-check"></i><b>11</b> Data reshaping and cleaning using the tidyr package</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#transforming-wide-to-long-format-with-pivot_longer"><i class="fa fa-check"></i><b>11.1</b> Transforming wide to long format with <code>pivot_longer()</code>:</a></li>
+<li class="chapter" data-level="11.2" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#transforming-long-to-wide-format-with-pivot_wider"><i class="fa fa-check"></i><b>11.2</b> Transforming long to wide format with <code>pivot_wider()</code>:</a></li>
+<li class="chapter" data-level="11.3" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#handling-missing-values-with-replace_na"><i class="fa fa-check"></i><b>11.3</b> Handling missing values with <code>replace_na()</code></a></li>
+<li class="chapter" data-level="11.4" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#gt-and-gtsummary-packages"><i class="fa fa-check"></i><b>11.4</b> Gt and gtsummary packages</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#basic-summary-table-with-tbl_summary"><i class="fa fa-check"></i><b>11.4.1</b> Basic Summary Table with <code>tbl_summary()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#adding-statistical-tests-with-add_p"><i class="fa fa-check"></i><b>11.5</b> Adding statistical tests with <code>add_p()</code></a></li>
+<li class="chapter" data-level="11.6" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#stratified-tables-with-tbl_strata"><i class="fa fa-check"></i><b>11.6</b> Stratified Tables with <code>tbl_strata()</code></a></li>
+<li class="chapter" data-level="11.7" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#creating-cross-tables-with-tbl_cross"><i class="fa fa-check"></i><b>11.7</b> Creating Cross Tables with <code>tbl_cross()</code></a></li>
+<li class="chapter" data-level="11.8" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#regression-table-with-tbl_regression"><i class="fa fa-check"></i><b>11.8</b> Regression table with <code>tbl_regression()</code></a></li>
+<li class="chapter" data-level="11.9" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#exercises-1"><i class="fa fa-check"></i><b>11.9</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="extra-exercises.html"><a href="extra-exercises.html"><i class="fa fa-check"></i><b>12</b> Extra exercises</a></li>
+<li class="chapter" data-level="13" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html"><i class="fa fa-check"></i><b>13</b> SECTION 10. Advanced Data Visualization: ggplot2 package</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#why-ggplot2"><i class="fa fa-check"></i><b>13.1</b> Why ggplot2?</a></li>
+<li class="chapter" data-level="13.2" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#installation-1"><i class="fa fa-check"></i><b>13.2</b> Installation</a></li>
+<li class="chapter" data-level="13.3" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#usage"><i class="fa fa-check"></i><b>13.3</b> Usage</a></li>
+<li class="chapter" data-level="13.4" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#geometric-objects-and-aesthetics"><i class="fa fa-check"></i><b>13.4</b> Geometric Objects And Aesthetics</a>
+<ul>
+<li class="chapter" data-level="13.4.1" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#aesthetic-mapping"><i class="fa fa-check"></i><b>13.4.1</b> Aesthetic Mapping</a></li>
+<li class="chapter" data-level="13.4.2" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#geometic-objects-geom"><i class="fa fa-check"></i><b>13.4.2</b> Geometic Objects (geom)</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#examples"><i class="fa fa-check"></i><b>13.5</b> Examples</a>
+<ul>
+<li class="chapter" data-level="13.5.1" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#categorical-variables"><i class="fa fa-check"></i><b>13.5.1</b> Categorical Variables</a></li>
+<li class="chapter" data-level="13.5.2" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#quantitative-variables"><i class="fa fa-check"></i><b>13.5.2</b> Quantitative Variables</a></li>
+<li class="chapter" data-level="13.5.3" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#more-advanced-code-customizing-your-plots"><i class="fa fa-check"></i><b>13.5.3</b> More advanced code: customizing your plots</a></li>
+<li class="chapter" data-level="13.5.4" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#saving-plots"><i class="fa fa-check"></i><b>13.5.4</b> Saving plots</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#exercises-create-new-plots-for-genetic-data-visualization-using-the-snpdataset.txt-dataset.-create-a-report-in-.html-format-and-display-and-describe-each-one-of-the-plots."><i class="fa fa-check"></i><b>13.6</b> Exercises: Create new plots for genetic data visualization using the <code>SNPdataset.txt</code> dataset. Create a report in .html format and display and describe each one of the plots.</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html"><i class="fa fa-check"></i><b>14</b> SECTION 11. Advanced Data Visualization: Extra Part</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#useful-plots-for-omics-data-analysis"><i class="fa fa-check"></i><b>14.1</b> Useful plots for Omics Data Analysis</a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#heatmap"><i class="fa fa-check"></i><b>14.1.1</b> Heatmap</a></li>
+<li class="chapter" data-level="14.1.2" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#venn-diagram"><i class="fa fa-check"></i><b>14.1.2</b> Venn Diagram</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#other-resources-in-r"><i class="fa fa-check"></i><b>14.2</b> Other resources in R</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#advanced-visualizations-with-ggpubr"><i class="fa fa-check"></i><b>14.2.1</b> Advanced visualizations with ggpubr</a></li>
+<li class="chapter" data-level="14.2.2" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#dynamic-plots-with-gganimate"><i class="fa fa-check"></i><b>14.2.2</b> Dynamic plots with gganimate</a></li>
+<li class="chapter" data-level="14.2.3" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#interactive-interfaces-for-creating-plots"><i class="fa fa-check"></i><b>14.2.3</b> Interactive interfaces for creating plots</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html"><i class="fa fa-check"></i><b>15</b> SECTION 12. Introduction to Shiny</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#writing-a-shiny-application-in-r"><i class="fa fa-check"></i><b>15.1</b> Writing a Shiny Application in R</a>
+<ul>
+<li class="chapter" data-level="15.1.1" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#ui-layout"><i class="fa fa-check"></i><b>15.1.1</b> UI Layout</a></li>
+<li class="chapter" data-level="15.1.2" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#server-logic"><i class="fa fa-check"></i><b>15.1.2</b> Server Logic</a></li>
+<li class="chapter" data-level="15.1.3" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#examples-1"><i class="fa fa-check"></i><b>15.1.3</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#elements-for-a-shiny-app"><i class="fa fa-check"></i><b>15.2</b> Elements for a Shiny App</a>
+<ul>
+<li class="chapter" data-level="15.2.1" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#ui-components"><i class="fa fa-check"></i><b>15.2.1</b> UI Components</a></li>
+<li class="chapter" data-level="15.2.2" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#server-function"><i class="fa fa-check"></i><b>15.2.2</b> Server function</a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#working-with-shinydashboard"><i class="fa fa-check"></i><b>15.3</b> Working with ShinyDashboard</a></li>
+<li class="chapter" data-level="15.4" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#deploying-the-application-to-shinyapps.io"><i class="fa fa-check"></i><b>15.4</b> Deploying the Application to Shinyapps.io</a></li>
+<li class="chapter" data-level="15.5" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#take-home"><i class="fa fa-check"></i><b>15.5</b> Take home</a></li>
+<li class="chapter" data-level="15.6" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#final-task"><i class="fa fa-check"></i><b>15.6</b> Final Task</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="section-8.-dynamic-reports" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">9</span> SECTION 8. Dynamic Reports<a href="section-8.-dynamic-reports.html#section-8.-dynamic-reports" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="what-is-latex" class="section level2 hasAnchor" number="9.1">
+<h2><span class="header-section-number">9.1</span> What is LATEX?<a href="section-8.-dynamic-reports.html#what-is-latex" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>LATEX is different from other type setting systems in that you just have to tell it the logical and semantic structure of a text. It then derives the typographical form of the text according to the ‘rules’ given in the document class file and in various style files. LATEX allows users to structure their documents with a variety of hierarchical constructs, including chapters, sections, subsections and paragraphs.</p>
+<p>The standard document structure of a LATEX file includes the definition of the document class, where the document starts and ends. Additional information can include title, author(s) and affiliation of the author(s) as well as a table of content and different chapters and sections within the document. Figures, tables and a bibliography are also very common in most LATEX documents. The following code shows a basic LATEX document structure with title, table of contents and a section where the text of the document is entered.</p>
+<div class="sourceCode" id="cb487"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb487-1"><a href="section-8.-dynamic-reports.html#cb487-1" tabindex="-1"></a>\documentclass[<span class="dv">11</span>pt,a4paper,oneside]{report}</span>
+<span id="cb487-2"><a href="section-8.-dynamic-reports.html#cb487-2" tabindex="-1"></a>\begin{document}</span>
+<span id="cb487-3"><a href="section-8.-dynamic-reports.html#cb487-3" tabindex="-1"></a>\title{Basic \LaTeX document structure with table of contents}</span>
+<span id="cb487-4"><a href="section-8.-dynamic-reports.html#cb487-4" tabindex="-1"></a>\author[<span class="dv">1</span>]{Your Name}</span>
+<span id="cb487-5"><a href="section-8.-dynamic-reports.html#cb487-5" tabindex="-1"></a>\affil[<span class="dv">1</span>]{Some Affiliation}</span>
+<span id="cb487-6"><a href="section-8.-dynamic-reports.html#cb487-6" tabindex="-1"></a>\maketitle</span>
+<span id="cb487-7"><a href="section-8.-dynamic-reports.html#cb487-7" tabindex="-1"></a>\tableofcontents</span>
+<span id="cb487-8"><a href="section-8.-dynamic-reports.html#cb487-8" tabindex="-1"></a>\section{Section Header}</span>
+<span id="cb487-9"><a href="section-8.-dynamic-reports.html#cb487-9" tabindex="-1"></a>Some text.</span>
+<span id="cb487-10"><a href="section-8.-dynamic-reports.html#cb487-10" tabindex="-1"></a>...</span>
+<span id="cb487-11"><a href="section-8.-dynamic-reports.html#cb487-11" tabindex="-1"></a>\end{document}</span></code></pre></div>
+<p>More details in: <code>usrguide_latex.pdf</code></p>
+</div>
+<div id="what-is-sweave" class="section level2 hasAnchor" number="9.2">
+<h2><span class="header-section-number">9.2</span> What is Sweave?<a href="section-8.-dynamic-reports.html#what-is-sweave" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>A set of R functions, written by Friedrich Leisch
+(<a href="http://www.statistik.lmu.de/~leisch" class="uri">http://www.statistik.lmu.de/~leisch</a>), working under one command in utils package</p></li>
+<li><p>Processes R code within a LaTex document</p></li>
+<li><p>Returns output from such code</p></li>
+<li><p>Creates plots and automatically creates the LaTex code for their inclusion</p></li>
+<li><p>A LaTex package and style (~.2.sty)</p></li>
+</ul>
+<div id="how-to-install-sweave" class="section level3 hasAnchor" number="9.2.1">
+<h3><span class="header-section-number">9.2.1</span> How to install Sweave<a href="section-8.-dynamic-reports.html#how-to-install-sweave" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>Assuming LaTex and R are installed, there is no need for installation (in case you need to install LaTex: <a href="https://www.latex-project.org/get/" class="uri">https://www.latex-project.org/get/</a>) (<a href="https://tug.org/texlive/windows.html#install" class="uri">https://tug.org/texlive/windows.html#install</a>)</p></li>
+<li><p>Sweave is distributed with R (since version 1.5.0)</p></li>
+<li><p>It is included in the <code>utils</code> package (no need to load it)</p></li>
+</ul>
+<div id="an-easy-way-is-to-run-sweave-in-rstudio" class="section level4 hasAnchor" number="9.2.1.1">
+<h4><span class="header-section-number">9.2.1.1</span> An easy way is to run Sweave in Rstudio:<a href="section-8.-dynamic-reports.html#an-easy-way-is-to-run-sweave-in-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li><p>open a new file from File, R Sweave</p></li>
+<li><p>just click on compile pdf button after you have edited the .Rnw file</p></li>
+</ul>
+</div>
+<div id="how-does-it-work" class="section level4 hasAnchor" number="9.2.1.2">
+<h4><span class="header-section-number">9.2.1.2</span> How does it work?<a href="section-8.-dynamic-reports.html#how-does-it-work" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="the-noweb-syntax-code-chunks-in-sweave" class="section level5 hasAnchor" number="9.2.1.2.1">
+<h5><span class="header-section-number">9.2.1.2.1</span> The Noweb syntax: Code Chunks in Sweave<a href="section-8.-dynamic-reports.html#the-noweb-syntax-code-chunks-in-sweave" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<ul>
+<li><p>To separate code and documentation chunks, the <strong>Noweb</strong> syntax is used</p></li>
+<li><p>Noweb is a literate programming tool which allows to combine program source code and the corresponding documentation into a single file</p></li>
+<li><p>Different segments are called chunks:</p>
+<ul>
+<li>&lt; &lt; options &gt; &gt;= denotes the start of code chunk,</li>
+<li>@ denotes the start of a documentation chunk.</li>
+</ul></li>
+<li><p>Two kind of operations:</p>
+<ul>
+<li>weave: typeset documentation together with code</li>
+<li>tangle: extract code chunks in a .R file</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb488"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb488-1"><a href="section-8.-dynamic-reports.html#cb488-1" tabindex="-1"></a><span class="sc">&lt;</span><span class="er">&lt;</span>chunkname<span class="sc">&gt;</span><span class="er">&gt;=</span></span>
+<span id="cb488-2"><a href="section-8.-dynamic-reports.html#cb488-2" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb488-3"><a href="section-8.-dynamic-reports.html#cb488-3" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb488-4"><a href="section-8.-dynamic-reports.html#cb488-4" tabindex="-1"></a><span class="fu">print</span>(a<span class="sc">+</span>b)</span>
+<span id="cb488-5"><a href="section-8.-dynamic-reports.html#cb488-5" tabindex="-1"></a><span class="sc">@</span></span></code></pre></div>
+<p>Each code chunk is translated into LATEX code by Sweave() as follows:</p>
+<div class="sourceCode" id="cb489"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb489-1"><a href="section-8.-dynamic-reports.html#cb489-1" tabindex="-1"></a>\begin{Schunk}</span>
+<span id="cb489-2"><a href="section-8.-dynamic-reports.html#cb489-2" tabindex="-1"></a>\begin{Sinput}</span>
+<span id="cb489-3"><a href="section-8.-dynamic-reports.html#cb489-3" tabindex="-1"></a><span class="sc">&gt;</span> a <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb489-4"><a href="section-8.-dynamic-reports.html#cb489-4" tabindex="-1"></a><span class="sc">&gt;</span> b <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb489-5"><a href="section-8.-dynamic-reports.html#cb489-5" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">print</span>(a <span class="sc">+</span> b)</span>
+<span id="cb489-6"><a href="section-8.-dynamic-reports.html#cb489-6" tabindex="-1"></a>\end{Sinput}</span>
+<span id="cb489-7"><a href="section-8.-dynamic-reports.html#cb489-7" tabindex="-1"></a>\begin{Soutput}</span>
+<span id="cb489-8"><a href="section-8.-dynamic-reports.html#cb489-8" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">5</span></span>
+<span id="cb489-9"><a href="section-8.-dynamic-reports.html#cb489-9" tabindex="-1"></a>\end{Soutput}</span>
+<span id="cb489-10"><a href="section-8.-dynamic-reports.html#cb489-10" tabindex="-1"></a>\end{Schunk}</span></code></pre></div>
+<p>And finally after creating a pdf from the L ATEXdocument, the result in the pdf file is:</p>
+<div class="sourceCode" id="cb490"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb490-1"><a href="section-8.-dynamic-reports.html#cb490-1" tabindex="-1"></a><span class="sc">&gt;</span> a <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb490-2"><a href="section-8.-dynamic-reports.html#cb490-2" tabindex="-1"></a><span class="sc">&gt;</span> b <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb490-3"><a href="section-8.-dynamic-reports.html#cb490-3" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">print</span>(a <span class="sc">+</span> b)</span>
+<span id="cb490-4"><a href="section-8.-dynamic-reports.html#cb490-4" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">5</span></span></code></pre></div>
+</div>
+</div>
+<div id="the-sweave-r-package" class="section level4 hasAnchor" number="9.2.1.3">
+<h4><span class="header-section-number">9.2.1.3</span> The Sweave R package<a href="section-8.-dynamic-reports.html#the-sweave-r-package" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The Sweave package is part of the base installation of R (everybody should have it within the standard R installation), for more details see:</p>
+<div class="sourceCode" id="cb491"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb491-1"><a href="section-8.-dynamic-reports.html#cb491-1" tabindex="-1"></a><span class="fu">help</span>(<span class="st">&quot;Sweave&quot;</span>, <span class="at">package =</span> <span class="st">&quot;utils&quot;</span>)</span></code></pre></div>
+<p>The two main functions of the Sweave package are:</p>
+<ul>
+<li><p><code>Sweave()</code>: Produces suitable documentation from the main source files. <code>Rnw -&gt; tex</code></p></li>
+<li><p><code>Stangle()</code>: Produces programming code from the main source files. <code>Rnw -&gt; R</code></p></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="basic-options-for-code-chunks" class="section level2 hasAnchor" number="9.3">
+<h2><span class="header-section-number">9.3</span> Basic options for code chunks<a href="section-8.-dynamic-reports.html#basic-options-for-code-chunks" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Multiple options can be placed in the construct &lt;&lt;&gt;&gt;= to control how the code in the chunks is executed (bold means default setting):</p>
+<ul>
+<li><p><code>eval</code> (TRUE, FALSE): Whether the R chunk is run. If FALSE, the code chunk is not evaluated, and hence no text or graphical output produced (default is TRUE).</p></li>
+<li><p><code>echo</code> (TRUE, FALSE): Whether the R chunk is shown in the LATEX file (default is FALSE)</p></li>
+<li><p><code>results</code> (verbatim, tex, hide): Type of output used to show the printed results produced by the R code. ‘hide’ will show no output at all (default is verbatim).</p></li>
+<li><p><code>fig</code>: (TRUE, FALSE): If TRUE it includes the plot created in the code (default is FALSE).</p></li>
+<li><p><code>width</code>: numeric, width of figures in inch</p></li>
+<li><p><code>height</code>: numeric, height of figures in inch</p></li>
+</ul>
+<div id="for-costly-computations-cachesweave-package" class="section level3 hasAnchor" number="9.3.1">
+<h3><span class="header-section-number">9.3.1</span> For costly computations: <code>cacheSweave</code> package<a href="section-8.-dynamic-reports.html#for-costly-computations-cachesweave-package" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>Add <code>cache=TRUE</code> to computationally expensive chunks</p></li>
+<li><p>After the first run, objects from the cached chunks keep stored in a hash map</p></li>
+<li><p>Subsequent Sweaves do not evaluate these chunks</p></li>
+<li><p>Cached chunks must be computations only (NO FIGURES)</p></li>
+<li><p>Options can be set globally at the beginning of the file (and changed everywhere else) with</p></li>
+</ul>
+<div class="sourceCode" id="cb492"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb492-1"><a href="section-8.-dynamic-reports.html#cb492-1" tabindex="-1"></a>\SweaveOpts{option1,option2,...}</span></code></pre></div>
+</div>
+<div id="example" class="section level3 hasAnchor" number="9.3.2">
+<h3><span class="header-section-number">9.3.2</span> Example<a href="section-8.-dynamic-reports.html#example" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We created a code chunk named <code>summaryFUN</code> with no additional options set. Hence, the R code is executed and displayed as code insight a verbatim environment in LATEX:</p>
+<div class="sourceCode" id="cb493"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb493-1"><a href="section-8.-dynamic-reports.html#cb493-1" tabindex="-1"></a><span class="sc">&lt;</span><span class="er">&lt;</span>summaryFUN<span class="sc">&gt;</span><span class="er">&gt;=</span></span>
+<span id="cb493-2"><a href="section-8.-dynamic-reports.html#cb493-2" tabindex="-1"></a>custom.summary <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb493-3"><a href="section-8.-dynamic-reports.html#cb493-3" tabindex="-1"></a><span class="fu">return</span>(<span class="fu">list</span>(<span class="at">Mean =</span> <span class="fu">mean</span>(x), <span class="at">Max =</span> <span class="fu">max</span>(x), <span class="at">Min =</span> <span class="fu">min</span>(x), <span class="at">Summary =</span> <span class="fu">summary</span>(x),</span>
+<span id="cb493-4"><a href="section-8.-dynamic-reports.html#cb493-4" tabindex="-1"></a><span class="at">Head =</span> <span class="fu">head</span>(x), <span class="at">Class =</span> <span class="fu">class</span>(x), <span class="at">Length =</span> <span class="fu">length</span>(x)))</span>
+<span id="cb493-5"><a href="section-8.-dynamic-reports.html#cb493-5" tabindex="-1"></a>}</span>
+<span id="cb493-6"><a href="section-8.-dynamic-reports.html#cb493-6" tabindex="-1"></a><span class="sc">@</span></span></code></pre></div>
+<p>Now the <code>custom.summary</code> function is created in our R environment and can be called in following code chunks.
+For instance, we take the cars data that is included in the R base installation. The cars object includes the data of speed and the distances taken to stop of cars.</p>
+<div class="sourceCode" id="cb494"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb494-1"><a href="section-8.-dynamic-reports.html#cb494-1" tabindex="-1"></a><span class="sc">&lt;</span><span class="er">&lt;</span>chunkresults<span class="sc">&gt;</span><span class="er">&gt;=</span></span>
+<span id="cb494-2"><a href="section-8.-dynamic-reports.html#cb494-2" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">custom.summary</span>(cars<span class="sc">$</span>speed)</span>
+<span id="cb494-3"><a href="section-8.-dynamic-reports.html#cb494-3" tabindex="-1"></a>result</span>
+<span id="cb494-4"><a href="section-8.-dynamic-reports.html#cb494-4" tabindex="-1"></a><span class="sc">@</span></span></code></pre></div>
+<p>The <code>custom.summary</code> function returns a list that is stored into the result object and printed out. Going to more advanced Sweave use cases, we can define our own plotting function or use existing once (for example <code>plot()</code>, <code>hist()</code>, <code>boxplot()</code>, …) to integrate figures in our document.</p>
+<p>For a simple example we use another car dataset that is included in the R base installation which includes a table of 11 aspects of automobile design and performance for 32 cars from 1973-1974.</p>
+<p>A histogram plot of the miles per gallon data for the 32 cars results in:</p>
+<div class="sourceCode" id="cb495"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb495-1"><a href="section-8.-dynamic-reports.html#cb495-1" tabindex="-1"></a><span class="sc">&lt;</span><span class="er">&lt;</span>chunkgraph<span class="sc">&gt;</span><span class="er">&gt;=</span></span>
+<span id="cb495-2"><a href="section-8.-dynamic-reports.html#cb495-2" tabindex="-1"></a><span class="fu">hist</span>(mtcars<span class="sc">$</span>mpg)</span>
+<span id="cb495-3"><a href="section-8.-dynamic-reports.html#cb495-3" tabindex="-1"></a><span class="sc">@</span></span></code></pre></div>
+<p>Sweave and R also allow displaying tables in the document and creating these directly from for example a data frame or matrix. Therefor we have to load the <code>xtable</code> package in R, create the LATEX code with <code>xtable()</code> and set the results option to tex to directly get LATEX code without interpreting it from Sweave.</p>
+<div class="sourceCode" id="cb496"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb496-1"><a href="section-8.-dynamic-reports.html#cb496-1" tabindex="-1"></a><span class="sc">&lt;</span><span class="er">&lt;</span>chunktable<span class="sc">&gt;</span><span class="er">&gt;=</span></span>
+<span id="cb496-2"><a href="section-8.-dynamic-reports.html#cb496-2" tabindex="-1"></a><span class="fu">library</span>(xtable)</span>
+<span id="cb496-3"><a href="section-8.-dynamic-reports.html#cb496-3" tabindex="-1"></a>texTable <span class="ot">&lt;-</span> <span class="fu">sapply</span>(mtcars, <span class="cf">function</span>(x) <span class="fu">summary</span>(x))</span>
+<span id="cb496-4"><a href="section-8.-dynamic-reports.html#cb496-4" tabindex="-1"></a><span class="fu">xtable</span>(texTable)</span>
+<span id="cb496-5"><a href="section-8.-dynamic-reports.html#cb496-5" tabindex="-1"></a><span class="sc">@</span></span></code></pre></div>
+</div>
+</div>
+<div id="the-beamer-class-latex-presentations" class="section level2 hasAnchor" number="9.4">
+<h2><span class="header-section-number">9.4</span> The Beamer class: LATEX presentations<a href="section-8.-dynamic-reports.html#the-beamer-class-latex-presentations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Beamer is a LATEX class for creating presentations.</p>
+<div id="table-of-contents" class="section level3 hasAnchor" number="9.4.1">
+<h3><span class="header-section-number">9.4.1</span> Table of Contents<a href="section-8.-dynamic-reports.html#table-of-contents" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb497"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb497-1"><a href="section-8.-dynamic-reports.html#cb497-1" tabindex="-1"></a>\begin{frame}</span>
+<span id="cb497-2"><a href="section-8.-dynamic-reports.html#cb497-2" tabindex="-1"></a>\frametitle{Outline}</span>
+<span id="cb497-3"><a href="section-8.-dynamic-reports.html#cb497-3" tabindex="-1"></a>\end{frame}</span></code></pre></div>
+</div>
+<div id="sections-and-subsections" class="section level3 hasAnchor" number="9.4.2">
+<h3><span class="header-section-number">9.4.2</span> Sections and Subsections<a href="section-8.-dynamic-reports.html#sections-and-subsections" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb498"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb498-1"><a href="section-8.-dynamic-reports.html#cb498-1" tabindex="-1"></a>\section{Motivation}</span>
+<span id="cb498-2"><a href="section-8.-dynamic-reports.html#cb498-2" tabindex="-1"></a>\subsection{The Basic Problem That We Studied}</span></code></pre></div>
+<p>Notice that these commands are given outside of frames.</p>
+</div>
+<div id="frames-and-structures" class="section level3 hasAnchor" number="9.4.3">
+<h3><span class="header-section-number">9.4.3</span> Frames and structures:<a href="section-8.-dynamic-reports.html#frames-and-structures" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Presentations are divided in frames. Each frame can be generated as follow:</p>
+<div class="sourceCode" id="cb499"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb499-1"><a href="section-8.-dynamic-reports.html#cb499-1" tabindex="-1"></a>\begin{frame}</span>
+<span id="cb499-2"><a href="section-8.-dynamic-reports.html#cb499-2" tabindex="-1"></a>\frametitle{What Are Prime Numbers?}</span>
+<span id="cb499-3"><a href="section-8.-dynamic-reports.html#cb499-3" tabindex="-1"></a>A prime number is a number that has exactly two divisors.</span>
+<span id="cb499-4"><a href="section-8.-dynamic-reports.html#cb499-4" tabindex="-1"></a>\end{frame}</span></code></pre></div>
+<p>We can structure frames in block environments:</p>
+<div class="sourceCode" id="cb500"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb500-1"><a href="section-8.-dynamic-reports.html#cb500-1" tabindex="-1"></a>\begin{frame}</span>
+<span id="cb500-2"><a href="section-8.-dynamic-reports.html#cb500-2" tabindex="-1"></a>\frametitle{What<span class="st">&#39;s Still To Do?}</span></span>
+<span id="cb500-3"><a href="section-8.-dynamic-reports.html#cb500-3" tabindex="-1"></a><span class="sc">\b</span><span class="st">egin{block}{Answered Questions}</span></span>
+<span id="cb500-4"><a href="section-8.-dynamic-reports.html#cb500-4" tabindex="-1"></a><span class="st">How many primes are there?</span></span>
+<span id="cb500-5"><a href="section-8.-dynamic-reports.html#cb500-5" tabindex="-1"></a><span class="sc">\e</span><span class="st">nd{block}</span></span>
+<span id="cb500-6"><a href="section-8.-dynamic-reports.html#cb500-6" tabindex="-1"></a><span class="sc">\b</span><span class="st">egin{block}{Open Questions}</span></span>
+<span id="cb500-7"><a href="section-8.-dynamic-reports.html#cb500-7" tabindex="-1"></a><span class="st">Is every even number the sum of two primes?</span></span>
+<span id="cb500-8"><a href="section-8.-dynamic-reports.html#cb500-8" tabindex="-1"></a><span class="sc">\e</span><span class="st">nd{block}</span></span>
+<span id="cb500-9"><a href="section-8.-dynamic-reports.html#cb500-9" tabindex="-1"></a><span class="sc">\e</span><span class="st">nd{frame}</span></span></code></pre></div>
+<p>An alternative way to structure our frames is the <code>itemize</code> statement:</p>
+<div class="sourceCode" id="cb501"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb501-1"><a href="section-8.-dynamic-reports.html#cb501-1" tabindex="-1"></a>\begin{frame}</span>
+<span id="cb501-2"><a href="section-8.-dynamic-reports.html#cb501-2" tabindex="-1"></a>\frametitle{What<span class="st">&#39;s Still To Do?}</span></span>
+<span id="cb501-3"><a href="section-8.-dynamic-reports.html#cb501-3" tabindex="-1"></a><span class="sc">\b</span><span class="st">egin{itemize}</span></span>
+<span id="cb501-4"><a href="section-8.-dynamic-reports.html#cb501-4" tabindex="-1"></a><span class="st">\item Answered Questions</span></span>
+<span id="cb501-5"><a href="section-8.-dynamic-reports.html#cb501-5" tabindex="-1"></a><span class="sc">\b</span><span class="st">egin{itemize}</span></span>
+<span id="cb501-6"><a href="section-8.-dynamic-reports.html#cb501-6" tabindex="-1"></a><span class="st">\item How many primes are there?</span></span>
+<span id="cb501-7"><a href="section-8.-dynamic-reports.html#cb501-7" tabindex="-1"></a><span class="sc">\e</span><span class="st">nd{itemize}</span></span>
+<span id="cb501-8"><a href="section-8.-dynamic-reports.html#cb501-8" tabindex="-1"></a><span class="st">\item Open Questions</span></span>
+<span id="cb501-9"><a href="section-8.-dynamic-reports.html#cb501-9" tabindex="-1"></a><span class="sc">\b</span><span class="st">egin{itemize}</span></span>
+<span id="cb501-10"><a href="section-8.-dynamic-reports.html#cb501-10" tabindex="-1"></a><span class="st">\item Is every even number the sum of two primes?</span></span>
+<span id="cb501-11"><a href="section-8.-dynamic-reports.html#cb501-11" tabindex="-1"></a><span class="sc">\e</span><span class="st">nd{itemize}</span></span>
+<span id="cb501-12"><a href="section-8.-dynamic-reports.html#cb501-12" tabindex="-1"></a><span class="sc">\e</span><span class="st">nd{itemize}</span></span>
+<span id="cb501-13"><a href="section-8.-dynamic-reports.html#cb501-13" tabindex="-1"></a><span class="sc">\e</span><span class="st">nd{frame}</span></span></code></pre></div>
+<ul>
+<li>Example: Creating a Beamer Presentation</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li>Structure Your Presentation</li>
+</ol>
+<div class="sourceCode" id="cb502"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb502-1"><a href="section-8.-dynamic-reports.html#cb502-1" tabindex="-1"></a>\documentclass{beamer}</span>
+<span id="cb502-2"><a href="section-8.-dynamic-reports.html#cb502-2" tabindex="-1"></a>% This is the file main.tex</span>
+<span id="cb502-3"><a href="section-8.-dynamic-reports.html#cb502-3" tabindex="-1"></a>\usetheme{Berlin}</span>
+<span id="cb502-4"><a href="section-8.-dynamic-reports.html#cb502-4" tabindex="-1"></a>\title{Example Presentation Created with the Beamer Package}</span>
+<span id="cb502-5"><a href="section-8.-dynamic-reports.html#cb502-5" tabindex="-1"></a>\author{Till Tantau}</span>
+<span id="cb502-6"><a href="section-8.-dynamic-reports.html#cb502-6" tabindex="-1"></a>\date{\today}</span>
+<span id="cb502-7"><a href="section-8.-dynamic-reports.html#cb502-7" tabindex="-1"></a></span>
+<span id="cb502-8"><a href="section-8.-dynamic-reports.html#cb502-8" tabindex="-1"></a>\begin{document}</span>
+<span id="cb502-9"><a href="section-8.-dynamic-reports.html#cb502-9" tabindex="-1"></a>\begin{frame}</span>
+<span id="cb502-10"><a href="section-8.-dynamic-reports.html#cb502-10" tabindex="-1"></a>\titlepage</span>
+<span id="cb502-11"><a href="section-8.-dynamic-reports.html#cb502-11" tabindex="-1"></a>\end{frame}</span>
+<span id="cb502-12"><a href="section-8.-dynamic-reports.html#cb502-12" tabindex="-1"></a></span>
+<span id="cb502-13"><a href="section-8.-dynamic-reports.html#cb502-13" tabindex="-1"></a>\section<span class="sc">*</span>{Outline}</span>
+<span id="cb502-14"><a href="section-8.-dynamic-reports.html#cb502-14" tabindex="-1"></a>\begin{frame}</span>
+<span id="cb502-15"><a href="section-8.-dynamic-reports.html#cb502-15" tabindex="-1"></a>\tableofcontents</span>
+<span id="cb502-16"><a href="section-8.-dynamic-reports.html#cb502-16" tabindex="-1"></a>\end{frame}</span>
+<span id="cb502-17"><a href="section-8.-dynamic-reports.html#cb502-17" tabindex="-1"></a></span>
+<span id="cb502-18"><a href="section-8.-dynamic-reports.html#cb502-18" tabindex="-1"></a>\section{Introduction}</span>
+<span id="cb502-19"><a href="section-8.-dynamic-reports.html#cb502-19" tabindex="-1"></a></span>
+<span id="cb502-20"><a href="section-8.-dynamic-reports.html#cb502-20" tabindex="-1"></a>\subsection{Overview of the Beamer Class}</span>
+<span id="cb502-21"><a href="section-8.-dynamic-reports.html#cb502-21" tabindex="-1"></a></span>
+<span id="cb502-22"><a href="section-8.-dynamic-reports.html#cb502-22" tabindex="-1"></a>\subsection{Overview of Similar Classes}</span>
+<span id="cb502-23"><a href="section-8.-dynamic-reports.html#cb502-23" tabindex="-1"></a></span>
+<span id="cb502-24"><a href="section-8.-dynamic-reports.html#cb502-24" tabindex="-1"></a></span>
+<span id="cb502-25"><a href="section-8.-dynamic-reports.html#cb502-25" tabindex="-1"></a>\section{Usage}</span>
+<span id="cb502-26"><a href="section-8.-dynamic-reports.html#cb502-26" tabindex="-1"></a></span>
+<span id="cb502-27"><a href="section-8.-dynamic-reports.html#cb502-27" tabindex="-1"></a>\subsection{...}</span>
+<span id="cb502-28"><a href="section-8.-dynamic-reports.html#cb502-28" tabindex="-1"></a></span>
+<span id="cb502-29"><a href="section-8.-dynamic-reports.html#cb502-29" tabindex="-1"></a>\subsection{...}</span>
+<span id="cb502-30"><a href="section-8.-dynamic-reports.html#cb502-30" tabindex="-1"></a></span>
+<span id="cb502-31"><a href="section-8.-dynamic-reports.html#cb502-31" tabindex="-1"></a></span>
+<span id="cb502-32"><a href="section-8.-dynamic-reports.html#cb502-32" tabindex="-1"></a>\section{Examples}</span>
+<span id="cb502-33"><a href="section-8.-dynamic-reports.html#cb502-33" tabindex="-1"></a></span>
+<span id="cb502-34"><a href="section-8.-dynamic-reports.html#cb502-34" tabindex="-1"></a>\subsection{...}</span>
+<span id="cb502-35"><a href="section-8.-dynamic-reports.html#cb502-35" tabindex="-1"></a></span>
+<span id="cb502-36"><a href="section-8.-dynamic-reports.html#cb502-36" tabindex="-1"></a>\subsection{...}</span>
+<span id="cb502-37"><a href="section-8.-dynamic-reports.html#cb502-37" tabindex="-1"></a></span>
+<span id="cb502-38"><a href="section-8.-dynamic-reports.html#cb502-38" tabindex="-1"></a></span>
+<span id="cb502-39"><a href="section-8.-dynamic-reports.html#cb502-39" tabindex="-1"></a>\begin{frame}</span>
+<span id="cb502-40"><a href="section-8.-dynamic-reports.html#cb502-40" tabindex="-1"></a>...</span>
+<span id="cb502-41"><a href="section-8.-dynamic-reports.html#cb502-41" tabindex="-1"></a>\end{frame} % to enforce entries <span class="cf">in</span> the table of contents</span>
+<span id="cb502-42"><a href="section-8.-dynamic-reports.html#cb502-42" tabindex="-1"></a></span>
+<span id="cb502-43"><a href="section-8.-dynamic-reports.html#cb502-43" tabindex="-1"></a>\end{document}</span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>Create Frames: Once the table of contents looks satisfactory, start creating frames for your presentation by adding frame environments:</li>
+</ol>
+<ul>
+<li><p>The Frame Title: Put a title on each frame.</p></li>
+<li><p>Structuring a Frame: Use block environments like block, theorem, proof, example, and so on</p></li>
+<li><p>Writing the Text</p></li>
+<li><p>Using Graphs:</p></li>
+</ul>
+<div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb503-1"><a href="section-8.-dynamic-reports.html#cb503-1" tabindex="-1"></a>\includegraphics[scale<span class="ot">=</span><span class="dv">1</span>]{file.png}</span></code></pre></div>
+<ul>
+<li>Choosing Appropriate Themes and colors: <a href="http://deic.uab.es/~iblanes/beamer_gallery/" class="uri">http://deic.uab.es/~iblanes/beamer_gallery/</a></li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li>Creating a PDF or PostScript File presentation.</li>
+</ol>
+<p>More details in: <code>beameruserguide.pdf</code>.</p>
+<p>You can also check the code of different beamer templates in overleaf:</p>
+<ul>
+<li><p><a href="https://www.overleaf.com/project/63542ffd4269fe31b95215c3" class="uri">https://www.overleaf.com/project/63542ffd4269fe31b95215c3</a></p></li>
+<li><p><a href="https://www.overleaf.com/learn/latex/Beamer" class="uri">https://www.overleaf.com/learn/latex/Beamer</a>.</p></li>
+</ul>
+</div>
+</div>
+<div id="knitr-package" class="section level2 hasAnchor" number="9.5">
+<h2><span class="header-section-number">9.5</span> <code>Knitr</code> package<a href="section-8.-dynamic-reports.html#knitr-package" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>Prettier out of the box (than Sweave)</p></li>
+<li><p>Code re-formating: use option <code>tidy</code>.</p></li>
+<li><p>Code highlighting (with Sweave too but you need a <code>xycolor.sty</code> file in your latex distribution).</p></li>
+<li><p>Simple copy-paste enabled.</p></li>
+<li><p>Better approach to dealing with plots (for example <code>fig.keep</code> option for more than 2 plots in 1 chunk).</p></li>
+</ul>
+<div id="knitr-main-outputs" class="section level3 hasAnchor" number="9.5.1">
+<h3><span class="header-section-number">9.5.1</span> <code>Knitr</code> main outputs<a href="section-8.-dynamic-reports.html#knitr-main-outputs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p><code>HTML</code>: via R Markdown files (<code>Rmd</code>).</p></li>
+<li><p><code>PDF</code>: mostly through <code>Rnw</code> files or via <code>latex</code> conversion using in R the <code>pandoc('namefile', format='latex')</code> command.</p></li>
+</ul>
+</div>
+</div>
+<div id="r-markdown" class="section level2 hasAnchor" number="9.6">
+<h2><span class="header-section-number">9.6</span> R Markdown<a href="section-8.-dynamic-reports.html#r-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The rmarkdown package is a next generation implementation of R Markdown based on pandoc. This implementation brings many enhancements to R Markdown, including:</p>
+<ul>
+<li><p>Create HTML, PDF, and MS Word documents as well as Beamer, ioslides, and Slidy presentations.</p></li>
+<li><p>New markdown syntax including expanded support for tables, definition lists, and bibliographies.</p></li>
+<li><p>Hooks for customizing HTML and PDF output (include CSS, headers, and footers).</p></li>
+<li><p>Include raw LaTeX within markdown for advanced customization of PDF output.</p></li>
+<li><p>Compile HTML, PDF, or MS Word notebooks from R scripts.</p></li>
+<li><p>Extensibility: easily define new formats for custom publishing requirements.</p></li>
+<li><p>Create interactive R Markdown documents using Shiny.</p></li>
+</ul>
+<div id="installation" class="section level3 hasAnchor" number="9.6.1">
+<h3><span class="header-section-number">9.6.1</span> Installation<a href="section-8.-dynamic-reports.html#installation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If you are working within RStudio then you can simply install the current release of RStudio (both the rmarkdown package and pandoc are included).</p>
+<p>If you want to use the rmarkdown package outside of RStudio then you can install the package from CRAN as follows:</p>
+<div class="sourceCode" id="cb504"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb504-1"><a href="section-8.-dynamic-reports.html#cb504-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;rmarkdown&quot;</span>)</span></code></pre></div>
+<p>A recent version of pandoc (&gt;= 1.12.3) is also required. See the pandoc installation instructions for details on installing pandoc for your platform.</p>
+</div>
+<div id="output-formats" class="section level3 hasAnchor" number="9.6.2">
+<h3><span class="header-section-number">9.6.2</span> Output Formats<a href="section-8.-dynamic-reports.html#output-formats" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>R Markdown documents can contain a metadata section that includes both title, author, and date information as well as options for customizing output. For example, this metadata included at the top of an Rmd file adds a table of contents and chooses a different HTML theme:</p>
+<div class="sourceCode" id="cb505"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb505-1"><a href="section-8.-dynamic-reports.html#cb505-1" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb505-2"><a href="section-8.-dynamic-reports.html#cb505-2" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">&quot;Sample Document&quot;</span></span>
+<span id="cb505-3"><a href="section-8.-dynamic-reports.html#cb505-3" tabindex="-1"></a>output<span class="sc">:</span></span>
+<span id="cb505-4"><a href="section-8.-dynamic-reports.html#cb505-4" tabindex="-1"></a>  html_document<span class="sc">:</span></span>
+<span id="cb505-5"><a href="section-8.-dynamic-reports.html#cb505-5" tabindex="-1"></a>    toc<span class="sc">:</span> true</span>
+<span id="cb505-6"><a href="section-8.-dynamic-reports.html#cb505-6" tabindex="-1"></a>    theme<span class="sc">:</span> united</span>
+<span id="cb505-7"><a href="section-8.-dynamic-reports.html#cb505-7" tabindex="-1"></a><span class="sc">---</span></span></code></pre></div>
+<p>R Markdown has built in support for several output formats (HTML, PDF, and MS Word documents as well as Beamer presentations). These formats can also be specified in metadata, for example:</p>
+<div class="sourceCode" id="cb506"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb506-1"><a href="section-8.-dynamic-reports.html#cb506-1" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb506-2"><a href="section-8.-dynamic-reports.html#cb506-2" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">&quot;Sample Document&quot;</span></span>
+<span id="cb506-3"><a href="section-8.-dynamic-reports.html#cb506-3" tabindex="-1"></a>output<span class="sc">:</span></span>
+<span id="cb506-4"><a href="section-8.-dynamic-reports.html#cb506-4" tabindex="-1"></a>  pdf_document<span class="sc">:</span></span>
+<span id="cb506-5"><a href="section-8.-dynamic-reports.html#cb506-5" tabindex="-1"></a>    toc<span class="sc">:</span> true</span>
+<span id="cb506-6"><a href="section-8.-dynamic-reports.html#cb506-6" tabindex="-1"></a>    highlight<span class="sc">:</span> zenburn</span>
+<span id="cb506-7"><a href="section-8.-dynamic-reports.html#cb506-7" tabindex="-1"></a><span class="sc">---</span></span></code></pre></div>
+<p>If you aren’t specifying format options you can also just use a simple format name:</p>
+<div class="sourceCode" id="cb507"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb507-1"><a href="section-8.-dynamic-reports.html#cb507-1" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb507-2"><a href="section-8.-dynamic-reports.html#cb507-2" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">&quot;Sample Document&quot;</span></span>
+<span id="cb507-3"><a href="section-8.-dynamic-reports.html#cb507-3" tabindex="-1"></a>output<span class="sc">:</span> pdf_document</span>
+<span id="cb507-4"><a href="section-8.-dynamic-reports.html#cb507-4" tabindex="-1"></a><span class="sc">---</span></span></code></pre></div>
+<p>Multiple formats can be specified in metadata:</p>
+<div class="sourceCode" id="cb508"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb508-1"><a href="section-8.-dynamic-reports.html#cb508-1" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb508-2"><a href="section-8.-dynamic-reports.html#cb508-2" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">&quot;Sample Document&quot;</span></span>
+<span id="cb508-3"><a href="section-8.-dynamic-reports.html#cb508-3" tabindex="-1"></a>output<span class="sc">:</span></span>
+<span id="cb508-4"><a href="section-8.-dynamic-reports.html#cb508-4" tabindex="-1"></a>  html_document<span class="sc">:</span></span>
+<span id="cb508-5"><a href="section-8.-dynamic-reports.html#cb508-5" tabindex="-1"></a>    toc<span class="sc">:</span> true</span>
+<span id="cb508-6"><a href="section-8.-dynamic-reports.html#cb508-6" tabindex="-1"></a>    theme<span class="sc">:</span> united</span>
+<span id="cb508-7"><a href="section-8.-dynamic-reports.html#cb508-7" tabindex="-1"></a>  pdf_document<span class="sc">:</span></span>
+<span id="cb508-8"><a href="section-8.-dynamic-reports.html#cb508-8" tabindex="-1"></a>    toc<span class="sc">:</span> true</span>
+<span id="cb508-9"><a href="section-8.-dynamic-reports.html#cb508-9" tabindex="-1"></a>    highlight<span class="sc">:</span> zenburn</span>
+<span id="cb508-10"><a href="section-8.-dynamic-reports.html#cb508-10" tabindex="-1"></a><span class="sc">---</span></span></code></pre></div>
+</div>
+<div id="output-format-functions" class="section level3 hasAnchor" number="9.6.3">
+<h3><span class="header-section-number">9.6.3</span> Output Format Functions<a href="section-8.-dynamic-reports.html#output-format-functions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Output formats need not be specified in metadata. In fact, metadata is just a convenient way to invoke functions that implement output formats. There are seven built-in output formats each exported as a function from the package:</p>
+<ul>
+<li><p>html_document</p></li>
+<li><p>pdf_document</p></li>
+<li><p>word_document</p></li>
+<li><p>md_document</p></li>
+<li><p>beamer_presentation</p></li>
+<li><p>ioslides_presentation</p></li>
+<li><p>slidy_presentation</p></li>
+</ul>
+</div>
+<div id="chunk-options" class="section level3 hasAnchor" number="9.6.4">
+<h3><span class="header-section-number">9.6.4</span> Chunk Options<a href="section-8.-dynamic-reports.html#chunk-options" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Common:</p>
+<ul>
+<li><p><code>eval</code> (TRUE, FALSE): Whether the R chunk is run. If FALSE, the code chunk is not evaluated, and hence no text or graphical output produced (default is TRUE).</p></li>
+<li><p><code>echo</code> (TRUE, FALSE): Whether the R chunk is shown in the LATEX file (default is FALSE).</p></li>
+<li><p><code>fig.width</code>, <code>fig.height</code>: R control.</p></li>
+</ul>
+<p>Figure:</p>
+<ul>
+<li><p><code>fig.width</code>, <code>fig.height</code>: R control.</p></li>
+<li><p><code>out.width</code>, <code>out.height</code>: output control.</p></li>
+<li><p><code>fig.keep</code>: for more than 2 plots in 1 chunk.</p></li>
+<li><p><code>fig.cap</code>: caption in Rnw only.</p></li>
+</ul>
+<p>More details in: <code>rmarkdown-reference.pdf</code></p>
+</div>
+</div>
+<div id="shiny" class="section level2 hasAnchor" number="9.7">
+<h2><span class="header-section-number">9.7</span> Shiny<a href="section-8.-dynamic-reports.html#shiny" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Shiny is an R package that makes easy to build interactive web applications straight from R.</p>
+<p>First of all, we need to install the Shiny package in R <code>install.packages("shiny")</code></p>
+<p>This package has different examples where each one of them is a self-contained Shinny app.</p>
+<p>We will look at first at <em>Hello Shiny</em> example, that works with the dataset <code>faithful</code>.</p>
+<p><code>app.R</code>: to take a look to the main code.</p>
+<p>In the following link we can access different examples: <a href="https://shiny.rstudio.com/tutorial/written-tutorial/lesson1/" class="uri">https://shiny.rstudio.com/tutorial/written-tutorial/lesson1/</a></p>
+<ol style="list-style-type: lower-alpha">
+<li>Reactivity</li>
+</ol>
+<p>Run example 3 - <code>runExample("03_reactivity")</code></p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Global variables</li>
+</ol>
+<p>Run example 4- <code>runExample("04_mpg")</code></p>
+<p>In case you want to visualize some applications, you can also access the following link: <a href="https://shiny.rstudio.com/gallery/" class="uri">https://shiny.rstudio.com/gallery/</a></p>
+<p>Moreover, there is a new resource that allows the user to directly create the structure of the shinny app through an interactive editor: <a href="https://rstudio.github.io/shinyuieditor/" class="uri">https://rstudio.github.io/shinyuieditor/</a>.</p>
+<p>To use it we should follow the following steps:</p>
+<p>1- Download the remotes apckage and upload it: <code>install.packages("remotes")</code> and <code>library(remotes)</code>.</p>
+<p>2- Download the shinyuieditor package from github and upload it: <code>remotes::install_github("rstudio/shinyuieditor")</code> and <code>library(shinyuieditor)</code>.</p>
+<p>3- Create a new app using the editor and see how it creates the code directly to a new R script called app.R: <code>setwd(path/to/file)</code> <code>shinyuieditor::launch_editor(app_loc = "Launch_app/")</code></p>
+</div>
+<div id="quarto" class="section level2 hasAnchor" number="9.8">
+<h2><span class="header-section-number">9.8</span> Quarto<a href="section-8.-dynamic-reports.html#quarto" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Includes new features and capabilities while at the same time being able to render most existing Rmd files without modification.</p>
+<p>Quarto is open source, and it’s as friendly to Python, Julia, Observable JavaScript, and Jupyter notebooks as it is to R. It’s not a language-specific library (as R Markdown), but an external software application.</p>
+<p>Different from R Markdown, in Quarto chunk options are typically included in special comments at the top of code chunks rather than within the line that begins the chunk:</p>
+<div class="sourceCode" id="cb509"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb509-1"><a href="section-8.-dynamic-reports.html#cb509-1" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb509-2"><a href="section-8.-dynamic-reports.html#cb509-2" tabindex="-1"></a><span class="co">#| fig-cap: &quot;Air Quality&quot;</span></span>
+<span id="cb509-3"><a href="section-8.-dynamic-reports.html#cb509-3" tabindex="-1"></a><span class="co">#| warning: false</span></span></code></pre></div>
+<p>Similar to R Markdown, the rendered version is viewed as HTML. We can also choose to render it into other formats like PDF, MS Word, etc.</p>
+<p>What can we do with Quarto?</p>
+<ul>
+<li><p>books</p></li>
+<li><p>websites</p></li>
+<li><p>blogs</p></li>
+</ul>
+<p>In this section, we’ll show how to use it in RStudio. We will learn how to edit code just as we would do with any computational document (e.g. R Markdown), and preview the rendered document in the Viewer tab as we work.</p>
+<p>Link to download a .qmd file (Quarto document): <a href="https://quarto.org/docs/get-started/hello/rstudio.html" class="uri">https://quarto.org/docs/get-started/hello/rstudio.html</a></p>
+<p>When we render a Quarto document:</p>
+<ol style="list-style-type: decimal">
+<li><p>Knitr executes all of the code chunks</p></li>
+<li><p>It creates a new markdown (.md) document that includes the code and its output</p></li>
+<li><p>The markdown file is processed by pandoc: it creates the finished format.</p></li>
+</ol>
+</div>
+<div id="available-templates-for-each-block" class="section level2 hasAnchor" number="9.9">
+<h2><span class="header-section-number">9.9</span> Available templates for each block<a href="section-8.-dynamic-reports.html#available-templates-for-each-block" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>You will find them in the moodle, <a href="https://aules.uvic.cat/mod/folder/view.php?id=965440">link</a></p>
+<p><strong>- Sweave</strong>: <code>Sweave.Rnw</code>contains the code; <code>Sweave.pdf</code>contains the output.</p>
+<p><strong>- Markdown</strong>:</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>HTML: <code>Rmarkdown_html.RMD</code> contains the code; <code>Rmarkdown_html.hmtl</code> contains the output.</p></li>
+<li><p>PDF: <code>Rmarkdown_pdf.RMD</code> contains the code; <code>Rmarkdown_pdf.pdf</code> contains the output.</p></li>
+<li><p>WORD: <code>Rmarkdown_word.RMD</code> contains the code; <code>Rmarkdown_word.docx</code> contains the output.</p></li>
+</ol>
+<p><strong>- Beamer</strong>:</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>with Sweave: <code>Beamer.RNW</code> contains the code; <code>Beamer.pdf</code> contains the output.</p></li>
+<li><p>with Markdown: <code>Beamer_markdown.RMD</code> contains the code; <code>Beamer_markdown.pdf</code> contains the output.</p></li>
+</ol>
+<p><strong>- Quarto</strong>: <code>quarto.QMD</code> contains the code; <code>quarto.html</code> contains the output.</p>
+<p><strong>- Shiny</strong>: <code>app.R</code> contains the code; we need to run the app to visualize the output.</p>
+<p><img src="logouvic.png" /></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="section-7.-introduction-to-object-oriented-programming-oop.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="section-9.-data-managment-using-the-dplyr-package.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

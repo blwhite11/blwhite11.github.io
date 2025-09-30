@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>13 SECTION 10. Advanced Data Visualization: ggplot2 package | curso-R</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="13 SECTION 10. Advanced Data Visualization: ggplot2 package | curso-R" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="13 SECTION 10. Advanced Data Visualization: ggplot2 package | curso-R" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="extra-exercises.html"/>
+<link rel="next" href="section-11.-advanced-data-visualization-extra-part.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#description-of-the-r-programming-block"><i class="fa fa-check"></i><b>1.1</b> Description of the R programming block</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#contents-of-the-r-programming-block"><i class="fa fa-check"></i><b>1.2</b> Contents of the R programming block</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#evaluation"><i class="fa fa-check"></i><b>1.3</b> Evaluation</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="section-1.-errors-you-may-find-in-r.html"><a href="section-1.-errors-you-may-find-in-r.html"><i class="fa fa-check"></i><b>2</b> SECTION 1. Errors you may find in R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="section-1.-errors-you-may-find-in-r.html"><a href="section-1.-errors-you-may-find-in-r.html#installing-r"><i class="fa fa-check"></i><b>2.1</b> Installing R</a></li>
+<li class="chapter" data-level="2.2" data-path="section-1.-errors-you-may-find-in-r.html"><a href="section-1.-errors-you-may-find-in-r.html#loading-packages"><i class="fa fa-check"></i><b>2.2</b> Loading packages</a></li>
+<li class="chapter" data-level="2.3" data-path="section-1.-errors-you-may-find-in-r.html"><a href="section-1.-errors-you-may-find-in-r.html#defining-directories"><i class="fa fa-check"></i><b>2.3</b> Defining directories</a></li>
+<li class="chapter" data-level="2.4" data-path="section-1.-errors-you-may-find-in-r.html"><a href="section-1.-errors-you-may-find-in-r.html#resources-you-have"><i class="fa fa-check"></i><b>2.4</b> Resources you have</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html"><i class="fa fa-check"></i><b>3</b> SECTION 2. Introduction to R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#why-r"><i class="fa fa-check"></i><b>3.1</b> Why R?</a></li>
+<li class="chapter" data-level="3.2" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#creating-a-new-project-directory-in-rstudio"><i class="fa fa-check"></i><b>3.2</b> Creating a new project directory in RStudio</a></li>
+<li class="chapter" data-level="3.3" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#rstudio-interface"><i class="fa fa-check"></i><b>3.3</b> RStudio Interface</a></li>
+<li class="chapter" data-level="3.4" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#organizing-your-working-directory-setting-up"><i class="fa fa-check"></i><b>3.4</b> Organizing your working directory &amp; setting up</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#viewing-your-working-directory"><i class="fa fa-check"></i><b>3.4.1</b> Viewing your working directory</a></li>
+<li class="chapter" data-level="3.4.2" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#console-command-prompt"><i class="fa fa-check"></i><b>3.4.2</b> Console command prompt</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#simple-computations-with-r"><i class="fa fa-check"></i><b>3.5</b> Simple computations with R</a></li>
+<li class="chapter" data-level="3.6" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#math-functions"><i class="fa fa-check"></i><b>3.6</b> Math functions</a></li>
+<li class="chapter" data-level="3.7" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#variable-assignment"><i class="fa fa-check"></i><b>3.7</b> Variable Assignment</a></li>
+<li class="chapter" data-level="3.8" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#data-types"><i class="fa fa-check"></i><b>3.8</b> Data types</a></li>
+<li class="chapter" data-level="3.9" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#create-new-data"><i class="fa fa-check"></i><b>3.9</b> Create new data</a></li>
+<li class="chapter" data-level="3.10" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#structures"><i class="fa fa-check"></i><b>3.10</b> Structures</a></li>
+<li class="chapter" data-level="3.11" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#the-environment"><i class="fa fa-check"></i><b>3.11</b> The environment</a></li>
+<li class="chapter" data-level="3.12" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#using-scripts"><i class="fa fa-check"></i><b>3.12</b> Using scripts</a></li>
+<li class="chapter" data-level="3.13" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#r-basic-base-functions"><i class="fa fa-check"></i><b>3.13</b> R basic base functions</a></li>
+<li class="chapter" data-level="3.14" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#reading-and-writing-data-files"><i class="fa fa-check"></i><b>3.14</b> Reading and writing data files</a></li>
+<li class="chapter" data-level="3.15" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#librariespackages"><i class="fa fa-check"></i><b>3.15</b> Libraries/Packages</a>
+<ul>
+<li class="chapter" data-level="3.15.1" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#install-packages-from-cran"><i class="fa fa-check"></i><b>3.15.1</b> Install packages from CRAN</a></li>
+<li class="chapter" data-level="3.15.2" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#install-packages-from-github"><i class="fa fa-check"></i><b>3.15.2</b> Install packages from GitHub</a></li>
+</ul></li>
+<li class="chapter" data-level="3.16" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#help-and-documentation"><i class="fa fa-check"></i><b>3.16</b> Help and documentation</a></li>
+<li class="chapter" data-level="3.17" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#interesting-references"><i class="fa fa-check"></i><b>3.17</b> Interesting references:</a></li>
+<li class="chapter" data-level="3.18" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#exercises"><i class="fa fa-check"></i><b>3.18</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="3.18.1" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#part-i"><i class="fa fa-check"></i><b>3.18.1</b> Part I</a></li>
+<li class="chapter" data-level="3.18.2" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#part-ii"><i class="fa fa-check"></i><b>3.18.2</b> Part II</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html"><i class="fa fa-check"></i><b>4</b> SECTION 3. Basic data management</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#accessing-information-and-creating-new-variables"><i class="fa fa-check"></i><b>4.1</b> Accessing information and creating new variables</a></li>
+<li class="chapter" data-level="4.2" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#data-types-and-data-conversions"><i class="fa fa-check"></i><b>4.2</b> Data types and data conversions</a></li>
+<li class="chapter" data-level="4.3" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#subsetting-datasets"><i class="fa fa-check"></i><b>4.3</b> Subsetting datasets</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#selecting-keeping-variables"><i class="fa fa-check"></i><b>4.3.1</b> Selecting (keeping) variables</a></li>
+<li class="chapter" data-level="4.3.2" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#excluding-dropping-variables"><i class="fa fa-check"></i><b>4.3.2</b> Excluding (dropping) variables</a></li>
+<li class="chapter" data-level="4.3.3" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#selecting-or-excluding-observations"><i class="fa fa-check"></i><b>4.3.3</b> Selecting or excluding observations</a></li>
+<li class="chapter" data-level="4.3.4" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#conditional-selection-of-data"><i class="fa fa-check"></i><b>4.3.4</b> Conditional selection of data</a></li>
+<li class="chapter" data-level="4.3.5" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#managing-missing-values"><i class="fa fa-check"></i><b>4.3.5</b> Managing missing values</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#recoding-variables"><i class="fa fa-check"></i><b>4.4</b> Recoding variables</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#subsetting-and-assigning"><i class="fa fa-check"></i><b>4.4.1</b> Subsetting and assigning</a></li>
+<li class="chapter" data-level="4.4.2" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#using-the-within-function"><i class="fa fa-check"></i><b>4.4.2</b> Using the <code>within()</code> function</a></li>
+<li class="chapter" data-level="4.4.3" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#using-the-ifelse-function."><i class="fa fa-check"></i><b>4.4.3</b> Using the <code>ifelse()</code> function.</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#merging-datasets"><i class="fa fa-check"></i><b>4.5</b> Merging datasets</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#adding-columns-horizontal-merge"><i class="fa fa-check"></i><b>4.5.1</b> Adding columns (Horizontal merge)</a></li>
+<li class="chapter" data-level="4.5.2" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#adding-rows-vertical-merge"><i class="fa fa-check"></i><b>4.5.2</b> Adding rows (Vertical merge)</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#sorting-data"><i class="fa fa-check"></i><b>4.6</b> Sorting data</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#sorting-by-a-single-variable"><i class="fa fa-check"></i><b>4.6.1</b> Sorting by a single variable</a></li>
+<li class="chapter" data-level="4.6.2" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#sorting-alphabetically"><i class="fa fa-check"></i><b>4.6.2</b> Sorting alphabetically</a></li>
+<li class="chapter" data-level="4.6.3" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#sorting-by-multiple-variables"><i class="fa fa-check"></i><b>4.6.3</b> Sorting by multiple variables</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#regular-expressions-and-pattern-matching-and-replacement"><i class="fa fa-check"></i><b>4.7</b> Regular expressions and pattern matching and replacement</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#basic-functions-to-detect-patterns-in-r"><i class="fa fa-check"></i><b>4.7.1</b> Basic functions to detect patterns in R</a></li>
+<li class="chapter" data-level="4.7.2" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#special-symbols"><i class="fa fa-check"></i><b>4.7.2</b> Special symbols</a></li>
+<li class="chapter" data-level="4.7.3" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#basic-functions-to-locate-patterns-in-r"><i class="fa fa-check"></i><b>4.7.3</b> Basic functions to locate patterns in R</a></li>
+<li class="chapter" data-level="4.7.4" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#split-a-string-using-a-pattern"><i class="fa fa-check"></i><b>4.7.4</b> Split a string using a pattern</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#exercises-data-management-optional"><i class="fa fa-check"></i><b>4.8</b> Exercises Data Management (Optional)</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="section-4.-introduction-to-functions.html"><a href="section-4.-introduction-to-functions.html"><i class="fa fa-check"></i><b>5</b> SECTION 4. Introduction to Functions</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="section-4.-introduction-to-functions.html"><a href="section-4.-introduction-to-functions.html#what-is-a-function"><i class="fa fa-check"></i><b>5.1</b> What is a function?</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="section-4.-introduction-to-functions.html"><a href="section-4.-introduction-to-functions.html#built-in-r-functions"><i class="fa fa-check"></i><b>5.1.1</b> Built-in R functions</a></li>
+<li class="chapter" data-level="5.1.2" data-path="section-4.-introduction-to-functions.html"><a href="section-4.-introduction-to-functions.html#functions-defined-in-r-packages"><i class="fa fa-check"></i><b>5.1.2</b> Functions defined in R packages</a></li>
+<li class="chapter" data-level="5.1.3" data-path="section-4.-introduction-to-functions.html"><a href="section-4.-introduction-to-functions.html#user-defined-functions"><i class="fa fa-check"></i><b>5.1.3</b> User-defined functions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="section-4.-introduction-to-functions.html"><a href="section-4.-introduction-to-functions.html#writing-your-own-functions"><i class="fa fa-check"></i><b>5.2</b> Writing your own functions</a></li>
+<li class="chapter" data-level="5.3" data-path="section-4.-introduction-to-functions.html"><a href="section-4.-introduction-to-functions.html#arguments-of-a-function"><i class="fa fa-check"></i><b>5.3</b> Arguments of a function</a></li>
+<li class="chapter" data-level="5.4" data-path="section-4.-introduction-to-functions.html"><a href="section-4.-introduction-to-functions.html#matching-arguments"><i class="fa fa-check"></i><b>5.4</b> Matching Arguments</a></li>
+<li class="chapter" data-level="5.5" data-path="section-4.-introduction-to-functions.html"><a href="section-4.-introduction-to-functions.html#output-of-a-function"><i class="fa fa-check"></i><b>5.5</b> Output of a Function</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="section-4.-introduction-to-functions.html"><a href="section-4.-introduction-to-functions.html#examples-of-functions"><i class="fa fa-check"></i><b>5.5.1</b> Examples of functions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="section-4.-introduction-to-functions.html"><a href="section-4.-introduction-to-functions.html#basic-r-programming"><i class="fa fa-check"></i><b>5.6</b> Basic R Programming</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="section-4.-introduction-to-functions.html"><a href="section-4.-introduction-to-functions.html#conditionals"><i class="fa fa-check"></i><b>5.6.1</b> Conditionals</a></li>
+<li class="chapter" data-level="5.6.2" data-path="section-4.-introduction-to-functions.html"><a href="section-4.-introduction-to-functions.html#loops"><i class="fa fa-check"></i><b>5.6.2</b> Loops</a></li>
+<li class="chapter" data-level="5.6.3" data-path="section-4.-introduction-to-functions.html"><a href="section-4.-introduction-to-functions.html#useful-functions-to-avoid-loops"><i class="fa fa-check"></i><b>5.6.3</b> Useful functions to avoid loops</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="section-4.-introduction-to-functions.html"><a href="section-4.-introduction-to-functions.html#references"><i class="fa fa-check"></i><b>5.7</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html"><i class="fa fa-check"></i><b>6</b> SECTION 5. Basic Plots</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#line-charts"><i class="fa fa-check"></i><b>6.1</b> Line charts</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#key-characteristics"><i class="fa fa-check"></i><b>6.1.1</b> Key Characteristics:</a></li>
+<li class="chapter" data-level="6.1.2" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#use-cases"><i class="fa fa-check"></i><b>6.1.2</b> Use Cases:</a></li>
+<li class="chapter" data-level="6.1.3" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#customization-options"><i class="fa fa-check"></i><b>6.1.3</b> Customization Options:</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#dot-plot"><i class="fa fa-check"></i><b>6.2</b> Dot plot</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#key-characteristics-1"><i class="fa fa-check"></i><b>6.2.1</b> Key characteristics</a></li>
+<li class="chapter" data-level="6.2.2" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#use-cases-1"><i class="fa fa-check"></i><b>6.2.2</b> Use cases</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#bar-charts"><i class="fa fa-check"></i><b>6.3</b> Bar charts</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#key-characteristics-2"><i class="fa fa-check"></i><b>6.3.1</b> Key characteristics</a></li>
+<li class="chapter" data-level="6.3.2" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#customization"><i class="fa fa-check"></i><b>6.3.2</b> Customization</a></li>
+<li class="chapter" data-level="6.3.3" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#multiple-bar-plots"><i class="fa fa-check"></i><b>6.3.3</b> Multiple bar plots</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#histograms"><i class="fa fa-check"></i><b>6.4</b> Histograms</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#key-characteristics-3"><i class="fa fa-check"></i><b>6.4.1</b> Key characteristics</a></li>
+<li class="chapter" data-level="6.4.2" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#customization-1"><i class="fa fa-check"></i><b>6.4.2</b> Customization</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#boxplot"><i class="fa fa-check"></i><b>6.5</b> Boxplot</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#key-characteristics-4"><i class="fa fa-check"></i><b>6.5.1</b> Key characteristics</a></li>
+<li class="chapter" data-level="6.5.2" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#use-cases-2"><i class="fa fa-check"></i><b>6.5.2</b> Use cases</a></li>
+<li class="chapter" data-level="6.5.3" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#customization-options-1"><i class="fa fa-check"></i><b>6.5.3</b> Customization options</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#commbining-different-plots"><i class="fa fa-check"></i><b>6.6</b> Commbining different plots</a></li>
+<li class="chapter" data-level="6.7" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#scatter-plots"><i class="fa fa-check"></i><b>6.7</b> Scatter Plots</a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#creating-a-simple-scatter-plot"><i class="fa fa-check"></i><b>6.7.1</b> Creating a Simple Scatter Plot</a></li>
+<li class="chapter" data-level="6.7.2" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#add-new-data-to-an-existint-plot"><i class="fa fa-check"></i><b>6.7.2</b> Add new data to an existint plot</a></li>
+<li class="chapter" data-level="6.7.3" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#adding-labels-to-data-points"><i class="fa fa-check"></i><b>6.7.3</b> Adding labels to data points</a></li>
+<li class="chapter" data-level="6.7.4" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#using-legends"><i class="fa fa-check"></i><b>6.7.4</b> Using legends</a></li>
+<li class="chapter" data-level="6.7.5" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#customizing-scatter-plots"><i class="fa fa-check"></i><b>6.7.5</b> Customizing Scatter plots</a></li>
+<li class="chapter" data-level="6.7.6" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#multiple-scatter-plots"><i class="fa fa-check"></i><b>6.7.6</b> Multiple scatter plots</a></li>
+</ul></li>
+<li class="chapter" data-level="6.8" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#important-graphical-functions-and-parameters"><i class="fa fa-check"></i><b>6.8</b> Important graphical functions and parameters</a></li>
+<li class="chapter" data-level="6.9" data-path="section-5.-basic-plots.html"><a href="section-5.-basic-plots.html#saving-graphics-to-files"><i class="fa fa-check"></i><b>6.9</b> Saving Graphics to Files</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="section-6.-tips-for-efficient-programming.html"><a href="section-6.-tips-for-efficient-programming.html"><i class="fa fa-check"></i><b>7</b> SECTION 6. Tips for efficient programming</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="section-6.-tips-for-efficient-programming.html"><a href="section-6.-tips-for-efficient-programming.html#top-tips-for-efficient-programming"><i class="fa fa-check"></i><b>7.1</b> Top tips for efficient programming</a></li>
+<li class="chapter" data-level="7.2" data-path="section-6.-tips-for-efficient-programming.html"><a href="section-6.-tips-for-efficient-programming.html#optimizing-functions-calls"><i class="fa fa-check"></i><b>7.2</b> Optimizing functions calls</a></li>
+<li class="chapter" data-level="7.3" data-path="section-6.-tips-for-efficient-programming.html"><a href="section-6.-tips-for-efficient-programming.html#memory-allocation"><i class="fa fa-check"></i><b>7.3</b> Memory allocation</a></li>
+<li class="chapter" data-level="7.4" data-path="section-6.-tips-for-efficient-programming.html"><a href="section-6.-tips-for-efficient-programming.html#embrace-rs-vectorized-paradigm"><i class="fa fa-check"></i><b>7.4</b> Embrace R’s vectorized paradigm</a></li>
+<li class="chapter" data-level="7.5" data-path="section-6.-tips-for-efficient-programming.html"><a href="section-6.-tips-for-efficient-programming.html#efficient-functions-do-as-little-as-possible"><i class="fa fa-check"></i><b>7.5</b> Efficient functions: Do as little as possible</a></li>
+<li class="chapter" data-level="7.6" data-path="section-6.-tips-for-efficient-programming.html"><a href="section-6.-tips-for-efficient-programming.html#references-1"><i class="fa fa-check"></i><b>7.6</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="section-7.-introduction-to-object-oriented-programming-oop.html"><a href="section-7.-introduction-to-object-oriented-programming-oop.html"><i class="fa fa-check"></i><b>8</b> SECTION 7. Introduction to Object-oriented Programming (OOP)</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="section-7.-introduction-to-object-oriented-programming-oop.html"><a href="section-7.-introduction-to-object-oriented-programming-oop.html#object-and-class-in-r"><i class="fa fa-check"></i><b>8.1</b> Object and Class in R</a></li>
+<li class="chapter" data-level="8.2" data-path="section-7.-introduction-to-object-oriented-programming-oop.html"><a href="section-7.-introduction-to-object-oriented-programming-oop.html#s3-classes"><i class="fa fa-check"></i><b>8.2</b> S3 Classes</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="section-7.-introduction-to-object-oriented-programming-oop.html"><a href="section-7.-introduction-to-object-oriented-programming-oop.html#methods-and-generic-functions-in-s3-classes"><i class="fa fa-check"></i><b>8.2.1</b> Methods and Generic Functions in S3 classes:</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="section-7.-introduction-to-object-oriented-programming-oop.html"><a href="section-7.-introduction-to-object-oriented-programming-oop.html#s4-classes"><i class="fa fa-check"></i><b>8.3</b> S4 classes</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="section-7.-introduction-to-object-oriented-programming-oop.html"><a href="section-7.-introduction-to-object-oriented-programming-oop.html#methods-and-generic-functions-in-s4-classes"><i class="fa fa-check"></i><b>8.3.1</b> Methods and Generic Functions in S4 classes:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html"><i class="fa fa-check"></i><b>9</b> SECTION 8. Dynamic Reports</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#what-is-latex"><i class="fa fa-check"></i><b>9.1</b> What is LATEX?</a></li>
+<li class="chapter" data-level="9.2" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#what-is-sweave"><i class="fa fa-check"></i><b>9.2</b> What is Sweave?</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#how-to-install-sweave"><i class="fa fa-check"></i><b>9.2.1</b> How to install Sweave</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#basic-options-for-code-chunks"><i class="fa fa-check"></i><b>9.3</b> Basic options for code chunks</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#for-costly-computations-cachesweave-package"><i class="fa fa-check"></i><b>9.3.1</b> For costly computations: <code>cacheSweave</code> package</a></li>
+<li class="chapter" data-level="9.3.2" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#example"><i class="fa fa-check"></i><b>9.3.2</b> Example</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#the-beamer-class-latex-presentations"><i class="fa fa-check"></i><b>9.4</b> The Beamer class: LATEX presentations</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#table-of-contents"><i class="fa fa-check"></i><b>9.4.1</b> Table of Contents</a></li>
+<li class="chapter" data-level="9.4.2" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#sections-and-subsections"><i class="fa fa-check"></i><b>9.4.2</b> Sections and Subsections</a></li>
+<li class="chapter" data-level="9.4.3" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#frames-and-structures"><i class="fa fa-check"></i><b>9.4.3</b> Frames and structures:</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#knitr-package"><i class="fa fa-check"></i><b>9.5</b> <code>Knitr</code> package</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#knitr-main-outputs"><i class="fa fa-check"></i><b>9.5.1</b> <code>Knitr</code> main outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#r-markdown"><i class="fa fa-check"></i><b>9.6</b> R Markdown</a>
+<ul>
+<li class="chapter" data-level="9.6.1" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#installation"><i class="fa fa-check"></i><b>9.6.1</b> Installation</a></li>
+<li class="chapter" data-level="9.6.2" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#output-formats"><i class="fa fa-check"></i><b>9.6.2</b> Output Formats</a></li>
+<li class="chapter" data-level="9.6.3" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#output-format-functions"><i class="fa fa-check"></i><b>9.6.3</b> Output Format Functions</a></li>
+<li class="chapter" data-level="9.6.4" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#chunk-options"><i class="fa fa-check"></i><b>9.6.4</b> Chunk Options</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#shiny"><i class="fa fa-check"></i><b>9.7</b> Shiny</a></li>
+<li class="chapter" data-level="9.8" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#quarto"><i class="fa fa-check"></i><b>9.8</b> Quarto</a></li>
+<li class="chapter" data-level="9.9" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#available-templates-for-each-block"><i class="fa fa-check"></i><b>9.9</b> Available templates for each block</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html"><i class="fa fa-check"></i><b>10</b> SECTION 9. Data managment using the dplyr package</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#the-filter-function-and-the-use-of-comparison-operators"><i class="fa fa-check"></i><b>10.1</b> The <code>filter()</code> function and the use of comparison operators</a></li>
+<li class="chapter" data-level="10.2" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#sorting-with-arrange"><i class="fa fa-check"></i><b>10.2</b> Sorting with <code>arrange()</code></a></li>
+<li class="chapter" data-level="10.3" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#accessing-rows-with-slice"><i class="fa fa-check"></i><b>10.3</b> Accessing rows with <code>slice()</code></a></li>
+<li class="chapter" data-level="10.4" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#picking-columns-out-with-select"><i class="fa fa-check"></i><b>10.4</b> Picking columns out with <code>select()</code></a></li>
+<li class="chapter" data-level="10.5" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#change-names-with-rename"><i class="fa fa-check"></i><b>10.5</b> Change names with <code>rename()</code></a></li>
+<li class="chapter" data-level="10.6" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#transforming-pre-existing-columns-or-creating-new-ones-with-mutate"><i class="fa fa-check"></i><b>10.6</b> Transforming pre-existing columns or creating new ones with <code>mutate()</code></a></li>
+<li class="chapter" data-level="10.7" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#to-sum-upgroup_by-summarise"><i class="fa fa-check"></i><b>10.7</b> To sum up…<code>group_by()</code> + <code>summarise()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html"><i class="fa fa-check"></i><b>11</b> Data reshaping and cleaning using the tidyr package</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#transforming-wide-to-long-format-with-pivot_longer"><i class="fa fa-check"></i><b>11.1</b> Transforming wide to long format with <code>pivot_longer()</code>:</a></li>
+<li class="chapter" data-level="11.2" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#transforming-long-to-wide-format-with-pivot_wider"><i class="fa fa-check"></i><b>11.2</b> Transforming long to wide format with <code>pivot_wider()</code>:</a></li>
+<li class="chapter" data-level="11.3" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#handling-missing-values-with-replace_na"><i class="fa fa-check"></i><b>11.3</b> Handling missing values with <code>replace_na()</code></a></li>
+<li class="chapter" data-level="11.4" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#gt-and-gtsummary-packages"><i class="fa fa-check"></i><b>11.4</b> Gt and gtsummary packages</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#basic-summary-table-with-tbl_summary"><i class="fa fa-check"></i><b>11.4.1</b> Basic Summary Table with <code>tbl_summary()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#adding-statistical-tests-with-add_p"><i class="fa fa-check"></i><b>11.5</b> Adding statistical tests with <code>add_p()</code></a></li>
+<li class="chapter" data-level="11.6" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#stratified-tables-with-tbl_strata"><i class="fa fa-check"></i><b>11.6</b> Stratified Tables with <code>tbl_strata()</code></a></li>
+<li class="chapter" data-level="11.7" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#creating-cross-tables-with-tbl_cross"><i class="fa fa-check"></i><b>11.7</b> Creating Cross Tables with <code>tbl_cross()</code></a></li>
+<li class="chapter" data-level="11.8" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#regression-table-with-tbl_regression"><i class="fa fa-check"></i><b>11.8</b> Regression table with <code>tbl_regression()</code></a></li>
+<li class="chapter" data-level="11.9" data-path="data-reshaping-and-cleaning-using-the-tidyr-package.html"><a href="data-reshaping-and-cleaning-using-the-tidyr-package.html#exercises-1"><i class="fa fa-check"></i><b>11.9</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="extra-exercises.html"><a href="extra-exercises.html"><i class="fa fa-check"></i><b>12</b> Extra exercises</a></li>
+<li class="chapter" data-level="13" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html"><i class="fa fa-check"></i><b>13</b> SECTION 10. Advanced Data Visualization: ggplot2 package</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#why-ggplot2"><i class="fa fa-check"></i><b>13.1</b> Why ggplot2?</a></li>
+<li class="chapter" data-level="13.2" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#installation-1"><i class="fa fa-check"></i><b>13.2</b> Installation</a></li>
+<li class="chapter" data-level="13.3" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#usage"><i class="fa fa-check"></i><b>13.3</b> Usage</a></li>
+<li class="chapter" data-level="13.4" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#geometric-objects-and-aesthetics"><i class="fa fa-check"></i><b>13.4</b> Geometric Objects And Aesthetics</a>
+<ul>
+<li class="chapter" data-level="13.4.1" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#aesthetic-mapping"><i class="fa fa-check"></i><b>13.4.1</b> Aesthetic Mapping</a></li>
+<li class="chapter" data-level="13.4.2" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#geometic-objects-geom"><i class="fa fa-check"></i><b>13.4.2</b> Geometic Objects (geom)</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#examples"><i class="fa fa-check"></i><b>13.5</b> Examples</a>
+<ul>
+<li class="chapter" data-level="13.5.1" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#categorical-variables"><i class="fa fa-check"></i><b>13.5.1</b> Categorical Variables</a></li>
+<li class="chapter" data-level="13.5.2" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#quantitative-variables"><i class="fa fa-check"></i><b>13.5.2</b> Quantitative Variables</a></li>
+<li class="chapter" data-level="13.5.3" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#more-advanced-code-customizing-your-plots"><i class="fa fa-check"></i><b>13.5.3</b> More advanced code: customizing your plots</a></li>
+<li class="chapter" data-level="13.5.4" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#saving-plots"><i class="fa fa-check"></i><b>13.5.4</b> Saving plots</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#exercises-create-new-plots-for-genetic-data-visualization-using-the-snpdataset.txt-dataset.-create-a-report-in-.html-format-and-display-and-describe-each-one-of-the-plots."><i class="fa fa-check"></i><b>13.6</b> Exercises: Create new plots for genetic data visualization using the <code>SNPdataset.txt</code> dataset. Create a report in .html format and display and describe each one of the plots.</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html"><i class="fa fa-check"></i><b>14</b> SECTION 11. Advanced Data Visualization: Extra Part</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#useful-plots-for-omics-data-analysis"><i class="fa fa-check"></i><b>14.1</b> Useful plots for Omics Data Analysis</a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#heatmap"><i class="fa fa-check"></i><b>14.1.1</b> Heatmap</a></li>
+<li class="chapter" data-level="14.1.2" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#venn-diagram"><i class="fa fa-check"></i><b>14.1.2</b> Venn Diagram</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#other-resources-in-r"><i class="fa fa-check"></i><b>14.2</b> Other resources in R</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#advanced-visualizations-with-ggpubr"><i class="fa fa-check"></i><b>14.2.1</b> Advanced visualizations with ggpubr</a></li>
+<li class="chapter" data-level="14.2.2" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#dynamic-plots-with-gganimate"><i class="fa fa-check"></i><b>14.2.2</b> Dynamic plots with gganimate</a></li>
+<li class="chapter" data-level="14.2.3" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#interactive-interfaces-for-creating-plots"><i class="fa fa-check"></i><b>14.2.3</b> Interactive interfaces for creating plots</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html"><i class="fa fa-check"></i><b>15</b> SECTION 12. Introduction to Shiny</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#writing-a-shiny-application-in-r"><i class="fa fa-check"></i><b>15.1</b> Writing a Shiny Application in R</a>
+<ul>
+<li class="chapter" data-level="15.1.1" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#ui-layout"><i class="fa fa-check"></i><b>15.1.1</b> UI Layout</a></li>
+<li class="chapter" data-level="15.1.2" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#server-logic"><i class="fa fa-check"></i><b>15.1.2</b> Server Logic</a></li>
+<li class="chapter" data-level="15.1.3" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#examples-1"><i class="fa fa-check"></i><b>15.1.3</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#elements-for-a-shiny-app"><i class="fa fa-check"></i><b>15.2</b> Elements for a Shiny App</a>
+<ul>
+<li class="chapter" data-level="15.2.1" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#ui-components"><i class="fa fa-check"></i><b>15.2.1</b> UI Components</a></li>
+<li class="chapter" data-level="15.2.2" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#server-function"><i class="fa fa-check"></i><b>15.2.2</b> Server function</a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#working-with-shinydashboard"><i class="fa fa-check"></i><b>15.3</b> Working with ShinyDashboard</a></li>
+<li class="chapter" data-level="15.4" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#deploying-the-application-to-shinyapps.io"><i class="fa fa-check"></i><b>15.4</b> Deploying the Application to Shinyapps.io</a></li>
+<li class="chapter" data-level="15.5" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#take-home"><i class="fa fa-check"></i><b>15.5</b> Take home</a></li>
+<li class="chapter" data-level="15.6" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#final-task"><i class="fa fa-check"></i><b>15.6</b> Final Task</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="section-10.-advanced-data-visualization-ggplot2-package" class="section level1 hasAnchor" number="13">
+<h1><span class="header-section-number">13</span> SECTION 10. Advanced Data Visualization: ggplot2 package<a href="section-10.-advanced-data-visualization-ggplot2-package.html#section-10.-advanced-data-visualization-ggplot2-package" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><code>ggplot2</code> is an R package for producing statistical, or data, graphics, but it is unlike most other graphics packages because it has a deep underlying code. This code is composed of a set of independent components that can be composed in many different ways. <code>ggplot2</code> is designed to work in a layered fashion, starting with a layer showing the raw data then adding layers of annotation and statistical summaries.</p>
+<div id="why-ggplot2" class="section level2 hasAnchor" number="13.1">
+<h2><span class="header-section-number">13.1</span> Why ggplot2?<a href="section-10.-advanced-data-visualization-ggplot2-package.html#why-ggplot2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Advantages of ggplot2</p>
+<ul>
+<li><p>consistent underlying grammar of graphics</p></li>
+<li><p>plot specification at a high level of abstraction</p></li>
+<li><p>very flexible</p></li>
+</ul>
+<p>There are a lot of cheatsheets and sources that allow us to find examples and code to plot more advanced graphics with ggplot. We will start step by step.</p>
+</div>
+<div id="installation-1" class="section level2 hasAnchor" number="13.2">
+<h2><span class="header-section-number">13.2</span> Installation<a href="section-10.-advanced-data-visualization-ggplot2-package.html#installation-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb548"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb548-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb548-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</span>
+<span id="cb548-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb548-2" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
+<p>(You’ll need to make sure you have the most recent version of R to get the most recent version of ggplot)</p>
+</div>
+<div id="usage" class="section level2 hasAnchor" number="13.3">
+<h2><span class="header-section-number">13.3</span> Usage<a href="section-10.-advanced-data-visualization-ggplot2-package.html#usage" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>It’s hard to describe how ggplot2 works because it embodies a deep philosophy of visualization. However, in most cases you start with <code>ggplot()</code>, supply a dataset and aesthetic mapping (with <code>aes()</code>).</p>
+</div>
+<div id="geometric-objects-and-aesthetics" class="section level2 hasAnchor" number="13.4">
+<h2><span class="header-section-number">13.4</span> Geometric Objects And Aesthetics<a href="section-10.-advanced-data-visualization-ggplot2-package.html#geometric-objects-and-aesthetics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="aesthetic-mapping" class="section level3 hasAnchor" number="13.4.1">
+<h3><span class="header-section-number">13.4.1</span> Aesthetic Mapping<a href="section-10.-advanced-data-visualization-ggplot2-package.html#aesthetic-mapping" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In ggplot land aesthetic means “something you can see”. Examples include:</p>
+<ul>
+<li><p>position (i.e., on the x and y axes)</p></li>
+<li><p>color (“outside” color)</p></li>
+<li><p>fill (“inside” color)</p></li>
+<li><p>shape (of points)</p></li>
+<li><p>linetype</p></li>
+<li><p>size</p></li>
+</ul>
+<p>Each type of geom accepts only a subset of all aesthetics-refer to the geom help pages to see what mappings each geom accepts. Aesthetic mappings are set with the <code>aes()</code> function.</p>
+</div>
+<div id="geometic-objects-geom" class="section level3 hasAnchor" number="13.4.2">
+<h3><span class="header-section-number">13.4.2</span> Geometic Objects (geom)<a href="section-10.-advanced-data-visualization-ggplot2-package.html#geometic-objects-geom" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Geometric objects are the actual marks (different visual object to represent the data) we put on a plot. Examples include:</p>
+<ul>
+<li><p>points (<code>geom_point</code>, for scatter plots, dot plots, etc)</p></li>
+<li><p>lines (<code>geom_line</code>, for time series, trend lines, etc)</p></li>
+<li><p>boxplot (<code>geom_boxplot</code>, for, well, boxplots!)</p></li>
+<li><p>barplot (<code>geom_bar</code>, for barplots)</p></li>
+</ul>
+<p>A plot must have at least one geom; there is no upper limit. You can add a geom to a plot using the <code>+</code> operator. You can get a list of available geometric objects using the code below:</p>
+<div class="sourceCode" id="cb549"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb549-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb549-1" tabindex="-1"></a><span class="fu">help.search</span>(<span class="st">&quot;geom_&quot;</span>, <span class="at">package =</span> <span class="st">&quot;ggplot2&quot;</span>)</span></code></pre></div>
+<p>The <code>ggplot()</code> function is used to <strong>initialize the basic graph structure</strong>, then we add to it. The basic idea is that you specify different parts of the plot, and add them together using the <code>+</code> operator. These parts are often referred to as layers.</p>
+<p><strong><code>ggplot2</code> requires a data frame as input.</strong></p>
+<p>Let’s start:</p>
+</div>
+</div>
+<div id="examples" class="section level2 hasAnchor" number="13.5">
+<h2><span class="header-section-number">13.5</span> Examples<a href="section-10.-advanced-data-visualization-ggplot2-package.html#examples" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Install and Load the ggplot2 package. Explore the <code>diamonds</code> dataset. The diamonds data frame contains information on the prices and various metrics of <span class="math inline">\(~54,000\)</span> diamonds.</p>
+<div class="sourceCode" id="cb550"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb550-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb550-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb550-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb550-2" tabindex="-1"></a><span class="fu">names</span>(diamonds)</span></code></pre></div>
+<pre><code>##  [1] &quot;carat&quot;   &quot;cut&quot;     &quot;color&quot;   &quot;clarity&quot; &quot;depth&quot;   &quot;table&quot;   &quot;price&quot;  
+##  [8] &quot;x&quot;       &quot;y&quot;       &quot;z&quot;</code></pre>
+<div class="sourceCode" id="cb552"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb552-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb552-1" tabindex="-1"></a><span class="fu">dim</span>(diamonds)</span></code></pre></div>
+<pre><code>## [1] 53940    10</code></pre>
+<p>We can check the class of each one of the variables:</p>
+<div class="sourceCode" id="cb554"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb554-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb554-1" tabindex="-1"></a><span class="fu">head</span>(diamonds)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 10
+##   carat cut       color clarity depth table price     x     y     z
+##   &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1  0.23 Ideal     E     SI2      61.5    55   326  3.95  3.98  2.43
+## 2  0.21 Premium   E     SI1      59.8    61   326  3.89  3.84  2.31
+## 3  0.23 Good      E     VS1      56.9    65   327  4.05  4.07  2.31
+## 4  0.29 Premium   I     VS2      62.4    58   334  4.2   4.23  2.63
+## 5  0.31 Good      J     SI2      63.3    58   335  4.34  4.35  2.75
+## 6  0.24 Very Good J     VVS2     62.8    57   336  3.94  3.96  2.48</code></pre>
+<div class="sourceCode" id="cb556"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb556-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb556-1" tabindex="-1"></a><span class="fu">str</span>(diamonds)</span></code></pre></div>
+<pre><code>## tibble [53,940 × 10] (S3: tbl_df/tbl/data.frame)
+##  $ carat  : num [1:53940] 0.23 0.21 0.23 0.29 0.31 0.24 0.24 0.26 0.22 0.23 ...
+##  $ cut    : Ord.factor w/ 5 levels &quot;Fair&quot;&lt;&quot;Good&quot;&lt;..: 5 4 2 4 2 3 3 3 1 3 ...
+##  $ color  : Ord.factor w/ 7 levels &quot;D&quot;&lt;&quot;E&quot;&lt;&quot;F&quot;&lt;&quot;G&quot;&lt;..: 2 2 2 6 7 7 6 5 2 5 ...
+##  $ clarity: Ord.factor w/ 8 levels &quot;I1&quot;&lt;&quot;SI2&quot;&lt;&quot;SI1&quot;&lt;..: 2 3 5 4 2 6 7 3 4 5 ...
+##  $ depth  : num [1:53940] 61.5 59.8 56.9 62.4 63.3 62.8 62.3 61.9 65.1 59.4 ...
+##  $ table  : num [1:53940] 55 61 65 58 58 57 57 55 61 61 ...
+##  $ price  : int [1:53940] 326 326 327 334 335 336 336 337 337 338 ...
+##  $ x      : num [1:53940] 3.95 3.89 4.05 4.2 4.34 3.94 3.95 4.07 3.87 4 ...
+##  $ y      : num [1:53940] 3.98 3.84 4.07 4.23 4.35 3.96 3.98 4.11 3.78 4.05 ...
+##  $ z      : num [1:53940] 2.43 2.31 2.31 2.63 2.75 2.48 2.47 2.53 2.49 2.39 ...</code></pre>
+<p>We will structure this “Examples” section by showing different types of graphics based on our <strong>main goal</strong> and the <strong>type of variables</strong> that we want to work with:</p>
+<p>If we want to analyze:</p>
+<ul>
+<li><p>Frequency (categorical variable): barplot (e.g. Cut from diamonds)</p></li>
+<li><p>Part of a whole (two categorical variables: proportion of observations of one variable’s categories among the categories of a second variable): stacked/grouped barplot (e.g. Cut-color from diamonds)</p></li>
+<li><p>Distribution (continuous variable): histogram, boxplot, density plot (e.g. depth, price, x…. from diamonds)</p></li>
+<li><p>Correlation (2 continuous variables): scatter plot</p></li>
+</ul>
+<p>There are more options that we would like to analyze/explore.</p>
+<p>In case you want to learn about other graphics/options, visit the following link: <a href="https://r-graph-gallery.com/" class="uri">https://r-graph-gallery.com/</a> . You will find a wide range of options to graphically describe your data.</p>
+<div id="categorical-variables" class="section level3 hasAnchor" number="13.5.1">
+<h3><span class="header-section-number">13.5.1</span> Categorical Variables<a href="section-10.-advanced-data-visualization-ggplot2-package.html#categorical-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="barplot" class="section level4 hasAnchor" number="13.5.1.1">
+<h4><span class="header-section-number">13.5.1.1</span> Barplot<a href="section-10.-advanced-data-visualization-ggplot2-package.html#barplot" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We have a categorical variable and we want to find the frequency of appearance for each level of the factor. The main idea is to plot the frequency that we observe for each category of the categorical variable (<strong>check class(Variable)</strong>: it must be a factor).</p>
+<div class="sourceCode" id="cb558"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb558-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb558-1" tabindex="-1"></a><span class="fu">table</span>(diamonds<span class="sc">$</span>cut)</span></code></pre></div>
+<pre><code>## 
+##      Fair      Good Very Good   Premium     Ideal 
+##      1610      4906     12082     13791     21551</code></pre>
+<div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb560-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb560-1" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x=</span>cut)) <span class="sc">+</span></span>
+<span id="cb560-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb560-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
+<p><img src="11-AdvVisualization_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>Using pipes we can proceed as follows:</p>
+<div class="sourceCode" id="cb561"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb561-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb561-1" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>cut)) <span class="sc">+</span></span>
+<span id="cb561-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb561-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
+<p><img src="11-AdvVisualization_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>Imagine that we want to fill each bar with a color according to each category of the variable cut</p>
+<div class="sourceCode" id="cb562"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb562-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb562-1" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x=</span>cut)) <span class="sc">+</span></span>
+<span id="cb562-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb562-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">fill=</span>cut))</span></code></pre></div>
+<p><img src="11-AdvVisualization_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<div class="sourceCode" id="cb563"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb563-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb563-1" tabindex="-1"></a><span class="do">##same if we do: ggplot(diamonds, aes(x=cut,fill=cut)) +  geom_bar()</span></span></code></pre></div>
+<p>Now we want to display the result of the table of contingency relating cut*color.</p>
+<p>We want to see how many observations for each category of the variable cut do we have but stratifying by color.</p>
+<div class="sourceCode" id="cb564"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb564-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb564-1" tabindex="-1"></a><span class="fu">table</span>(diamonds<span class="sc">$</span>cut, diamonds<span class="sc">$</span>color)</span></code></pre></div>
+<pre><code>##            
+##                D    E    F    G    H    I    J
+##   Fair       163  224  312  314  303  175  119
+##   Good       662  933  909  871  702  522  307
+##   Very Good 1513 2400 2164 2299 1824 1204  678
+##   Premium   1603 2337 2331 2924 2360 1428  808
+##   Ideal     2834 3903 3826 4884 3115 2093  896</code></pre>
+<div class="sourceCode" id="cb566"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb566-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb566-1" tabindex="-1"></a><span class="do">##stacked</span></span>
+<span id="cb566-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb566-2" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x=</span>cut, <span class="at">fill=</span>color)) <span class="sc">+</span></span>
+<span id="cb566-3"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb566-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">&quot;stack&quot;</span>) </span></code></pre></div>
+<p><img src="11-AdvVisualization_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<div class="sourceCode" id="cb567"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb567-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb567-1" tabindex="-1"></a><span class="do">##not stacked</span></span>
+<span id="cb567-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb567-2" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x=</span>cut, <span class="at">fill=</span>color)) <span class="sc">+</span></span>
+<span id="cb567-3"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb567-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">&quot;dodge&quot;</span>)</span></code></pre></div>
+<p><img src="11-AdvVisualization_files/figure-html/unnamed-chunk-8-2.png" width="672" /></p>
+<p>If we want to display within group the relative proportion of each type of color?</p>
+<div class="sourceCode" id="cb568"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb568-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb568-1" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x=</span>cut, <span class="at">fill=</span>color)) <span class="sc">+</span></span>
+<span id="cb568-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb568-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">&quot;fill&quot;</span>)</span></code></pre></div>
+<p><img src="11-AdvVisualization_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<div class="sourceCode" id="cb569"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb569-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb569-1" tabindex="-1"></a><span class="do">##when adding + scale_y_continuous(labels = scales::percent_format()) we can see the y-axis as percent (x out of 100%).</span></span></code></pre></div>
+<ul>
+<li>how to change the coordinates of the plot? Use <code>coord_flip()</code></li>
+</ul>
+<div class="sourceCode" id="cb570"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb570-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb570-1" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x=</span>cut, <span class="at">fill=</span>color)) <span class="sc">+</span></span>
+<span id="cb570-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb570-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb570-3"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb570-3" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code></pre></div>
+<p><img src="11-AdvVisualization_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+</div>
+</div>
+<div id="quantitative-variables" class="section level3 hasAnchor" number="13.5.2">
+<h3><span class="header-section-number">13.5.2</span> Quantitative Variables<a href="section-10.-advanced-data-visualization-ggplot2-package.html#quantitative-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="distribution" class="section level4 hasAnchor" number="13.5.2.1">
+<h4><span class="header-section-number">13.5.2.1</span> Distribution<a href="section-10.-advanced-data-visualization-ggplot2-package.html#distribution" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="histograms-1" class="section level5 hasAnchor" number="13.5.2.1.1">
+<h5><span class="header-section-number">13.5.2.1.1</span> Histograms<a href="section-10.-advanced-data-visualization-ggplot2-package.html#histograms-1" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Let’s plot the distribution of the variable <em>price</em>.</p>
+<div class="sourceCode" id="cb571"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb571-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb571-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>diamonds) <span class="sc">+</span></span>
+<span id="cb571-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb571-2" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth=</span><span class="dv">500</span>, <span class="fu">aes</span>(<span class="at">x=</span>price)) <span class="sc">+</span>     <span class="do">##### binwidth=change width histogram</span></span>
+<span id="cb571-3"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb571-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Diamond Price Distribution&quot;</span>) <span class="sc">+</span></span>
+<span id="cb571-4"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb571-4" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Diamond Price U$ - Binwidth 500&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb571-5"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb571-5" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
+<span id="cb571-6"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb571-6" tabindex="-1"></a>   <span class="fu">xlim</span>(<span class="dv">0</span>,<span class="dv">2500</span>)</span></code></pre></div>
+<p><img src="11-AdvVisualization_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<div class="sourceCode" id="cb572"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb572-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb572-1" tabindex="-1"></a><span class="do">##let&#39;s see at different levels</span></span>
+<span id="cb572-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb572-2" tabindex="-1"></a></span>
+<span id="cb572-3"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb572-3" tabindex="-1"></a></span>
+<span id="cb572-4"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb572-4" tabindex="-1"></a>p1<span class="ot">&lt;-</span><span class="fu">ggplot</span>(<span class="at">data=</span>diamonds) <span class="sc">+</span></span>
+<span id="cb572-5"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb572-5" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth=</span><span class="dv">50</span>, <span class="fu">aes</span>(<span class="at">x=</span>price)) <span class="sc">+</span>     <span class="do">##### binwidth=change width histogram</span></span>
+<span id="cb572-6"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb572-6" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Diamond Price Distribution&quot;</span>) <span class="sc">+</span></span>
+<span id="cb572-7"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb572-7" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Diamond Price U$ - Binwidth 50&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb572-8"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb572-8" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
+<span id="cb572-9"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb572-9" tabindex="-1"></a>   <span class="fu">xlim</span>(<span class="dv">0</span>,<span class="dv">2500</span>)</span>
+<span id="cb572-10"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb572-10" tabindex="-1"></a></span>
+<span id="cb572-11"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb572-11" tabindex="-1"></a>p2<span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>diamonds) <span class="sc">+</span></span>
+<span id="cb572-12"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb572-12" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth=</span><span class="dv">10</span>, <span class="fu">aes</span>(<span class="at">x=</span>price)) <span class="sc">+</span>     <span class="do">##### binwidth=change width histogram</span></span>
+<span id="cb572-13"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb572-13" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Diamond Price Distribution&quot;</span>) <span class="sc">+</span></span>
+<span id="cb572-14"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb572-14" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Diamond Price U$ - Binwidth 10&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb572-15"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb572-15" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
+<span id="cb572-16"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb572-16" tabindex="-1"></a>   <span class="fu">xlim</span>(<span class="dv">0</span>,<span class="dv">2500</span>) </span>
+<span id="cb572-17"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb572-17" tabindex="-1"></a></span>
+<span id="cb572-18"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb572-18" tabindex="-1"></a><span class="do">##warning because our maximum value in the x-axis is lower than the maximum value of the variable price</span></span>
+<span id="cb572-19"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb572-19" tabindex="-1"></a><span class="do">##observations that are not plotted</span></span>
+<span id="cb572-20"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb572-20" tabindex="-1"></a></span>
+<span id="cb572-21"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb572-21" tabindex="-1"></a><span class="fu">library</span>(ggpubr)</span>
+<span id="cb572-22"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb572-22" tabindex="-1"></a><span class="fu">ggarrange</span>(<span class="at">ncol=</span><span class="dv">2</span>, <span class="at">nrow=</span><span class="dv">1</span>, p1,p2) <span class="do">## ggarrange allows us to plot together different plots: we can define number of columns (ncol) and number of rows(nrow) to divide the area where we want to add the plots</span></span></code></pre></div>
+<p><img src="11-AdvVisualization_files/figure-html/unnamed-chunk-11-2.png" width="672" /></p>
+<ul>
+<li>How to customize our histogram?</li>
+</ul>
+<p><strong>1) Color and fill </strong></p>
+<div class="sourceCode" id="cb573"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb573-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb573-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>diamonds, <span class="fu">aes</span>(<span class="at">x=</span>price)) <span class="sc">+</span></span>
+<span id="cb573-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb573-2" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth=</span><span class="dv">10</span>, <span class="at">color=</span><span class="st">&quot;steelblue&quot;</span>, <span class="at">fill=</span><span class="st">&quot;orange&quot;</span>) <span class="sc">+</span>     </span>
+<span id="cb573-3"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb573-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Diamond Price Distribution&quot;</span>) <span class="sc">+</span></span>
+<span id="cb573-4"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb573-4" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Diamond Price U$ - Binwidth 10&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb573-5"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb573-5" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
+<span id="cb573-6"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb573-6" tabindex="-1"></a>   <span class="fu">xlim</span>(<span class="dv">0</span>,<span class="dv">2500</span>) </span></code></pre></div>
+<p><img src="11-AdvVisualization_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p><strong>2) Add mean line</strong></p>
+<p>We well use the argument <code>geom_vline</code>where we can indicate that we want a vertical line (vline) where price takes the mean value. We will indicate it in the xintercept. The arguments <em>linetype</em> and <em>lwd</em> allow us to change the style (linetype) and width (lwd) of the line.</p>
+<div class="sourceCode" id="cb574"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb574-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb574-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>diamonds, <span class="fu">aes</span>(<span class="at">x=</span>price)) <span class="sc">+</span></span>
+<span id="cb574-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb574-2" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth=</span><span class="dv">10</span>, <span class="at">color=</span><span class="st">&quot;black&quot;</span>, <span class="at">fill=</span><span class="st">&quot;steelblue&quot;</span>) <span class="sc">+</span>     </span>
+<span id="cb574-3"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb574-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Diamond Price Distribution&quot;</span>) <span class="sc">+</span></span>
+<span id="cb574-4"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb574-4" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Diamond Price U$ - Binwidth 10&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb574-5"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb574-5" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
+<span id="cb574-6"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb574-6" tabindex="-1"></a> <span class="co">#  xlim(0,2500)  +</span></span>
+<span id="cb574-7"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb574-7" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept=</span><span class="fu">mean</span>(price)), <span class="at">color=</span><span class="st">&quot;red&quot;</span>,<span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>,<span class="at">lwd=</span><span class="dv">2</span>)</span></code></pre></div>
+<p><img src="11-AdvVisualization_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p>We can also use <code>geom_hline</code> with the argument <code>yintercept</code> to define an horizontal line. Imagine that we want to define an horizontal line when the frequency is above 200.</p>
+<div class="sourceCode" id="cb575"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb575-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb575-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>diamonds, <span class="fu">aes</span>(<span class="at">x=</span>price)) <span class="sc">+</span></span>
+<span id="cb575-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb575-2" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth=</span><span class="dv">10</span>, <span class="at">color=</span><span class="st">&quot;black&quot;</span>, <span class="at">fill=</span><span class="st">&quot;steelblue&quot;</span>) <span class="sc">+</span>     </span>
+<span id="cb575-3"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb575-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Diamond Price Distribution&quot;</span>) <span class="sc">+</span></span>
+<span id="cb575-4"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb575-4" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Diamond Price U$ - Binwidth 10&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb575-5"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb575-5" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
+<span id="cb575-6"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb575-6" tabindex="-1"></a> <span class="co">#  xlim(0,2500)  +</span></span>
+<span id="cb575-7"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb575-7" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept=</span><span class="dv">200</span>), <span class="at">color=</span><span class="st">&quot;red&quot;</span>,<span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>,<span class="at">lwd=</span><span class="dv">1</span>)</span></code></pre></div>
+<p><img src="11-AdvVisualization_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p><strong>3) Overlap two or more histograms: imagine that we want to plot the distribution of the variable <em>price</em> according to different categories. For example, based on the variable <em>cut</em> (has 5 categories). We will compare the distribution of the variable <em>price</em> among three of these categories: “Ideal”, “Good” or “Fair”.</strong></p>
+<div class="sourceCode" id="cb576"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb576-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb576-1" tabindex="-1"></a><span class="fu">unique</span>(diamonds<span class="sc">$</span>cut)</span></code></pre></div>
+<pre><code>## [1] Ideal     Premium   Good      Very Good Fair     
+## Levels: Fair &lt; Good &lt; Very Good &lt; Premium &lt; Ideal</code></pre>
+<div class="sourceCode" id="cb578"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb578-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb578-1" tabindex="-1"></a><span class="fu">table</span>(diamonds<span class="sc">$</span>cut)</span></code></pre></div>
+<pre><code>## 
+##      Fair      Good Very Good   Premium     Ideal 
+##      1610      4906     12082     13791     21551</code></pre>
+<div class="sourceCode" id="cb580"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb580-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb580-1" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x=</span>price)) <span class="sc">+</span></span>
+<span id="cb580-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb580-2" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">data=</span><span class="fu">subset</span>(diamonds, diamonds<span class="sc">$</span>cut<span class="sc">==</span><span class="st">&quot;Ideal&quot;</span>),  <span class="at">binwidth=</span><span class="dv">10</span>, <span class="at">color=</span><span class="st">&quot;black&quot;</span>, <span class="at">fill=</span><span class="st">&quot;orange&quot;</span>) <span class="sc">+</span></span>
+<span id="cb580-3"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb580-3" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">data=</span><span class="fu">subset</span>(diamonds, diamonds<span class="sc">$</span>cut<span class="sc">==</span><span class="st">&quot;Good&quot;</span>),  <span class="at">binwidth=</span><span class="dv">10</span>, <span class="at">color=</span><span class="st">&quot;black&quot;</span>, <span class="at">fill=</span><span class="st">&quot;darkgreen&quot;</span>) <span class="sc">+</span></span>
+<span id="cb580-4"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb580-4" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">data=</span><span class="fu">subset</span>(diamonds, diamonds<span class="sc">$</span>cut<span class="sc">==</span><span class="st">&quot;Fair&quot;</span>),  <span class="at">binwidth=</span><span class="dv">10</span>, <span class="at">color=</span><span class="st">&quot;black&quot;</span>, <span class="at">fill=</span><span class="st">&quot;red&quot;</span>) <span class="sc">+</span>   </span>
+<span id="cb580-5"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb580-5" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Diamond Price Distribution by Cut&quot;</span>) <span class="sc">+</span></span>
+<span id="cb580-6"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb580-6" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Diamond Price U$ - Binwidth 10&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb580-7"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb580-7" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
+<span id="cb580-8"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb580-8" tabindex="-1"></a>   <span class="fu">xlim</span>(<span class="dv">0</span>,<span class="dv">2500</span>) </span></code></pre></div>
+<p><img src="11-AdvVisualization_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p>If we want to display the overlap among all categories for the variable <code>cut</code>:</p>
+<div class="sourceCode" id="cb581"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb581-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb581-1" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x=</span>price)) <span class="sc">+</span></span>
+<span id="cb581-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb581-2" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth=</span><span class="dv">10</span>, <span class="fu">aes</span>(<span class="at">fill=</span>cut), <span class="at">colour=</span><span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
+<span id="cb581-3"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb581-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Diamond Price Distribution by Cut&quot;</span>) <span class="sc">+</span></span>
+<span id="cb581-4"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb581-4" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Diamond Price U$ - Binwidth 10&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb581-5"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb581-5" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
+<span id="cb581-6"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb581-6" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="dv">0</span>,<span class="dv">2500</span>) </span></code></pre></div>
+<p><img src="11-AdvVisualization_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+</div>
+<div id="density-plots" class="section level5 hasAnchor" number="13.5.2.1.2">
+<h5><span class="header-section-number">13.5.2.1.2</span> Density plots<a href="section-10.-advanced-data-visualization-ggplot2-package.html#density-plots" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>We display the density plot only for the cases where price is below 1000.</p>
+<div class="sourceCode" id="cb582"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb582-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb582-1" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span></span>
+<span id="cb582-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb582-2" tabindex="-1"></a>  <span class="fu">filter</span>( price<span class="sc">&lt;</span><span class="dv">1000</span> ) <span class="sc">%&gt;%</span></span>
+<span id="cb582-3"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb582-3" tabindex="-1"></a>  <span class="fu">ggplot</span>( <span class="fu">aes</span>(<span class="at">x=</span>price)) <span class="sc">+</span></span>
+<span id="cb582-4"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb582-4" tabindex="-1"></a>    <span class="fu">geom_density</span>(<span class="at">fill=</span><span class="st">&quot;#69b3a2&quot;</span>, <span class="at">color=</span><span class="st">&quot;#e9ecef&quot;</span>, <span class="at">alpha=</span><span class="fl">0.8</span>)</span></code></pre></div>
+<p><img src="11-AdvVisualization_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p>Now for all the cases:</p>
+<div class="sourceCode" id="cb583"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb583-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb583-1" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span></span>
+<span id="cb583-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb583-2" tabindex="-1"></a>  <span class="fu">ggplot</span>( <span class="fu">aes</span>(<span class="at">x=</span>price)) <span class="sc">+</span></span>
+<span id="cb583-3"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb583-3" tabindex="-1"></a>    <span class="fu">geom_density</span>(<span class="at">fill=</span><span class="st">&quot;#69b3a2&quot;</span>, <span class="at">color=</span><span class="st">&quot;#e9ecef&quot;</span>, <span class="at">alpha=</span><span class="fl">0.8</span>)</span></code></pre></div>
+<p><img src="11-AdvVisualization_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p>And stratifying by cut:</p>
+<div class="sourceCode" id="cb584"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb584-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb584-1" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span></span>
+<span id="cb584-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb584-2" tabindex="-1"></a>  <span class="fu">ggplot</span>( <span class="fu">aes</span>(<span class="at">x=</span>price, <span class="at">fill=</span>cut, <span class="at">color=</span>cut)) <span class="sc">+</span></span>
+<span id="cb584-3"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb584-3" tabindex="-1"></a>    <span class="fu">geom_density</span>(<span class="at">alpha=</span><span class="fl">0.8</span>) <span class="do">##color=&quot;gray&quot;</span></span></code></pre></div>
+<p><img src="11-AdvVisualization_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<hr />
+</div>
+<div id="boxplots" class="section level5 hasAnchor" number="13.5.2.1.3">
+<h5><span class="header-section-number">13.5.2.1.3</span> Boxplots<a href="section-10.-advanced-data-visualization-ggplot2-package.html#boxplots" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>When we want to observe the distribution of a continuous variable, we can use box plots in order to visualize the median of the distribution, the first and third quantile, the variability across all the observations and outliers.</p>
+<p>We can plot these distributions stratifying by categorical variables, to compare between different categories of the same factor.</p>
+<p>In the previous section, we have seen the distribution of the variable <em>price</em> in a histogram that shows the range of prices that are more frequent in our sample. We have also plotted the observations according to specific levels of the factor <em>cut</em>.</p>
+<p>Now, we are not interested in the frequency but in the distribution of the variable <em>price</em>.</p>
+<p><strong>1) We want to plot the distribution of the price for all the observations, without distinguishing by any condition:</strong></p>
+<div class="sourceCode" id="cb585"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb585-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb585-1" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">factor</span>(<span class="dv">0</span>),<span class="at">y=</span>price)) <span class="sc">+</span></span>
+<span id="cb585-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb585-2" tabindex="-1"></a> <span class="fu">geom_boxplot</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">&quot;Diamond Price&quot;</span>) <span class="sc">+</span>  </span>
+<span id="cb585-3"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb585-3" tabindex="-1"></a> <span class="fu">ylab</span>(<span class="st">&quot;Diamond Price U$&quot;</span>) <span class="sc">+</span></span>
+<span id="cb585-4"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb585-4" tabindex="-1"></a> <span class="fu">coord_cartesian</span>(<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">7500</span>)) <span class="sc">+</span> </span>
+<span id="cb585-5"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb585-5" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.x=</span><span class="fu">element_blank</span>(),<span class="do">## removes title in the x-axis</span></span>
+<span id="cb585-6"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb585-6" tabindex="-1"></a>        <span class="at">axis.text.x=</span><span class="fu">element_blank</span>(), <span class="do">###removes text ===&gt; 0 in the x-axis</span></span>
+<span id="cb585-7"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb585-7" tabindex="-1"></a>        <span class="at">axis.ticks.x=</span><span class="fu">element_blank</span>()) <span class="do">## removes the tick (line) </span></span></code></pre></div>
+<p><img src="11-AdvVisualization_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<p><strong>2) We want to plot the distribution of the variable <em>price</em> for each one of the categories of the variable <em>cut</em>. We will fill each box according to the each level (cut).</strong></p>
+<div class="sourceCode" id="cb586"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb586-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb586-1" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x=</span>cut,<span class="at">y=</span>price, <span class="at">fill=</span>cut)) <span class="sc">+</span></span>
+<span id="cb586-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb586-2" tabindex="-1"></a> <span class="fu">geom_boxplot</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">&quot;Diamond Price&quot;</span>) <span class="sc">+</span>  </span>
+<span id="cb586-3"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb586-3" tabindex="-1"></a> <span class="fu">ylab</span>(<span class="st">&quot;Diamond Price U$&quot;</span>) <span class="sc">+</span></span>
+<span id="cb586-4"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb586-4" tabindex="-1"></a> <span class="fu">coord_cartesian</span>(<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">7500</span>)) </span></code></pre></div>
+<p><img src="11-AdvVisualization_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<p><strong>3) If we want to remove the legend</strong></p>
+<div class="sourceCode" id="cb587"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb587-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb587-1" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x=</span>cut,<span class="at">y=</span>price, <span class="at">fill=</span>cut)) <span class="sc">+</span></span>
+<span id="cb587-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb587-2" tabindex="-1"></a> <span class="fu">geom_boxplot</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">&quot;Diamond Price&quot;</span>) <span class="sc">+</span>  </span>
+<span id="cb587-3"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb587-3" tabindex="-1"></a> <span class="fu">ylab</span>(<span class="st">&quot;Diamond Price U$&quot;</span>) <span class="sc">+</span></span>
+<span id="cb587-4"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb587-4" tabindex="-1"></a> <span class="fu">coord_cartesian</span>(<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">7500</span>)) <span class="sc">+</span></span>
+<span id="cb587-5"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb587-5" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
+<p><img src="11-AdvVisualization_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<p><strong>4) If we want lighter colors</strong></p>
+<div class="sourceCode" id="cb588"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb588-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb588-1" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x=</span>cut,<span class="at">y=</span>price, <span class="at">fill=</span>cut)) <span class="sc">+</span></span>
+<span id="cb588-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb588-2" tabindex="-1"></a> <span class="fu">geom_boxplot</span>(<span class="at">alpha=</span><span class="fl">0.3</span>) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">&quot;Diamond Price&quot;</span>) <span class="sc">+</span>  </span>
+<span id="cb588-3"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb588-3" tabindex="-1"></a> <span class="fu">ylab</span>(<span class="st">&quot;Diamond Price U$&quot;</span>) <span class="sc">+</span></span>
+<span id="cb588-4"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb588-4" tabindex="-1"></a> <span class="fu">coord_cartesian</span>(<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">7500</span>)) </span></code></pre></div>
+<p><img src="11-AdvVisualization_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<p><strong>5) If we want to observe each one of the points (observations)</strong></p>
+<div class="sourceCode" id="cb589"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb589-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb589-1" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x=</span>cut,<span class="at">y=</span>price, <span class="at">fill=</span>cut)) <span class="sc">+</span></span>
+<span id="cb589-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb589-2" tabindex="-1"></a> <span class="fu">geom_boxplot</span>(<span class="at">alpha=</span><span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb589-3"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb589-3" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">color=</span><span class="st">&quot;black&quot;</span>, <span class="at">alpha=</span><span class="fl">0.3</span>, </span>
+<span id="cb589-4"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb589-4" tabindex="-1"></a>              <span class="at">position=</span><span class="fu">position_jitter</span>(), <span class="at">size=</span><span class="fl">0.6</span>) <span class="sc">+</span> <span class="do">### add points for each observation &gt;&gt; it                                                       allows us to find clusters of individuals</span></span>
+<span id="cb589-5"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb589-5" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Diamond Price&quot;</span>) <span class="sc">+</span>  </span>
+<span id="cb589-6"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb589-6" tabindex="-1"></a> <span class="fu">ylab</span>(<span class="st">&quot;Diamond Price U$&quot;</span>) <span class="sc">+</span></span>
+<span id="cb589-7"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb589-7" tabindex="-1"></a> <span class="fu">coord_cartesian</span>(<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">7500</span>)) </span></code></pre></div>
+<p><img src="11-AdvVisualization_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+</div>
+<div id="violin-plot" class="section level5 hasAnchor" number="13.5.2.1.4">
+<h5><span class="header-section-number">13.5.2.1.4</span> Violin plot<a href="section-10.-advanced-data-visualization-ggplot2-package.html#violin-plot" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div class="sourceCode" id="cb590"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb590-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb590-1" tabindex="-1"></a>diamonds <span class="sc">%&gt;%</span></span>
+<span id="cb590-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb590-2" tabindex="-1"></a>  <span class="fu">ggplot</span>( <span class="fu">aes</span>(<span class="at">x=</span>cut,<span class="at">y=</span>price, <span class="at">fill=</span>cut)) <span class="sc">+</span></span>
+<span id="cb590-3"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb590-3" tabindex="-1"></a>    <span class="fu">geom_violin</span>(<span class="at">width=</span><span class="fl">1.4</span>) <span class="sc">+</span></span>
+<span id="cb590-4"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb590-4" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>(<span class="at">width=</span><span class="fl">0.1</span>, <span class="at">color=</span><span class="st">&quot;gray&quot;</span>, <span class="at">alpha=</span><span class="fl">0.1</span>) <span class="sc">+</span></span>
+<span id="cb590-5"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb590-5" tabindex="-1"></a>    <span class="fu">theme_classic2</span>() <span class="sc">+</span></span>
+<span id="cb590-6"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb590-6" tabindex="-1"></a>    <span class="fu">theme</span>(</span>
+<span id="cb590-7"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb590-7" tabindex="-1"></a>      <span class="at">legend.position=</span><span class="st">&quot;none&quot;</span>,</span>
+<span id="cb590-8"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb590-8" tabindex="-1"></a>      <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">11</span>)</span>
+<span id="cb590-9"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb590-9" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb590-10"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb590-10" tabindex="-1"></a>    <span class="fu">ggtitle</span>(<span class="st">&quot;A Violin wrapping a boxplot&quot;</span>)</span></code></pre></div>
+<p><img src="11-AdvVisualization_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+</div>
+</div>
+<div id="correlation-between-2-variables" class="section level4 hasAnchor" number="13.5.2.2">
+<h4><span class="header-section-number">13.5.2.2</span> Correlation between 2 variables<a href="section-10.-advanced-data-visualization-ggplot2-package.html#correlation-between-2-variables" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="scatterplot" class="section level5 hasAnchor" number="13.5.2.2.1">
+<h5><span class="header-section-number">13.5.2.2.1</span> Scatterplot<a href="section-10.-advanced-data-visualization-ggplot2-package.html#scatterplot" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Now, we are interested in plotting together the observations of two continuous variables. For example, we want to assess the relationship between the variable depth and price:</p>
+<div class="sourceCode" id="cb591"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb591-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb591-1" tabindex="-1"></a>p<span class="ot">&lt;-</span><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> depth, <span class="at">y =</span> price)) <span class="sc">+</span> <span class="fu">geom_point</span>() </span>
+<span id="cb591-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb591-2" tabindex="-1"></a>p</span></code></pre></div>
+<p><img src="11-AdvVisualization_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+<p>Let’s see the distribution of each variable:</p>
+<div class="sourceCode" id="cb592"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb592-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb592-1" tabindex="-1"></a>p2<span class="ot">&lt;-</span> <span class="fu">ggMarginal</span>(p,<span class="at">type=</span><span class="st">&quot;histogram&quot;</span>)</span>
+<span id="cb592-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb592-2" tabindex="-1"></a>p2</span></code></pre></div>
+<p><img src="11-AdvVisualization_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<p>We can also assess the association between variables x and y:</p>
+<div class="sourceCode" id="cb593"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb593-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb593-1" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code></pre></div>
+<p><img src="11-AdvVisualization_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
+<p>Let’s graphically analayze the association between the <em>price</em> of a diamond and its <em>weight</em> (<strong>carat</strong>). In addition, we will color the points based on the quality of the <em>cut</em>.</p>
+<div class="sourceCode" id="cb594"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb594-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb594-1" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price, <span class="at">color=</span>cut)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code></pre></div>
+<p><img src="11-AdvVisualization_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
+<ul>
+<li>In this last situation we can be interested in performing a linear regression model to assess whether the weight of the diamond (carat) predicts its price. We can also plot the regression line and equation. We will color the observations based on the weight (explanatory variable) of each diamond.</li>
+</ul>
+<div class="sourceCode" id="cb595"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb595-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb595-1" tabindex="-1"></a>diamonds<span class="sc">$</span>pred.SC <span class="ot">&lt;-</span> <span class="fu">predict</span>(<span class="fu">lm</span>(price <span class="sc">~</span> carat, <span class="at">data =</span> diamonds)) <span class="do">##same if we save the output of the model in a new object &quot;r&quot; =&gt; r&lt;- lm(price ~ carat, data = diamonds) and then we select the fitted values =&gt; r$fitted.values</span></span>
+<span id="cb595-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb595-2" tabindex="-1"></a></span>
+<span id="cb595-3"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb595-3" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price))</span>
+<span id="cb595-4"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb595-4" tabindex="-1"></a></span>
+<span id="cb595-5"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb595-5" tabindex="-1"></a></span>
+<span id="cb595-6"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb595-6" tabindex="-1"></a><span class="do">###ggplot2</span></span>
+<span id="cb595-7"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb595-7" tabindex="-1"></a>p1 <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> carat)) <span class="sc">+</span> </span>
+<span id="cb595-8"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb595-8" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> pred.SC))</span></code></pre></div>
+<p><img src="11-AdvVisualization_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
+<hr />
+</div>
+<div id="smoothers" class="section level5 hasAnchor" number="13.5.2.2.2">
+<h5><span class="header-section-number">13.5.2.2.2</span> Smoothers<a href="section-10.-advanced-data-visualization-ggplot2-package.html#smoothers" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Not all geometric objects are simple shapes-the smooth geom includes a line and a ribbon.</p>
+<p>We can define different methods, but by default it applies generalized additive models, for non-linear associations. It assumes that the outcome can be modelled by a sum of arbitrary functions of each feature.</p>
+<p>We can also assume linear association and define it in the argument metod.</p>
+<p>Let’s see the same example that we have seen in the previous section by using <code>geom_smooth</code> and adding the equation of the regression line.</p>
+<div class="sourceCode" id="cb596"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb596-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb596-1" tabindex="-1"></a><span class="fu">library</span>(ggpmisc)</span>
+<span id="cb596-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb596-2" tabindex="-1"></a><span class="do">## geom_smooth and lm</span></span>
+<span id="cb596-3"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb596-3" tabindex="-1"></a></span>
+<span id="cb596-4"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb596-4" tabindex="-1"></a>formula<span class="ot">&lt;-</span> y<span class="sc">~</span>x</span>
+<span id="cb596-5"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb596-5" tabindex="-1"></a></span>
+<span id="cb596-6"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb596-6" tabindex="-1"></a>p1<span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> carat)) <span class="sc">+</span></span>
+<span id="cb596-7"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb596-7" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">color=</span><span class="st">&quot;red&quot;</span>,<span class="at">se =</span> <span class="cn">TRUE</span>) <span class="sc">+</span> </span>
+<span id="cb596-8"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb596-8" tabindex="-1"></a>  </span>
+<span id="cb596-9"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb596-9" tabindex="-1"></a>    <span class="do">##method=&quot;lm&quot; </span></span>
+<span id="cb596-10"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb596-10" tabindex="-1"></a>    <span class="do">## se=F =&gt; do not show confidence bands</span></span>
+<span id="cb596-11"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb596-11" tabindex="-1"></a>  </span>
+<span id="cb596-12"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb596-12" tabindex="-1"></a>    <span class="fu">stat_poly_eq</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste</span>(..eq.label.., ..rr.label.., <span class="at">sep =</span> <span class="st">&quot;~~~&quot;</span>)), </span>
+<span id="cb596-13"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb596-13" tabindex="-1"></a>              <span class="at">formula =</span> formula,  <span class="at">size =</span> <span class="dv">7</span>)</span></code></pre></div>
+<p><img src="11-AdvVisualization_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
+<p>Let’s check the output of the model:</p>
+<div class="sourceCode" id="cb597"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb597-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb597-1" tabindex="-1"></a>model<span class="ot">&lt;-</span><span class="fu">lm</span>(price <span class="sc">~</span> carat, <span class="at">data =</span> diamonds)</span>
+<span id="cb597-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb597-2" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = price ~ carat, data = diamonds)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -18585.3   -804.8    -18.9    537.4  12731.7 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -2256.36      13.06  -172.8   &lt;2e-16 ***
+## carat        7756.43      14.07   551.4   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1549 on 53938 degrees of freedom
+## Multiple R-squared:  0.8493, Adjusted R-squared:  0.8493 
+## F-statistic: 3.041e+05 on 1 and 53938 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>Let’s see how does it work when geom_smooth do not assume a linear relationship.</p>
+<div class="sourceCode" id="cb599"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb599-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb599-1" tabindex="-1"></a>p1 <span class="sc">+</span></span>
+<span id="cb599-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb599-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> carat)) <span class="sc">+</span></span>
+<span id="cb599-3"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb599-3" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">color=</span><span class="st">&quot;red&quot;</span>) <span class="do">##adds a trend line over an existing plot. It also adds confidence bands on the smooth. By default, the method=&quot;gam&quot;</span></span></code></pre></div>
+<p><img src="11-AdvVisualization_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
+<hr />
+</div>
+</div>
+</div>
+<div id="more-advanced-code-customizing-your-plots" class="section level3 hasAnchor" number="13.5.3">
+<h3><span class="header-section-number">13.5.3</span> More advanced code: customizing your plots<a href="section-10.-advanced-data-visualization-ggplot2-package.html#more-advanced-code-customizing-your-plots" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="adding-text" class="section level4 hasAnchor" number="13.5.3.1">
+<h4><span class="header-section-number">13.5.3.1</span> Adding text<a href="section-10.-advanced-data-visualization-ggplot2-package.html#adding-text" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Let’s remember that we can summarize the counts of a categorical variable by using <code>geom_bar()</code>.</p>
+<div class="sourceCode" id="cb600"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb600-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb600-1" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x=</span>cut, <span class="at">fill=</span>cut)) <span class="sc">+</span></span>
+<span id="cb600-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb600-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
+<p><img src="11-AdvVisualization_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
+<p>And that we can also assess for each category of a categorical variable, the proportion of cases that we observe for each one of the categories of a second categorical variable (remember contingency table).</p>
+<div class="sourceCode" id="cb601"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb601-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb601-1" tabindex="-1"></a>plot<span class="ot">&lt;-</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x=</span>cut, <span class="at">fill=</span>color)) <span class="sc">+</span></span>
+<span id="cb601-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb601-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span>
+<span id="cb601-3"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb601-3" tabindex="-1"></a>plot</span></code></pre></div>
+<p><img src="11-AdvVisualization_files/figure-html/unnamed-chunk-35-1.png" width="672" /></p>
+<p><strong>1) Geom_text:</strong></p>
+<p>We want to add text that can help us to obtain more information about the counts.</p>
+<div class="sourceCode" id="cb602"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb602-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb602-1" tabindex="-1"></a><span class="do">## Counts</span></span>
+<span id="cb602-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb602-2" tabindex="-1"></a> plot<span class="sc">+</span></span>
+<span id="cb602-3"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb602-3" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">stat=</span><span class="st">&quot;count&quot;</span>, </span>
+<span id="cb602-4"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb602-4" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">label=</span>..count..),</span>
+<span id="cb602-5"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb602-5" tabindex="-1"></a>            <span class="at">position =</span> <span class="fu">position_stack</span>(<span class="at">vjust =</span> <span class="fl">0.5</span>), <span class="do">###vjust = center of the box</span></span>
+<span id="cb602-6"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb602-6" tabindex="-1"></a>            <span class="at">size=</span><span class="fl">2.5</span>, <span class="at">color=</span><span class="st">&quot;white&quot;</span>)</span></code></pre></div>
+<p><img src="11-AdvVisualization_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
+<p>Let’s add the percentage of observations instead of the frequency. We need to work with the data.</p>
+<p><em>First option</em>: creating data.frame from a prop.table</p>
+<div class="sourceCode" id="cb603"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb603-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb603-1" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">prop.table</span>(<span class="fu">table</span>(diamonds<span class="sc">$</span>cut, diamonds<span class="sc">$</span>color),<span class="dv">1</span>)<span class="sc">*</span><span class="dv">100</span>,<span class="dv">2</span>)</span></code></pre></div>
+<pre><code>##            
+##                 D     E     F     G     H     I     J
+##   Fair      10.12 13.91 19.38 19.50 18.82 10.87  7.39
+##   Good      13.49 19.02 18.53 17.75 14.31 10.64  6.26
+##   Very Good 12.52 19.86 17.91 19.03 15.10  9.97  5.61
+##   Premium   11.62 16.95 16.90 21.20 17.11 10.35  5.86
+##   Ideal     13.15 18.11 17.75 22.66 14.45  9.71  4.16</code></pre>
+<div class="sourceCode" id="cb605"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb605-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb605-1" tabindex="-1"></a>diamonds_perc<span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">round</span>(<span class="fu">prop.table</span>(<span class="fu">table</span>(diamonds<span class="sc">$</span>cut, diamonds<span class="sc">$</span>color),<span class="dv">1</span>)<span class="sc">*</span><span class="dv">100</span>,<span class="dv">2</span>))</span>
+<span id="cb605-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb605-2" tabindex="-1"></a><span class="do">##we could have made it differently, but is the most direct way</span></span>
+<span id="cb605-3"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb605-3" tabindex="-1"></a><span class="fu">head</span>(diamonds_perc) <span class="do">##Var1 =&gt; variable cut, Var 2 =&gt; variable color, Freq is actually percentage</span></span></code></pre></div>
+<pre><code>##        Var1 Var2  Freq
+## 1      Fair    D 10.12
+## 2      Good    D 13.49
+## 3 Very Good    D 12.52
+## 4   Premium    D 11.62
+## 5     Ideal    D 13.15
+## 6      Fair    E 13.91</code></pre>
+<div class="sourceCode" id="cb607"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb607-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb607-1" tabindex="-1"></a><span class="fu">colnames</span>(diamonds_perc)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;cut&quot;</span>,<span class="st">&quot;color&quot;</span>,<span class="st">&quot;Percentage&quot;</span>)</span>
+<span id="cb607-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb607-2" tabindex="-1"></a></span>
+<span id="cb607-3"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb607-3" tabindex="-1"></a></span>
+<span id="cb607-4"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb607-4" tabindex="-1"></a></span>
+<span id="cb607-5"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb607-5" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds_perc, <span class="fu">aes</span>(<span class="at">x=</span>cut, <span class="at">y=</span>Percentage, <span class="at">fill=</span>color)) <span class="sc">+</span></span>
+<span id="cb607-6"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb607-6" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position=</span><span class="st">&quot;stack&quot;</span>,<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
+<span id="cb607-7"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb607-7" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x=</span>cut, <span class="at">y=</span>Percentage, <span class="at">label=</span>Percentage), <span class="do">##paste0(Percentage,&quot;%) if we want the format XX%</span></span>
+<span id="cb607-8"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb607-8" tabindex="-1"></a>            <span class="at">position =</span> <span class="fu">position_stack</span>(<span class="at">vjust =</span> <span class="fl">0.5</span>), <span class="do">###vjust = center of the box</span></span>
+<span id="cb607-9"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb607-9" tabindex="-1"></a>            <span class="at">size=</span><span class="fl">2.5</span>, <span class="at">color=</span><span class="st">&quot;white&quot;</span>)</span></code></pre></div>
+<p><img src="11-AdvVisualization_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
+<p><em>Second option</em>: working with pipes</p>
+<div class="sourceCode" id="cb608"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb608-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb608-1" tabindex="-1"></a>diamonds_perc2<span class="ot">&lt;-</span> diamonds <span class="sc">%&gt;%</span></span>
+<span id="cb608-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb608-2" tabindex="-1"></a>  <span class="fu">group_by</span>(cut, color) <span class="sc">%&gt;%</span></span>
+<span id="cb608-3"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb608-3" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb608-4"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb608-4" tabindex="-1"></a>    <span class="at">n=</span><span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb608-5"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb608-5" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">prop=</span>n<span class="sc">/</span><span class="fu">sum</span>(n))</span>
+<span id="cb608-6"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb608-6" tabindex="-1"></a></span>
+<span id="cb608-7"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb608-7" tabindex="-1"></a>diamonds_perc2 <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(cut) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">total =</span> <span class="fu">sum</span>(prop))</span></code></pre></div>
+<pre><code>## # A tibble: 5 × 2
+##   cut       total
+##   &lt;ord&gt;     &lt;dbl&gt;
+## 1 Fair          1
+## 2 Good          1
+## 3 Very Good     1
+## 4 Premium       1
+## 5 Ideal         1</code></pre>
+<div class="sourceCode" id="cb610"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb610-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb610-1" tabindex="-1"></a>diamonds_perc2 <span class="sc">%&gt;%</span></span>
+<span id="cb610-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb610-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>cut, <span class="at">y=</span>prop, <span class="at">fill=</span>color)) <span class="sc">+</span></span>
+<span id="cb610-3"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb610-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position=</span><span class="st">&quot;stack&quot;</span>,<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
+<span id="cb610-4"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb610-4" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x=</span>cut, <span class="at">y=</span>prop, <span class="at">label=</span>prop), </span>
+<span id="cb610-5"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb610-5" tabindex="-1"></a>            <span class="at">position =</span> <span class="fu">position_stack</span>(<span class="at">vjust =</span> <span class="fl">0.5</span>), <span class="do">###vjust = center of the box</span></span>
+<span id="cb610-6"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb610-6" tabindex="-1"></a>            <span class="at">size=</span><span class="fl">2.5</span>, <span class="at">color=</span><span class="st">&quot;white&quot;</span>)</span></code></pre></div>
+<p><img src="11-AdvVisualization_files/figure-html/unnamed-chunk-38-1.png" width="672" /></p>
+<p>Options to display the text:</p>
+<div class="sourceCode" id="cb611"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb611-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb611-1" tabindex="-1"></a>diamonds_perc2 <span class="sc">%&gt;%</span></span>
+<span id="cb611-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb611-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>cut, <span class="at">y=</span>prop, <span class="at">fill=</span>color)) <span class="sc">+</span></span>
+<span id="cb611-3"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb611-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position=</span><span class="st">&quot;stack&quot;</span>,<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
+<span id="cb611-4"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb611-4" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x=</span>cut, <span class="at">y=</span>prop, <span class="at">label=</span><span class="fu">paste0</span>(<span class="fu">round</span>(prop<span class="sc">*</span><span class="dv">100</span>,<span class="dv">2</span>),<span class="st">&quot;%&quot;</span>)), </span>
+<span id="cb611-5"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb611-5" tabindex="-1"></a>            <span class="at">position =</span> <span class="fu">position_stack</span>(<span class="at">vjust =</span> <span class="fl">0.5</span>), <span class="do">###vjust = center of the box</span></span>
+<span id="cb611-6"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb611-6" tabindex="-1"></a>            <span class="at">size=</span><span class="fl">2.5</span>, <span class="at">color=</span><span class="st">&quot;white&quot;</span>) <span class="sc">+</span></span>
+<span id="cb611-7"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb611-7" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">percent_format</span>()) </span></code></pre></div>
+<p><img src="11-AdvVisualization_files/figure-html/unnamed-chunk-39-1.png" width="672" /></p>
+<div class="sourceCode" id="cb612"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb612-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb612-1" tabindex="-1"></a><span class="do">##if we want the format XX%</span></span></code></pre></div>
+<hr />
+</div>
+<div id="changing-style" class="section level4 hasAnchor" number="13.5.3.2">
+<h4><span class="header-section-number">13.5.3.2</span> Changing style<a href="section-10.-advanced-data-visualization-ggplot2-package.html#changing-style" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li><p>theme_minimal</p></li>
+<li><p>theme_light</p></li>
+<li><p>theme_classic</p></li>
+<li><p>theme_bw: very similar to theme_light</p></li>
+</ul>
+<div class="sourceCode" id="cb613"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb613-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb613-1" tabindex="-1"></a>plot_example<span class="ot">&lt;-</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x=</span>cut,<span class="at">y=</span>price, <span class="at">fill=</span>cut)) <span class="sc">+</span></span>
+<span id="cb613-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb613-2" tabindex="-1"></a> <span class="fu">geom_boxplot</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">&quot;Diamond Price&quot;</span>) <span class="sc">+</span>  </span>
+<span id="cb613-3"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb613-3" tabindex="-1"></a> <span class="fu">ylab</span>(<span class="st">&quot;Diamond Price U$&quot;</span>) <span class="sc">+</span></span>
+<span id="cb613-4"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb613-4" tabindex="-1"></a> <span class="fu">coord_cartesian</span>(<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">7500</span>)) <span class="sc">+</span></span>
+<span id="cb613-5"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb613-5" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>,</span>
+<span id="cb613-6"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb613-6" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle=</span><span class="dv">90</span>)) <span class="do">##rotate</span></span>
+<span id="cb613-7"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb613-7" tabindex="-1"></a></span>
+<span id="cb613-8"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb613-8" tabindex="-1"></a></span>
+<span id="cb613-9"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb613-9" tabindex="-1"></a></span>
+<span id="cb613-10"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb613-10" tabindex="-1"></a>p1<span class="ot">&lt;-</span> plot_example <span class="sc">+</span> <span class="fu">theme_minimal</span>()</span>
+<span id="cb613-11"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb613-11" tabindex="-1"></a>p2<span class="ot">&lt;-</span> plot_example <span class="sc">+</span> <span class="fu">theme_light</span>()</span>
+<span id="cb613-12"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb613-12" tabindex="-1"></a>p3<span class="ot">&lt;-</span> plot_example <span class="sc">+</span> <span class="fu">theme_classic</span>()</span>
+<span id="cb613-13"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb613-13" tabindex="-1"></a></span>
+<span id="cb613-14"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb613-14" tabindex="-1"></a></span>
+<span id="cb613-15"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb613-15" tabindex="-1"></a><span class="fu">ggarrange</span>(<span class="at">ncol=</span><span class="dv">2</span>,<span class="at">nrow=</span><span class="dv">2</span>, p1,p2,p3,plot_example)</span></code></pre></div>
+<p><img src="11-AdvVisualization_files/figure-html/unnamed-chunk-40-1.png" width="672" /></p>
+</div>
+<div id="facet_grid-and-facet_wrap-stratifying-by-categories" class="section level4 hasAnchor" number="13.5.3.3">
+<h4><span class="header-section-number">13.5.3.3</span> Facet_grid and facet_wrap: stratifying by categories<a href="section-10.-advanced-data-visualization-ggplot2-package.html#facet_grid-and-facet_wrap-stratifying-by-categories" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><strong>1) Facet_wrap</strong></p>
+<p>We will follow the previous example. Remember that we want to plot the distribution of the variable <em>price</em> (y-axis) for each category of the variable <em>cut</em>.</p>
+<p>Imagine that for a specific category of the variable <em>cut</em>, the distribution of the variable <em>price</em> does not show a high variability. The graphic will display all the categories together and for a concrete one, the box won’t almost appear.</p>
+<p>Let’s modify the values of a concrete category just to observe it:</p>
+<div class="sourceCode" id="cb614"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb614-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb614-1" tabindex="-1"></a>diamonds3<span class="ot">&lt;-</span> diamonds </span>
+<span id="cb614-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb614-2" tabindex="-1"></a></span>
+<span id="cb614-3"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb614-3" tabindex="-1"></a>diamonds3<span class="sc">$</span>price[diamonds<span class="sc">$</span>cut<span class="sc">==</span><span class="st">&quot;Ideal&quot;</span>]<span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">150</span><span class="sc">:</span><span class="dv">1050</span>,<span class="fu">nrow</span>(diamonds[diamonds<span class="sc">$</span>cut<span class="sc">==</span><span class="st">&quot;Ideal&quot;</span>, ]),<span class="at">replace=</span><span class="cn">TRUE</span>)</span>
+<span id="cb614-4"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb614-4" tabindex="-1"></a></span>
+<span id="cb614-5"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb614-5" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds3, <span class="fu">aes</span>(<span class="at">x=</span>cut,<span class="at">y=</span>price, <span class="at">fill=</span>cut)) <span class="sc">+</span></span>
+<span id="cb614-6"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb614-6" tabindex="-1"></a> <span class="fu">geom_boxplot</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">&quot;Diamond Price&quot;</span>) <span class="sc">+</span>  </span>
+<span id="cb614-7"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb614-7" tabindex="-1"></a> <span class="fu">ylab</span>(<span class="st">&quot;Diamond Price U$&quot;</span>) <span class="sc">+</span></span>
+<span id="cb614-8"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb614-8" tabindex="-1"></a> <span class="fu">coord_cartesian</span>(<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">7500</span>)) <span class="sc">+</span></span>
+<span id="cb614-9"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb614-9" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
+<p><img src="11-AdvVisualization_files/figure-html/unnamed-chunk-41-1.png" width="672" /></p>
+<p>If we want to zoom in each specific category of the variable <em>cut</em>:</p>
+<div class="sourceCode" id="cb615"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb615-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb615-1" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds3, <span class="fu">aes</span>(<span class="at">x=</span>cut,<span class="at">y=</span>price, <span class="at">fill=</span>cut)) <span class="sc">+</span></span>
+<span id="cb615-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb615-2" tabindex="-1"></a> <span class="fu">geom_boxplot</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">&quot;Diamond Price&quot;</span>) <span class="sc">+</span>  </span>
+<span id="cb615-3"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb615-3" tabindex="-1"></a> <span class="fu">ylab</span>(<span class="st">&quot;Diamond Price U$&quot;</span>) <span class="sc">+</span></span>
+<span id="cb615-4"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb615-4" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb615-5"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb615-5" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(cut<span class="sc">~</span>., <span class="at">scales=</span><span class="st">&quot;free&quot;</span>)</span></code></pre></div>
+<p><img src="11-AdvVisualization_files/figure-html/unnamed-chunk-42-1.png" width="672" /></p>
+<p>Remember the different styles, we will customize specific aspects:</p>
+<div class="sourceCode" id="cb616"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb616-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb616-1" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds3, <span class="fu">aes</span>(<span class="at">x=</span>cut,<span class="at">y=</span>price, <span class="at">fill=</span>cut)) <span class="sc">+</span></span>
+<span id="cb616-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb616-2" tabindex="-1"></a> <span class="fu">geom_boxplot</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">&quot;Diamond Price&quot;</span>) <span class="sc">+</span>  </span>
+<span id="cb616-3"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb616-3" tabindex="-1"></a> <span class="fu">ylab</span>(<span class="st">&quot;Diamond Price U$&quot;</span>) <span class="sc">+</span></span>
+<span id="cb616-4"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb616-4" tabindex="-1"></a> <span class="fu">coord_cartesian</span>(<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">7500</span>)) <span class="sc">+</span></span>
+<span id="cb616-5"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb616-5" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb616-6"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb616-6" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(cut<span class="sc">~</span>., <span class="at">scales=</span><span class="st">&quot;free&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb616-7"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb616-7" tabindex="-1"></a>  <span class="fu">theme_light</span>()  <span class="sc">+</span> </span>
+<span id="cb616-8"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb616-8" tabindex="-1"></a>  </span>
+<span id="cb616-9"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb616-9" tabindex="-1"></a>  <span class="do">##let&#39;s add more things</span></span>
+<span id="cb616-10"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb616-10" tabindex="-1"></a>  </span>
+<span id="cb616-11"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb616-11" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">face=</span><span class="st">&quot;bold&quot;</span>, <span class="at">size=</span><span class="dv">9</span>, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>)) <span class="sc">+</span> <span class="do">## we want the titles of each box in bold</span></span>
+<span id="cb616-12"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb616-12" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">strip.background =</span> <span class="fu">element_rect</span>(<span class="at">fill=</span><span class="st">&quot;lightgray&quot;</span>, <span class="at">colour=</span><span class="st">&quot;black&quot;</span>,<span class="at">size=</span><span class="dv">1</span>)) <span class="do">## we want to change the appearance of the box </span></span></code></pre></div>
+<p><img src="11-AdvVisualization_files/figure-html/unnamed-chunk-43-1.png" width="672" /></p>
+<p><strong>2) Facet_grid</strong></p>
+<p>Now, imagine that we are not only interested in the distribution of the variable <em>price</em> for each category of <em>cut</em> but also we want to display it according to the variable <em>color</em>.
+It means that we are interested in the distribution of <em>price</em> per each new variable resulting from the intersection <em>color x cut</em>.</p>
+<p>We can cross them and visually inspect it by using facet_grid:</p>
+<div class="sourceCode" id="cb617"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb617-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb617-1" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds3, <span class="fu">aes</span>(<span class="at">x=</span>cut,<span class="at">y=</span>price, <span class="at">fill=</span>cut)) <span class="sc">+</span></span>
+<span id="cb617-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb617-2" tabindex="-1"></a> <span class="fu">geom_boxplot</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">&quot;Diamond Price&quot;</span>) <span class="sc">+</span>  </span>
+<span id="cb617-3"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb617-3" tabindex="-1"></a> <span class="fu">ylab</span>(<span class="st">&quot;Diamond Price U$&quot;</span>) <span class="sc">+</span></span>
+<span id="cb617-4"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb617-4" tabindex="-1"></a> <span class="fu">coord_cartesian</span>(<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">7500</span>)) <span class="sc">+</span></span>
+<span id="cb617-5"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb617-5" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb617-6"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb617-6" tabindex="-1"></a>  <span class="fu">facet_grid</span>(color<span class="sc">~</span>cut, <span class="at">scales=</span><span class="st">&quot;free&quot;</span>) <span class="sc">+</span> <span class="do">##### cut will go to columns, and color to rows</span></span>
+<span id="cb617-7"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb617-7" tabindex="-1"></a>  <span class="fu">theme_light</span>()  </span></code></pre></div>
+<p><img src="11-AdvVisualization_files/figure-html/unnamed-chunk-44-1.png" width="672" /></p>
+<p>Now we will work with the subset of the observations that show “I1” or “SI2” levels for the variable <em>clarity</em>. We want to plot the same graphic that before, but now displaying the distribution per each subgroup <em>cut x color</em> stratifying by <em>clarity</em>, that will just take two possible values.</p>
+<div class="sourceCode" id="cb618"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb618-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb618-1" tabindex="-1"></a><span class="fu">ggplot</span>(diamonds3[diamonds3<span class="sc">$</span>clarity<span class="sc">==</span><span class="st">&quot;I1&quot;</span> <span class="sc">|</span>diamonds3<span class="sc">$</span>clarity<span class="sc">==</span><span class="st">&quot;SI2&quot;</span>,  ], <span class="fu">aes</span>(<span class="at">x=</span>cut,<span class="at">y=</span>price, <span class="at">fill=</span>clarity)) <span class="sc">+</span></span>
+<span id="cb618-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb618-2" tabindex="-1"></a> <span class="fu">geom_boxplot</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">&quot;Diamond Price&quot;</span>) <span class="sc">+</span>  </span>
+<span id="cb618-3"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb618-3" tabindex="-1"></a> <span class="fu">ylab</span>(<span class="st">&quot;Diamond Price U$&quot;</span>) <span class="sc">+</span></span>
+<span id="cb618-4"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb618-4" tabindex="-1"></a> <span class="fu">coord_cartesian</span>(<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">7500</span>)) <span class="sc">+</span></span>
+<span id="cb618-5"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb618-5" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb618-6"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb618-6" tabindex="-1"></a>  <span class="fu">facet_grid</span>(color<span class="sc">~</span>cut, <span class="at">scales=</span><span class="st">&quot;free&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb618-7"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb618-7" tabindex="-1"></a>  <span class="fu">theme_light</span>()  </span></code></pre></div>
+<p><img src="11-AdvVisualization_files/figure-html/unnamed-chunk-45-1.png" width="672" /></p>
+<hr />
+</div>
+</div>
+<div id="saving-plots" class="section level3 hasAnchor" number="13.5.4">
+<h3><span class="header-section-number">13.5.4</span> Saving plots<a href="section-10.-advanced-data-visualization-ggplot2-package.html#saving-plots" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>There are two ways in which figures and plots can be output to a file (rather than simply displaying on screen). The first (and easiest) is to export directly from the RStudio ‘Plots’ panel, by clicking on <code>Export</code> when the image is plotted. This will give you the option of <code>png</code> or <code>pdf</code> and selecting the directory to which you wish to save it to. It will also give you options to modify the size and resolution of the output image.</p>
+<p>The second option is to use R functions. This would allow you to run an R script from start to finish and automate the process (not requiring human point-and-click actions to save). In R’s terminology, <strong>output is directed to a particular output device and that dictates the output format that will be produced</strong>. A device must be created or “opened” in order to receive graphical output and, for devices that create a file
+on disk, the device must also be closed in order to complete the output.</p>
+<p>Let’s print our scatterplot to a pdf file format:</p>
+<ol style="list-style-type: decimal">
+<li>png</li>
+</ol>
+<ul>
+<li><p>fast option: <code>ggsave("my_plot.png", plot = my_plot, width = 6, height = 4, dpi = 300)</code></p></li>
+<li><p>slow, but more customized option:</p></li>
+</ul>
+<div class="sourceCode" id="cb619"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb619-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb619-1" tabindex="-1"></a><span class="fu">png</span>(<span class="st">&quot;myPath/To/The/Directory/NamePlot.png&quot;</span>,</span>
+<span id="cb619-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb619-2" tabindex="-1"></a>      <span class="at">res=</span><span class="dv">600</span>, <span class="at">width=</span><span class="dv">10000</span>, <span class="at">height=</span><span class="dv">4500</span>, <span class="at">pointsize=</span><span class="dv">10</span>,</span>
+<span id="cb619-3"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb619-3" tabindex="-1"></a>      <span class="at">type=</span><span class="st">&quot;windows&quot;</span>) </span>
+<span id="cb619-4"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb619-4" tabindex="-1"></a></span>
+<span id="cb619-5"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb619-5" tabindex="-1"></a>    <span class="do">##res = rsolution (pixels per inch)</span></span>
+<span id="cb619-6"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb619-6" tabindex="-1"></a>    <span class="do">##pointsize = size of the text in points (text elements in the plot, font size)</span></span>
+<span id="cb619-7"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb619-7" tabindex="-1"></a>    <span class="do">##type = device to be used (windows-specific graphics device to create the png file)</span></span>
+<span id="cb619-8"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb619-8" tabindex="-1"></a></span>
+<span id="cb619-9"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb619-9" tabindex="-1"></a>  <span class="fu">ggplot</span>(diamonds3[diamonds3<span class="sc">$</span>clarity<span class="sc">==</span><span class="st">&quot;I1&quot;</span> <span class="sc">|</span>diamonds3<span class="sc">$</span>clarity<span class="sc">==</span><span class="st">&quot;SI2&quot;</span>,  ], <span class="fu">aes</span>(<span class="at">x=</span>cut,<span class="at">y=</span>price, <span class="at">fill=</span>clarity)) <span class="sc">+</span></span>
+<span id="cb619-10"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb619-10" tabindex="-1"></a>   <span class="fu">geom_boxplot</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">&quot;Diamond Price&quot;</span>) <span class="sc">+</span>  </span>
+<span id="cb619-11"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb619-11" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Diamond Price U$&quot;</span>) <span class="sc">+</span></span>
+<span id="cb619-12"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb619-12" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">7500</span>)) <span class="sc">+</span></span>
+<span id="cb619-13"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb619-13" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb619-14"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb619-14" tabindex="-1"></a>  <span class="fu">facet_grid</span>(color<span class="sc">~</span>cut, <span class="at">scales=</span><span class="st">&quot;free&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb619-15"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb619-15" tabindex="-1"></a>  <span class="fu">theme_light</span>() </span>
+<span id="cb619-16"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb619-16" tabindex="-1"></a></span>
+<span id="cb619-17"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb619-17" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>pdf: replacing in the previous code the “.png” format by “.pdf”.</li>
+</ol>
+</div>
+</div>
+<div id="exercises-create-new-plots-for-genetic-data-visualization-using-the-snpdataset.txt-dataset.-create-a-report-in-.html-format-and-display-and-describe-each-one-of-the-plots." class="section level2 hasAnchor" number="13.6">
+<h2><span class="header-section-number">13.6</span> Exercises: Create new plots for genetic data visualization using the <code>SNPdataset.txt</code> dataset. Create a report in .html format and display and describe each one of the plots.<a href="section-10.-advanced-data-visualization-ggplot2-package.html#exercises-create-new-plots-for-genetic-data-visualization-using-the-snpdataset.txt-dataset.-create-a-report-in-.html-format-and-display-and-describe-each-one-of-the-plots." class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>1. Analyze the distribution of the variable <em>GENE_EXPRESSION</em>.</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Create both a histogram and a boxplot to analyze the distribution of the variable GENE_EXPRESSION. Display them together (<code>hint</code>: use <code>ggarrange</code>).</p></li>
+<li><p>Create a histogram and a boxplot to analyze the distribution of the variable GENE_EXPRESSION for women and men separately. Use a single histogram to compare the distributions between sexes by overlapping both histograms and coloring the distribution for women in green and for men in blue. For the boxplot, also use green for women and blue for men (<code>hint</code>: use the argument <code>scale_fill_manual</code>).</p></li>
+</ol>
+<p><strong>2. Analyze the proportion of:</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Women and men displaying each genotype related to SNP1. Set the scale as a percentage (100%).</p></li>
+<li><p>Individuals with different genotypes for SNP5, grouped by cases and controls. Set the scale so all proportions sum up to 1.</p></li>
+<li><p>Women and men within cases and controls, filtering for individuals older than 35.</p></li>
+</ol>
+<p><strong>3. Use facet_wrap to show the frequency of each SNP1 genotype for women and men. Color the bars based on genotype (<code>hint</code>: use <code>geom_bar</code> to display frequency).</strong></p>
+<p><strong>4. Use <code>facet_grid</code> to show the frequency of each genotype across all SNPs, comparing women and men. Arrange the grid so that SNPs are shown vertically and sex is shown horizontally. Color the bars based on genotype. Note that you’ll need to create a new variable called SNPS that includes all the different SNP categories (e.g., SNP1, SNP2, SNP5) and a new variable called genotype that contains each individual’s genotype for a specific SNP. Use the following code to transform the data:</strong></p>
+<div class="sourceCode" id="cb620"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb620-1"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb620-1" tabindex="-1"></a>snps_long<span class="ot">&lt;-</span> snps <span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(</span>
+<span id="cb620-2"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb620-2" tabindex="-1"></a>  <span class="at">cols=</span><span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>,</span>
+<span id="cb620-3"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb620-3" tabindex="-1"></a>  <span class="at">names_to=</span><span class="st">&quot;SNP&quot;</span>,</span>
+<span id="cb620-4"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb620-4" tabindex="-1"></a>  <span class="at">values_to=</span><span class="st">&quot;Genotype&quot;</span></span>
+<span id="cb620-5"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#cb620-5" tabindex="-1"></a>)</span></code></pre></div>
+<p>You will work with the data.frame <em>snps_long</em> to create the plot.</p>
+<p><img src="logouvic.png" /></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="extra-exercises.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="section-11.-advanced-data-visualization-extra-part.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

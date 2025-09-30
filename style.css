@@ -1,0 +1,31 @@
+body { /* Normal  */
+  font-size: 16px;
+}
+
+td {  /* Table  */
+  font-size: 18px;
+}
+
+h1.title {
+  font-size: 27px;
+  color: DarkRed;
+}
+
+h1 { /* Header 1 */
+  font-size: 24px;
+  color: DarkRed;
+}
+
+h2 { /* Header 2 */
+  font-size: 22px;
+  color: DarkRed;
+}
+
+h3 { /* Header 3 */
+  font-size: 18px;
+  color: DarkRed;
+}
+
+code.r { /* Code block */
+  font-size: 16px;
+}
