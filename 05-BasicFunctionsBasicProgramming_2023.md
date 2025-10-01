@@ -529,7 +529,7 @@ system.time(for (i in 1:length(x)) z[i] <- x[i] + y[i])
 
 ```
 ##    user  system elapsed 
-##    0.09    0.00    0.09
+##    0.14    0.00    0.19
 ```
 
 ### Useful functions to avoid loops

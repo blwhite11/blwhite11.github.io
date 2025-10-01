@@ -122,9 +122,9 @@ summary(microbenchmark(method1(n), method2(n), method3(n))) ## time in nanosecon
 
 ```
 ##         expr       min        lq      mean    median        uq       max neval
-## 1 method1(n) 232753900 263588050 288764919 286238350 305927700 411932900   100
-## 2 method2(n)    466900    572300    776491    610050    852050   8090700   100
-## 3 method3(n)       500      1200     36579      5550     11300   2955900   100
+## 1 method1(n) 171568200 188322400 238282458 208390250 277036650 498897300   100
+## 2 method2(n)    388700    425550    626771    464100    596850   7163500   100
+## 3 method3(n)       400      1100     28754      4100      8700   2221900   100
 ##   cld
 ## 1  a 
 ## 2   b
@@ -190,9 +190,9 @@ summary(microbenchmark(
 ```
 
 ```
-##                  expr    min     lq     mean  median      uq    max neval cld
-## 1       loop_approach 2641.5 2806.7 3464.519 3003.85 3753.25 9843.0   100  a 
-## 2 vectorized_approach   35.7   38.0   41.766   41.80   43.65   51.6   100   b
+##                  expr    min      lq     mean  median      uq    max neval cld
+## 1       loop_approach 2000.8 2165.40 2489.623 2350.25 2582.85 5072.3   100  a 
+## 2 vectorized_approach   27.8   29.65   33.299   31.40   34.70   96.0   100   b
 ```
 
 Another common example is sub-setting a vector.
@@ -231,9 +231,9 @@ summary(microbenchmark(rowSums(matrix_data),apply(matrix_data, 1, sum)))
 ```
 
 ```
-##                         expr  min   lq   mean median   uq   max neval cld
-## 1       rowSums(matrix_data)  4.1  5.2  8.514    7.4  8.5  79.8   100  a 
-## 2 apply(matrix_data, 1, sum) 23.7 27.9 38.921   40.3 44.0 111.7   100   b
+##                         expr  min   lq   mean median   uq  max neval cld
+## 1       rowSums(matrix_data)  3.8  4.1  4.854    4.6  5.0 28.8   100  a 
+## 2 apply(matrix_data, 1, sum) 22.1 22.6 23.880   22.8 23.1 99.8   100   b
 ```
 
 *2.* Choose appropriate function for specific tasks:
@@ -270,12 +270,12 @@ summary(microbenchmark(vapply(data, function(x) mean(x), numeric(1)),sapply(data
 ```
 
 ```
-##                                            expr  min   lq   mean median    uq
-## 1 vapply(data, function(x) mean(x), numeric(1)) 21.7 22.2 23.847  22.75 23.40
-## 2             sapply(data, function(x) mean(x)) 35.0 35.6 37.523  36.10 37.45
-##    max neval cld
-## 1 80.0   100  a 
-## 2 69.2   100   b
+##                                            expr  min   lq  mean median    uq
+## 1 vapply(data, function(x) mean(x), numeric(1)) 19.1 20.1 24.31   20.7 23.90
+## 2             sapply(data, function(x) mean(x)) 30.6 31.6 39.33   33.0 48.65
+##     max neval cld
+## 1  97.3   100  a 
+## 2 118.2   100   b
 ```
 
 The `numeric(1)` argument specifies that the output should be of type numeric and length 1. This specification enhances performance and makes it faster. 

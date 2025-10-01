@@ -448,13 +448,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Let’s say that you have a data frame named mydata, with variables <code>x1</code> and <code>x2</code>,</p>
 <div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="section-3.-basic-data-management.html#cb80-1" tabindex="-1"></a>mydata <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x1=</span><span class="fu">runif</span>(<span class="dv">100</span>), <span class="at">x2=</span><span class="fu">runif</span>(<span class="dv">100</span>))</span>
 <span id="cb80-2"><a href="section-3.-basic-data-management.html#cb80-2" tabindex="-1"></a><span class="fu">head</span>(mydata)</span></code></pre></div>
-<pre><code>##          x1        x2
-## 1 0.8912161 0.2615591
-## 2 0.1758721 0.7891567
-## 3 0.9915782 0.4192491
-## 4 0.9009444 0.4230279
-## 5 0.6072066 0.1008157
-## 6 0.9863070 0.7549054</code></pre>
+<pre><code>##           x1        x2
+## 1 0.98504863 0.3916176
+## 2 0.65371507 0.8492269
+## 3 0.51921956 0.1197282
+## 4 0.08919395 0.7434036
+## 5 0.51247560 0.5006082
+## 6 0.18739625 0.5728827</code></pre>
 <p>and you want to create a new variable <code>sumx</code> that adds these two variables and a new variable called <code>meanx</code> that averages the two variables. If you use the code</p>
 <div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="section-3.-basic-data-management.html#cb82-1" tabindex="-1"></a>sumx <span class="ot">&lt;-</span> x1 <span class="sc">+</span> x2</span>
 <span id="cb82-2"><a href="section-3.-basic-data-management.html#cb82-2" tabindex="-1"></a>meanx <span class="ot">&lt;-</span> (x1 <span class="sc">+</span> x2)<span class="sc">/</span><span class="dv">2</span></span></code></pre></div>
@@ -463,13 +463,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="section-3.-basic-data-management.html#cb83-1" tabindex="-1"></a>sumx <span class="ot">&lt;-</span> mydata<span class="sc">$</span>x1 <span class="sc">+</span> mydata<span class="sc">$</span>x2</span>
 <span id="cb83-2"><a href="section-3.-basic-data-management.html#cb83-2" tabindex="-1"></a>meanx <span class="ot">&lt;-</span> (mydata<span class="sc">$</span>x1 <span class="sc">+</span> mydata<span class="sc">$</span>x2)<span class="sc">/</span><span class="dv">2</span></span>
 <span id="cb83-3"><a href="section-3.-basic-data-management.html#cb83-3" tabindex="-1"></a><span class="fu">head</span>(mydata)</span></code></pre></div>
-<pre><code>##          x1        x2
-## 1 0.8912161 0.2615591
-## 2 0.1758721 0.7891567
-## 3 0.9915782 0.4192491
-## 4 0.9009444 0.4230279
-## 5 0.6072066 0.1008157
-## 6 0.9863070 0.7549054</code></pre>
+<pre><code>##           x1        x2
+## 1 0.98504863 0.3916176
+## 2 0.65371507 0.8492269
+## 3 0.51921956 0.1197282
+## 4 0.08919395 0.7434036
+## 5 0.51247560 0.5006082
+## 6 0.18739625 0.5728827</code></pre>
 <p>Ultimately, you want to incorporate new variables into the original data frame:</p>
 <div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="section-3.-basic-data-management.html#cb85-1" tabindex="-1"></a>mydata <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x1 =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">6</span>, <span class="dv">4</span>), <span class="at">x2 =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">8</span>))</span>
 <span id="cb85-2"><a href="section-3.-basic-data-management.html#cb85-2" tabindex="-1"></a><span class="fu">head</span>(mydata)</span></code></pre></div>
