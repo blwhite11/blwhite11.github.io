@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>13 SECTION 12. Introduction to Shiny | curso-R</title>
+  <title>6 SECTION 5. Introduction to Functions | curso-R</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="13 SECTION 12. Introduction to Shiny | curso-R" />
+  <meta property="og:title" content="6 SECTION 5. Introduction to Functions | curso-R" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="13 SECTION 12. Introduction to Shiny | curso-R" />
+  <meta name="twitter:title" content="6 SECTION 5. Introduction to Functions | curso-R" />
   
   
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="section-11.-advanced-data-visualization-extra-part.html"/>
-
+<link rel="prev" href="section-4.-basic-plots.html"/>
+<link rel="next" href="section-6.-tips-for-efficient-programming.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -436,357 +436,416 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="section-12.-introduction-to-shiny" class="section level1 hasAnchor" number="13">
-<h1><span class="header-section-number">13</span> SECTION 12. Introduction to Shiny<a href="section-12.-introduction-to-shiny.html#section-12.-introduction-to-shiny" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>In this lesson, we will work on the creation of a Shiny application to visualize specific data. The app will include interactive charts and styled data table. By following these detailed steps, we will set up and deploy a Shiny app on Shinyapps.io.</p>
-<p>Shiny and other related packages can be installed from CRAN. Let’s see the main functionalitites of the shiny-related packages:</p>
+<div id="section-5.-introduction-to-functions" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">6</span> SECTION 5. Introduction to Functions<a href="section-5.-introduction-to-functions.html#section-5.-introduction-to-functions" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="what-is-a-function" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> What is a function?<a href="section-5.-introduction-to-functions.html#what-is-a-function" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A function is an interface to the code, explicitly specified by a set of parameters, that allows to encapsulate an R code that need to be executed numerous times (i.e., reusable blocks), perhaps under slightly different conditions (thanks to the arguments).</p>
+<p>In R, we can distinguish between different types of functions: built-in R functions, functions defined in R packages and user-defined functions.</p>
+<div id="built-in-r-functions" class="section level3 hasAnchor" number="6.1.1">
+<h3><span class="header-section-number">6.1.1</span> Built-in R functions<a href="section-5.-introduction-to-functions.html#built-in-r-functions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Built-in R functions are those functions that you can call in R without the need of installing or loading any external package from an on-line repository. All built-in functions are contained in the <code>{base}</code> R package which is automatically loaded when you start an R session. Overall, built-in functions in R are thought to compute basic operations, data manipulation, arithmetic, statistical analysis. You already know some of them:</p>
 <ul>
-<li><p><code>shiny</code> provides the core functionality for building interactive web apps.</p></li>
-<li><p><code>shinydashboard</code> offers tools for creating dashboards with Shiny.</p></li>
-<li><p><code>plotly</code> converts <code>ggplot2</code> graphics to interactive plots.</p></li>
-<li><p><code>DT</code> renders interactive data tables.</p></li>
+<li><code>sum()</code></li>
+<li><code>mean()</code></li>
+<li><code>str()</code></li>
+<li><code>head()</code></li>
+<li><code>length()</code></li>
+<li><code>dim()</code></li>
+<li><code>order()</code></li>
+<li><code>boxplot</code></li>
+<li><code>class()</code></li>
 </ul>
-<div id="writing-a-shiny-application-in-r" class="section level2 hasAnchor" number="13.1">
-<h2><span class="header-section-number">13.1</span> Writing a Shiny Application in R<a href="section-12.-introduction-to-shiny.html#writing-a-shiny-application-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Shiny applications have two components, a <strong>user</strong> interface object and a <strong>server</strong> function. Both components are passed as argument to the <code>shinyApp</code> function that created the app as a result of this UI/Server pair.</p>
-<div id="ui-layout" class="section level3 hasAnchor" number="13.1.1">
-<h3><span class="header-section-number">13.1.1</span> UI Layout<a href="section-12.-introduction-to-shiny.html#ui-layout" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The user interface (UI) defines how users interact with the application. We define the structure of the app to include tables and graphics and drop-down menus for selecting different parameters. This allows users to dynamically interact with the data.</p>
+<p>Functions are R objects. Then, the class of a function is, of course, a “function”:</p>
+<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb312-1"><a href="section-5.-introduction-to-functions.html#cb312-1" tabindex="-1"></a><span class="fu">class</span>(sum)</span></code></pre></div>
+<pre><code>## [1] &quot;function&quot;</code></pre>
 </div>
-<div id="server-logic" class="section level3 hasAnchor" number="13.1.2">
-<h3><span class="header-section-number">13.1.2</span> Server Logic<a href="section-12.-introduction-to-shiny.html#server-logic" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The server function processes user inputs and updates outputs.</p>
+<div id="functions-defined-in-r-packages" class="section level3 hasAnchor" number="6.1.2">
+<h3><span class="header-section-number">6.1.2</span> Functions defined in R packages<a href="section-5.-introduction-to-functions.html#functions-defined-in-r-packages" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Packages are collections of functions that typically serve specific purposes. For example, <code>{ggplot2}</code> is a package which contains functions for data visualization, and <code>{readxl}</code> facilitates working with Excel files. R packages can be obtained from various online repositories like CRAN, Bioconductor, or GitHub.</p>
+<p>When you install R packages, they are stored in a designated directory or folder on your computer, known as the “library” or “library path”. By default, R utilizes two libraries: a system library for base packages (located in the R installation folder) and a user library for external repository packages. You can find out where your packages are installed by default by running <code>.libPaths()</code>.</p>
+<p>To use the functions provided by R packages, you need to load the specific package into your current R session. This can be done using either <code>library(package.name)</code> or <code>require(package.name)</code>.</p>
 </div>
-<div id="examples-1" class="section level3 hasAnchor" number="13.1.3">
-<h3><span class="header-section-number">13.1.3</span> Examples<a href="section-12.-introduction-to-shiny.html#examples-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>All the examples are extracted from <a href="https://shiny.posit.co/r/articles/start/basics/" class="uri">https://shiny.posit.co/r/articles/start/basics/</a>.</p>
-<p><strong>Application Shiny 1</strong>: we plot a random distribution as a histogram with a requested number of bins.</p>
-<p>In the UI component we define the aspect/aesthetics of the application. In the server section, we define the steps needed to display the graphic we aim to plot. We use different elements to define both parts that will be discussed below. Try to execute all these lines and check the output after running the last line <code>shinyApp(ui, server)</code>.</p>
-<p><strong>Application Shiny 2</strong>:</p>
+<div id="user-defined-functions" class="section level3 hasAnchor" number="6.1.3">
+<h3><span class="header-section-number">6.1.3</span> User-defined functions<a href="section-5.-introduction-to-functions.html#user-defined-functions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>User-defined functions in R are functions that you, as a programmer, create and define to perform specific tasks or operations that are not already covered by built-in functions. These functions are written in R script and allow you to encapsulate a series of operations into a reusable unit.</p>
+<p>Learning to create user-defined functions in R is a significant milestone on your journey to becoming a programmer, not merely a consumer of the R language. It empowers you to write your own code, tailor R to your specific needs, and solve complex problems with custom solutions.</p>
+<p>As you become more proficient in creating user-defined functions, you may discover that your functions are not only valuable to you but also to the broader R community. You can package your functions, documentation, and data into your own R packages.</p>
 </div>
 </div>
-<div id="elements-for-a-shiny-app" class="section level2 hasAnchor" number="13.2">
-<h2><span class="header-section-number">13.2</span> Elements for a Shiny App<a href="section-12.-introduction-to-shiny.html#elements-for-a-shiny-app" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="ui-components" class="section level3 hasAnchor" number="13.2.1">
-<h3><span class="header-section-number">13.2.1</span> UI Components<a href="section-12.-introduction-to-shiny.html#ui-components" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Check list of inputs: <a href="https://shiny.posit.co/r/components/" class="uri">https://shiny.posit.co/r/components/</a></p>
-<p>Check list of outpus (section Outputs): <a href="https://shiny.posit.co/r/components/" class="uri">https://shiny.posit.co/r/components/</a></p>
-<table>
-<colgroup>
-<col width="8%" />
-<col width="6%" />
-<col width="41%" />
-<col width="42%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Function</strong></th>
-<th><strong>Type</strong></th>
-<th><strong>Description</strong></th>
-<th><strong>Example Use Case</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>textInput</code></td>
-<td>Text Box</td>
-<td>A single-line input field where users can enter text.</td>
-<td>Collecting a user’s name or entering a search term.</td>
-</tr>
-<tr class="even">
-<td><code>sliderInput</code></td>
-<td>Slider</td>
-<td>Allows the user to select a numeric value or range by sliding a handle.</td>
-<td>Setting a range for filtering data (e.g., selecting years or numeric thresholds).</td>
-</tr>
-<tr class="odd">
-<td><code>selectInput</code></td>
-<td>Dropdown Menu</td>
-<td>Provides a dropdown menu for choosing one or multiple options.</td>
-<td>Selecting a category from a list of items (e.g., region, product, or variable).</td>
-</tr>
-<tr class="even">
-<td><code>checkboxInput</code></td>
-<td>Checkbox</td>
-<td>A simple checkbox for toggling between TRUE (checked) and FALSE (unchecked).</td>
-<td>Turning features on/off in a plot (e.g., showing gridlines or enabling normalization).</td>
-</tr>
-<tr class="odd">
-<td><code>radioButtons</code></td>
-<td>Radio Buttons</td>
-<td>A group of mutually exclusive choices displayed as a list of buttons.</td>
-<td>Selecting a chart type (e.g., bar chart, scatter plot, or line graph).</td>
-</tr>
-<tr class="even">
-<td><code>fileInput</code></td>
-<td>File Upload</td>
-<td>Allows the user to upload a file to the server.</td>
-<td>Uploading a CSV file for analysis.</td>
-</tr>
-<tr class="odd">
-<td><code>numericInput</code></td>
-<td>Numeric Input</td>
-<td>Input box for entering a numeric value.</td>
-<td>Setting the sample size for simulation.</td>
-</tr>
-<tr class="even">
-<td><code>dateInput</code></td>
-<td>Date Picker</td>
-<td>Provides a calendar for selecting a single date.</td>
-<td>Selecting a start or end date for time-series data.</td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col width="8%" />
-<col width="7%" />
-<col width="41%" />
-<col width="42%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Function</strong></th>
-<th><strong>Type</strong></th>
-<th><strong>Description</strong></th>
-<th><strong>Example Use Case</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>textOutput</code></td>
-<td>Text</td>
-<td>Displays reactive text or plain text generated in the server.</td>
-<td>Showing user selections or calculated results.</td>
-</tr>
-<tr class="even">
-<td><code>plotOutput</code></td>
-<td>Plot</td>
-<td>Displays plots (e.g., ggplot2 or base R) created in the server.</td>
-<td>Visualizing distributions, time series, or trends in data.</td>
-</tr>
-<tr class="odd">
-<td><code>tableOutput</code></td>
-<td>Table</td>
-<td>Displays a static data table generated by R.</td>
-<td>Showing a summary table of aggregated data.</td>
-</tr>
-<tr class="even">
-<td><code>DT::dataTableOutput</code></td>
-<td>Interactive Table</td>
-<td>Displays an interactive data table with sorting, filtering, and pagination (requires the <code>DT</code> package).</td>
-<td>Allowing users to explore a dataset interactively.</td>
-</tr>
-<tr class="odd">
-<td><code>imageOutput</code></td>
-<td>Image</td>
-<td>Displays static or dynamically generated images.</td>
-<td>Displaying uploaded or generated images (e.g., maps or diagrams).</td>
-</tr>
-<tr class="even">
-<td><code>uiOutput</code></td>
-<td>Dynamic UI</td>
-<td>Dynamically renders UI components in the server.</td>
-<td>Generating custom input fields based on user choices.</td>
-</tr>
-<tr class="odd">
-<td><code>verbatimTextOutput</code></td>
-<td>Verbatim Text</td>
-<td>Displays unformatted text, often used for showing code or debugging output.</td>
-<td>Printing console output for diagnostics or displaying R expressions.</td>
-</tr>
-</tbody>
-</table>
+<div id="writing-your-own-functions" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Writing your own functions<a href="section-5.-introduction-to-functions.html#writing-your-own-functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>You can program your own functions in R by using the language construct <code>function()</code>. You can use this construct to specify the function’s name, the arguments or parameters between brackets and the body of your function between curly brackets.</p>
+<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb314-1"><a href="section-5.-introduction-to-functions.html#cb314-1" tabindex="-1"></a>functionName <span class="ot">&lt;-</span> <span class="cf">function</span>(arguments){</span>
+<span id="cb314-2"><a href="section-5.-introduction-to-functions.html#cb314-2" tabindex="-1"></a>  statements</span>
+<span id="cb314-3"><a href="section-5.-introduction-to-functions.html#cb314-3" tabindex="-1"></a>}</span></code></pre></div>
+<ul>
+<li><code>functionName</code>: This is the name you choose for your function. It should be a valid R variable name.</li>
+<li><code>arguments</code>: Variables or parameters that you pass to the function when you call it. They allow you to provide input to a function and customize its behaviour.</li>
+<li><code>statements</code>: The body of the function which is enclosed within curly brackets <code>{}</code> and contains the code that performs the desired computations.</li>
+</ul>
+<p>You can execute the function by calling it with the specified arguments:</p>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="section-5.-introduction-to-functions.html#cb315-1" tabindex="-1"></a><span class="fu">functionName</span>(arguments)</span></code></pre></div>
+<p>Let’s create a function that return the square of a number:</p>
+<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="section-5.-introduction-to-functions.html#cb316-1" tabindex="-1"></a>square <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb316-2"><a href="section-5.-introduction-to-functions.html#cb316-2" tabindex="-1"></a>  x<span class="sc">*</span>x</span>
+<span id="cb316-3"><a href="section-5.-introduction-to-functions.html#cb316-3" tabindex="-1"></a>}</span></code></pre></div>
+<p>Now, <code>square()</code> is stored in your global environment. Once a function is written, it can be used just by invoking the name of the function followed by the values that we pass to the arguments, separated by commas and between parentheses.</p>
+<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="section-5.-introduction-to-functions.html#cb317-1" tabindex="-1"></a><span class="fu">square</span>(<span class="at">x =</span> <span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1] 25</code></pre>
 </div>
-<div id="server-function" class="section level3 hasAnchor" number="13.2.2">
-<h3><span class="header-section-number">13.2.2</span> Server function<a href="section-12.-introduction-to-shiny.html#server-function" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<table>
-<colgroup>
-<col width="10%" />
-<col width="43%" />
-<col width="45%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Function</strong></th>
-<th><strong>Description</strong></th>
-<th><strong>Example Use Case</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>input$&lt;inputId&gt;</code></td>
-<td>Accesses the value of an input element specified by its <code>inputId</code>.</td>
-<td>Retrieve the value of a slider (<code>input$slider1</code>) or a dropdown menu (<code>input$dropdown1</code>).</td>
-</tr>
-<tr class="even">
-<td><code>observe</code></td>
-<td>Observes changes to inputs without returning a value (used for side effects).</td>
-<td>Updating a log file or triggering animations when a button is clicked.</td>
-</tr>
-<tr class="odd">
-<td><code>reactive</code></td>
-<td>Creates a reactive expression that can depend on inputs or other reactives.</td>
-<td>Defining a filtered dataset based on user selections.</td>
-</tr>
-<tr class="even">
-<td><code>observeEvent</code></td>
-<td>Observes a specific event (like a button click) and runs code in response.</td>
-<td>Executing code only when a submit button is pressed.</td>
-</tr>
-<tr class="odd">
-<td><code>isolate</code></td>
-<td>Accesses inputs without triggering reactivity.</td>
-<td>Reading values of inputs without causing dependencies (e.g., snapshotting user input).</td>
-</tr>
-</tbody>
-</table>
-<table>
-<colgroup>
-<col width="9%" />
-<col width="8%" />
-<col width="40%" />
-<col width="41%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Function</strong></th>
-<th><strong>Output Type</strong></th>
-<th><strong>Description</strong></th>
-<th><strong>Example Use Case</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>renderText</code></td>
-<td>Text</td>
-<td>Generates text output for <code>textOutput</code> in the UI.</td>
-<td>Showing calculated values or messages.</td>
-</tr>
-<tr class="even">
-<td><code>renderPlot</code></td>
-<td>Plot</td>
-<td>Generates a plot for <code>plotOutput</code> in the UI.</td>
-<td>Visualizing distributions, trends, or comparisons.</td>
-</tr>
-<tr class="odd">
-<td><code>renderTable</code></td>
-<td>Static Table</td>
-<td>Creates a table for <code>tableOutput</code> in the UI.</td>
-<td>Displaying a data summary or descriptive statistics.</td>
-</tr>
-<tr class="even">
-<td><code>DT::renderDataTable</code></td>
-<td>Interactive Table</td>
-<td>Renders a table for <code>DT::dataTableOutput</code> in the UI (requires the <code>DT</code> package).</td>
-<td>Enabling sorting, searching, and pagination of large datasets.</td>
-</tr>
-<tr class="odd">
-<td><code>renderImage</code></td>
-<td>Image</td>
-<td>Renders an image for <code>imageOutput</code> in the UI.</td>
-<td>Displaying dynamically generated images (e.g., visual results of an algorithm).</td>
-</tr>
-<tr class="even">
-<td><code>renderUI</code></td>
-<td>Dynamic UI</td>
-<td>Dynamically creates UI components for <code>uiOutput</code> in the UI.</td>
-<td>Generating UI elements (e.g., a new slider) based on user input or external data.</td>
-</tr>
-<tr class="odd">
-<td><code>renderPrint</code></td>
-<td>Verbatim Output</td>
-<td>Displays text or objects as they appear in the R console.</td>
-<td>Printing debugging information or showing raw data.</td>
-</tr>
-</tbody>
-</table>
+<div id="arguments-of-a-function" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> Arguments of a function<a href="section-5.-introduction-to-functions.html#arguments-of-a-function" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>There are different ways to know which are the arguments of a function. We can press the the <em>tab key</em> while writing the arguments or, alternatively, use the directive <code>args()</code>.</p>
+<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="section-5.-introduction-to-functions.html#cb319-1" tabindex="-1"></a><span class="fu">args</span>(square)</span></code></pre></div>
+<pre><code>## function (x) 
+## NULL</code></pre>
+<p>But, in case that we need to know more things about the arguments of a built-in function from a package, you can use the Help page in R
+(Function <code>lm</code> from the package <code>stats</code>):</p>
+<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="section-5.-introduction-to-functions.html#cb321-1" tabindex="-1"></a><span class="fu">args</span>(lm)</span>
+<span id="cb321-2"><a href="section-5.-introduction-to-functions.html#cb321-2" tabindex="-1"></a><span class="fu">help</span>(lm)</span>
+<span id="cb321-3"><a href="section-5.-introduction-to-functions.html#cb321-3" tabindex="-1"></a>?lm</span></code></pre></div>
+</div>
+<div id="matching-arguments" class="section level2 hasAnchor" number="6.4">
+<h2><span class="header-section-number">6.4</span> Matching Arguments<a href="section-5.-introduction-to-functions.html#matching-arguments" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Calling an R function with arguments can be done in two main different ways. Arguments can be matched either <strong>by position</strong>, where the first value is assigned to the first argument, the second value to second argument, and so on, or <strong>by name</strong>, where there is no matter in what order the argument is specified. Notice the difference between passing a numerical vector to the first (and unique) argument of our <code>square()</code> function…</p>
+<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="section-5.-introduction-to-functions.html#cb322-1" tabindex="-1"></a><span class="fu">square</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>))</span></code></pre></div>
+<pre><code>## [1]  1  9 25</code></pre>
+<p>and this:</p>
+<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb324-1"><a href="section-5.-introduction-to-functions.html#cb324-1" tabindex="-1"></a><span class="fu">square</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## Error in square(1, 3, 5): los argumentos no fueron usados (3, 5)</code></pre>
+<p>Imagine that we would like to generate 50 numbers at random with a normal distribution such that its mean is 1 and its standard deviation is 20. Then, by applying the function <code>rnorm()</code>, 50 is assigned to the <code>n</code> argument, 1 is assigned to the <code>mean</code> argument, and 20 is assigned to the <code>sd</code> argument, all by positional matching.</p>
+<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb326-1"><a href="section-5.-introduction-to-functions.html#cb326-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">12345</span>)</span>
+<span id="cb326-2"><a href="section-5.-introduction-to-functions.html#cb326-2" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">50</span>,<span class="dv">1</span>,<span class="dv">20</span>)</span></code></pre></div>
+<pre><code>##  [1]  12.710576  15.189320  -1.186066  -8.069943  13.117749 -35.359119
+##  [7]  13.601971  -4.523682  -4.683195 -17.386440  -1.324956  37.346241
+## [13]   8.412557  11.404329 -14.010640  17.337997 -16.727150  -5.631552
+## [19]  23.414253   6.974474  16.592438  30.115702 -11.886569 -30.062748
+## [25] -30.954190  37.101950  -8.632947  13.407596  13.242470  -2.246220
+## [31]  17.237464  44.936671  41.983807  33.648913   6.085424  10.823766
+## [37]  -5.481732 -32.241005  36.354677   1.516021  23.570217 -46.607161
+## [43] -20.205311  19.742811  18.089034  30.214588 -27.261976  12.348065
+## [49]  12.663753 -25.135977</code></pre>
+<p>It is also possible to mix both methods. Thus, when an argument is matched by name, it is “taken out” from the argument list, and the remaining unnamed arguments are matched in the order that they are listed in the function definition.</p>
+<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb328-1"><a href="section-5.-introduction-to-functions.html#cb328-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">12345</span>)</span>
+<span id="cb328-2"><a href="section-5.-introduction-to-functions.html#cb328-2" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">50</span>, <span class="at">mean=</span><span class="dv">1</span>, <span class="dv">20</span>)</span></code></pre></div>
+<pre><code>##  [1]  12.710576  15.189320  -1.186066  -8.069943  13.117749 -35.359119
+##  [7]  13.601971  -4.523682  -4.683195 -17.386440  -1.324956  37.346241
+## [13]   8.412557  11.404329 -14.010640  17.337997 -16.727150  -5.631552
+## [19]  23.414253   6.974474  16.592438  30.115702 -11.886569 -30.062748
+## [25] -30.954190  37.101950  -8.632947  13.407596  13.242470  -2.246220
+## [31]  17.237464  44.936671  41.983807  33.648913   6.085424  10.823766
+## [37]  -5.481732 -32.241005  36.354677   1.516021  23.570217 -46.607161
+## [43] -20.205311  19.742811  18.089034  30.214588 -27.261976  12.348065
+## [49]  12.663753 -25.135977</code></pre>
+<p>Notice that if <code>mean</code> or <code>sd</code> are not specified they assume the default values of <code>0</code> and <code>1</code>. These are <strong>default parameters values</strong> that you can specify in the arguments list when creating your own user-defined function.</p>
+<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb330-1"><a href="section-5.-introduction-to-functions.html#cb330-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">12345</span>)</span>
+<span id="cb330-2"><a href="section-5.-introduction-to-functions.html#cb330-2" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">50</span>)</span></code></pre></div>
+<pre><code>##  [1]  0.58552882  0.70946602 -0.10930331 -0.45349717  0.60588746 -1.81795597
+##  [7]  0.63009855 -0.27618411 -0.28415974 -0.91932200 -0.11624781  1.81731204
+## [13]  0.37062786  0.52021646 -0.75053199  0.81689984 -0.88635752 -0.33157759
+## [19]  1.12071265  0.29872370  0.77962192  1.45578508 -0.64432843 -1.55313741
+## [25] -1.59770952  1.80509752 -0.48164736  0.62037980  0.61212349 -0.16231098
+## [31]  0.81187318  2.19683355  2.04919034  1.63244564  0.25427119  0.49118828
+## [37] -0.32408658 -1.66205024  1.76773385  0.02580105  1.12851083 -2.38035806
+## [43] -1.06026555  0.93714054  0.85445172  1.46072940 -1.41309878  0.56740325
+## [49]  0.58318765 -1.30679883</code></pre>
+<p>It is often useful specifying an argument by its name when a function has many arguments. For example, a function with a large list of arguments is <code>lm()</code>, that allows to fit a linear model to a dataset. Other functions with a huge number of arguments are those functions used for generating plots (e.g. <code>plot</code>, <code>hist</code>, <code>boxplot</code>,…)</p>
+</div>
+<div id="output-of-a-function" class="section level2 hasAnchor" number="6.5">
+<h2><span class="header-section-number">6.5</span> Output of a Function<a href="section-5.-introduction-to-functions.html#output-of-a-function" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>As a result, a function usually should return an object.</p>
+<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb332-1"><a href="section-5.-introduction-to-functions.html#cb332-1" tabindex="-1"></a>f1 <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">a =</span> <span class="dv">3</span>, <span class="at">b =</span> <span class="dv">1</span>){ </span>
+<span id="cb332-2"><a href="section-5.-introduction-to-functions.html#cb332-2" tabindex="-1"></a>  a <span class="sc">*</span> x <span class="sc">+</span> b </span>
+<span id="cb332-3"><a href="section-5.-introduction-to-functions.html#cb332-3" tabindex="-1"></a>}</span>
+<span id="cb332-4"><a href="section-5.-introduction-to-functions.html#cb332-4" tabindex="-1"></a><span class="fu">f1</span>(<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">8</span>)</span></code></pre></div>
+<pre><code>## [1] 23</code></pre>
+<p>Notice that, objects created within a function are in a local environment:</p>
+<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="section-5.-introduction-to-functions.html#cb334-1" tabindex="-1"></a>f2 <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">a =</span> <span class="dv">3</span>, <span class="at">b =</span> <span class="dv">1</span>){</span>
+<span id="cb334-2"><a href="section-5.-introduction-to-functions.html#cb334-2" tabindex="-1"></a>  y <span class="ot">&lt;-</span> a <span class="sc">*</span> x <span class="sc">+</span> b</span>
+<span id="cb334-3"><a href="section-5.-introduction-to-functions.html#cb334-3" tabindex="-1"></a>}</span>
+<span id="cb334-4"><a href="section-5.-introduction-to-functions.html#cb334-4" tabindex="-1"></a><span class="fu">f2</span>(<span class="dv">3</span>)</span></code></pre></div>
+<p>They can be returned from the function to the global environment by keeping it in a variable, and then, print the variable:</p>
+<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="section-5.-introduction-to-functions.html#cb335-1" tabindex="-1"></a>num <span class="ot">&lt;-</span> <span class="fu">f2</span>(<span class="dv">3</span>)</span>
+<span id="cb335-2"><a href="section-5.-introduction-to-functions.html#cb335-2" tabindex="-1"></a><span class="fu">print</span>(num)</span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<p>In addition, in the body of function, <code>return()</code> can be used to specify the output of the function.</p>
+<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="section-5.-introduction-to-functions.html#cb337-1" tabindex="-1"></a>functionName <span class="ot">&lt;-</span> <span class="cf">function</span>(arguments){</span>
+<span id="cb337-2"><a href="section-5.-introduction-to-functions.html#cb337-2" tabindex="-1"></a>  statements</span>
+<span id="cb337-3"><a href="section-5.-introduction-to-functions.html#cb337-3" tabindex="-1"></a>  <span class="fu">return</span>(something)</span>
+<span id="cb337-4"><a href="section-5.-introduction-to-functions.html#cb337-4" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="section-5.-introduction-to-functions.html#cb338-1" tabindex="-1"></a>f3 <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">a =</span> <span class="dv">3</span>, <span class="at">b =</span> <span class="dv">1</span>){ </span>
+<span id="cb338-2"><a href="section-5.-introduction-to-functions.html#cb338-2" tabindex="-1"></a>  y <span class="ot">&lt;-</span> a <span class="sc">*</span> x <span class="sc">+</span> b</span>
+<span id="cb338-3"><a href="section-5.-introduction-to-functions.html#cb338-3" tabindex="-1"></a>  <span class="fu">return</span>(y)</span>
+<span id="cb338-4"><a href="section-5.-introduction-to-functions.html#cb338-4" tabindex="-1"></a>}</span>
+<span id="cb338-5"><a href="section-5.-introduction-to-functions.html#cb338-5" tabindex="-1"></a><span class="fu">f3</span>(<span class="dv">3</span>)</span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<div id="examples-of-functions" class="section level3 hasAnchor" number="6.5.1">
+<h3><span class="header-section-number">6.5.1</span> Examples of functions<a href="section-5.-introduction-to-functions.html#examples-of-functions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The following function computes the perimeter of a circumference. The function’s name is “Perimeter”“, the argument is the radius of the circumference</p>
+<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb340-1"><a href="section-5.-introduction-to-functions.html#cb340-1" tabindex="-1"></a>Perimeter <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb340-2"><a href="section-5.-introduction-to-functions.html#cb340-2" tabindex="-1"></a>  p <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> pi <span class="sc">*</span> x</span>
+<span id="cb340-3"><a href="section-5.-introduction-to-functions.html#cb340-3" tabindex="-1"></a>  <span class="fu">return</span>(p)</span>
+<span id="cb340-4"><a href="section-5.-introduction-to-functions.html#cb340-4" tabindex="-1"></a>}</span>
+<span id="cb340-5"><a href="section-5.-introduction-to-functions.html#cb340-5" tabindex="-1"></a><span class="fu">Perimeter</span>(<span class="dv">4</span>)</span></code></pre></div>
+<pre><code>## [1] 25.13274</code></pre>
+<p>You can use the perimeter function to calculate the perimeter of a circumference of any radius x.</p>
+<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb342-1"><a href="section-5.-introduction-to-functions.html#cb342-1" tabindex="-1"></a><span class="fu">Perimeter</span>(<span class="at">x =</span> <span class="dv">3</span>)</span></code></pre></div>
+<pre><code>## [1] 18.84956</code></pre>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="section-5.-introduction-to-functions.html#cb344-1" tabindex="-1"></a><span class="fu">Perimeter</span>(<span class="at">x =</span> <span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1] 31.41593</code></pre>
+<p>Function to compute the area of a rectangle:</p>
+<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="section-5.-introduction-to-functions.html#cb346-1" tabindex="-1"></a>Area <span class="ot">&lt;-</span> <span class="cf">function</span>(x,y) {</span>
+<span id="cb346-2"><a href="section-5.-introduction-to-functions.html#cb346-2" tabindex="-1"></a>  x<span class="sc">*</span>y <span class="do">## length*width</span></span>
+<span id="cb346-3"><a href="section-5.-introduction-to-functions.html#cb346-3" tabindex="-1"></a>}</span>
+<span id="cb346-4"><a href="section-5.-introduction-to-functions.html#cb346-4" tabindex="-1"></a></span>
+<span id="cb346-5"><a href="section-5.-introduction-to-functions.html#cb346-5" tabindex="-1"></a><span class="fu">Area</span>(<span class="dv">10</span>,<span class="dv">7</span>)</span></code></pre></div>
+<pre><code>## [1] 70</code></pre>
+<p><strong>Try to create this function:</strong> Imaging we want to create a function to compute both the perimeter (<code>2*x+2*y</code>) and area of a rectangle. In this case we will need to return two outputs.</p>
 </div>
 </div>
-<div id="working-with-shinydashboard" class="section level2 hasAnchor" number="13.3">
-<h2><span class="header-section-number">13.3</span> Working with ShinyDashboard<a href="section-12.-introduction-to-shiny.html#working-with-shinydashboard" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Here we will describe an example and go step by step to understand the code behind the application. We will work with the dataset <code>data_tidy.txt</code> that we have used in previous classes.</p>
-<p>1- We read the dataset and inspect the elements:</p>
-<p>We need to define what is our aim creating this application. Let’s define 3 main goals:</p>
+<div id="basic-r-programming" class="section level2 hasAnchor" number="6.6">
+<h2><span class="header-section-number">6.6</span> Basic R Programming<a href="section-5.-introduction-to-functions.html#basic-r-programming" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In this section we’ll learn about control-flow constructs in R. These constructs are used to control the execution and flow of the program based on conditions provided.</p>
+<div id="conditionals" class="section level3 hasAnchor" number="6.6.1">
+<h3><span class="header-section-number">6.6.1</span> Conditionals<a href="section-5.-introduction-to-functions.html#conditionals" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="if-statement" class="section level4 hasAnchor" number="6.6.1.1">
+<h4><span class="header-section-number">6.6.1.1</span> <code>if()</code> statement:<a href="section-5.-introduction-to-functions.html#if-statement" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>One of the most basic programming concepts involves evaluating conditional statements and then performing some action based on the evaluation. Let’s write a very simple conditional using the <code>if()</code> control-flow construct. The <code>if()</code> construct is simply a control statement that takes a conditional statement (involving logical operators) as its argument and then depending on the evaluation initiates some other function.</p>
+<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb348-1"><a href="section-5.-introduction-to-functions.html#cb348-1" tabindex="-1"></a><span class="cf">if</span>(<span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span> <span class="sc">==</span> <span class="dv">2</span>) { <span class="do">##logical statement!</span></span>
+<span id="cb348-2"><a href="section-5.-introduction-to-functions.html#cb348-2" tabindex="-1"></a>  <span class="fu">print</span> (<span class="st">&quot;Perfect!&quot;</span>)</span>
+<span id="cb348-3"><a href="section-5.-introduction-to-functions.html#cb348-3" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;Perfect!&quot;</code></pre>
+<p>You can see that in this case the <code>if()</code> statement evaluated to TRUE and it activated the <code>print()</code> function. If the <code>if()</code> statement were FALSE nothing would happen.</p>
+<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="section-5.-introduction-to-functions.html#cb350-1" tabindex="-1"></a><span class="cf">if</span>(<span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span> <span class="sc">==</span> <span class="dv">3</span>) {</span>
+<span id="cb350-2"><a href="section-5.-introduction-to-functions.html#cb350-2" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;Perfect!&quot;</span>)</span>
+<span id="cb350-3"><a href="section-5.-introduction-to-functions.html#cb350-3" tabindex="-1"></a>}</span></code></pre></div>
+</div>
+<div id="else-statement" class="section level4 hasAnchor" number="6.6.1.2">
+<h4><span class="header-section-number">6.6.1.2</span> <code>else()</code> statement:<a href="section-5.-introduction-to-functions.html#else-statement" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>If we wanted R to also do something if the conditional is FALSE we would have to add the else statement.</p>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="section-5.-introduction-to-functions.html#cb351-1" tabindex="-1"></a><span class="cf">if</span>(<span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span> <span class="sc">==</span> <span class="dv">3</span>) {</span>
+<span id="cb351-2"><a href="section-5.-introduction-to-functions.html#cb351-2" tabindex="-1"></a>  <span class="fu">print</span> (<span class="st">&quot;Perfect!&quot;</span>)  </span>
+<span id="cb351-3"><a href="section-5.-introduction-to-functions.html#cb351-3" tabindex="-1"></a>}<span class="cf">else</span>{ <span class="fu">print</span>(<span class="st">&quot;Wrong&quot;</span>)}</span></code></pre></div>
+<pre><code>## [1] &quot;Wrong&quot;</code></pre>
+</div>
+<div id="ifelse-statement" class="section level4 hasAnchor" number="6.6.1.3">
+<h4><span class="header-section-number">6.6.1.3</span> <code>ifelse()</code> statement<a href="section-5.-introduction-to-functions.html#ifelse-statement" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Instead of using the <code>if()</code> and else control statements, you can just use the <code>ifelse()</code> function. The function takes the arguments test, yes and no.</p>
+<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="section-5.-introduction-to-functions.html#cb353-1" tabindex="-1"></a>Z <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb353-2"><a href="section-5.-introduction-to-functions.html#cb353-2" tabindex="-1"></a>Z.new <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="at">test =</span> Z <span class="sc">&gt;</span> <span class="dv">2</span> <span class="sc">&amp;</span> Z <span class="sc">&lt;</span> <span class="dv">8</span> , <span class="at">yes =</span> <span class="st">&quot; Yes &quot;</span> , <span class="at">no =</span> <span class="st">&quot; No&quot;</span>)</span>
+<span id="cb353-3"><a href="section-5.-introduction-to-functions.html#cb353-3" tabindex="-1"></a>Z.new</span></code></pre></div>
+<pre><code>##  [1] &quot; No&quot;   &quot; No&quot;   &quot; Yes &quot; &quot; Yes &quot; &quot; Yes &quot; &quot; Yes &quot; &quot; Yes &quot; &quot; No&quot;   &quot; No&quot;  
+## [10] &quot; No&quot;</code></pre>
+</div>
+</div>
+<div id="loops" class="section level3 hasAnchor" number="6.6.2">
+<h3><span class="header-section-number">6.6.2</span> Loops<a href="section-5.-introduction-to-functions.html#loops" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="for-statement" class="section level4 hasAnchor" number="6.6.2.1">
+<h4><span class="header-section-number">6.6.2.1</span> <code>for()</code> statement<a href="section-5.-introduction-to-functions.html#for-statement" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>A <code>for</code> loop is a programming construct used when you want to perform a task repeatedly, such as iterating through a sequence, a list, or a range of numbers. It automates repetitive tasks, saving time and effort. The structure of a <code>for</code> loop contains:</p>
+<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="section-5.-introduction-to-functions.html#cb355-1" tabindex="-1"></a><span class="cf">for</span> (loop_variable <span class="cf">in</span> sequence) {</span>
+<span id="cb355-2"><a href="section-5.-introduction-to-functions.html#cb355-2" tabindex="-1"></a>  <span class="co"># Loop body: Code to be executed in each iteration</span></span>
+<span id="cb355-3"><a href="section-5.-introduction-to-functions.html#cb355-3" tabindex="-1"></a>}</span></code></pre></div>
+<ul>
+<li>loop_variable: this value is used to keep track of the current iteration</li>
+<li>sequence: defines the range of values that the loop variable will take on each iteration</li>
+<li>loop body: contains the code to be executed in each iteration</li>
+</ul>
+<p>The easiest way to understand how to use the <code>for()</code> operator is by example:</p>
+<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="section-5.-introduction-to-functions.html#cb356-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">20</span><span class="sc">:</span><span class="dv">30</span>) </span>
+<span id="cb356-2"><a href="section-5.-introduction-to-functions.html#cb356-2" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> x) { </span>
+<span id="cb356-3"><a href="section-5.-introduction-to-functions.html#cb356-3" tabindex="-1"></a>  <span class="fu">print</span>(i)</span>
+<span id="cb356-4"><a href="section-5.-introduction-to-functions.html#cb356-4" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## [1] 20
+## [1] 21
+## [1] 22
+## [1] 23
+## [1] 24
+## [1] 25
+## [1] 26
+## [1] 27
+## [1] 28
+## [1] 29
+## [1] 30</code></pre>
+<p>As you can see, the <code>for</code> loop start by initializing the <strong>loop variable</strong> with the first value from the <strong>sequence</strong>. As output, we don’t obtain the numeric vector ‘x’, but rather we consecutively print each one of its values.</p>
+<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="section-5.-introduction-to-functions.html#cb358-1" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>##  [1] 20 21 22 23 24 25 26 27 28 29 30</code></pre>
+<p><strong>Try to solve this problem with a for loop:</strong> provide the sum of the first 10 digits, that’s, 1 + 2 + 3 + 4 + 6 + 7 + 8 + 9 + 10.</p>
+<p><strong>Try to solve this problem with a for loop:</strong> generate 100 values from a standard normal distribution and sum up those values that are larger than 1.3</p>
+<p>For and if loops are useful but are computationally not very efficient. You should always think whether there is an alternative R code that does not require loops.</p>
+</div>
+<div id="the-while-statement" class="section level4 hasAnchor" number="6.6.2.2">
+<h4><span class="header-section-number">6.6.2.2</span> The <code>while()</code> statement<a href="section-5.-introduction-to-functions.html#the-while-statement" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The <code>while</code> loop starts by evaluating the condition inside the parentheses. If the condition is <code>TRUE</code>, the code inside the loop is executed.</p>
+<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="section-5.-introduction-to-functions.html#cb360-1" tabindex="-1"></a>count <span class="ot">&lt;-</span> <span class="dv">1</span>  </span>
+<span id="cb360-2"><a href="section-5.-introduction-to-functions.html#cb360-2" tabindex="-1"></a><span class="cf">while</span> (count <span class="sc">&lt;=</span> <span class="dv">5</span>) {</span>
+<span id="cb360-3"><a href="section-5.-introduction-to-functions.html#cb360-3" tabindex="-1"></a>  <span class="fu">print</span>(count)</span>
+<span id="cb360-4"><a href="section-5.-introduction-to-functions.html#cb360-4" tabindex="-1"></a>  count <span class="ot">&lt;-</span> count <span class="sc">+</span> <span class="dv">1</span> </span>
+<span id="cb360-5"><a href="section-5.-introduction-to-functions.html#cb360-5" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## [1] 1
+## [1] 2
+## [1] 3
+## [1] 4
+## [1] 5</code></pre>
+<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="section-5.-introduction-to-functions.html#cb362-1" tabindex="-1"></a>count</span></code></pre></div>
+<pre><code>## [1] 6</code></pre>
+<p>Be cautious about the potential for infinite loops, and include safeguards like a maximum iteration count or an escape condition (use <code>break</code>):</p>
+<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="section-5.-introduction-to-functions.html#cb364-1" tabindex="-1"></a>count <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb364-2"><a href="section-5.-introduction-to-functions.html#cb364-2" tabindex="-1"></a><span class="cf">while</span> (<span class="fu">is.numeric</span>(count)) {</span>
+<span id="cb364-3"><a href="section-5.-introduction-to-functions.html#cb364-3" tabindex="-1"></a>  <span class="fu">print</span>(count)</span>
+<span id="cb364-4"><a href="section-5.-introduction-to-functions.html#cb364-4" tabindex="-1"></a>  <span class="cf">if</span> (count <span class="sc">==</span> <span class="dv">10</span>) {</span>
+<span id="cb364-5"><a href="section-5.-introduction-to-functions.html#cb364-5" tabindex="-1"></a>    <span class="cf">break</span></span>
+<span id="cb364-6"><a href="section-5.-introduction-to-functions.html#cb364-6" tabindex="-1"></a>  }</span>
+<span id="cb364-7"><a href="section-5.-introduction-to-functions.html#cb364-7" tabindex="-1"></a>  count <span class="ot">&lt;-</span> count <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb364-8"><a href="section-5.-introduction-to-functions.html#cb364-8" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## [1] 1
+## [1] 2
+## [1] 3
+## [1] 4
+## [1] 5
+## [1] 6
+## [1] 7
+## [1] 8
+## [1] 9
+## [1] 10</code></pre>
+</div>
+<div id="avoid-loops-whenever-possible" class="section level4 hasAnchor" number="6.6.2.3">
+<h4><span class="header-section-number">6.6.2.3</span> Avoid loops whenever possible<a href="section-5.-introduction-to-functions.html#avoid-loops-whenever-possible" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>R is a vector-oriented language, which often allows us to avoid writing explicit loops.</p>
+<p>Instead of summing two vectors with the following code:</p>
+<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="section-5.-introduction-to-functions.html#cb366-1" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(a)) {</span>
+<span id="cb366-2"><a href="section-5.-introduction-to-functions.html#cb366-2" tabindex="-1"></a>  c[i] <span class="ot">=</span> a[i] <span class="sc">+</span> b[i]</span>
+<span id="cb366-3"><a href="section-5.-introduction-to-functions.html#cb366-3" tabindex="-1"></a>}</span></code></pre></div>
+<p>R is designed to do all this in a single vectorized operation:</p>
+<div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb367-1"><a href="section-5.-introduction-to-functions.html#cb367-1" tabindex="-1"></a>c <span class="ot">=</span> a <span class="sc">+</span> b</span></code></pre></div>
+<p>Compare the execution time of these two processes:</p>
+<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="section-5.-introduction-to-functions.html#cb368-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">1000000</span>)</span>
+<span id="cb368-2"><a href="section-5.-introduction-to-functions.html#cb368-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">1000000</span>)</span>
+<span id="cb368-3"><a href="section-5.-introduction-to-functions.html#cb368-3" tabindex="-1"></a><span class="fu">system.time</span>(z <span class="ot">&lt;-</span> x <span class="sc">+</span> y)</span></code></pre></div>
+<pre><code>##    user  system elapsed 
+##       0       0       0</code></pre>
+<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="section-5.-introduction-to-functions.html#cb370-1" tabindex="-1"></a><span class="fu">system.time</span>(<span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(x)) z[i] <span class="ot">&lt;-</span> x[i] <span class="sc">+</span> y[i])</span></code></pre></div>
+<pre><code>##    user  system elapsed 
+##    0.07    0.00    0.06</code></pre>
+</div>
+</div>
+<div id="useful-functions-to-avoid-loops" class="section level3 hasAnchor" number="6.6.3">
+<h3><span class="header-section-number">6.6.3</span> Useful functions to avoid loops<a href="section-5.-introduction-to-functions.html#useful-functions-to-avoid-loops" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <code>apply()</code> family of functions in R is a set of powerful tools for applying a function to the rows or columns of matrices, arrays, or data frames and avoid using loops in R whenever possible.</p>
+<div id="function-apply" class="section level4 hasAnchor" number="6.6.3.1">
+<h4><span class="header-section-number">6.6.3.1</span> Function <code>apply()</code><a href="section-5.-introduction-to-functions.html#function-apply" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><code>apply( )</code> is used when we want to apply the same function to every row or column of a matrix or array.</p>
+<p>This function has 3 arguments: <code>arg1=name of the matrix</code>, <code>arg2=1</code> if the function is to be applied to the rows or <code>arg2=2</code> if the function is to be applied to the columns, <code>arg3=function</code></p>
+<p><code>apply(array, margin, function, ...)</code></p>
+<p>Note that an array in R is a very generic data type; it is a general structure of up to eight dimensions. For specific dimensions there are special names for the structures. A zero dimensional array is a scalar or a point; a one dimensional array is a vector; and a two dimensional array is a matrix, etc.</p>
+<p><strong>Example:</strong> Assume that <code>x</code> is a matrix of numbers with 4 rows and 3 columns as defined below</p>
+<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="section-5.-introduction-to-functions.html#cb372-1" tabindex="-1"></a>mat<span class="ot">&lt;-</span><span class="fu">matrix</span>(<span class="fu">seq</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>), <span class="at">nrow=</span><span class="dv">4</span>)</span>
+<span id="cb372-2"><a href="section-5.-introduction-to-functions.html#cb372-2" tabindex="-1"></a>mat</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    5    9
+## [2,]    2    6   10
+## [3,]    3    7   11
+## [4,]    4    8   12</code></pre>
+<p>To compute the mean of the rows</p>
+<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="section-5.-introduction-to-functions.html#cb374-1" tabindex="-1"></a><span class="fu">apply</span>(mat,<span class="dv">1</span>,mean) </span></code></pre></div>
+<pre><code>## [1] 5 6 7 8</code></pre>
+<p>To compute the mean of the columns</p>
+<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb376-1"><a href="section-5.-introduction-to-functions.html#cb376-1" tabindex="-1"></a><span class="fu">apply</span>(mat,<span class="dv">2</span>,mean) </span></code></pre></div>
+<pre><code>## [1]  2.5  6.5 10.5</code></pre>
+<p>Using a user defined function</p>
+<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="section-5.-introduction-to-functions.html#cb378-1" tabindex="-1"></a>sum.plus<span class="fl">.2</span> <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb378-2"><a href="section-5.-introduction-to-functions.html#cb378-2" tabindex="-1"></a>    <span class="fu">sum</span>(x) <span class="sc">+</span> <span class="dv">2</span></span>
+<span id="cb378-3"><a href="section-5.-introduction-to-functions.html#cb378-3" tabindex="-1"></a>}</span>
+<span id="cb378-4"><a href="section-5.-introduction-to-functions.html#cb378-4" tabindex="-1"></a></span>
+<span id="cb378-5"><a href="section-5.-introduction-to-functions.html#cb378-5" tabindex="-1"></a><span class="fu">apply</span>(mat, <span class="dv">1</span>, sum.plus<span class="fl">.2</span>) <span class="do">##sum by row &amp; +2</span></span></code></pre></div>
+<pre><code>## [1] 17 20 23 26</code></pre>
+<p>Also, the function can be defined inside the apply function as an <strong>anonymous function</strong>. Note the lack of curly brackets:</p>
+<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="section-5.-introduction-to-functions.html#cb380-1" tabindex="-1"></a><span class="fu">apply</span>(mat, <span class="dv">1</span>, <span class="cf">function</span>(x) <span class="fu">sum</span>(x) <span class="sc">+</span> <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## [1] 17 20 23 26</code></pre>
+<p>More generalized</p>
+<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="section-5.-introduction-to-functions.html#cb382-1" tabindex="-1"></a><span class="fu">apply</span>(mat, <span class="dv">1</span>, <span class="cf">function</span>(x, y) <span class="fu">sum</span>(x) <span class="sc">+</span> y, <span class="at">y=</span><span class="dv">3</span>)</span></code></pre></div>
+<pre><code>## [1] 18 21 24 27</code></pre>
+</div>
+<div id="function-lapply" class="section level4 hasAnchor" number="6.6.3.2">
+<h4><span class="header-section-number">6.6.3.2</span> Function <code>lapply()</code><a href="section-5.-introduction-to-functions.html#function-lapply" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><code>lapply()</code> function applies a function to elements in a list or a vector and returns the results in a list.</p>
+<p>The <code>lapply()</code> function becomes especially useful when dealing with data frames. In R the data frame is considered a special type of list, where each column is considered an element of the list. Notice, how we can access to the elements contained in ‘mat.list’ and ‘mat1.df’ in a similar ways:</p>
+<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="section-5.-introduction-to-functions.html#cb384-1" tabindex="-1"></a>mat.list <span class="ot">&lt;-</span> <span class="fu">list</span>( <span class="at">X1 =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">X2=</span><span class="dv">5</span><span class="sc">:</span><span class="dv">8</span>, <span class="at">X3 =</span> <span class="dv">9</span><span class="sc">:</span><span class="dv">12</span>)</span>
+<span id="cb384-2"><a href="section-5.-introduction-to-functions.html#cb384-2" tabindex="-1"></a>mat.list</span></code></pre></div>
+<pre><code>## $X1
+## [1] 1 2 3 4
+## 
+## $X2
+## [1] 5 6 7 8
+## 
+## $X3
+## [1]  9 10 11 12</code></pre>
+<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="section-5.-introduction-to-functions.html#cb386-1" tabindex="-1"></a>mat.list<span class="sc">$</span>X1</span></code></pre></div>
+<pre><code>## [1] 1 2 3 4</code></pre>
+<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb388-1"><a href="section-5.-introduction-to-functions.html#cb388-1" tabindex="-1"></a>mat.list[<span class="dv">2</span>]</span></code></pre></div>
+<pre><code>## $X2
+## [1] 5 6 7 8</code></pre>
+<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb390-1"><a href="section-5.-introduction-to-functions.html#cb390-1" tabindex="-1"></a>mat1.df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(mat)</span>
+<span id="cb390-2"><a href="section-5.-introduction-to-functions.html#cb390-2" tabindex="-1"></a>mat1.df</span></code></pre></div>
+<pre><code>##   X1 X2 X3
+## 1  1  5  9
+## 2  2  6 10
+## 3  3  7 11
+## 4  4  8 12</code></pre>
+<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb392-1"><a href="section-5.-introduction-to-functions.html#cb392-1" tabindex="-1"></a><span class="fu">is.list</span>(mat1.df)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb394-1"><a href="section-5.-introduction-to-functions.html#cb394-1" tabindex="-1"></a>mat1.df<span class="sc">$</span>X1</span></code></pre></div>
+<pre><code>## [1] 1 2 3 4</code></pre>
+<div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb396-1"><a href="section-5.-introduction-to-functions.html#cb396-1" tabindex="-1"></a>mat1.df[[<span class="dv">2</span>]]</span></code></pre></div>
+<pre><code>## [1] 5 6 7 8</code></pre>
+<p>We can therefore apply a function to all the variables in a data frame by using the <code>lapply</code> function. Note that unlike in the apply function there is no margin argument since we are just applying the function to each component of the list.</p>
+<p>In the data frame <code>mat1.df</code> the variables <code>mat1.1 - mat1.3</code> are elements of the list <code>mat1.df</code>. These variables can thus be accessed by <code>lapply</code> for example to obtain the sum of each variable in <code>mat1.df</code></p>
+<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb398-1"><a href="section-5.-introduction-to-functions.html#cb398-1" tabindex="-1"></a><span class="fu">lapply</span>(mat1.df, sum)</span></code></pre></div>
+<pre><code>## $X1
+## [1] 10
+## 
+## $X2
+## [1] 26
+## 
+## $X3
+## [1] 42</code></pre>
+<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb400-1"><a href="section-5.-introduction-to-functions.html#cb400-1" tabindex="-1"></a><span class="fu">class</span>(<span class="fu">lapply</span>(mat1.df, sum)) <span class="do">## returns list</span></span></code></pre></div>
+<pre><code>## [1] &quot;list&quot;</code></pre>
+<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb402-1"><a href="section-5.-introduction-to-functions.html#cb402-1" tabindex="-1"></a><span class="fu">apply</span>(mat1.df, <span class="dv">2</span>, sum)</span></code></pre></div>
+<pre><code>## X1 X2 X3 
+## 10 26 42</code></pre>
+<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb404-1"><a href="section-5.-introduction-to-functions.html#cb404-1" tabindex="-1"></a><span class="fu">class</span>(<span class="fu">apply</span>(mat1.df,<span class="dv">2</span>, sum)) <span class="do">## returns integer vector</span></span></code></pre></div>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+</div>
+<div id="function-sapply" class="section level4 hasAnchor" number="6.6.3.3">
+<h4><span class="header-section-number">6.6.3.3</span> Function <code>sapply()</code><a href="section-5.-introduction-to-functions.html#function-sapply" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Applies a function to elements in a list or a vector and returns the results in a vector, matrix or a list.</p>
+<p><code>sapply(list, function, ..., simplify)</code></p>
+<p>When the argument <code>simplify=F</code> then the <code>sapply</code> function returns the results in a list just like the <code>lapply</code> function. However, when the argument <code>simplify=T</code>, the default, then the <code>sapply</code> function returns the results in a simplified form if at all possible. If the results are all scalars then <code>sapply</code> returns a vector. If the results are all of the same length then <code>sapply</code> will return a matrix with a column for each element in list to which function was applied.</p>
+<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="section-5.-introduction-to-functions.html#cb406-1" tabindex="-1"></a><span class="fu">lapply</span>(mat.list, <span class="cf">function</span>(x, y) <span class="fu">sum</span>(x) <span class="sc">+</span> y, <span class="at">y =</span> <span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## $X1
+## [1] 15
+## 
+## $X2
+## [1] 31
+## 
+## $X3
+## [1] 47</code></pre>
+<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb408-1"><a href="section-5.-introduction-to-functions.html#cb408-1" tabindex="-1"></a><span class="fu">sapply</span>(mat1.df, <span class="cf">function</span>(x, y) <span class="fu">sum</span>(x) <span class="sc">+</span> y, <span class="at">y =</span> <span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## X1 X2 X3 
+## 15 31 47</code></pre>
+</div>
+</div>
+</div>
+<div id="references" class="section level2 hasAnchor" number="6.7">
+<h2><span class="header-section-number">6.7</span> References<a href="section-5.-introduction-to-functions.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
-<li><p>To show a main page with the information reported in the App.</p></li>
-<li><p>Display “X” lines of observations (interactive).</p></li>
-<li><p>To show a descriptive table only for specific cases of the dataset (interactive filter).</p></li>
-<li><p>To display a graphic displaying the weight of the participants based on a specific factor (interactive input).</p></li>
+<li><a href="https://www.datacamp.com/tutorial/functions-in-r-a-tutorial">Explore Datacamp tutorials</a></li>
+<li><a href="https://www.geeksforgeeks.org/control-statements-in-r-programming/?ref=rbp">Control Statements in R Programming</a></li>
 </ol>
-<p>2- We define the UI and server function of the application:</p>
-<p><strong>UI section</strong></p>
-<p>To start a dashboard page we need to define at first <code>dashboardPage</code> in the first line of code and then write all the content inside the page. We will have a main header for the Shiny App that will be defined using the <code>dashboardHeader</code> function. Then, to describe a sidebar with the main sections of the App, we need to work with the <code>dashboardSidebar</code>function. Inside this section we can customize our <code>sidebarMenu</code> by adding as many items as we want to the application (<code>menuItem</code>).</p>
-<p>Once we have defined the main tabs that the app will have, we can start defining the content within each one of these tabs by indicating everything within the section <code>dashboardBody</code>. The content will be splitted by <code>tabItem</code> sections within a general <code>tabItems</code> label. Each <code>tabItem</code> relates to the differnent <code>menuItems</code> that appear in the sidebar. All the interactive inputs and outputs are defined in this part of the code. The body of the <code>tabItem</code>can be divided into different spatial areas. The body can be treated as a region divided into 12 columns of equal width, and any number of rows, of variable height. When you place a box (or other item) in the grid, you can specify how many of the 12 columns you want it to occupy.</p>
-<p>Scheme:</p>
-<ul>
-<li><p>dashboardHeader</p></li>
-<li><p>dashboardSidebar &gt; sidebarMenu &gt; menuItem</p></li>
-<li><p>dashboardBody &gt; tabItems &gt; tabItem &gt; fluidRow &gt; box</p></li>
-</ul>
-<p>The aesthetics of a box can be modified, such as the color (status):</p>
-<ul>
-<li><p>“primary” (blue)</p></li>
-<li><p>“info” (light blue)</p></li>
-<li><p>“success” (green)</p></li>
-<li><p>“warning” (orange)</p></li>
-<li><p>“danger” (red)`.</p></li>
-</ul>
-<p><strong>Server function</strong>:</p>
-<p>3- We run the application</p>
-<p>Summary:</p>
-</div>
-<div id="deploying-the-application-to-shinyapps.io" class="section level2 hasAnchor" number="13.4">
-<h2><span class="header-section-number">13.4</span> Deploying the Application to Shinyapps.io<a href="section-12.-introduction-to-shiny.html#deploying-the-application-to-shinyapps.io" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ol style="list-style-type: decimal">
-<li>Create a Shinyapps.io Account: <a href="https://www.shinyapps.io/?ref=lorcanmason.com" class="uri">https://www.shinyapps.io/?ref=lorcanmason.com</a></li>
-</ol>
-<p>a- First, sign up:</p>
-<p>b- Second, add a token:</p>
-<ol start="2" style="list-style-type: decimal">
-<li>Configure deployment:</li>
-</ol>
-<p>2.1 Configure your account: in Rstudio, load the rsconnect package and set your account information</p>
-<p>a- <code>install.packages("rsconnect")</code></p>
-<p>b- <code>library(rsconnect)</code></p>
-<p>c- <code>rsconnect::setAccountInfo(name='YOUR_ACCOUNT_NAME', token='YOUR_TOKEN', secret='YOUR_SECRET')</code>: replace it with your Shinyapps.io credentials:</p>
-<p>Go to your shinyapps.io profile and in the tab tokens, add a new one. Then press the button “Show” and “show secret” and copy the text. Run this line of code in R studio.</p>
-<p>After deployment, Shinnyapps.io provides a URL where you can access your app</p>
-<p>d- <code>rsconnect::deployApp('path/to/your/folder')</code>: replace it with the path to your app.R file to deploy your application. You need to indicate the path to the folder where the app.R file is stored.</p>
-<p>In this last step you can obtain many messages of “Error” because of lack of compatibility of versions for specific packages. Update all the packages you need to update and install those that are also required.</p>
-<p>Be aware that a large app or first-time server setup can take time (30 minutes) and while it is deploying to server, you may not be able to work in R.</p>
-</div>
-<div id="take-home" class="section level2 hasAnchor" number="13.5">
-<h2><span class="header-section-number">13.5</span> Take home<a href="section-12.-introduction-to-shiny.html#take-home" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>1.<strong>Shiny Components</strong>: Shiny core components are <code>ui</code>, <code>server</code>, and the <code>output</code> of the App. For more information about the Shiny app script check:</p>
-<ul>
-<li><a href="https://shiny.posit.co/r/getstarted/shiny-basics/lesson1/" class="uri">https://shiny.posit.co/r/getstarted/shiny-basics/lesson1/</a></li>
-</ul>
-<p>2.<strong>Customizing Visualization</strong>: <code>ggplot2</code> and <code>plotly</code>.</p>
-<ul>
-<li><p>More information about <code>plotly</code>: <a href="https://plotly.com/r/?ref=lorcanmason.com" class="uri">https://plotly.com/r/?ref=lorcanmason.com</a></p></li>
-<li><p>More information about <code>DT</code>: <a href="https://rstudio.github.io/DT/?ref=lorcanmason.com" class="uri">https://rstudio.github.io/DT/?ref=lorcanmason.com</a></p></li>
-</ul>
-<p>3.<strong>Interactive Elements</strong> : implementing user inputs and outputs(<code>render</code>) to build interactive applications.</p>
-<p>4.<strong>Deployment</strong>: ensure your app is deployed for easy access and sharing. For more information about the dasbhoard:</p>
-<ul>
-<li><a href="https://rstudio.github.io/shinydashboard/structure.html#background-shiny-and-html" class="uri">https://rstudio.github.io/shinydashboard/structure.html#background-shiny-and-html</a></li>
-</ul>
-</div>
-<div id="final-task" class="section level2 hasAnchor" number="13.6">
-<h2><span class="header-section-number">13.6</span> Final Task<a href="section-12.-introduction-to-shiny.html#final-task" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>For this final assignment you will work with the excel file <strong>dataADNIMERGE.xlsx</strong>. This data comes from a multicentric study in Alzheimer’s disease and contains longitudinal data for participants with different diagnosis. You need to subset the observations/cases reported at baseline (VISCODE variable) and work with a final dataset including the variables <strong>ORIGPROT</strong> (batch), <strong>DX.bl</strong> (diangosis baseline), <strong>AGE</strong> (age baseline), <strong>PTGENDER</strong> (Sex), <strong>PTEDUCAT</strong> (years of education), <strong>APOE4</strong> (genotype for APOE-e4, 0=non-carriers, 1=heterozygous for allele e4, 2=homozygous for allele e4), <strong>ABETA.bl</strong> (amyloid-beta levels at baseline),<strong>PTAU.bl</strong> (pTau levels at baseline), <strong>MMSE.bl</strong> (score in the MMSE test memory at baseline).</p>
-<p>The activity consists on:</p>
-<p><strong>1) Creating a report</strong>: create a <code>.html</code> file (markdown) and divide the content in two main sections. The <strong>first section</strong> needs to contain a brief summary of the data of the study (number of participants, proportion women/men, clinical diagnosis of the participants, mean age). You need to report the main summary statistics and explain the main characteristics of the sample. You can check the <a href="https://adni.loni.usc.edu/">ADNI webpage</a> in case you want to retrieve more information. The <strong>second section</strong> relates to the shiny app creation. You need to explain the application that you have created, the main sections, the purpose of the visualization and the main elements you have used to define the user and server interfaces. You need to provide the link to access the shiny dashboard (Shinyapps.io).</p>
-<p><strong>2) Creating a shiny dashboard</strong>: create a shiny app in R and deploy it to the server. The shiny app needs to contain:</p>
-<ol style="list-style-type: decimal">
-<li><p>One tab where you introduce the main functionality of the app (hint: <code>.md</code> file).</p></li>
-<li><p>One tab including a static table.</p></li>
-<li><p>One tab including a reactive table.</p></li>
-<li><p>One tab including a static plot.</p></li>
-<li><p>One tab including a reactive plot.</p></li>
-</ol>
-<p>Submit all the files you have generated in a <code>.zip</code> folder. Remember, it should contain the <code>.html file</code> (report) and all the <code>R files</code> used to create the shiny app (<code>app.R</code> and <code>.md</code> files). The name of your <code>.zip folder</code> should be your surname (e.g. Genius.zip)</p>
+<hr />
+<p><img src="logouvic.png" /></p>
 
 </div>
 </div>
@@ -795,8 +854,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="section-11.-advanced-data-visualization-extra-part.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="section-4.-basic-plots.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="section-6.-tips-for-efficient-programming.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

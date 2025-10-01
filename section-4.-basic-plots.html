@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>5 SECTION 4. Basic Plots | curso-R</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="5 SECTION 4. Basic Plots | curso-R" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="5 SECTION 4. Basic Plots | curso-R" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="section-3.-basic-data-management.html"/>
+<link rel="next" href="section-5.-introduction-to-functions.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#description-of-the-r-programming-block"><i class="fa fa-check"></i><b>1.1</b> Description of the R programming block</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#contents-of-the-r-programming-block"><i class="fa fa-check"></i><b>1.2</b> Contents of the R programming block</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#evaluation"><i class="fa fa-check"></i><b>1.3</b> Evaluation</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="section-1.-errors-you-may-find-in-r.html"><a href="section-1.-errors-you-may-find-in-r.html"><i class="fa fa-check"></i><b>2</b> SECTION 1. Errors you may find in R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="section-1.-errors-you-may-find-in-r.html"><a href="section-1.-errors-you-may-find-in-r.html#installing-r"><i class="fa fa-check"></i><b>2.1</b> Installing R</a></li>
+<li class="chapter" data-level="2.2" data-path="section-1.-errors-you-may-find-in-r.html"><a href="section-1.-errors-you-may-find-in-r.html#loading-packages"><i class="fa fa-check"></i><b>2.2</b> Loading packages</a></li>
+<li class="chapter" data-level="2.3" data-path="section-1.-errors-you-may-find-in-r.html"><a href="section-1.-errors-you-may-find-in-r.html#defining-directories"><i class="fa fa-check"></i><b>2.3</b> Defining directories</a></li>
+<li class="chapter" data-level="2.4" data-path="section-1.-errors-you-may-find-in-r.html"><a href="section-1.-errors-you-may-find-in-r.html#resources-you-have"><i class="fa fa-check"></i><b>2.4</b> Resources you have</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html"><i class="fa fa-check"></i><b>3</b> SECTION 2. Introduction to R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#why-r"><i class="fa fa-check"></i><b>3.1</b> Why R?</a></li>
+<li class="chapter" data-level="3.2" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#creating-a-new-project-directory-in-rstudio"><i class="fa fa-check"></i><b>3.2</b> Creating a new project directory in RStudio</a></li>
+<li class="chapter" data-level="3.3" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#rstudio-interface"><i class="fa fa-check"></i><b>3.3</b> RStudio Interface</a></li>
+<li class="chapter" data-level="3.4" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#organizing-your-working-directory-setting-up"><i class="fa fa-check"></i><b>3.4</b> Organizing your working directory &amp; setting up</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#viewing-your-working-directory"><i class="fa fa-check"></i><b>3.4.1</b> Viewing your working directory</a></li>
+<li class="chapter" data-level="3.4.2" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#console-command-prompt"><i class="fa fa-check"></i><b>3.4.2</b> Console command prompt</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#simple-computations-with-r"><i class="fa fa-check"></i><b>3.5</b> Simple computations with R</a></li>
+<li class="chapter" data-level="3.6" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#math-functions"><i class="fa fa-check"></i><b>3.6</b> Math functions</a></li>
+<li class="chapter" data-level="3.7" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#variable-assignment"><i class="fa fa-check"></i><b>3.7</b> Variable Assignment</a></li>
+<li class="chapter" data-level="3.8" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#data-types"><i class="fa fa-check"></i><b>3.8</b> Data types</a></li>
+<li class="chapter" data-level="3.9" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#create-new-data"><i class="fa fa-check"></i><b>3.9</b> Create new data</a></li>
+<li class="chapter" data-level="3.10" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#structures"><i class="fa fa-check"></i><b>3.10</b> Structures</a></li>
+<li class="chapter" data-level="3.11" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#the-environment"><i class="fa fa-check"></i><b>3.11</b> The environment</a></li>
+<li class="chapter" data-level="3.12" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#using-scripts"><i class="fa fa-check"></i><b>3.12</b> Using scripts</a></li>
+<li class="chapter" data-level="3.13" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#r-basic-base-functions"><i class="fa fa-check"></i><b>3.13</b> R basic base functions</a></li>
+<li class="chapter" data-level="3.14" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#reading-and-writing-data-files"><i class="fa fa-check"></i><b>3.14</b> Reading and writing data files</a></li>
+<li class="chapter" data-level="3.15" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#librariespackages"><i class="fa fa-check"></i><b>3.15</b> Libraries/Packages</a>
+<ul>
+<li class="chapter" data-level="3.15.1" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#install-packages-from-cran"><i class="fa fa-check"></i><b>3.15.1</b> Install packages from CRAN</a></li>
+<li class="chapter" data-level="3.15.2" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#install-packages-from-github"><i class="fa fa-check"></i><b>3.15.2</b> Install packages from GitHub</a></li>
+</ul></li>
+<li class="chapter" data-level="3.16" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#help-and-documentation"><i class="fa fa-check"></i><b>3.16</b> Help and documentation</a></li>
+<li class="chapter" data-level="3.17" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#interesting-references"><i class="fa fa-check"></i><b>3.17</b> Interesting references:</a></li>
+<li class="chapter" data-level="3.18" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#exercises"><i class="fa fa-check"></i><b>3.18</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="3.18.1" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#part-i"><i class="fa fa-check"></i><b>3.18.1</b> Part I</a></li>
+<li class="chapter" data-level="3.18.2" data-path="section-2.-introduction-to-r.html"><a href="section-2.-introduction-to-r.html#part-ii"><i class="fa fa-check"></i><b>3.18.2</b> Part II</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html"><i class="fa fa-check"></i><b>4</b> SECTION 3. Basic data management</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#accessing-information-and-creating-new-variables"><i class="fa fa-check"></i><b>4.1</b> Accessing information and creating new variables</a></li>
+<li class="chapter" data-level="4.2" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#data-types-and-data-conversions"><i class="fa fa-check"></i><b>4.2</b> Data types and data conversions</a></li>
+<li class="chapter" data-level="4.3" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#subsetting-datasets"><i class="fa fa-check"></i><b>4.3</b> Subsetting datasets</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#selecting-keeping-variables"><i class="fa fa-check"></i><b>4.3.1</b> Selecting (keeping) variables</a></li>
+<li class="chapter" data-level="4.3.2" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#excluding-dropping-variables"><i class="fa fa-check"></i><b>4.3.2</b> Excluding (dropping) variables</a></li>
+<li class="chapter" data-level="4.3.3" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#selecting-or-excluding-observations"><i class="fa fa-check"></i><b>4.3.3</b> Selecting or excluding observations</a></li>
+<li class="chapter" data-level="4.3.4" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#conditional-selection-of-data"><i class="fa fa-check"></i><b>4.3.4</b> Conditional selection of data</a></li>
+<li class="chapter" data-level="4.3.5" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#managing-missing-values"><i class="fa fa-check"></i><b>4.3.5</b> Managing missing values</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#recoding-variables"><i class="fa fa-check"></i><b>4.4</b> Recoding variables</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#subsetting-and-assigning"><i class="fa fa-check"></i><b>4.4.1</b> Subsetting and assigning</a></li>
+<li class="chapter" data-level="4.4.2" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#using-the-within-function"><i class="fa fa-check"></i><b>4.4.2</b> Using the <code>within()</code> function</a></li>
+<li class="chapter" data-level="4.4.3" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#using-the-ifelse-function."><i class="fa fa-check"></i><b>4.4.3</b> Using the <code>ifelse()</code> function.</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#merging-datasets"><i class="fa fa-check"></i><b>4.5</b> Merging datasets</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#adding-columns-horizontal-merge"><i class="fa fa-check"></i><b>4.5.1</b> Adding columns (Horizontal merge)</a></li>
+<li class="chapter" data-level="4.5.2" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#adding-rows-vertical-merge"><i class="fa fa-check"></i><b>4.5.2</b> Adding rows (Vertical merge)</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#sorting-data"><i class="fa fa-check"></i><b>4.6</b> Sorting data</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#sorting-by-a-single-variable"><i class="fa fa-check"></i><b>4.6.1</b> Sorting by a single variable</a></li>
+<li class="chapter" data-level="4.6.2" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#sorting-alphabetically"><i class="fa fa-check"></i><b>4.6.2</b> Sorting alphabetically</a></li>
+<li class="chapter" data-level="4.6.3" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#sorting-by-multiple-variables"><i class="fa fa-check"></i><b>4.6.3</b> Sorting by multiple variables</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#regular-expressions-and-pattern-matching-and-replacement"><i class="fa fa-check"></i><b>4.7</b> Regular expressions and pattern matching and replacement</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#basic-functions-to-detect-patterns-in-r"><i class="fa fa-check"></i><b>4.7.1</b> Basic functions to detect patterns in R</a></li>
+<li class="chapter" data-level="4.7.2" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#special-symbols"><i class="fa fa-check"></i><b>4.7.2</b> Special symbols</a></li>
+<li class="chapter" data-level="4.7.3" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#basic-functions-to-locate-patterns-in-r"><i class="fa fa-check"></i><b>4.7.3</b> Basic functions to locate patterns in R</a></li>
+<li class="chapter" data-level="4.7.4" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#split-a-string-using-a-pattern"><i class="fa fa-check"></i><b>4.7.4</b> Split a string using a pattern</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="section-3.-basic-data-management.html"><a href="section-3.-basic-data-management.html#exercises-data-management-optional"><i class="fa fa-check"></i><b>4.8</b> Exercises Data Management (Optional)</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="section-4.-basic-plots.html"><a href="section-4.-basic-plots.html"><i class="fa fa-check"></i><b>5</b> SECTION 4. Basic Plots</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="section-4.-basic-plots.html"><a href="section-4.-basic-plots.html#line-charts"><i class="fa fa-check"></i><b>5.1</b> Line charts</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="section-4.-basic-plots.html"><a href="section-4.-basic-plots.html#key-characteristics"><i class="fa fa-check"></i><b>5.1.1</b> Key Characteristics:</a></li>
+<li class="chapter" data-level="5.1.2" data-path="section-4.-basic-plots.html"><a href="section-4.-basic-plots.html#use-cases"><i class="fa fa-check"></i><b>5.1.2</b> Use Cases:</a></li>
+<li class="chapter" data-level="5.1.3" data-path="section-4.-basic-plots.html"><a href="section-4.-basic-plots.html#customization-options"><i class="fa fa-check"></i><b>5.1.3</b> Customization Options:</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="section-4.-basic-plots.html"><a href="section-4.-basic-plots.html#dot-plot"><i class="fa fa-check"></i><b>5.2</b> Dot plot</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="section-4.-basic-plots.html"><a href="section-4.-basic-plots.html#key-characteristics-1"><i class="fa fa-check"></i><b>5.2.1</b> Key characteristics</a></li>
+<li class="chapter" data-level="5.2.2" data-path="section-4.-basic-plots.html"><a href="section-4.-basic-plots.html#use-cases-1"><i class="fa fa-check"></i><b>5.2.2</b> Use cases</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="section-4.-basic-plots.html"><a href="section-4.-basic-plots.html#bar-charts"><i class="fa fa-check"></i><b>5.3</b> Bar charts</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="section-4.-basic-plots.html"><a href="section-4.-basic-plots.html#key-characteristics-2"><i class="fa fa-check"></i><b>5.3.1</b> Key characteristics</a></li>
+<li class="chapter" data-level="5.3.2" data-path="section-4.-basic-plots.html"><a href="section-4.-basic-plots.html#customization"><i class="fa fa-check"></i><b>5.3.2</b> Customization</a></li>
+<li class="chapter" data-level="5.3.3" data-path="section-4.-basic-plots.html"><a href="section-4.-basic-plots.html#multiple-bar-plots"><i class="fa fa-check"></i><b>5.3.3</b> Multiple bar plots</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="section-4.-basic-plots.html"><a href="section-4.-basic-plots.html#histograms"><i class="fa fa-check"></i><b>5.4</b> Histograms</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="section-4.-basic-plots.html"><a href="section-4.-basic-plots.html#key-characteristics-3"><i class="fa fa-check"></i><b>5.4.1</b> Key characteristics</a></li>
+<li class="chapter" data-level="5.4.2" data-path="section-4.-basic-plots.html"><a href="section-4.-basic-plots.html#customization-1"><i class="fa fa-check"></i><b>5.4.2</b> Customization</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="section-4.-basic-plots.html"><a href="section-4.-basic-plots.html#boxplot"><i class="fa fa-check"></i><b>5.5</b> Boxplot</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="section-4.-basic-plots.html"><a href="section-4.-basic-plots.html#key-characteristics-4"><i class="fa fa-check"></i><b>5.5.1</b> Key characteristics</a></li>
+<li class="chapter" data-level="5.5.2" data-path="section-4.-basic-plots.html"><a href="section-4.-basic-plots.html#use-cases-2"><i class="fa fa-check"></i><b>5.5.2</b> Use cases</a></li>
+<li class="chapter" data-level="5.5.3" data-path="section-4.-basic-plots.html"><a href="section-4.-basic-plots.html#customization-options-1"><i class="fa fa-check"></i><b>5.5.3</b> Customization options</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="section-4.-basic-plots.html"><a href="section-4.-basic-plots.html#commbining-different-plots"><i class="fa fa-check"></i><b>5.6</b> Commbining different plots</a></li>
+<li class="chapter" data-level="5.7" data-path="section-4.-basic-plots.html"><a href="section-4.-basic-plots.html#scatter-plots"><i class="fa fa-check"></i><b>5.7</b> Scatter Plots</a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="section-4.-basic-plots.html"><a href="section-4.-basic-plots.html#creating-a-simple-scatter-plot"><i class="fa fa-check"></i><b>5.7.1</b> Creating a Simple Scatter Plot</a></li>
+<li class="chapter" data-level="5.7.2" data-path="section-4.-basic-plots.html"><a href="section-4.-basic-plots.html#add-new-data-to-an-existint-plot"><i class="fa fa-check"></i><b>5.7.2</b> Add new data to an existint plot</a></li>
+<li class="chapter" data-level="5.7.3" data-path="section-4.-basic-plots.html"><a href="section-4.-basic-plots.html#adding-labels-to-data-points"><i class="fa fa-check"></i><b>5.7.3</b> Adding labels to data points</a></li>
+<li class="chapter" data-level="5.7.4" data-path="section-4.-basic-plots.html"><a href="section-4.-basic-plots.html#using-legends"><i class="fa fa-check"></i><b>5.7.4</b> Using legends</a></li>
+<li class="chapter" data-level="5.7.5" data-path="section-4.-basic-plots.html"><a href="section-4.-basic-plots.html#customizing-scatter-plots"><i class="fa fa-check"></i><b>5.7.5</b> Customizing Scatter plots</a></li>
+<li class="chapter" data-level="5.7.6" data-path="section-4.-basic-plots.html"><a href="section-4.-basic-plots.html#multiple-scatter-plots"><i class="fa fa-check"></i><b>5.7.6</b> Multiple scatter plots</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="section-4.-basic-plots.html"><a href="section-4.-basic-plots.html#important-graphical-functions-and-parameters"><i class="fa fa-check"></i><b>5.8</b> Important graphical functions and parameters</a></li>
+<li class="chapter" data-level="5.9" data-path="section-4.-basic-plots.html"><a href="section-4.-basic-plots.html#saving-graphics-to-files"><i class="fa fa-check"></i><b>5.9</b> Saving Graphics to Files</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="section-5.-introduction-to-functions.html"><a href="section-5.-introduction-to-functions.html"><i class="fa fa-check"></i><b>6</b> SECTION 5. Introduction to Functions</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="section-5.-introduction-to-functions.html"><a href="section-5.-introduction-to-functions.html#what-is-a-function"><i class="fa fa-check"></i><b>6.1</b> What is a function?</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="section-5.-introduction-to-functions.html"><a href="section-5.-introduction-to-functions.html#built-in-r-functions"><i class="fa fa-check"></i><b>6.1.1</b> Built-in R functions</a></li>
+<li class="chapter" data-level="6.1.2" data-path="section-5.-introduction-to-functions.html"><a href="section-5.-introduction-to-functions.html#functions-defined-in-r-packages"><i class="fa fa-check"></i><b>6.1.2</b> Functions defined in R packages</a></li>
+<li class="chapter" data-level="6.1.3" data-path="section-5.-introduction-to-functions.html"><a href="section-5.-introduction-to-functions.html#user-defined-functions"><i class="fa fa-check"></i><b>6.1.3</b> User-defined functions</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="section-5.-introduction-to-functions.html"><a href="section-5.-introduction-to-functions.html#writing-your-own-functions"><i class="fa fa-check"></i><b>6.2</b> Writing your own functions</a></li>
+<li class="chapter" data-level="6.3" data-path="section-5.-introduction-to-functions.html"><a href="section-5.-introduction-to-functions.html#arguments-of-a-function"><i class="fa fa-check"></i><b>6.3</b> Arguments of a function</a></li>
+<li class="chapter" data-level="6.4" data-path="section-5.-introduction-to-functions.html"><a href="section-5.-introduction-to-functions.html#matching-arguments"><i class="fa fa-check"></i><b>6.4</b> Matching Arguments</a></li>
+<li class="chapter" data-level="6.5" data-path="section-5.-introduction-to-functions.html"><a href="section-5.-introduction-to-functions.html#output-of-a-function"><i class="fa fa-check"></i><b>6.5</b> Output of a Function</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="section-5.-introduction-to-functions.html"><a href="section-5.-introduction-to-functions.html#examples-of-functions"><i class="fa fa-check"></i><b>6.5.1</b> Examples of functions</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="section-5.-introduction-to-functions.html"><a href="section-5.-introduction-to-functions.html#basic-r-programming"><i class="fa fa-check"></i><b>6.6</b> Basic R Programming</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="section-5.-introduction-to-functions.html"><a href="section-5.-introduction-to-functions.html#conditionals"><i class="fa fa-check"></i><b>6.6.1</b> Conditionals</a></li>
+<li class="chapter" data-level="6.6.2" data-path="section-5.-introduction-to-functions.html"><a href="section-5.-introduction-to-functions.html#loops"><i class="fa fa-check"></i><b>6.6.2</b> Loops</a></li>
+<li class="chapter" data-level="6.6.3" data-path="section-5.-introduction-to-functions.html"><a href="section-5.-introduction-to-functions.html#useful-functions-to-avoid-loops"><i class="fa fa-check"></i><b>6.6.3</b> Useful functions to avoid loops</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="section-5.-introduction-to-functions.html"><a href="section-5.-introduction-to-functions.html#references"><i class="fa fa-check"></i><b>6.7</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="section-6.-tips-for-efficient-programming.html"><a href="section-6.-tips-for-efficient-programming.html"><i class="fa fa-check"></i><b>7</b> SECTION 6. Tips for efficient programming</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="section-6.-tips-for-efficient-programming.html"><a href="section-6.-tips-for-efficient-programming.html#top-tips-for-efficient-programming"><i class="fa fa-check"></i><b>7.1</b> Top tips for efficient programming</a></li>
+<li class="chapter" data-level="7.2" data-path="section-6.-tips-for-efficient-programming.html"><a href="section-6.-tips-for-efficient-programming.html#optimizing-functions-calls"><i class="fa fa-check"></i><b>7.2</b> Optimizing functions calls</a></li>
+<li class="chapter" data-level="7.3" data-path="section-6.-tips-for-efficient-programming.html"><a href="section-6.-tips-for-efficient-programming.html#memory-allocation"><i class="fa fa-check"></i><b>7.3</b> Memory allocation</a></li>
+<li class="chapter" data-level="7.4" data-path="section-6.-tips-for-efficient-programming.html"><a href="section-6.-tips-for-efficient-programming.html#embrace-rs-vectorized-paradigm"><i class="fa fa-check"></i><b>7.4</b> Embrace R’s vectorized paradigm</a></li>
+<li class="chapter" data-level="7.5" data-path="section-6.-tips-for-efficient-programming.html"><a href="section-6.-tips-for-efficient-programming.html#efficient-functions-do-as-little-as-possible"><i class="fa fa-check"></i><b>7.5</b> Efficient functions: Do as little as possible</a></li>
+<li class="chapter" data-level="7.6" data-path="section-6.-tips-for-efficient-programming.html"><a href="section-6.-tips-for-efficient-programming.html#references-1"><i class="fa fa-check"></i><b>7.6</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="section-7.-introduction-to-object-oriented-programming-oop.html"><a href="section-7.-introduction-to-object-oriented-programming-oop.html"><i class="fa fa-check"></i><b>8</b> SECTION 7. Introduction to Object-oriented Programming (OOP)</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="section-7.-introduction-to-object-oriented-programming-oop.html"><a href="section-7.-introduction-to-object-oriented-programming-oop.html#object-and-class-in-r"><i class="fa fa-check"></i><b>8.1</b> Object and Class in R</a></li>
+<li class="chapter" data-level="8.2" data-path="section-7.-introduction-to-object-oriented-programming-oop.html"><a href="section-7.-introduction-to-object-oriented-programming-oop.html#s3-classes"><i class="fa fa-check"></i><b>8.2</b> S3 Classes</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="section-7.-introduction-to-object-oriented-programming-oop.html"><a href="section-7.-introduction-to-object-oriented-programming-oop.html#methods-and-generic-functions-in-s3-classes"><i class="fa fa-check"></i><b>8.2.1</b> Methods and Generic Functions in S3 classes:</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="section-7.-introduction-to-object-oriented-programming-oop.html"><a href="section-7.-introduction-to-object-oriented-programming-oop.html#s4-classes"><i class="fa fa-check"></i><b>8.3</b> S4 classes</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="section-7.-introduction-to-object-oriented-programming-oop.html"><a href="section-7.-introduction-to-object-oriented-programming-oop.html#methods-and-generic-functions-in-s4-classes"><i class="fa fa-check"></i><b>8.3.1</b> Methods and Generic Functions in S4 classes:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html"><i class="fa fa-check"></i><b>9</b> SECTION 8. Dynamic Reports</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#what-is-latex"><i class="fa fa-check"></i><b>9.1</b> What is LATEX?</a></li>
+<li class="chapter" data-level="9.2" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#what-is-sweave"><i class="fa fa-check"></i><b>9.2</b> What is Sweave?</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#how-to-install-sweave"><i class="fa fa-check"></i><b>9.2.1</b> How to install Sweave</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#basic-options-for-code-chunks"><i class="fa fa-check"></i><b>9.3</b> Basic options for code chunks</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#for-costly-computations-cachesweave-package"><i class="fa fa-check"></i><b>9.3.1</b> For costly computations: <code>cacheSweave</code> package</a></li>
+<li class="chapter" data-level="9.3.2" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#example"><i class="fa fa-check"></i><b>9.3.2</b> Example</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#the-beamer-class-latex-presentations"><i class="fa fa-check"></i><b>9.4</b> The Beamer class: LATEX presentations</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#table-of-contents"><i class="fa fa-check"></i><b>9.4.1</b> Table of Contents</a></li>
+<li class="chapter" data-level="9.4.2" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#sections-and-subsections"><i class="fa fa-check"></i><b>9.4.2</b> Sections and Subsections</a></li>
+<li class="chapter" data-level="9.4.3" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#frames-and-structures"><i class="fa fa-check"></i><b>9.4.3</b> Frames and structures:</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#knitr-package"><i class="fa fa-check"></i><b>9.5</b> <code>Knitr</code> package</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#knitr-main-outputs"><i class="fa fa-check"></i><b>9.5.1</b> <code>Knitr</code> main outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#r-markdown"><i class="fa fa-check"></i><b>9.6</b> R Markdown</a>
+<ul>
+<li class="chapter" data-level="9.6.1" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#installation"><i class="fa fa-check"></i><b>9.6.1</b> Installation</a></li>
+<li class="chapter" data-level="9.6.2" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#output-formats"><i class="fa fa-check"></i><b>9.6.2</b> Output Formats</a></li>
+<li class="chapter" data-level="9.6.3" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#output-format-functions"><i class="fa fa-check"></i><b>9.6.3</b> Output Format Functions</a></li>
+<li class="chapter" data-level="9.6.4" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#chunk-options"><i class="fa fa-check"></i><b>9.6.4</b> Chunk Options</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#shiny"><i class="fa fa-check"></i><b>9.7</b> Shiny</a></li>
+<li class="chapter" data-level="9.8" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#quarto"><i class="fa fa-check"></i><b>9.8</b> Quarto</a></li>
+<li class="chapter" data-level="9.9" data-path="section-8.-dynamic-reports.html"><a href="section-8.-dynamic-reports.html#available-templates-for-each-block"><i class="fa fa-check"></i><b>9.9</b> Available templates for each block</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html"><i class="fa fa-check"></i><b>10</b> SECTION 9. Data managment using the dplyr package</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#the-filter-function-and-the-use-of-comparison-operators"><i class="fa fa-check"></i><b>10.1</b> The <code>filter()</code> function and the use of comparison operators</a></li>
+<li class="chapter" data-level="10.2" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#sorting-with-arrange"><i class="fa fa-check"></i><b>10.2</b> Sorting with <code>arrange()</code></a></li>
+<li class="chapter" data-level="10.3" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#accessing-rows-with-slice"><i class="fa fa-check"></i><b>10.3</b> Accessing rows with <code>slice()</code></a></li>
+<li class="chapter" data-level="10.4" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#picking-columns-out-with-select"><i class="fa fa-check"></i><b>10.4</b> Picking columns out with <code>select()</code></a></li>
+<li class="chapter" data-level="10.5" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#change-names-with-rename"><i class="fa fa-check"></i><b>10.5</b> Change names with <code>rename()</code></a></li>
+<li class="chapter" data-level="10.6" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#transforming-pre-existing-columns-or-creating-new-ones-with-mutate"><i class="fa fa-check"></i><b>10.6</b> Transforming pre-existing columns or creating new ones with <code>mutate()</code></a></li>
+<li class="chapter" data-level="10.7" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#to-sum-upgroup_by-summarise"><i class="fa fa-check"></i><b>10.7</b> To sum up…<code>group_by()</code> + <code>summarise()</code></a></li>
+<li class="chapter" data-level="10.8" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#data-reshaping-and-cleaning-using-the-tidyr-package"><i class="fa fa-check"></i><b>10.8</b> Data reshaping and cleaning using the tidyr package</a>
+<ul>
+<li class="chapter" data-level="10.8.1" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#transforming-wide-to-long-format-with-pivot_longer"><i class="fa fa-check"></i><b>10.8.1</b> Transforming wide to long format with <code>pivot_longer()</code>:</a></li>
+<li class="chapter" data-level="10.8.2" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#transforming-long-to-wide-format-with-pivot_wider"><i class="fa fa-check"></i><b>10.8.2</b> Transforming long to wide format with <code>pivot_wider()</code>:</a></li>
+<li class="chapter" data-level="10.8.3" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#handling-missing-values-with-replace_na"><i class="fa fa-check"></i><b>10.8.3</b> Handling missing values with <code>replace_na()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="10.9" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#gt-and-gtsummary-packages"><i class="fa fa-check"></i><b>10.9</b> Gt and gtsummary packages</a>
+<ul>
+<li class="chapter" data-level="10.9.1" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#basic-summary-table-with-tbl_summary"><i class="fa fa-check"></i><b>10.9.1</b> Basic Summary Table with <code>tbl_summary()</code></a></li>
+<li class="chapter" data-level="10.9.2" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#adding-statistical-tests-with-add_p"><i class="fa fa-check"></i><b>10.9.2</b> Adding statistical tests with <code>add_p()</code></a></li>
+<li class="chapter" data-level="10.9.3" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#stratified-tables-with-tbl_strata"><i class="fa fa-check"></i><b>10.9.3</b> Stratified Tables with <code>tbl_strata()</code></a></li>
+<li class="chapter" data-level="10.9.4" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#creating-cross-tables-with-tbl_cross"><i class="fa fa-check"></i><b>10.9.4</b> Creating Cross Tables with <code>tbl_cross()</code></a></li>
+<li class="chapter" data-level="10.9.5" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#regression-table-with-tbl_regression"><i class="fa fa-check"></i><b>10.9.5</b> Regression table with <code>tbl_regression()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="10.10" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#exercises-1"><i class="fa fa-check"></i><b>10.10</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="10.10.1" data-path="section-9.-data-managment-using-the-dplyr-package.html"><a href="section-9.-data-managment-using-the-dplyr-package.html#extra-exercises"><i class="fa fa-check"></i><b>10.10.1</b> Extra exercises</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html"><i class="fa fa-check"></i><b>11</b> SECTION 10. Advanced Data Visualization: ggplot2 package</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#why-ggplot2"><i class="fa fa-check"></i><b>11.1</b> Why ggplot2?</a></li>
+<li class="chapter" data-level="11.2" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#installation-1"><i class="fa fa-check"></i><b>11.2</b> Installation</a></li>
+<li class="chapter" data-level="11.3" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#usage"><i class="fa fa-check"></i><b>11.3</b> Usage</a></li>
+<li class="chapter" data-level="11.4" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#geometric-objects-and-aesthetics"><i class="fa fa-check"></i><b>11.4</b> Geometric Objects And Aesthetics</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#aesthetic-mapping"><i class="fa fa-check"></i><b>11.4.1</b> Aesthetic Mapping</a></li>
+<li class="chapter" data-level="11.4.2" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#geometic-objects-geom"><i class="fa fa-check"></i><b>11.4.2</b> Geometic Objects (geom)</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#examples"><i class="fa fa-check"></i><b>11.5</b> Examples</a>
+<ul>
+<li class="chapter" data-level="11.5.1" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#categorical-variables"><i class="fa fa-check"></i><b>11.5.1</b> Categorical Variables</a></li>
+<li class="chapter" data-level="11.5.2" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#quantitative-variables"><i class="fa fa-check"></i><b>11.5.2</b> Quantitative Variables</a></li>
+<li class="chapter" data-level="11.5.3" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#more-advanced-code-customizing-your-plots"><i class="fa fa-check"></i><b>11.5.3</b> More advanced code: customizing your plots</a></li>
+<li class="chapter" data-level="11.5.4" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#saving-plots"><i class="fa fa-check"></i><b>11.5.4</b> Saving plots</a></li>
+</ul></li>
+<li class="chapter" data-level="11.6" data-path="section-10.-advanced-data-visualization-ggplot2-package.html"><a href="section-10.-advanced-data-visualization-ggplot2-package.html#exercises-create-new-plots-for-genetic-data-visualization-using-the-snpdataset.txt-dataset.-create-a-report-in-.html-format-and-display-and-describe-each-one-of-the-plots."><i class="fa fa-check"></i><b>11.6</b> Exercises: Create new plots for genetic data visualization using the <code>SNPdataset.txt</code> dataset. Create a report in .html format and display and describe each one of the plots.</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html"><i class="fa fa-check"></i><b>12</b> SECTION 11. Advanced Data Visualization: Extra Part</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#useful-plots-for-omics-data-analysis"><i class="fa fa-check"></i><b>12.1</b> Useful plots for Omics Data Analysis</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#heatmap"><i class="fa fa-check"></i><b>12.1.1</b> Heatmap</a></li>
+<li class="chapter" data-level="12.1.2" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#venn-diagram"><i class="fa fa-check"></i><b>12.1.2</b> Venn Diagram</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#other-resources-in-r"><i class="fa fa-check"></i><b>12.2</b> Other resources in R</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#advanced-visualizations-with-ggpubr"><i class="fa fa-check"></i><b>12.2.1</b> Advanced visualizations with ggpubr</a></li>
+<li class="chapter" data-level="12.2.2" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#dynamic-plots-with-gganimate"><i class="fa fa-check"></i><b>12.2.2</b> Dynamic plots with gganimate</a></li>
+<li class="chapter" data-level="12.2.3" data-path="section-11.-advanced-data-visualization-extra-part.html"><a href="section-11.-advanced-data-visualization-extra-part.html#interactive-interfaces-for-creating-plots"><i class="fa fa-check"></i><b>12.2.3</b> Interactive interfaces for creating plots</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html"><i class="fa fa-check"></i><b>13</b> SECTION 12. Introduction to Shiny</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#writing-a-shiny-application-in-r"><i class="fa fa-check"></i><b>13.1</b> Writing a Shiny Application in R</a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#ui-layout"><i class="fa fa-check"></i><b>13.1.1</b> UI Layout</a></li>
+<li class="chapter" data-level="13.1.2" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#server-logic"><i class="fa fa-check"></i><b>13.1.2</b> Server Logic</a></li>
+<li class="chapter" data-level="13.1.3" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#examples-1"><i class="fa fa-check"></i><b>13.1.3</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#elements-for-a-shiny-app"><i class="fa fa-check"></i><b>13.2</b> Elements for a Shiny App</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#ui-components"><i class="fa fa-check"></i><b>13.2.1</b> UI Components</a></li>
+<li class="chapter" data-level="13.2.2" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#server-function"><i class="fa fa-check"></i><b>13.2.2</b> Server function</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#working-with-shinydashboard"><i class="fa fa-check"></i><b>13.3</b> Working with ShinyDashboard</a></li>
+<li class="chapter" data-level="13.4" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#deploying-the-application-to-shinyapps.io"><i class="fa fa-check"></i><b>13.4</b> Deploying the Application to Shinyapps.io</a></li>
+<li class="chapter" data-level="13.5" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#take-home"><i class="fa fa-check"></i><b>13.5</b> Take home</a></li>
+<li class="chapter" data-level="13.6" data-path="section-12.-introduction-to-shiny.html"><a href="section-12.-introduction-to-shiny.html#final-task"><i class="fa fa-check"></i><b>13.6</b> Final Task</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="section-4.-basic-plots" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">5</span> SECTION 4. Basic Plots<a href="section-4.-basic-plots.html#section-4.-basic-plots" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><strong>Generation of random data for the examples</strong></p>
+<p>We generate a vector x of 15 values from a normal random distribution with mean=0 and standard deviation=1 and a vector y of 15 values from a normal random distribution with mean=0.2 and standard deviation=1:</p>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="section-4.-basic-plots.html#cb272-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb272-2"><a href="section-4.-basic-plots.html#cb272-2" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">rnorm</span>(<span class="dv">15</span>,<span class="dv">0</span>,<span class="dv">1</span>)</span>
+<span id="cb272-3"><a href="section-4.-basic-plots.html#cb272-3" tabindex="-1"></a>i<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>)</span>
+<span id="cb272-4"><a href="section-4.-basic-plots.html#cb272-4" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">4</span>)</span>
+<span id="cb272-5"><a href="section-4.-basic-plots.html#cb272-5" tabindex="-1"></a>y<span class="ot">&lt;-</span><span class="fu">rnorm</span>(<span class="dv">15</span>,<span class="fl">0.2</span>,<span class="dv">1</span>)</span></code></pre></div>
+<div id="line-charts" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Line charts<a href="section-4.-basic-plots.html#line-charts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>They are particularly valuable for depicting trends over time or sequences of data points. In this example, we are plotting a single numerical vector, “x” which contains 15 data points. The x-axis of the line chart displays an index for each of these 15 data points in the “x” vector.</p>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="section-4.-basic-plots.html#cb273-1" tabindex="-1"></a><span class="fu">length</span>(x)</span></code></pre></div>
+<pre><code>## [1] 15</code></pre>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="section-4.-basic-plots.html#cb275-1" tabindex="-1"></a><span class="fu">plot</span>(x)  <span class="co">#plots the values of x (vertical axis) as a function of the index of each value (horizontal axis)</span></span></code></pre></div>
+<p><img src="05-BasicPlots_2024BRodriguez_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<div id="key-characteristics" class="section level3 hasAnchor" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> Key Characteristics:<a href="section-4.-basic-plots.html#key-characteristics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li><strong>Data type:</strong> Line charts are suitable for visualizing <strong>one-dimensional numerical data</strong>.</li>
+<li><strong>x-Axis:</strong> In a line chart, the x-axis typically represents the index or sequence of data points, especially when plotting a single vector.</li>
+<li><strong>Y-Axis:</strong> The y-axis represents the values of the numerical variable being plotted.</li>
+</ol>
+</div>
+<div id="use-cases" class="section level3 hasAnchor" number="5.1.2">
+<h3><span class="header-section-number">5.1.2</span> Use Cases:<a href="section-4.-basic-plots.html#use-cases" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><strong>Sequential Data:</strong> They are well-suited for visualizing sequences of data points or events.</li>
+<li><strong>Trend Analysis:</strong> Line charts are excellent for identifying trends or patterns in data, such as changes over time (e.g., observe the trend of monthly blood pressure measurements for 1 year)</li>
+</ul>
+</div>
+<div id="customization-options" class="section level3 hasAnchor" number="5.1.3">
+<h3><span class="header-section-number">5.1.3</span> Customization Options:<a href="section-4.-basic-plots.html#customization-options" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p><code>col</code> (color): You can specify the colour of the points or lines in the chart.</p></li>
+<li><p><code>pch</code> (point character): This option lets you choose the symbol or marker for data points.</p></li>
+<li><p><code>main</code> (main title): You can add a title to the plot using the main parameter within the plot() function.</p></li>
+<li><p><code>type</code> (line type): You can control whether lines are drawn between points, or if only points are plotted.</p></li>
+<li><p><code>xlab</code> (x-axis label): Customize the label for the x-axis.</p></li>
+<li><p><code>ylab</code> (y-axis label): Customize the label for the y-axis.</p></li>
+<li><p><code>xlim</code> and <code>ylim</code> (axis limits): Define the range of values displayed on the x and y axes, respectively.</p></li>
+</ul>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="section-4.-basic-plots.html#cb276-1" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="at">col =</span> <span class="dv">3</span>, <span class="at">type=</span><span class="st">&quot;o&quot;</span>, <span class="at">pch=</span> <span class="dv">3</span>,<span class="at">xlab=</span><span class="st">&quot;This is the x label&quot;</span>,<span class="at">ylab=</span><span class="st">&quot;This is the y label&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Title of the plot&quot;</span>)  </span></code></pre></div>
+<p><img src="05-BasicPlots_2024BRodriguez_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>The <code>points()</code> function allows to introduce supplementary data points to an existent plot. This functionality is especially handy when you wish to expand upon an already-created graph, incorporating additional information without recreating the entire plot.</p>
+<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="section-4.-basic-plots.html#cb277-1" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="at">type=</span><span class="st">&quot;o&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;&quot;</span>,<span class="at">ylim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="fl">1.5</span>,<span class="fl">2.5</span>)) </span>
+<span id="cb277-2"><a href="section-4.-basic-plots.html#cb277-2" tabindex="-1"></a><span class="fu">points</span>(y, <span class="at">col=</span><span class="dv">2</span>)     </span></code></pre></div>
+<p><img src="05-BasicPlots_2024BRodriguez_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>The <code>lines()</code> function allows you to incorporate additional data points and connecting them with lines. This function is particularly useful when you have multiple datasets or want to illustrate the relationship between different several one-dimensional numerical variables within the same plot.</p>
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="section-4.-basic-plots.html#cb278-1" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="at">type=</span><span class="st">&quot;o&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;&quot;</span>,<span class="at">ylim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="fl">1.5</span>,<span class="fl">2.5</span>)) </span>
+<span id="cb278-2"><a href="section-4.-basic-plots.html#cb278-2" tabindex="-1"></a><span class="fu">lines</span>(y, <span class="at">type=</span><span class="st">&quot;o&quot;</span>, <span class="at">col=</span><span class="dv">2</span>)</span></code></pre></div>
+<p><img src="05-BasicPlots_2024BRodriguez_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>The <code>range</code> function in the context of plotting is a convenient tool for automatically determining the minimum and maximum values among two datasets, denoted as ‘x’ and ‘y’. This function eliminates the need for manual inspection to identify the extreme values on both the x and y-axes, ensuring that your plot is appropriately scaled for optimal visualization.</p>
+<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="section-4.-basic-plots.html#cb279-1" tabindex="-1"></a><span class="fu">range</span>(x,y)</span></code></pre></div>
+<pre><code>## [1] -1.265061  2.096540</code></pre>
+<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="section-4.-basic-plots.html#cb281-1" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="at">type=</span><span class="st">&quot;o&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;&quot;</span>, <span class="at">ylim=</span><span class="fu">range</span>(x,y))</span>
+<span id="cb281-2"><a href="section-4.-basic-plots.html#cb281-2" tabindex="-1"></a><span class="fu">lines</span>(y, <span class="at">type=</span><span class="st">&quot;o&quot;</span>, <span class="at">col=</span><span class="dv">2</span>)</span></code></pre></div>
+<p><img src="05-BasicPlots_2024BRodriguez_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+</div>
+</div>
+<div id="dot-plot" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Dot plot<a href="section-4.-basic-plots.html#dot-plot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Dot plots, generated using the <code>dotchart()</code> function, are a valuable tool for visualizing the distribution and ranking of numerical data. These plots resemble line charts, but with a key distinction: in dot plots, the numerical variable’s values are plotted along the horizontal axis, while the vertical axis is used to represent data points’ indices.</p>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="section-4.-basic-plots.html#cb282-1" tabindex="-1"></a><span class="fu">dotchart</span>(x, <span class="at">labels=</span>i)  </span></code></pre></div>
+<p><img src="05-BasicPlots_2024BRodriguez_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<div id="key-characteristics-1" class="section level3 hasAnchor" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> Key characteristics<a href="section-4.-basic-plots.html#key-characteristics-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li><strong>Data type</strong> Dot plots are primarily used for visualizing a single numerical variable (commonly referred to as ‘x’).</li>
+<li><strong>X-Axis:</strong> The values of the numerical variable (‘x’) are plotted along the horizontal axis, making it easy to compare the magnitudes of data points.</li>
+<li><strong>Vertical Axis:</strong> The vertical axis represents data point indices or labels, aiding in identifying individual data points.</li>
+</ol>
+</div>
+<div id="use-cases-1" class="section level3 hasAnchor" number="5.2.2">
+<h3><span class="header-section-number">5.2.2</span> Use cases<a href="section-4.-basic-plots.html#use-cases-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>They are well-suited for displaying the distribution of data and ranking data points based on their values.</p>
+<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="section-4.-basic-plots.html#cb283-1" tabindex="-1"></a><span class="fu">dotchart</span>(x[<span class="fu">order</span>(x)], <span class="at">labels=</span><span class="fu">order</span>(x))  </span></code></pre></div>
+<p><img src="05-BasicPlots_2024BRodriguez_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+</div>
+</div>
+<div id="bar-charts" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Bar charts<a href="section-4.-basic-plots.html#bar-charts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Bar charts are used to visualize <strong>categorical or discrete data</strong>. They are suitable for representing data with distinct categories or groups, such as types of gene expression levels by tissue types (i.e., liver, heart, brain) or protein abundance levels by experimental conditions (i.e., control, treatment A, treatment B). In R, we use the <code>barplot()</code> function to create bar charts:</p>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="section-4.-basic-plots.html#cb284-1" tabindex="-1"></a>group <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>)</span>
+<span id="cb284-2"><a href="section-4.-basic-plots.html#cb284-2" tabindex="-1"></a>count <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">50</span>, <span class="dv">30</span>)</span>
+<span id="cb284-3"><a href="section-4.-basic-plots.html#cb284-3" tabindex="-1"></a><span class="fu">barplot</span>(<span class="at">height =</span> count, <span class="at">names.arg =</span>group,<span class="at">density =</span> <span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">30</span>,<span class="dv">70</span>), <span class="at">border =</span> <span class="dv">3</span>)</span></code></pre></div>
+<p><img src="05-BasicPlots_2024BRodriguez_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p>In this example, each group (i.e., A, B, C) is represented by a separate bar, and the height of each bar represents the count associated with that group. Notice that the bars are distinct and separate, with gaps between them.</p>
+<div id="key-characteristics-2" class="section level3 hasAnchor" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> Key characteristics<a href="section-4.-basic-plots.html#key-characteristics-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Bar charts are used to <strong>compare values between different categories or groups</strong>. They help identify trends, differences, or rankings among categories.</li>
+<li>In the x-axis, each category or group is represented by a separate bar. Each bar corresponds to a unique category, making it easy to compare values across different categories.</li>
+<li>The length or height of each bar represent the specific value or count associated to each category.</li>
+</ul>
+</div>
+<div id="customization" class="section level3 hasAnchor" number="5.3.2">
+<h3><span class="header-section-number">5.3.2</span> Customization<a href="section-4.-basic-plots.html#customization" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Customization arguments are similar to those explained in the line chart section. For more information, explore the help page in R.</p>
+<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="section-4.-basic-plots.html#cb285-1" tabindex="-1"></a>  ??graphics<span class="sc">::</span>barplot</span></code></pre></div>
+</div>
+<div id="multiple-bar-plots" class="section level3 hasAnchor" number="5.3.3">
+<h3><span class="header-section-number">5.3.3</span> Multiple bar plots<a href="section-4.-basic-plots.html#multiple-bar-plots" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Bar plots are also useful to visualized counts across several groups and sub-groups. Let’s create a dataset containing gene expression data for two genes (Gene A and Gene B) measured in three different experimental conditions (Control, Treatment A, Treatment B).</p>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="section-4.-basic-plots.html#cb286-1" tabindex="-1"></a><span class="co"># Create a matrix of expression data</span></span>
+<span id="cb286-2"><a href="section-4.-basic-plots.html#cb286-2" tabindex="-1"></a>genes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Gene A&quot;</span>, <span class="st">&quot;Gene B&quot;</span>)</span>
+<span id="cb286-3"><a href="section-4.-basic-plots.html#cb286-3" tabindex="-1"></a>conditions <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Control&quot;</span>, <span class="st">&quot;Treatment A&quot;</span>, <span class="st">&quot;Treatment B&quot;</span>)</span>
+<span id="cb286-4"><a href="section-4.-basic-plots.html#cb286-4" tabindex="-1"></a>expression_matrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(</span>
+<span id="cb286-5"><a href="section-4.-basic-plots.html#cb286-5" tabindex="-1"></a>  <span class="fu">c</span>(</span>
+<span id="cb286-6"><a href="section-4.-basic-plots.html#cb286-6" tabindex="-1"></a>    <span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">22</span>,</span>
+<span id="cb286-7"><a href="section-4.-basic-plots.html#cb286-7" tabindex="-1"></a>    <span class="dv">15</span>, <span class="dv">18</span>, <span class="dv">28</span></span>
+<span id="cb286-8"><a href="section-4.-basic-plots.html#cb286-8" tabindex="-1"></a>  ),</span>
+<span id="cb286-9"><a href="section-4.-basic-plots.html#cb286-9" tabindex="-1"></a>  <span class="at">nrow =</span> <span class="fu">length</span>(genes),</span>
+<span id="cb286-10"><a href="section-4.-basic-plots.html#cb286-10" tabindex="-1"></a>  <span class="at">ncol =</span> <span class="fu">length</span>(conditions),</span>
+<span id="cb286-11"><a href="section-4.-basic-plots.html#cb286-11" tabindex="-1"></a>  <span class="at">byrow =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb286-12"><a href="section-4.-basic-plots.html#cb286-12" tabindex="-1"></a>  <span class="at">dimnames =</span> <span class="fu">list</span>(genes, conditions)</span>
+<span id="cb286-13"><a href="section-4.-basic-plots.html#cb286-13" tabindex="-1"></a>)</span>
+<span id="cb286-14"><a href="section-4.-basic-plots.html#cb286-14" tabindex="-1"></a></span>
+<span id="cb286-15"><a href="section-4.-basic-plots.html#cb286-15" tabindex="-1"></a><span class="co"># Display the expression matrix</span></span>
+<span id="cb286-16"><a href="section-4.-basic-plots.html#cb286-16" tabindex="-1"></a>expression_matrix</span></code></pre></div>
+<pre><code>##        Control Treatment A Treatment B
+## Gene A      25          30          22
+## Gene B      15          18          28</code></pre>
+<p>With this data, you can create a bar chart to visualize how the expression levels of these two genes vary across the three different experimental conditions.</p>
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="section-4.-basic-plots.html#cb288-1" tabindex="-1"></a><span class="fu">barplot</span>(expression_matrix, <span class="at">col=</span><span class="fu">c</span>(<span class="st">&quot;slateblue3&quot;</span>,<span class="st">&quot;orchid1&quot;</span>),</span>
+<span id="cb288-2"><a href="section-4.-basic-plots.html#cb288-2" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;Gene Expression Levels by Condition&quot;</span>,</span>
+<span id="cb288-3"><a href="section-4.-basic-plots.html#cb288-3" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Expression Level&quot;</span>, </span>
+<span id="cb288-4"><a href="section-4.-basic-plots.html#cb288-4" tabindex="-1"></a>        <span class="at">legend.text =</span> <span class="cn">TRUE</span>, <span class="at">args.legend =</span> <span class="fu">list</span>(<span class="at">x =</span> <span class="st">&quot;topright&quot;</span>))</span></code></pre></div>
+<p><img src="05-BasicPlots_2024BRodriguez_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p>You can use the argument <code>beside = T</code> to have a clearer representation of the expression level for each gene under each specific condition.</p>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="section-4.-basic-plots.html#cb289-1" tabindex="-1"></a><span class="fu">barplot</span>(expression_matrix, <span class="at">beside =</span> <span class="cn">TRUE</span>, <span class="at">col=</span><span class="fu">c</span>(<span class="st">&quot;slateblue3&quot;</span>,<span class="st">&quot;orchid1&quot;</span>),</span>
+<span id="cb289-2"><a href="section-4.-basic-plots.html#cb289-2" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;Gene Expression Levels by Condition&quot;</span>,</span>
+<span id="cb289-3"><a href="section-4.-basic-plots.html#cb289-3" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Expression Level&quot;</span>, <span class="at">ylim=</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">45</span>),</span>
+<span id="cb289-4"><a href="section-4.-basic-plots.html#cb289-4" tabindex="-1"></a>        <span class="at">legend.text =</span> <span class="cn">TRUE</span>, <span class="at">args.legend =</span> <span class="fu">list</span>( <span class="at">x=</span> <span class="dv">9</span>,<span class="at">y=</span><span class="dv">43</span>))</span></code></pre></div>
+<p><img src="05-BasicPlots_2024BRodriguez_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+</div>
+</div>
+<div id="histograms" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> Histograms<a href="section-4.-basic-plots.html#histograms" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Histograms are used in statistics and data analysis to visualize the distribution of <strong>continuous or numerical discrete data</strong>. They provide a way to understand the underlying patterns and characteristics of a dataset. In R, we use <code>hist()</code> for creating histograms:</p>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="section-4.-basic-plots.html#cb290-1" tabindex="-1"></a><span class="fu">hist</span>(x, <span class="at">col =</span> <span class="dv">5</span>)  </span></code></pre></div>
+<p><img src="05-BasicPlots_2024BRodriguez_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p>This basic function generates a histogram for the numeric vector x. By default, it includes a title and x-axis label based on the variable name. We can also represent the distribution of a vector of discrete data “z”.</p>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="section-4.-basic-plots.html#cb291-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">321</span>)</span>
+<span id="cb291-2"><a href="section-4.-basic-plots.html#cb291-2" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">rpois</span>(<span class="dv">1000</span>,<span class="dv">5</span>)</span>
+<span id="cb291-3"><a href="section-4.-basic-plots.html#cb291-3" tabindex="-1"></a><span class="fu">table</span>(z)</span></code></pre></div>
+<pre><code>## z
+##   0   1   2   3   4   5   6   7   8   9  10  11  12  13  14 
+##   6  21  84 155 170 157 157 102  70  44  19   8   4   2   1</code></pre>
+<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb293-1"><a href="section-4.-basic-plots.html#cb293-1" tabindex="-1"></a><span class="fu">hist</span>(z, <span class="at">col =</span> <span class="st">&quot;royalblue1&quot;</span>,)</span></code></pre></div>
+<p><img src="05-BasicPlots_2024BRodriguez_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<div id="key-characteristics-3" class="section level3 hasAnchor" number="5.4.1">
+<h3><span class="header-section-number">5.4.1</span> Key characteristics<a href="section-4.-basic-plots.html#key-characteristics-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Histograms display the <strong>distribution</strong> of a continuous or discrete numerical variable. This variable is typically plotted on the horizontal (x) axis.</li>
+<li>The range of values of the numerical variable is divided into intervals or bins. Each bin represents a specific range of values.</li>
+<li>For each bin, the height of the bar represents the frequency or count of data points that fall into that bin. In other words, it shows how many data points belong to each interval.</li>
+<li>For continuous data, bins are usually contiguous intervals along the numerical range (e.g., age intervals such as 0-10, 10-20, etc.).
+For discrete data, each unique value is treated as a separate bin.</li>
+</ul>
+</div>
+<div id="customization-1" class="section level3 hasAnchor" number="5.4.2">
+<h3><span class="header-section-number">5.4.2</span> Customization<a href="section-4.-basic-plots.html#customization-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Customization arguments are similar to those explained in the line chart section. For more information, explore the help page in R.</p>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="section-4.-basic-plots.html#cb294-1" tabindex="-1"></a>??graphics<span class="sc">::</span>hist</span></code></pre></div>
+</div>
+</div>
+<div id="boxplot" class="section level2 hasAnchor" number="5.5">
+<h2><span class="header-section-number">5.5</span> Boxplot<a href="section-4.-basic-plots.html#boxplot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Boxplots, also known as box-and-whisker plots, are used to visualize the <strong>distribution</strong> of data and identify potential outliers. They display the median, quartiles, and possible outliers of a dataset. In R, we use the<code>boxplot()</code> function:</p>
+<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb295-1"><a href="section-4.-basic-plots.html#cb295-1" tabindex="-1"></a><span class="fu">boxplot</span>(x)</span>
+<span id="cb295-2"><a href="section-4.-basic-plots.html#cb295-2" tabindex="-1"></a><span class="fu">title</span>(<span class="st">&quot;boxplot of x&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;x&quot;</span>) </span></code></pre></div>
+<p><img src="05-BasicPlots_2024BRodriguez_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<div id="key-characteristics-4" class="section level3 hasAnchor" number="5.5.1">
+<h3><span class="header-section-number">5.5.1</span> Key characteristics<a href="section-4.-basic-plots.html#key-characteristics-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li><p><strong>Univariate Representation:</strong> Box plots are designed to visualize a single numerical variable (‘x’) at a time.</p></li>
+<li><p><strong>Summary Statistics:</strong> They provide a summary of the distribution of data, including the median, quartiles, and potential outliers.</p></li>
+<li><p><strong>Visualizing Spread:</strong> The box in the plot represents the interquartile range (IQR), while the “whiskers” extend to the data’s range. Outliers are typically marked individually.</p></li>
+</ol>
+</div>
+<div id="use-cases-2" class="section level3 hasAnchor" number="5.5.2">
+<h3><span class="header-section-number">5.5.2</span> Use cases<a href="section-4.-basic-plots.html#use-cases-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><strong>Distribution summary:</strong> summarize central tendency, variability, identify outliers</li>
+<li><strong>Comparing groups:</strong> compare the distribution of a numerical variable across different groups.</li>
+<li><strong>Spotting Skewness:</strong> a skewed distribution will have a longer tail on one side.</li>
+</ul>
+</div>
+<div id="customization-options-1" class="section level3 hasAnchor" number="5.5.3">
+<h3><span class="header-section-number">5.5.3</span> Customization options<a href="section-4.-basic-plots.html#customization-options-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><code>horizontal</code>: If <code>TRUE</code>, creates horizontal boxplots.</li>
+<li><code>outline</code>: If <code>FALSE</code>, hides outliers.</li>
+<li><code>at</code>: Determines the x-coordinates of the boxplots when plotting multiple groups. Example: at = c(1, 2, 3) to specify positions for three boxplots.</li>
+<li><code>names</code>: Assigns names to the boxplot groups. Example: names = c(“Group A”, “Group B”, “Group C”)</li>
+<li><code>legend</code>: Add a legend for multiple boxplots.</li>
+</ul>
+<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="section-4.-basic-plots.html#cb296-1" tabindex="-1"></a><span class="co"># Sample data for multiple boxplots</span></span>
+<span id="cb296-2"><a href="section-4.-basic-plots.html#cb296-2" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">group1 =</span> <span class="fu">rnorm</span>(<span class="dv">50</span>), <span class="at">group2 =</span> <span class="fu">rnorm</span>(<span class="dv">50</span>), <span class="at">group3 =</span> <span class="fu">rnorm</span>(<span class="dv">50</span>))</span>
+<span id="cb296-3"><a href="section-4.-basic-plots.html#cb296-3" tabindex="-1"></a></span>
+<span id="cb296-4"><a href="section-4.-basic-plots.html#cb296-4" tabindex="-1"></a><span class="co"># Customize and create boxplots</span></span>
+<span id="cb296-5"><a href="section-4.-basic-plots.html#cb296-5" tabindex="-1"></a><span class="fu">boxplot</span>(data, <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;green&quot;</span>),</span>
+<span id="cb296-6"><a href="section-4.-basic-plots.html#cb296-6" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;Customized Boxplots&quot;</span>,</span>
+<span id="cb296-7"><a href="section-4.-basic-plots.html#cb296-7" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">&quot;Groups&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Values&quot;</span>,</span>
+<span id="cb296-8"><a href="section-4.-basic-plots.html#cb296-8" tabindex="-1"></a>        <span class="at">names =</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>))</span></code></pre></div>
+<p><img src="05-BasicPlots_2024BRodriguez_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+</div>
+</div>
+<div id="commbining-different-plots" class="section level2 hasAnchor" number="5.6">
+<h2><span class="header-section-number">5.6</span> Commbining different plots<a href="section-4.-basic-plots.html#commbining-different-plots" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This is an example of a plot containing both a histogram and a boxplot:</p>
+<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb297-1"><a href="section-4.-basic-plots.html#cb297-1" tabindex="-1"></a><span class="fu">hist</span>(x,<span class="at">main=</span><span class="st">&#39;histogram and boxplot of x&#39;</span>,<span class="at">xlab=</span><span class="st">&#39;x&#39;</span>,<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">12</span>))</span></code></pre></div>
+<p><img src="05-BasicPlots_2024BRodriguez_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p><code>add=T</code> : this allows the addition of the boxplot in the histogram</p>
+<p><code>axes=F</code>: we remove the axes of the boxplot</p>
+<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="section-4.-basic-plots.html#cb298-1" tabindex="-1"></a><span class="fu">hist</span>(x,<span class="at">main=</span><span class="st">&#39;histogram and boxplot of x&#39;</span>,<span class="at">xlab=</span><span class="st">&#39;x&#39;</span>,<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">12</span>)) </span>
+<span id="cb298-2"><a href="section-4.-basic-plots.html#cb298-2" tabindex="-1"></a><span class="fu">boxplot</span>(x,<span class="at">horizontal=</span><span class="cn">TRUE</span>,<span class="at">at=</span><span class="dv">10</span>,<span class="at">add=</span><span class="cn">TRUE</span>,<span class="at">axes=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<p><img src="05-BasicPlots_2024BRodriguez_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<p><code>boxwex</code>: specifies the width of the box</p>
+<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb299-1"><a href="section-4.-basic-plots.html#cb299-1" tabindex="-1"></a><span class="fu">hist</span>(x,<span class="at">main=</span><span class="st">&#39;histogram and boxplot of x&#39;</span>,<span class="at">xlab=</span><span class="st">&#39;x&#39;</span>,<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">12</span>)) </span>
+<span id="cb299-2"><a href="section-4.-basic-plots.html#cb299-2" tabindex="-1"></a><span class="fu">boxplot</span>(x,<span class="at">horizontal=</span><span class="cn">TRUE</span>,<span class="at">at=</span><span class="dv">10</span>,<span class="at">add=</span><span class="cn">TRUE</span>,<span class="at">axes=</span><span class="cn">FALSE</span>, <span class="at">boxwex =</span> <span class="dv">5</span>)</span></code></pre></div>
+<p><img src="05-BasicPlots_2024BRodriguez_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+</div>
+<div id="scatter-plots" class="section level2 hasAnchor" number="5.7">
+<h2><span class="header-section-number">5.7</span> Scatter Plots<a href="section-4.-basic-plots.html#scatter-plots" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A scatter plot is a graphical representation that helps visualize the relationship between two numerical variables. It displays individual data points as dots on a <strong>two-dimensional</strong> plane, where one variable is plotted on the x-axis, and the other is plotted on the y-axis. Scatter plots are especially useful for identifying patterns, correlations, and outliers in data.</p>
+<div id="creating-a-simple-scatter-plot" class="section level3 hasAnchor" number="5.7.1">
+<h3><span class="header-section-number">5.7.1</span> Creating a Simple Scatter Plot<a href="section-4.-basic-plots.html#creating-a-simple-scatter-plot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To create a basic scatter plot in R, you can use the <code>plot()</code> function, providing two vectors for the x and y axes. Here’s an example using a simple mathematical relationship between <code>x</code> and <code>y</code>:</p>
+<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="section-4.-basic-plots.html#cb300-1" tabindex="-1"></a><span class="co"># Generate data</span></span>
+<span id="cb300-2"><a href="section-4.-basic-plots.html#cb300-2" tabindex="-1"></a>x </span></code></pre></div>
+<pre><code>##  [1] -0.56047565 -0.23017749  1.55870831  0.07050839  0.12928774  1.71506499
+##  [7]  0.46091621 -1.26506123 -0.68685285 -0.44566197  1.22408180  0.35981383
+## [13]  0.40077145  0.11068272 -0.55584113</code></pre>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="section-4.-basic-plots.html#cb302-1" tabindex="-1"></a>y <span class="ot">&lt;-</span> x<span class="sc">^</span><span class="dv">2</span>   <span class="co"># Define y as the squared values of x</span></span>
+<span id="cb302-2"><a href="section-4.-basic-plots.html#cb302-2" tabindex="-1"></a><span class="fu">plot</span>(x,y, <span class="at">main =</span> <span class="st">&quot;Scatter plot x and y&quot;</span>)</span></code></pre></div>
+<p><img src="05-BasicPlots_2024BRodriguez_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<p>In this example, <code>x</code> and <code>y</code> are vectors representing the x and y coordinates of the data points. The <code>plot(x, y)</code> command generates a scatter plot with <code>x</code> values on the x-axis and corresponding <code>y</code> values on the y-axis.</p>
+</div>
+<div id="add-new-data-to-an-existint-plot" class="section level3 hasAnchor" number="5.7.2">
+<h3><span class="header-section-number">5.7.2</span> Add new data to an existint plot<a href="section-4.-basic-plots.html#add-new-data-to-an-existint-plot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In data visualization, it’s often necessary to add additional data or customize your scatter plots for clarity and insight. In this section, we’ll explore how to improve existing scatter plots. You can use <code>points()</code> to add additional points to an existing plot</p>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="section-4.-basic-plots.html#cb303-1" tabindex="-1"></a><span class="fu">plot</span>(x,y)</span>
+<span id="cb303-2"><a href="section-4.-basic-plots.html#cb303-2" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">1</span>)  <span class="co"># we add points x=1 and x=-1</span></span>
+<span id="cb303-3"><a href="section-4.-basic-plots.html#cb303-3" tabindex="-1"></a>y1 <span class="ot">&lt;-</span> x1<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb303-4"><a href="section-4.-basic-plots.html#cb303-4" tabindex="-1"></a><span class="fu">points</span>(x1,y1,<span class="at">col=</span><span class="dv">2</span>, <span class="at">pch=</span><span class="dv">3</span>)</span></code></pre></div>
+<p><img src="05-BasicPlots_2024BRodriguez_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<p>In this example, we first create a scatter plot (<code>plot(x, y)</code>) and then add new data points (<code>x1</code> and <code>y1</code>) to the plot using <code>points()</code>.</p>
+</div>
+<div id="adding-labels-to-data-points" class="section level3 hasAnchor" number="5.7.3">
+<h3><span class="header-section-number">5.7.3</span> Adding labels to data points<a href="section-4.-basic-plots.html#adding-labels-to-data-points" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To add labels to data points, you can use the <code>text()</code> function. Here’s how to do it:</p>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="section-4.-basic-plots.html#cb304-1" tabindex="-1"></a><span class="fu">plot</span>(x,y)</span>
+<span id="cb304-2"><a href="section-4.-basic-plots.html#cb304-2" tabindex="-1"></a><span class="fu">points</span>(x1,y1,<span class="at">col=</span><span class="dv">2</span>, <span class="at">pch=</span><span class="dv">4</span>) </span>
+<span id="cb304-3"><a href="section-4.-basic-plots.html#cb304-3" tabindex="-1"></a><span class="fu">text</span>(x1<span class="fl">+0.1</span>, y1<span class="fl">+0.2</span>, <span class="at">col=</span><span class="dv">2</span>, <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>))</span></code></pre></div>
+<p><img src="05-BasicPlots_2024BRodriguez_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+<p>In this example, we added labels “A” and “B” to the new data points at positions (<code>x1 + 0.1</code>, <code>y1 + 0.2</code>).</p>
+</div>
+<div id="using-legends" class="section level3 hasAnchor" number="5.7.4">
+<h3><span class="header-section-number">5.7.4</span> Using legends<a href="section-4.-basic-plots.html#using-legends" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Legends are helpful for identifying different data series within a plot. You can use the <code>legend()</code> function to add legends to your scatter plot. Here’s an example:</p>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="section-4.-basic-plots.html#cb305-1" tabindex="-1"></a><span class="fu">plot</span>(x,y)</span>
+<span id="cb305-2"><a href="section-4.-basic-plots.html#cb305-2" tabindex="-1"></a><span class="fu">points</span>(x1,y1,<span class="at">col=</span><span class="dv">2</span>, <span class="at">pch=</span><span class="dv">4</span>) </span>
+<span id="cb305-3"><a href="section-4.-basic-plots.html#cb305-3" tabindex="-1"></a><span class="fu">legend</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">2</span>,<span class="fu">c</span>(<span class="st">&quot;Original&quot;</span>,<span class="st">&quot;new&quot;</span>),<span class="at">col=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),<span class="at">pch=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>))</span></code></pre></div>
+<p><img src="05-BasicPlots_2024BRodriguez_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+<p>In this example, we placed the legend at coordinates (-1, 2) and labelled the original data as “Original” and the new data as “New”.</p>
+</div>
+<div id="customizing-scatter-plots" class="section level3 hasAnchor" number="5.7.5">
+<h3><span class="header-section-number">5.7.5</span> Customizing Scatter plots<a href="section-4.-basic-plots.html#customizing-scatter-plots" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Scatter plots offer various customization options to improve their appearance and readability. Here are some common customization parameters:</p>
+<ul>
+<li><code>col.main</code>: Specifies the colour of the plot’s title.</li>
+<li><code>font.main</code>: Defines the font of the plot’s title.</li>
+<li><code>cex</code>: Controls the proportion of reduction or amplification of fonts.</li>
+<li><code>axes=F</code>: remove axes</li>
+<li><code>axis()</code>: define new axes</li>
+<li><code>box()</code>: creates a box around the plot</li>
+<li><code>ann=F</code>: removes annotation</li>
+<li><code>lab</code>: define new lables</li>
+<li><code>abline()</code>: abline(a,b) adds line y=a+bx</li>
+<li><code>lty</code>: type of line</li>
+</ul>
+<p>Let’s see an example that incorporates some of these customizations:</p>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="section-4.-basic-plots.html#cb306-1" tabindex="-1"></a><span class="fu">plot</span>(x,y,<span class="at">axes=</span><span class="cn">FALSE</span>)</span>
+<span id="cb306-2"><a href="section-4.-basic-plots.html#cb306-2" tabindex="-1"></a><span class="fu">points</span>(x1,y1,<span class="at">col=</span><span class="dv">2</span>, <span class="at">pch=</span><span class="dv">4</span>) </span>
+<span id="cb306-3"><a href="section-4.-basic-plots.html#cb306-3" tabindex="-1"></a><span class="fu">legend</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">3</span>,<span class="fu">c</span>(<span class="st">&quot;Original&quot;</span>,<span class="st">&quot;new&quot;</span>),<span class="at">col=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),<span class="at">pch=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>), <span class="at">cex=</span><span class="fl">0.7</span>)</span>
+<span id="cb306-4"><a href="section-4.-basic-plots.html#cb306-4" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>,<span class="at">pos=</span><span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.5</span>,<span class="dv">0</span>),<span class="at">at=</span><span class="fu">seq</span>(<span class="sc">-</span><span class="dv">2</span>,<span class="dv">2</span>,<span class="at">by=</span><span class="fl">0.4</span>))</span>
+<span id="cb306-5"><a href="section-4.-basic-plots.html#cb306-5" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">2</span>,<span class="at">pos=</span><span class="fu">c</span>(<span class="sc">-</span><span class="fl">1.5</span>,<span class="sc">-</span><span class="fl">0.5</span>),<span class="at">at=</span><span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">3</span>,<span class="at">by=</span><span class="fl">0.5</span>))</span>
+<span id="cb306-6"><a href="section-4.-basic-plots.html#cb306-6" tabindex="-1"></a><span class="fu">title</span>(<span class="st">&quot;scatter plot&quot;</span>, <span class="at">col.main =</span> <span class="dv">3</span>, <span class="at">font.main=</span><span class="dv">3</span>)</span>
+<span id="cb306-7"><a href="section-4.-basic-plots.html#cb306-7" tabindex="-1"></a><span class="fu">abline</span>(<span class="dv">1</span>, <span class="sc">-</span><span class="fl">0.7</span>, <span class="at">lty=</span><span class="dv">3</span>)</span>
+<span id="cb306-8"><a href="section-4.-basic-plots.html#cb306-8" tabindex="-1"></a><span class="fu">box</span>()</span></code></pre></div>
+<p><img src="05-BasicPlots_2024BRodriguez_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+</div>
+<div id="multiple-scatter-plots" class="section level3 hasAnchor" number="5.7.6">
+<h3><span class="header-section-number">5.7.6</span> Multiple scatter plots<a href="section-4.-basic-plots.html#multiple-scatter-plots" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We can use <code>pairs()</code> to create scatter plots of all pair of variables in a data frame (symmetric matrix of plots).</p>
+<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="section-4.-basic-plots.html#cb307-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb307-2"><a href="section-4.-basic-plots.html#cb307-2" tabindex="-1"></a>data<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">x1=</span><span class="fu">runif</span>(<span class="dv">10</span>), <span class="at">x2=</span><span class="fu">runif</span>(<span class="dv">10</span>), <span class="at">x3=</span><span class="fu">runif</span>(<span class="dv">10</span>), <span class="at">x4=</span><span class="fu">runif</span>(<span class="dv">10</span>))</span>
+<span id="cb307-3"><a href="section-4.-basic-plots.html#cb307-3" tabindex="-1"></a><span class="fu">pairs</span>(data)</span></code></pre></div>
+<p><img src="05-BasicPlots_2024BRodriguez_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+</div>
+</div>
+<div id="important-graphical-functions-and-parameters" class="section level2 hasAnchor" number="5.8">
+<h2><span class="header-section-number">5.8</span> Important graphical functions and parameters<a href="section-4.-basic-plots.html#important-graphical-functions-and-parameters" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><code>par()</code>: set graphical parameters</li>
+<li><code>mfrow</code>: number of pictures per row and column in a plot<br />
+</li>
+<li><code>mar</code>: specifies the margin sizes around the plotting area in order: c(bottom, left, top, right)</li>
+<li><code>dev.off()</code> shuts down the specified device</li>
+</ul>
+<p>Before you change the graphical parameters it is convenient to store the default values.</p>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="section-4.-basic-plots.html#cb308-1" tabindex="-1"></a>defaultpar<span class="ot">&lt;-</span><span class="fu">par</span>()</span></code></pre></div>
+<p>Explore the <code>par{graphics}</code> R Documentation to check main graphical parameters and easily access to other important functions and arguments.</p>
+<p><strong>Example:</strong></p>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="section-4.-basic-plots.html#cb309-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>)) <span class="co"># puts 6 pictures in a plot distributed in 2 rows and 3 columns</span></span>
+<span id="cb309-2"><a href="section-4.-basic-plots.html#cb309-2" tabindex="-1"></a><span class="fu">hist</span>(data<span class="sc">$</span>x1, <span class="at">main=</span><span class="st">&quot;Histogram x1&quot;</span>)</span>
+<span id="cb309-3"><a href="section-4.-basic-plots.html#cb309-3" tabindex="-1"></a><span class="fu">hist</span>(data<span class="sc">$</span>x2, <span class="at">main=</span><span class="st">&quot;Histogram x2&quot;</span>)</span>
+<span id="cb309-4"><a href="section-4.-basic-plots.html#cb309-4" tabindex="-1"></a><span class="fu">hist</span>(data<span class="sc">$</span>x3, <span class="at">main=</span><span class="st">&quot;Histogram x3&quot;</span>)</span>
+<span id="cb309-5"><a href="section-4.-basic-plots.html#cb309-5" tabindex="-1"></a><span class="fu">boxplot</span>(data<span class="sc">$</span>x1, <span class="at">main=</span><span class="st">&quot;Boxplot x1&quot;</span>)</span>
+<span id="cb309-6"><a href="section-4.-basic-plots.html#cb309-6" tabindex="-1"></a><span class="fu">boxplot</span>(data<span class="sc">$</span>x2, <span class="at">main=</span><span class="st">&quot;Boxplot x2&quot;</span>)</span>
+<span id="cb309-7"><a href="section-4.-basic-plots.html#cb309-7" tabindex="-1"></a><span class="fu">boxplot</span>(data<span class="sc">$</span>x3, <span class="at">main=</span><span class="st">&quot;Boxplot x3&quot;</span>)</span></code></pre></div>
+<p><img src="05-BasicPlots_2024BRodriguez_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
+<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb310-1"><a href="section-4.-basic-plots.html#cb310-1" tabindex="-1"></a><span class="fu">par</span>(defaultpar)  <span class="co"># reset the default graphical parameters</span></span></code></pre></div>
+</div>
+<div id="saving-graphics-to-files" class="section level2 hasAnchor" number="5.9">
+<h2><span class="header-section-number">5.9</span> Saving Graphics to Files<a href="section-4.-basic-plots.html#saving-graphics-to-files" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><code>pdf()</code> redirect the plots to a pdf file. Similarly: <code>jpeg</code>, <code>png</code>, <code>ps</code>, <code>tiff</code>. After saving the image, don’t forget to use dev.off() to close the device and finalize the saving process.</p>
+<p><strong>Example:</strong></p>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="section-4.-basic-plots.html#cb311-1" tabindex="-1"></a><span class="fu">pdf</span>(<span class="st">&quot;color_chart.pdf&quot;</span>)  <span class="co"># creates a pdf file containing the following plot</span></span>
+<span id="cb311-2"><a href="section-4.-basic-plots.html#cb311-2" tabindex="-1"></a></span>
+<span id="cb311-3"><a href="section-4.-basic-plots.html#cb311-3" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="fl">5.5</span>), <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">7</span>), <span class="at">type=</span><span class="st">&quot;n&quot;</span>, <span class="at">ann=</span><span class="cn">FALSE</span>)</span>
+<span id="cb311-4"><a href="section-4.-basic-plots.html#cb311-4" tabindex="-1"></a><span class="fu">text</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">y =</span> <span class="fu">rep</span>(<span class="fl">6.2</span>,<span class="dv">5</span>), <span class="at">labels=</span><span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">4</span>), <span class="at">cex=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">col=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
+<span id="cb311-5"><a href="section-4.-basic-plots.html#cb311-5" tabindex="-1"></a><span class="fu">points</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">y =</span> <span class="fu">rep</span>(<span class="dv">5</span>,<span class="dv">5</span>), <span class="at">cex=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">col=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">pch=</span><span class="dv">0</span><span class="sc">:</span><span class="dv">4</span>)</span>
+<span id="cb311-6"><a href="section-4.-basic-plots.html#cb311-6" tabindex="-1"></a><span class="fu">text</span>((<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)<span class="sc">+</span><span class="fl">0.4</span>, <span class="fu">rep</span>(<span class="dv">5</span>,<span class="dv">5</span>), <span class="at">cex=</span><span class="fl">0.6</span>, (<span class="dv">0</span><span class="sc">:</span><span class="dv">4</span>)) <span class="do">## labels = 0:4</span></span>
+<span id="cb311-7"><a href="section-4.-basic-plots.html#cb311-7" tabindex="-1"></a><span class="fu">points</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="fu">rep</span>(<span class="dv">4</span>,<span class="dv">5</span>), <span class="at">cex=</span><span class="dv">2</span>, <span class="at">pch=</span>(<span class="dv">5</span><span class="sc">:</span><span class="dv">9</span>))</span>
+<span id="cb311-8"><a href="section-4.-basic-plots.html#cb311-8" tabindex="-1"></a><span class="fu">text</span>((<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)<span class="sc">+</span><span class="fl">0.4</span>, <span class="fu">rep</span>(<span class="dv">4</span>,<span class="dv">5</span>), <span class="at">cex=</span><span class="fl">0.6</span>, (<span class="dv">5</span><span class="sc">:</span><span class="dv">9</span>))</span>
+<span id="cb311-9"><a href="section-4.-basic-plots.html#cb311-9" tabindex="-1"></a><span class="fu">points</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="fu">rep</span>(<span class="dv">3</span>,<span class="dv">5</span>), <span class="at">cex=</span><span class="dv">2</span>, <span class="at">pch=</span>(<span class="dv">10</span><span class="sc">:</span><span class="dv">14</span>))</span>
+<span id="cb311-10"><a href="section-4.-basic-plots.html#cb311-10" tabindex="-1"></a><span class="fu">text</span>((<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)<span class="sc">+</span><span class="fl">0.4</span>, <span class="fu">rep</span>(<span class="dv">3</span>,<span class="dv">5</span>), <span class="at">cex=</span><span class="fl">0.6</span>, (<span class="dv">10</span><span class="sc">:</span><span class="dv">14</span>))</span>
+<span id="cb311-11"><a href="section-4.-basic-plots.html#cb311-11" tabindex="-1"></a><span class="fu">points</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="fu">rep</span>(<span class="dv">2</span>,<span class="dv">5</span>), <span class="at">cex=</span><span class="dv">2</span>, <span class="at">pch=</span>(<span class="dv">15</span><span class="sc">:</span><span class="dv">19</span>))</span>
+<span id="cb311-12"><a href="section-4.-basic-plots.html#cb311-12" tabindex="-1"></a><span class="fu">text</span>((<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)<span class="sc">+</span><span class="fl">0.4</span>, <span class="fu">rep</span>(<span class="dv">2</span>,<span class="dv">5</span>), <span class="at">cex=</span><span class="fl">0.6</span>, (<span class="dv">15</span><span class="sc">:</span><span class="dv">19</span>))</span>
+<span id="cb311-13"><a href="section-4.-basic-plots.html#cb311-13" tabindex="-1"></a><span class="fu">points</span>((<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>)<span class="sc">*</span><span class="fl">0.8+0.2</span>, <span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">6</span>), <span class="at">cex=</span><span class="dv">2</span>, <span class="at">pch=</span>(<span class="dv">20</span><span class="sc">:</span><span class="dv">25</span>))</span>
+<span id="cb311-14"><a href="section-4.-basic-plots.html#cb311-14" tabindex="-1"></a><span class="fu">text</span>((<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>)<span class="sc">*</span><span class="fl">0.8+0.5</span>, <span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">6</span>), <span class="at">cex=</span><span class="fl">0.6</span>, (<span class="dv">20</span><span class="sc">:</span><span class="dv">25</span>))</span>
+<span id="cb311-15"><a href="section-4.-basic-plots.html#cb311-15" tabindex="-1"></a></span>
+<span id="cb311-16"><a href="section-4.-basic-plots.html#cb311-16" tabindex="-1"></a></span>
+<span id="cb311-17"><a href="section-4.-basic-plots.html#cb311-17" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
+<p><img src="logouvic.png" /></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="section-3.-basic-data-management.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="section-5.-introduction-to-functions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
